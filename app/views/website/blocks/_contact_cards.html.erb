@@ -1,0 +1,16 @@
+<%# locals: (data:) -%>
+<%# Two large linked cards, call us and email us (lets-talk.astro). %>
+<%= gl_section(tone: "subtle") do %>
+  <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+  <div class="mt-8 grid gap-6 md:grid-cols-2" data-stagger>
+    <% data.items.each_with_index do |card, i| %>
+      <% href = gl_href(card.link) or next %>
+      <a href="<%= href %>" data-cta="lets-talk-<%= i.zero? ? "phone" : "email" %>" class="reveal lift group flex flex-col border-2 border-text bg-surface p-6 md:p-8">
+        <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= card.kicker %></span>
+        <span class="<%= href.start_with?("mailto:") ? "mt-3 break-all text-2xl font-bold tracking-tight md:text-3xl" : "mt-3 text-3xl font-bold tracking-tight md:text-4xl" %>"><%= card.title %></span>
+        <span class="mt-3 text-[15px] leading-snug text-text-subtle"><%= card.body %></span>
+        <span class="mt-auto pt-6 font-semibold underline decoration-2 decoration-signal underline-offset-[6px] group-hover:decoration-text"><%= card.link_label %></span>
+      </a>
+    <% end %>
+  </div>
+<% end %>

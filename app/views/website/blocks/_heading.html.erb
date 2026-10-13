@@ -1,0 +1,2 @@
+<%# locals: (data:) -%>
+<div class="mx-auto max-w-6xl px-5 pt-16 md:px-8"><%= content_tag(data.level.to_s.presence_in(%w[h2 h3 h4]) || "h2", gl_heading(data.text), class: "reveal display display-md") %></div>

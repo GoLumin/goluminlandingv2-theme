@@ -1,0 +1,11 @@
+<%# locals: (data:) -%>
+<%= gl_section do %>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+    <% data.items.each do |item| %>
+      <figure class="reveal">
+        <%= gl_image item.asset_id, sizes: "(min-width: 64rem) 33vw, (min-width: 640px) 50vw, 100vw", class: "aspect-[4/3] w-full rounded-lg border-2 border-text object-cover" %>
+        <% if item.caption.present? %><figcaption class="mt-2 font-mono text-[11px] text-text-muted"><%= item.caption %></figcaption><% end %>
+      </figure>
+    <% end %>
+  </div>
+<% end %>

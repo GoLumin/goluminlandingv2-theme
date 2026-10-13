@@ -1,0 +1,20 @@
+<%# locals: (studies:, eyebrow: nil, eyebrow_n: nil, heading: nil, body: nil, link_label: nil, tone: "subtle", eager: 0) -%>
+<%# Case-study cards under a heading (Work.astro), with the link to every one. %>
+<%= gl_section(tone:, id: "work") do %>
+  <% if heading.present? %>
+    <div class="grid items-end gap-6 md:grid-cols-[1fr_auto]">
+      <div>
+        <%= gl_eyebrow(eyebrow, eyebrow_n) %>
+        <h2 class="reveal display display-lg max-w-3xl"><%= gl_heading(heading) %></h2>
+      </div>
+      <% if link_label.present? %><a href="/work" class="reveal inline-flex items-center gap-2 font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text"><%= gl_count(link_label, gl_work.size) %></a><% end %>
+    </div>
+    <% if body.present? %><p class="reveal mt-6 max-w-2xl text-lg leading-snug text-text-subtle"><%= body %></p><% end %>
+  <% end %>
+  <div class="<%= class_names("grid gap-6 md:grid-cols-2", "mt-12": heading.present?) %>" data-stagger>
+    <% studies.each_with_index do |study, i| %>
+      <%= render "website/shared/case_card", study:, eager: i < eager %>
+    <% end %>
+  </div>
+  <%= yield %>
+<% end %>

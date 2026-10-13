@@ -1,0 +1,27 @@
+<%# locals: (items:, columns: "3", figures: false, h2: false) -%>
+<%# A ruled row of steps: [kicker, title, body]. figures: the kicker set large beside the title (a worked example's clock). %>
+<ol class="<%= class_names("grid rule-t", "md:grid-cols-3": columns == "3", "sm:grid-cols-2 lg:grid-cols-4": columns == "4") %>" data-stagger>
+  <% items.each do |kicker, title, body| %>
+    <% if columns == "4" %>
+      <li class="reveal border-b-2 border-text py-6 sm:border-b-0 sm:border-r-2 sm:pr-6 sm:last:border-r-0 sm:[&:not(:first-child)]:pl-6 lg:[&:not(:first-child)]:pl-6">
+        <div class="tag font-mono text-[12px] text-text-muted"><%= kicker %></div>
+        <h3 class="mt-3 text-2xl font-bold tracking-tight"><%= title %></h3>
+        <p class="mt-2 text-[15px] leading-snug text-text-subtle"><%= body %></p>
+      </li>
+    <% else %>
+      <li class="reveal border-b-2 border-text py-6 md:border-b-0 md:border-r-2 md:pr-8 md:last:border-r-0 md:[&:not(:first-child)]:pl-8">
+        <% if figures %>
+          <div class="flex items-baseline justify-between">
+            <span class="figure figure-md text-text"><%= kicker %></span>
+            <span class="tag font-mono text-[11px] uppercase tracking-wider"><%= title %></span>
+          </div>
+          <p class="mt-5 text-[15px] leading-snug text-text-subtle"><%= body %></p>
+        <% else %>
+          <div class="tag font-mono text-[12px] text-text-muted"><%= kicker %></div>
+          <%= content_tag(h2 ? :h2 : :h3, title, class: (h2 ? "mt-3 text-2xl font-bold tracking-tight md:text-3xl" : "mt-3 text-3xl font-bold tracking-tight")) %>
+          <p class="mt-2 text-[15px] leading-snug text-text-subtle"><%= body %></p>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ol>

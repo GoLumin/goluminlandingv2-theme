@@ -1,0 +1,9 @@
+<%# locals: (data:) -%>
+<%# Markdown: a run of a post's prose (inside the post's column), or a plain section of text on a page. %>
+<% if @gl_in_post %>
+  <div class="post-text"><%= website_markdown data.body %></div>
+<% else %>
+  <%= gl_section do %>
+    <div class="post"><%= website_markdown data.body %></div>
+  <% end %>
+<% end %>

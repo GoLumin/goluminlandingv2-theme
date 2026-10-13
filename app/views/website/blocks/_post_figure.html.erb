@@ -1,0 +1,13 @@
+<%# locals: (data:) -%>
+<%# One of a post's figures (post/Figure.astro): a diagram, framed, or a screenshot, bare; its caption under it. figures.js animates it once it scrolls into view. %>
+<% scene = {"thermostat_vs_shift" => "thermostat", "three_kinds" => "three-kinds", "surface_area" => "surface", "review_timeline" => "review", "atomic_vs_steps" => "atomic", "insights_gap" => "insights"}[data.figure] %>
+<figure class="post-fig" data-fig="<%= scene %>">
+  <div class="<%= "post-fig-panel" unless data.bare %>">
+    <% case data.figure %>
+    <% when "shot" %><%= render "website/figures/shot", image: data.image, host: data.host, crop: data.crop %>
+    <% when "surface_area" %><%= render "website/figures/surface_area", before: data["then"].to_i.nonzero? || 12, now: data.now.to_i, now_label: data.now_label %>
+    <% when "thermostat_vs_shift", "three_kinds", "review_timeline", "atomic_vs_steps", "insights_gap" %><%= render "website/figures/#{data.figure}" %>
+    <% end %>
+  </div>
+  <% if data.caption.present? %><figcaption class="post-fig-cap"><%= data.caption %></figcaption><% end %>
+</figure>

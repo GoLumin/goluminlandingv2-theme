@@ -1,0 +1,4 @@
+<%# locals: (text:, klass: "") -%>
+<%# One line of Markdown (its links), as a paragraph with the site's underlined links. %>
+<% html = website_markdown(text).to_s.strip.delete_prefix("<p>").delete_suffix("</p>") %>
+<p class="<%= klass %> [&_a]:font-semibold [&_a]:text-text [&_a]:underline [&_a]:decoration-2 [&_a]:decoration-signal [&_a]:underline-offset-[4px] hover:[&_a]:decoration-text"><%= sanitize(html, tags: %w[a strong em code], attributes: %w[href]) %></p>

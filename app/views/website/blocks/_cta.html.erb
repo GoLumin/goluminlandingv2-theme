@@ -1,0 +1,5 @@
+<%# locals: (data:) -%>
+<% href = gl_href(data.url) %>
+<% if href %>
+  <div class="mx-auto max-w-6xl px-5 py-8 md:px-8"><%= gl_button data.label, href, variant: data.style, size: :lg %></div>
+<% end %>

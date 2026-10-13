@@ -1,0 +1,14 @@
+<%# locals: (data:) -%>
+<% href = gl_href(data.cta_url) %>
+<%= gl_section(tone: {"muted" => "subtle", "accent" => "ink"}.fetch(data.background.to_s, "bg")) do %>
+  <div class="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+    <div class="<%= "md:order-2" if data.side == "left" %>">
+      <h2 class="reveal display display-md"><%= gl_heading(data.heading) %></h2>
+      <div class="reveal post mt-6"><%= website_markdown data.body %></div>
+      <% if href %><div class="reveal mt-8"><%= gl_button data.cta_label.presence || "Learn more", href, size: :lg %></div><% end %>
+    </div>
+    <% if data.image_id.present? %>
+      <div class="reveal <%= "md:order-1" if data.side == "left" %>"><%= gl_image data.image_id, sizes: "(min-width: 768px) 50vw, 100vw", class: "w-full h-auto rounded-lg border-2 border-text" %></div>
+    <% end %>
+  </div>
+<% end %>

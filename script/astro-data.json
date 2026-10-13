@@ -1,0 +1,2722 @@
+{
+ "services": {
+  "auditTypes": [
+   "Full system (web + search + ads)",
+   "Website",
+   "Local + AI search",
+   "Ad account"
+  ],
+  "services": [
+   {
+    "slug": "websites",
+    "nav": "Websites",
+    "name": "Websites",
+    "n": "01",
+    "promise": "A fast, conversion-ready website your marketing can keep improving.",
+    "seoTitle": "Website Design & Development for Business | GoLumin",
+    "h": "A website that gets edited every week, not every eighteen months.",
+    "lede": "We build, migrate and host your site on Lumin CMS, then keep working on it. Edits are live in under a minute, every URL survives the move, and agents draft the improvements an editor signs off.",
+    "seoDescription": "Website design and development for local and multi-location businesses. Fast, conversion-ready sites that get edited weekly. Request a free site audit.",
+    "card": "Built, migrated and hosted on our own CMS. Edits go live in under a minute, and the site keeps improving after launch instead of ageing.",
+    "capabilities": [
+     "Build, migration and edge hosting",
+     "Edits live in under a minute",
+     "Every URL preserved on migration",
+     "Forms, call tracking and lead routing"
+    ],
+    "proof": {
+     "fact": "632 pages — a town page and a zip-code page for everywhere Inbox delivers, all rendered from the CMS.",
+     "source": "Inbox Portable Storage, sitemap at capture"
+    },
+    "problems": [
+     {
+      "t": "Every change needs a developer.",
+      "d": "Copy, rates, staff, offers and locations are content. Your team edits them, we keep the structure."
+     },
+     {
+      "t": "The site is slow and the forms leak.",
+      "d": "Edge-hosted, with Turnstile on every form, a confirmation to the customer and an alert to the team."
+     },
+     {
+      "t": "Moving off the old platform will cost us our rankings.",
+      "d": "Migrations map the old URLs to the new ones before anything is cut over. Nothing 404s."
+     },
+     {
+      "t": "It launched, then nothing happened.",
+      "d": "Agents watch for stale pages, thin pages and broken conversions, and propose the fix."
+     }
+    ],
+    "process": [
+     {
+      "t": "Map",
+      "d": "We pull your current URLs, content, forms and analytics events, and write the redirect map first."
+     },
+     {
+      "t": "Build",
+      "d": "Pages, templates and location data go into Lumin CMS. Your brand, your structure, your copy."
+     },
+     {
+      "t": "Cut over",
+      "d": "Deployed to the edge. Redirects, sitemaps, canonicals and forms verified against the map."
+     },
+     {
+      "t": "Improve",
+      "d": "Agents draft updates on a schedule. An editor approves. Published in under a minute."
+     }
+    ],
+    "platform": {
+     "name": "Lumin CMS",
+     "d": "The system of record for your web and search layer. Pages, locations, forms and revisions live here, and every edit to a live page is a revision waiting for a named human.",
+     "shot": {
+      "name": "cms-page-editor.webp",
+      "alt": "Editing a page in Lumin CMS with a preview of how it appears in Google",
+      "cap": "Editing a page in Lumin CMS, with the Google preview alongside."
+     }
+    },
+    "human": "An agent can draft a page, flag a stale one or propose a metadata fix. A named editor approves the wording and presses publish. Nothing reaches a live page on its own.",
+    "faqs": [
+     {
+      "q": "Do my URLs survive a migration?",
+      "a": "Yes. We build the redirect map from your live sitemap before the cut-over and verify every old URL resolves afterwards. Robinson Law moved 324 pages off Directus with every URL preserved."
+     },
+     {
+      "q": "Who owns the site?",
+      "a": "You do. The content is yours and portable, the domain stays in your name, and the URLs are yours. If you leave, you leave with the content."
+     },
+     {
+      "q": "How fast is an edit?",
+      "a": "Under a minute from approval to live. That is a property of the platform, not a service-level promise we are asking you to take on faith."
+     },
+     {
+      "q": "Do I have to use the CMS myself?",
+      "a": "No. Most clients never log in. If you want to, you can — it is the same editor our team uses."
+     },
+     {
+      "q": "Do I need a new website to work with you?",
+      "a": "No. We run ads for businesses whose sites we did not build. The loop is tighter when we run both, but it is not a condition."
+     }
+    ],
+    "cases": [
+     "inbox-portable-storage",
+     "white-and-white",
+     "mulebox"
+    ],
+    "audit": {
+     "type": "Website",
+     "cta": "Audit my website",
+     "blurb": "We read your live site the way a search engine and a buyer do: speed, structure, forms, tracking and the pages that are quietly losing people. You keep the findings either way."
+    },
+    "handoff": {
+     "to": "local-ai-search",
+     "d": "The pages this service builds are what local and AI search has to work with. That is the next link."
+    },
+    "chips": [
+     "Edge hosting",
+     "Migrations",
+     "Multi-location",
+     "Forms to inbox"
+    ]
+   },
+   {
+    "slug": "local-ai-search",
+    "nav": "Local + AI search",
+    "name": "Local + AI search",
+    "n": "02",
+    "promise": "Be visible where customers ask for a nearby provider — maps, search results and AI answers.",
+    "seoTitle": "Local SEO & AI Search Optimization Services | GoLumin",
+    "h": "Found on Google Maps. Cited when someone asks an AI.",
+    "lede": "People still search Google, and now they also ask ChatGPT for a plumber, a lawyer, a storage unit. Both answers come from the same raw material: pages that answer real questions, and business details that agree with each other everywhere.",
+    "seoDescription": "Local SEO and AI search optimization. Get found in maps, search results and AI answers when customers look for a nearby provider. Request a free audit.",
+    "card": "Location pages that read as local, listings that agree with each other, and content written to be a credible answer in AI search as well as a ranking one.",
+    "capabilities": [
+     "A page for every market you serve",
+     "Business details kept consistent everywhere",
+     "Content written to answer real questions",
+     "Stale and thin pages flagged, then redrafted"
+    ],
+    "proof": {
+     "fact": "19 service-area pages across two counties, 22 service pages — one for each city and service White & White actually sells.",
+     "source": "White & White Construction, sitemap at capture"
+    },
+    "problems": [
+     {
+      "t": "We rank in one city and nowhere else.",
+      "d": "Each market gets a page with its own detail, not the same paragraph with the town name swapped."
+     },
+     {
+      "t": "Our location pages are duplicates.",
+      "d": "Location pages are generated from real per-market data, and thin ones are flagged before they hurt you."
+     },
+     {
+      "t": "Our hours and address are wrong in three places.",
+      "d": "Business details are held once in the CMS and checked against what the site publishes."
+     },
+     {
+      "t": "We have no idea if AI mentions us.",
+      "d": "We can show what is controllable — the pages, the entities, the citations — and are straight about what is not."
+     }
+    ],
+    "process": [
+     {
+      "t": "Inventory",
+      "d": "Markets, services, locations and current visibility. What you already rank for and what you do not."
+     },
+     {
+      "t": "Structure",
+      "d": "One page per market and per service, built from location data so each one is genuinely different."
+     },
+     {
+      "t": "Answer",
+      "d": "Agents research the questions buyers actually ask and draft pages that answer them plainly."
+     },
+     {
+      "t": "Maintain",
+      "d": "Freshness, internal links, structured data and consistency checked on a schedule, fixes proposed to an editor."
+     }
+    ],
+    "platform": {
+     "name": "Lumin CMS",
+     "d": "The same system that publishes your site runs the search work: a crew of agents with one job each, on a schedule, proposing changes into the same approvals queue.",
+     "shot": {
+      "name": "cms-agents.webp",
+      "alt": "The website agents in Lumin CMS and the jobs each one runs",
+      "cap": "The website crew. Each agent runs one search job on a schedule."
+     }
+    },
+    "human": "Agents research, draft, refresh and surface decay. A named editor owns factual accuracy, brand judgement and the decision to publish. That division is the product, not a caveat.",
+    "faqs": [
+     {
+      "q": "How do you measure AI search visibility?",
+      "a": "By what is observable: whether the pages, entities and citations an assistant would draw on exist and agree. We do not sell a ranking number for a system that does not publish one."
+     },
+     {
+      "q": "What can you actually control?",
+      "a": "Your pages, your structured data, your business details, and where you are cited. Not what a model decides to say. We work the first list."
+     },
+     {
+      "q": "How do you keep location pages from becoming duplicates?",
+      "a": "They are generated from per-market data — services, areas, details that genuinely differ — and thin ones get flagged and rewritten rather than left to rot."
+     },
+     {
+      "q": "Is this SEO with a new name?",
+      "a": "It is the same underlying work — pages, entities, citations, consistency — pointed at both a search results page and an assistant's answer."
+     }
+    ],
+    "cases": [
+     "inbox-portable-storage",
+     "white-and-white",
+     "mulebox"
+    ],
+    "audit": {
+     "type": "Local + AI search",
+     "cta": "Check my visibility",
+     "blurb": "We look at how you show up across maps, search and AI answers in the markets you actually serve, where your details disagree with each other, and which pages are too thin to earn an answer."
+    },
+    "handoff": {
+     "to": "advertising",
+     "d": "Search tells you which demand you already capture. Advertising buys the rest of it."
+    },
+    "chips": [
+     "Google Maps",
+     "ChatGPT",
+     "Perplexity",
+     "Location pages"
+    ]
+   },
+   {
+    "slug": "advertising",
+    "nav": "Advertising",
+    "name": "Advertising",
+    "n": "03",
+    "promise": "Every paid channel run as one governed portfolio, optimised toward qualified leads.",
+    "seoTitle": "PPC Management: Google, Meta & Microsoft Ads | GoLumin",
+    "h": "Google, Meta, Microsoft and ChatGPT. One crew. One approvals queue.",
+    "lede": "Your ad accounts stay in your name. Agents work them around the clock — cutting waste, pacing budget, rewriting tired copy — and every change they want to make waits in a queue for a named person at GoLumin.",
+    "seoDescription": "PPC management across Google, Meta and Microsoft Ads. Every paid channel run as one portfolio with hard spend caps, optimised toward qualified leads.",
+    "card": "All four channels managed as one portfolio, with wasted spend cut continuously, hard budget caps enforced in software, and sold leads sent back so bidding learns what a customer looks like.",
+    "capabilities": [
+     "Google, Microsoft, Meta and ChatGPT",
+     "Wasted spend found and cut continuously",
+     "Budget paced, hard caps enforced in code",
+     "Sold leads fed back to the ad platforms"
+    ],
+    "proof": {
+     "fact": "Spend caps are enforced at the apply gate. A change over the cap cannot be applied — even after a human approves it.",
+     "source": "Lumin Ads, shipped behaviour"
+    },
+    "problems": [
+     {
+      "t": "We're paying for searches that will never buy.",
+      "d": "Search terms are mined continuously and negatives proposed with the spend figure attached."
+     },
+     {
+      "t": "Budget runs out on the 20th.",
+      "d": "Pacing is monitored against the month, and caps are hard limits rather than reminders."
+     },
+     {
+      "t": "Our cost per lead looks fine and the leads are junk.",
+      "d": "Mark a lead sold or lost. That verdict goes back to Google and Meta, so bidding optimises for customers."
+     },
+     {
+      "t": "Nobody can tell us what changed or why.",
+      "d": "Every change carries its evidence, its approver and its timestamp, and the record stays."
+     }
+    ],
+    "process": [
+     {
+      "t": "Read",
+      "d": "Read-only access first. Agents inspect the live accounts and write up what they find, hired or not."
+     },
+     {
+      "t": "Propose",
+      "d": "Each proposed change comes with what, why and the evidence — including the money at stake."
+     },
+     {
+      "t": "Approve",
+      "d": "A named person at GoLumin approves or rejects. Never their own work. Software enforces the limits regardless."
+     },
+     {
+      "t": "Feed back",
+      "d": "Calls and forms land in your inbox. Sold or lost goes back to the platforms as an offline conversion."
+     }
+    ],
+    "platform": {
+     "name": "Lumin Ads",
+     "d": "Every channel in one place, with a staff list of agents that each have a job, a shift and a manager, and a single approvals queue that everything passes through.",
+     "shot": {
+      "name": "ads-agents.webp",
+      "alt": "The staff list of AI agents in Lumin Ads, each with a job, a schedule and a manager",
+      "cap": "The staff list in Lumin Ads. Every agent has a job, a shift, and a manager."
+     }
+    },
+    "human": "Agents inspect and propose. A named GoLumin operator approves. The software enforces the spend caps whatever the approver says. You can pause every agent on your account with one switch.",
+    "faqs": [
+     {
+      "q": "Who owns the ad accounts?",
+      "a": "You do. Google, Microsoft, Meta and ChatGPT accounts stay in your name, and you can revoke our access at any time without losing history."
+     },
+     {
+      "q": "Can the AI change my ads on its own?",
+      "a": "No. Every change waits for a named person at GoLumin. Spend caps are hard limits in software and cannot be overridden, even by an approver."
+     },
+     {
+      "q": "Who can change my spend?",
+      "a": "Only an approved change inside the cap you set. A proposal that exceeds the per-change cap is blocked at the apply gate and shown to you as blocked."
+     },
+     {
+      "q": "What does 'ads in ChatGPT' mean?",
+      "a": "It is a new placement alongside Google, Microsoft and Meta. We treat it as one channel in the portfolio, sized against the others, not as a headline."
+     },
+     {
+      "q": "What counts as success?",
+      "a": "Qualified leads, and where you can tell us, sold ones. Cost per lead alone is easy to improve by buying worse leads."
+     }
+    ],
+    "cases": [
+     "mulebox",
+     "foxbox-moves",
+     "wise-insurance"
+    ],
+    "audit": {
+     "type": "Ad account",
+     "cta": "Audit my ad account",
+     "blurb": "Read-only access, then the agents go through the account: wasted spend, missing negatives, broken conversion tracking, pacing, and the changes we would propose first. You keep the findings either way."
+    },
+    "handoff": {
+     "to": "websites",
+     "d": "The lead outcomes advertising collects are what tells the website which pages are working."
+    },
+    "chips": [
+     "Google",
+     "Microsoft",
+     "Meta",
+     "ChatGPT",
+     "Call tracking"
+    ]
+   }
+  ]
+ },
+ "work": {
+  "work": [
+   {
+    "slug": "mulebox",
+    "name": "Mule Box",
+    "url": "https://austin.mulebox.com",
+    "host": "austin.mulebox.com",
+    "vertical": "Portable storage",
+    "place": "Austin · DFW · Bossier City, TX & LA",
+    "platform": "Lumin CMS",
+    "h": "Three cities. One CMS. A quote in 30 seconds.",
+    "lede": "Mule Box runs portable storage in three markets. Each city gets its own site, its own phone number and its own offers, all edited from one place. The homepage quote form takes 30 seconds and lands in one inbox.",
+    "seoDescription": "Portable storage across three Texas and Louisiana markets: three city sites on one CMS, each with its own phone and offers, and a 30-second quote form.",
+    "built": [
+     "Three location sites on one CMS, moved off a multi-tenant Directus build",
+     "30-second quote form: keep it, move it, or store it, then a zip and a date",
+     "Fifteen service-area pages from Round Rock to Buda, linked from the homepage",
+     "A Mule Box vs PODS comparison page for the search people actually make",
+     "Turnstile on every form, confirmation to the customer, alert to the team"
+    ],
+    "figures": [
+     {
+      "n": "3",
+      "l": "city sites, one CMS"
+     },
+     {
+      "n": "15",
+      "l": "service-area pages"
+     },
+     {
+      "n": "30s",
+      "l": "to a quote"
+     }
+    ],
+    "tags": [
+     "Multi-location",
+     "Quote flow",
+     "Lumin CMS"
+    ]
+   },
+   {
+    "slug": "foxbox-moves",
+    "name": "FoxBox Moves",
+    "url": "https://foxboxmoves.com",
+    "host": "foxboxmoves.com",
+    "vertical": "Moving and storage",
+    "place": "Lincoln & Omaha, NE",
+    "platform": "Custom Astro build",
+    "h": "From zero units occupied to ads at a third of the budget, with organic search carrying the rest.",
+    "lede": "FoxBox delivers containers for local moves, long-distance moves, seasonal storage and business jobs across Nebraska. Moving and storage each get their own quote path with their own thank-you page, so the follow-up matches what the customer asked for.",
+    "seoDescription": "Moving and storage in Nebraska: separate quote flows for moving and for storage, each with its own confirmation page, across 26 pages hosted at the edge.",
+    "story": {
+     "problem": "FoxBox started at zero: no units occupied, no online presence and no leads. The containers were bought and sitting still. They needed bookings before they needed anything else.",
+     "did": "Lumin started with landing pages and Google Ads, because ads are the fastest way to a first booking. As occupancy and bookings grew, FoxBox reinvested in a new website with AI built in and a real organic presence, then added local search on top.",
+     "happened": "Organic traffic now does most of the work. FoxBox has cut its ads budget to about a third of what it was, and the containers stay booked."
+    },
+    "outcome": {
+     "stat": "1/3",
+     "label": "of the original ads budget",
+     "sub": "with organic search now leading"
+    },
+    "built": [
+     "Separate moving and storage quote flows, each with its own confirmation page",
+     "Instant quote card on the homepage: keep it, move it, or store it",
+     "Service pages for local, long-distance, move-and-store, business, on-site, warehouse and seasonal",
+     "Containers-for-sale catalogue and a twelve-post blog",
+     "Astro with Svelte islands on Cloudflare's edge, Turnstile on every form"
+    ],
+    "figures": [
+     {
+      "n": "2",
+      "l": "quote flows"
+     },
+     {
+      "n": "26",
+      "l": "pages in the sitemap"
+     },
+     {
+      "n": "12",
+      "l": "blog posts"
+     }
+    ],
+    "tags": [
+     "Quote flow",
+     "Edge hosted",
+     "Content"
+    ]
+   },
+   {
+    "slug": "inbox-portable-storage",
+    "name": "Inbox Portable Storage",
+    "url": "https://inboxportablestorage.com",
+    "host": "inboxportablestorage.com",
+    "vertical": "Portable storage",
+    "place": "Merrimack County, NH & Northeast MA",
+    "platform": "Lumin CMS",
+    "h": "A rebrand from scratch, with nearly a thousand boxes to keep moving.",
+    "lede": "Inbox serves southern New Hampshire and northeast Massachusetts, where a search is almost always a town or a zip code. The site answers both: a location page for every town and a page for every zip, generated from the CMS and kept consistent by agents.",
+    "seoDescription": "Portable storage in New Hampshire and northeast Massachusetts: a location page for every town and a page for every zip code, generated from the CMS.",
+    "story": {
+     "problem": "A rebrand, a new name, a new domain and a new website: in search terms, a business starting from zero. Inbox had nearly 1,000 containers in rotation, and every one of them had to keep moving while the new brand earned its place on Google.",
+     "did": "They called Lumin. With that many units to fill, the plan had to be aggressive on every front. We built a new site with a page for every town and zip code they deliver to, integrated with their custom online quote tool. We ran an SEO and AI-search program alongside it: citation management, a review system for local authority, local listings management and backlink building. Google Ads carried the occupancy while the organic side was built.",
+     "happened": "More than 400 pages are indexed and the domain's authority is climbing. In the meantime, Google Ads has kept occupancy from falling off a cliff, and it will hand more of the load to organic search as the new brand's authority grows."
+    },
+    "outcome": {
+     "stat": "400+",
+     "label": "pages indexed",
+     "sub": "on a domain that started at zero"
+    },
+    "built": [
+     "343 town pages and 272 zip-code pages, all rendered from CMS data",
+     "City-or-zip search on the homepage that routes straight to the right page",
+     "Container sizes, onsite storage, local and long-distance moving as their own sections",
+     "A start-a-franchise page for the second audience the business serves",
+     "Listings and business details kept consistent across every page by the website crew"
+    ],
+    "figures": [
+     {
+      "n": "632",
+      "l": "pages in the sitemap"
+     },
+     {
+      "n": "343",
+      "l": "town pages"
+     },
+     {
+      "n": "272",
+      "l": "zip-code pages"
+     }
+    ],
+    "tags": [
+     "Local search",
+     "Programmatic pages",
+     "Lumin CMS"
+    ]
+   },
+   {
+    "slug": "kalamazoo-mortgage",
+    "name": "Kalamazoo Mortgage",
+    "url": "https://kalamazoomortgage.com",
+    "host": "kalamazoomortgage.com",
+    "vertical": "Mortgage lending",
+    "place": "Kalamazoo, MI",
+    "platform": "Lumin CMS",
+    "h": "From a dead phone to a sales team at capacity, with 80% of the market still untouched.",
+    "lede": "A veteran-owned lender that wins on being local and answering the phone. The site puts a pre-approval form on the first screen, a two-step HELOC application behind it, and lets the team change rates, partners, reviews and stats without a developer. Google Ads makes the phone ring.",
+    "seoDescription": "A veteran-owned mortgage lender's site: pre-approval form on the first screen, a two-step HELOC application, and rates the team edits without a developer.",
+    "story": {
+     "problem": "The phone had gone quiet. Kalamazoo Mortgage wanted first-time buyers and veteran home loans, but business was flat. They had leaned on SEO for years, and it never became the lead source they expected it to be.",
+     "did": "They called Lumin and we recommended Google Ads, starting small. A $30-a-day budget measured how much demand the market actually held. Once the calls lined up with the ad activity, we raised it to $100 a day, with the pre-approval form on the homepage catching the traffic.",
+     "happened": "The phone rings, and the sales team is at capacity, which is the only reason the budget stops at $100 a day. The campaign holds about 20% of the available impression share, so roughly 80% of the searches in the market are still untouched. When they add sales staff, the room to grow is already there."
+    },
+    "outcome": {
+     "stat": "3,242%",
+     "label": "increase in conversions",
+     "sub": "GA4, before ads vs after"
+    },
+    "built": [
+     "Pre-approval form on the homepage with Turnstile, straight to the loan team",
+     "Two-step HELOC application flow",
+     "Loan pages for FHA, VA, zero-down, refinance and new construction",
+     "Partners, testimonials and stats managed as content by the team",
+     "Reviews shown on the page: 4.9 from 100+ at capture time"
+    ],
+    "figures": [
+     {
+      "n": "2",
+      "l": "step HELOC application"
+     },
+     {
+      "n": "4.9",
+      "l": "rating shown from 100+ reviews"
+     },
+     {
+      "n": "0",
+      "l": "developer needed to edit"
+     }
+    ],
+    "tags": [
+     "Lead capture",
+     "Content",
+     "Lumin CMS"
+    ]
+   },
+   {
+    "slug": "the-foundry",
+    "name": "The Foundry",
+    "url": "https://thefoundrykzoo.com",
+    "host": "thefoundrykzoo.com",
+    "vertical": "Workspace and events",
+    "place": "Kalamazoo, MI",
+    "platform": "Lumin CMS",
+    "h": "An industrial landmark, rebuilt online.",
+    "lede": "The Foundry turned a historic industrial building into offices, coworking and event space. The site had to sell atmosphere and take a booking. Full-bleed photography, a spaces catalogue and a request-a-space form do both.",
+    "seoDescription": "Workspace and events in a historic industrial building: full-bleed photography, a spaces catalogue and a request-a-space form that takes the booking.",
+    "built": [
+     "Spaces catalogue with a request-a-space form",
+     "Gallery and history pages that carry the building's story",
+     "News section the team publishes to themselves, eight posts and counting",
+     "Office-space and events pages for the two audiences the venue serves",
+     "Seventeen-page site on Lumin CMS, editable without a developer"
+    ],
+    "figures": [
+     {
+      "n": "17",
+      "l": "pages in the sitemap"
+     },
+     {
+      "n": "8",
+      "l": "news posts published"
+     },
+     {
+      "n": "1",
+      "l": "form to request a space"
+     }
+    ],
+    "tags": [
+     "Brand",
+     "Bookings",
+     "Lumin CMS"
+    ]
+   },
+   {
+    "slug": "wise-insurance",
+    "name": "Wise Insurance",
+    "url": "https://wiseinsurancela.com",
+    "host": "wiseinsurancela.com",
+    "vertical": "Insurance agency",
+    "place": "Louisiana & Texas",
+    "platform": "Custom Astro build",
+    "h": "Since 1971. Three lines of coverage, three quote paths.",
+    "lede": "An independent agency that shops 20-plus carriers. The site is nine pages, and every one of them leads to a quote: one path each for auto, home and commercial, so the agent gets the right details on the first reply.",
+    "seoDescription": "An independent insurance agency shopping 20-plus carriers: nine pages, with its own quote path for auto, home and commercial insurance.",
+    "built": [
+     "Auto, home and commercial each with their own page and quote path",
+     "A how-it-works page that sets expectations before the call",
+     "Nine-page site with a blog, built in Astro and served from Cloudflare's edge",
+     "Phone number and free-quote button on every screen"
+    ],
+    "figures": [
+     {
+      "n": "3",
+      "l": "quote paths"
+     },
+     {
+      "n": "9",
+      "l": "pages, all lead to a quote"
+     },
+     {
+      "n": "1971",
+      "l": "the year they opened"
+     }
+    ],
+    "tags": [
+     "Lead capture",
+     "Edge hosted"
+    ]
+   },
+   {
+    "slug": "white-and-white",
+    "name": "White & White Construction",
+    "url": "https://www.whiteandwhitesc.com",
+    "host": "whiteandwhitesc.com",
+    "vertical": "Custom home builder",
+    "place": "Orange County & San Diego County, CA",
+    "platform": "Lumin CMS",
+    "h": "65 pages of craft. One for every city they build in.",
+    "lede": "A three-generation family builder out of San Clemente. Buyers search by city and by service, so the site has a page for each: nineteen service-area pages across two counties, twenty-two service pages, and eight projects to prove it.",
+    "seoDescription": "A three-generation custom home builder in San Clemente: 19 service-area pages across two counties, 22 service pages, and eight projects as proof.",
+    "built": [
+     "Nineteen service-area pages from San Clemente to La Jolla",
+     "Twenty-two service pages, including ADUs, plus financing and our-process",
+     "Eight project pages with the homes they are proud of",
+     "Free-consultation form with Turnstile, straight to the family",
+     "Sixty-five pages on Lumin CMS, kept fresh by the website crew"
+    ],
+    "figures": [
+     {
+      "n": "65",
+      "l": "pages in the sitemap"
+     },
+     {
+      "n": "19",
+      "l": "service-area pages"
+     },
+     {
+      "n": "22",
+      "l": "service pages"
+     }
+    ],
+    "tags": [
+     "Local search",
+     "Portfolio",
+     "Lumin CMS"
+    ]
+   },
+   {
+    "slug": "shine-learning-alliance",
+    "name": "Shine Learning Alliance",
+    "url": "https://www.shinelearningalliance.com",
+    "host": "shinelearningalliance.com",
+    "vertical": "ABA therapy",
+    "place": "Orange County, CA",
+    "platform": "Custom Astro build",
+    "h": "A practice that knows every child by name. A site that reads like it.",
+    "lede": "A small, BCBA-owned ABA therapy practice. Parents arrive anxious and at night. The site is warm, short, and gets to a free consultation in one tap, with new-client forms and insurer details ready for the next step.",
+    "seoDescription": "A BCBA-owned ABA therapy practice: a warm, short site that reaches a free consultation in one tap, with new-client forms and insurer details ready.",
+    "built": [
+     "Free-consultation form with Turnstile, answered by the founders",
+     "New-client forms page so intake starts before the first call",
+     "In-network insurers, FAQ and what-is-ABA pages written for parents",
+     "Astro with Svelte islands on Cloudflare's edge"
+    ],
+    "figures": [
+     {
+      "n": "1",
+      "l": "tap to a consultation"
+     },
+     {
+      "n": "2",
+      "l": "founders who answer the phone"
+     },
+     {
+      "n": "0",
+      "l": "waitlist, as the site says"
+     }
+    ],
+    "tags": [
+     "Lead capture",
+     "Healthcare",
+     "Edge hosted"
+    ]
+   },
+   {
+    "slug": "biofuse",
+    "name": "BioFuse",
+    "url": "https://biofuse.net",
+    "host": "biofuse.net",
+    "vertical": "Functional wellness",
+    "place": "Traverse City & Grand Rapids, MI · Boise, ID",
+    "platform": "Custom Astro build",
+    "h": "$846 a booking. Now $42.",
+    "lede": "BioFuse runs IV therapy, weight loss and TRT clinics across four markets in Michigan and Idaho. Their business runs on appointments booked through their website, which is exactly what the previous agency never bothered to measure. They spent about $75,000 in twelve months and reported page views as results.",
+    "seoDescription": "The previous agency spent $75,000 in a year without ever tracking a booking. In our first 103 days the account recorded 568 of them, at $42 each.",
+    "story": {
+     "problem": "BioFuse's business runs on appointments booked through their website. For ten of the previous agency's final twelve months, the account had no tracking on the booking flow at all. About $75,000 was spent in a year, and the monthly reports counted page views as conversions.",
+     "did": "We rebuilt the account from twelve overlapping campaigns to eight with one purpose each, fenced the spend in with negative keyword lists, put end-to-end tracking on the booking flow, and separated the four markets so each clinic's spend is reported on its own.",
+     "happened": "In the ten weeks the previous agency's tracking existed, it recorded 21 bookings against about $17,500 of spend, $846 for every appointment. In our first 103 days the same website recorded 568 bookings at $42 each."
+    },
+    "outcome": {
+     "stat": "$846 → $42",
+     "label": "cost per booked appointment",
+     "sub": "95% lower"
+    },
+    "statBand": [
+     {
+      "n": "568",
+      "l": "Bookings recorded in our first 103 days",
+      "sub": "About 5.5 a day"
+     },
+     {
+      "n": "$846 → $42",
+      "l": "Cost per booked appointment",
+      "sub": "95% lower"
+     },
+     {
+      "n": "66%",
+      "l": "of the top search spend we inherited was buying nothing",
+      "sub": "About $7,700 of the top $11,600 went to terms with zero bookings or leads. Now fenced off with negative keyword lists."
+     },
+     {
+      "n": "$6.40 → $3.11",
+      "l": "Cost per search click",
+      "sub": "51% lower"
+     }
+    ],
+    "evidence": [
+     {
+      "heading": "Search terms nobody would ever buy on purpose",
+      "body": "The previous agency let broad match run unattended. Single clicks the client paid for:",
+      "table": {
+       "head": [
+        "Search term",
+        "Cost",
+        "Clicks",
+        "Leads"
+       ],
+       "rows": [
+        [
+         "“vitamin infusion”",
+         "$156",
+         "1",
+         "0"
+        ],
+        [
+         "“iv therapy that takes insurance”",
+         "$98",
+         "1",
+         "0"
+        ],
+        [
+         "“vivid iv health grand rapids” (a competitor’s name)",
+         "$95",
+         "1",
+         "0"
+        ],
+        [
+         "“iron drip near me”",
+         "$92",
+         "1",
+         "0"
+        ],
+        [
+         "“do b12 shots work for energy”",
+         "$67",
+         "1",
+         "0"
+        ]
+       ]
+      },
+      "quote": "$156. One click. No lead."
+     },
+     {
+      "heading": "Paying for a competitor’s supplement brand",
+      "body": "“Nugenix” is an over-the-counter testosterone booster sold in drugstores, not a service BioFuse offers, and not a customer looking for a clinic. Across three variations of the term the account spent about $344 for 7 clicks and zero leads."
+     },
+     {
+      "heading": "Paying for a sports bar",
+      "body": "The Traverse City campaign bought the term “game day traverse city”, a local sports bar, for about $293 across 9 clicks. It produced one recorded conversion, which under their tracking setup could have been a page view."
+     },
+     {
+      "heading": "Campaigns bidding against each other",
+      "body": "The account had duplicate, overlapping campaigns for the same services in the same cities. The term “iv therapy near me” was bought by seven different campaign and ad group combinations at the same time, costing about $1,150 for 77 clicks, roughly $15 per click, in a market where we now buy clicks at $3.11. Their Demand Gen campaign spent about $1,100 and recorded zero conversions of any kind."
+     },
+     {
+      "heading": "They never measured a single booking",
+      "body": "This is the one that mattered most, and it is not a subtlety; it is the basic job. BioFuse’s business runs on appointments booked through their website. For ten of their final twelve months, the account had no tracking on the booking flow at all. Not one completed booking was recorded. Every optimization decision made on that account for the better part of a year was made blind to the only outcome that pays the bills. What the monthly reports counted as “conversions” instead: 2,517 “Start Booking, page view” (someone landing on a page), 1,408 “Local actions, website visits” and 1,217 “Local actions, other engagements”. In October 2025 they promoted the page view to a primary conversion, which is what Google’s bidding then chased, so the budget was being steered toward people who opened a page and left. That month the account reported 323 conversions. 305 of them were page views. The reported cost per lead looked like $24. It was not a real number, and nothing in the report the client was sent would have told them that.",
+      "quote": "They optimized an account for a business that books appointments online without ever measuring a booking."
+     },
+     {
+      "heading": "Results, first 103 days",
+      "body": "Booking tracking existed for exactly ten weeks of the previous agency’s tenure, because they didn’t put any in place until April 2026. Here is everything their tracking ever recorded, against our first 103 days:",
+      "table": {
+       "head": [
+        "",
+        "Previous agency (Apr 1 – Jun 10 2026, their only tracked period)",
+        "Lumin (Jun 11 – Sep 22 2026)"
+       ],
+       "rows": [
+        [
+         "Bookings recorded",
+         "21",
+         "568"
+        ],
+        [
+         "Spend",
+         "$17,500",
+         "$24,100"
+        ],
+        [
+         "Cost per booking",
+         "$846",
+         "$42"
+        ],
+        [
+         "Bookings per day",
+         "0.3",
+         "5.5"
+        ],
+        [
+         "Bookings per $1,000 spent",
+         "1.2",
+         "23.6"
+        ]
+       ]
+      }
+     },
+     {
+      "heading": "How the media buying changed",
+      "table": {
+       "head": [
+        "",
+        "Previous agency (12 mo to Jun 10 2026)",
+        "Lumin (Jun 11 – Sep 22 2026)"
+       ],
+       "rows": [
+        [
+         "Spend",
+         "$75,300",
+         "$24,100"
+        ],
+        [
+         "Cost per search click",
+         "$6.40",
+         "$3.11"
+        ],
+        [
+         "Search clicks per day",
+         "31",
+         "69"
+        ],
+        [
+         "Search spend per day",
+         "$199",
+         "$216"
+        ]
+       ]
+      }
+     },
+     {
+      "heading": "Why we don’t use the headline conversion number",
+      "body": "If you open this account today, Google will tell you it produced 1,726 conversions in July. It didn’t. The booking flow fires a conversion at each of five steps, so one person booking an appointment can register five times. We report the fifth one, the completed booking, and we’re fixing the counter. An agency that wanted a better-looking case study would have used the bigger number."
+     }
+    ],
+    "method": "All figures come from BioFuse’s Google Ads account and can be verified in it; dollar figures are rounded. Cost per click and clicks per day cover Search campaigns only and are measured identically in both periods. “Bookings” counts completed appointments booked on the BioFuse website, measured by the same tracking in both periods. The previous agency put no booking tracking in place until April 2026, so their figures cover April 1 to June 10 2026, the only period in their tenure where bookings were recorded at all.",
+    "built": [
+     "Seventy-five treatment pages, each with its price published rather than gated behind an enquiry",
+     "Separate in-clinic and mobile booking paths on the same treatment page",
+     "Seven clinician bios, so a prospective patient can see who administers the treatment",
+     "A hundred-post library answering the questions people ask before booking a first drip",
+     "Click-to-call in eight places on the homepage, for the patients who would rather phone"
+    ],
+    "figures": [
+     {
+      "n": "234",
+      "l": "URLs across four sitemaps"
+     },
+     {
+      "n": "75",
+      "l": "treatment pages, priced"
+     },
+     {
+      "n": "3",
+      "l": "clinics, two states"
+     }
+    ],
+    "tags": [
+     "Google Ads",
+     "Multi-location",
+     "Medical"
+    ]
+   },
+   {
+    "slug": "behnke-logistics",
+    "name": "Behnke Dedicated & Logistics",
+    "url": "https://jobs.behnkelogistics.com",
+    "host": "jobs.behnkelogistics.com",
+    "vertical": "Logistics · driver recruitment",
+    "place": "Battle Creek & Three Rivers, MI · Rochester, IN · Dayton, OH",
+    "platform": "Custom Astro build",
+    "h": "Every open driver seat filled in about a month. Then they switched the ads off.",
+    "lede": "Recruiting CDL-A drivers is a lead-gen problem with a different buyer. One page, built to be read in a cab at a truck stop: the pay in the first sentence, the actual routes with their shifts, and a form that takes sixty seconds. Google Ads put it in front of licensed drivers looking for work.",
+    "seoDescription": "CDL-A driver recruitment run as lead gen: one page built to be read in a cab, pay in the first sentence, the real routes and shifts, and a 60-second form.",
+    "story": {
+     "problem": "Behnke had more freight than drivers. Loads were being turned away because nobody was available to haul them, and the work lost that way ran into the hundreds of thousands of dollars. Job boards were not producing CDL-A drivers fast enough to close the gap.",
+     "did": "Behnke asked whether ads could reach CDL-A drivers directly. We built a single hiring page that answers a driver's questions before it asks for a phone number: pay first, routes and shifts by name, a sixty-second form. Then we ran Google Ads aimed at licensed drivers looking for work and sent them straight to it.",
+     "happened": "Every open seat was filled. A little over a month after launch, Behnke paused the campaign because there was no one left to hire. The page stays live for the next round."
+    },
+    "outcome": {
+     "stat": "~1 month",
+     "label": "from launch to every seat filled"
+    },
+    "built": [
+     "Pay stated in the hero — $80,000+ on dedicated routes, $100,000+ regional — not buried in a job description",
+     "Named runs with their shifts: Rochester IN to Three Rivers MI, two round trips a day, drop and hook",
+     "The same six-field form at the top and the bottom of the page, because a driver decides at either end",
+     "A CDL-A yes/not-yet toggle that sets expectations before anyone spends a phone call",
+     "Turnstile on both forms, and click-to-call for the drivers who would rather talk than type"
+    ],
+    "figures": [
+     {
+      "n": "15",
+      "l": "CDL-A seats open"
+     },
+     {
+      "n": "4",
+      "l": "markets, three states"
+     },
+     {
+      "n": "60s",
+      "l": "to apply"
+     }
+    ],
+    "tags": [
+     "Recruitment",
+     "Lead capture",
+     "Single page"
+    ]
+   }
+  ]
+ },
+ "proof": {
+  "clients": [
+   {
+    "name": "Robinson Law",
+    "show": true,
+    "vertical": "Legal",
+    "fact": "A 324-page law firm site moved off Directus onto Lumin CMS with every URL preserved. Attorney, verdict and practice-area pages render from real data across six sitemaps.",
+    "what": "Website on Lumin CMS"
+   },
+   {
+    "name": "MuleBox",
+    "show": true,
+    "vertical": "Portable storage",
+    "fact": "Three location sites, Austin, DFW and Bossier City, on one CMS. Contact and quote forms flow into one inbox with confirmation and admin notifications.",
+    "what": "Multi-location sites and lead capture"
+   },
+   {
+    "name": "Kalamazoo Mortgage",
+    "show": true,
+    "vertical": "Mortgage",
+    "fact": "A local lender site on Lumin CMS. Testimonials, partners, stats and lead forms are managed as content, so the team updates them without a developer.",
+    "what": "Website on Lumin CMS"
+   },
+   {
+    "name": "CreateSpace Storage",
+    "show": true,
+    "vertical": "Moving and storage",
+    "fact": "A quote flow that takes zip, service type and dates and turns them into a lead with the details a dispatcher needs.",
+    "what": "Quote flow and lead capture"
+   },
+   {
+    "name": "MI-BOX Rhode Island",
+    "show": false,
+    "vertical": "Portable storage",
+    "fact": "",
+    "what": ""
+   },
+   {
+    "name": "FoxBox Moves",
+    "show": true,
+    "vertical": "Moving and storage",
+    "fact": "Two quote flows, moving and storage, each with its own confirmation page. Twenty-six pages on Cloudflare.",
+    "what": "Custom site and lead capture"
+   },
+   {
+    "name": "Behnke Dedicated & Logistics",
+    "show": true,
+    "vertical": "Logistics",
+    "fact": "A CDL-A driver recruitment page covering four markets across three states: the pay in the hero, the actual routes and shifts, and a sixty-second form at both ends of the page.",
+    "what": "Driver recruitment site and lead capture"
+   },
+   {
+    "name": "Berg Contracting",
+    "show": false,
+    "vertical": "Contracting",
+    "fact": "",
+    "what": ""
+   },
+   {
+    "name": "Tru-Colors Contracting",
+    "show": false,
+    "vertical": "Contracting",
+    "fact": "",
+    "what": ""
+   },
+   {
+    "name": "Inbox Portable Storage",
+    "show": true,
+    "vertical": "Portable storage",
+    "fact": "343 town pages and 272 zip-code pages rendered from Lumin CMS, with a city-or-zip search on the homepage.",
+    "what": "Local search site on Lumin CMS"
+   },
+   {
+    "name": "Mobile Storage Solutions",
+    "show": false,
+    "vertical": "Portable storage",
+    "fact": "",
+    "what": ""
+   },
+   {
+    "name": "Santa Ana Mini Storage",
+    "show": false,
+    "vertical": "Self storage",
+    "fact": "",
+    "what": ""
+   },
+   {
+    "name": "Kalamazoo Rejuvenation",
+    "show": false,
+    "vertical": "Med spa",
+    "fact": "",
+    "what": ""
+   },
+   {
+    "name": "Wise Insurance",
+    "show": true,
+    "vertical": "Insurance",
+    "fact": "Nine pages, three quote paths: auto, home and commercial. Independent agency since 1971.",
+    "what": "Custom site and lead capture"
+   },
+   {
+    "name": "BioFuse",
+    "show": true,
+    "vertical": "Functional wellness",
+    "fact": "Seventy-five treatment pages with the price published on each, in-clinic and mobile booking paths, and seven clinician bios across three clinics in two states.",
+    "what": "Multi-location site and booking flow"
+   },
+   {
+    "name": "The Foundry",
+    "show": true,
+    "vertical": "Workspace",
+    "fact": "Spaces catalogue, gallery, news and a request-a-space form for a historic Kalamazoo landmark.",
+    "what": "Website on Lumin CMS"
+   },
+   {
+    "name": "White & White Construction",
+    "show": true,
+    "vertical": "Home builder",
+    "fact": "Sixty-five pages: nineteen service areas across two counties, twenty-two services, eight projects.",
+    "what": "Website on Lumin CMS"
+   },
+   {
+    "name": "Shine Learning Alliance",
+    "show": true,
+    "vertical": "ABA therapy",
+    "fact": "Free-consultation form, new-client forms and parent resources for a BCBA-owned practice.",
+    "what": "Custom site and lead capture"
+   }
+  ],
+  "metrics": [
+   {
+    "value": 1000000,
+    "prefix": "$",
+    "suffix": "+",
+    "label": "in ad spend managed"
+   },
+   {
+    "value": null,
+    "suffix": "%",
+    "label": "average search impression share"
+   },
+   {
+    "value": null,
+    "suffix": "M",
+    "decimals": 1,
+    "label": "searches our ads showed up in"
+   },
+   {
+    "value": 1000000,
+    "suffix": "+",
+    "label": "clicks to client sites and phones"
+   }
+  ],
+  "metricsAsOf": "Lifetime",
+  "quotes": [
+   {
+    "quote": "Good CDL-A drivers are the hardest hire in trucking, and we needed them in four markets at once. GoLumin built a page that talks to drivers the way drivers think: the pay up front, the real routes and shifts, and a form you can finish from the cab. Inside three months, every seat was filled.",
+    "name": "Ben Behnke",
+    "role": "Owner",
+    "company": "Behnke Dedicated & Logistics",
+    "result": {
+     "n": "3 months",
+     "l": "to fill every open driver position"
+    },
+    "slug": "behnke-logistics"
+   }
+  ]
+ },
+ "guardrails": {
+  "always": [
+   "Read your accounts and your site to find problems",
+   "Research what buyers in your market are asking",
+   "Draft a change, with its evidence and the money at stake",
+   "Flag a page that has gone stale, thin, or broken",
+   "Surface a conversion-tracking failure the moment it appears",
+   "Write up what it found, whether or not anyone acts on it"
+  ],
+  "never": [
+   "Apply a change to a live ad account without a named GoLumin approver",
+   "Publish or alter a live page without a named editor",
+   "Exceed a spend cap, even with an approval behind it",
+   "Create a campaign that starts unpaused",
+   "Move, sell, or train a third-party model on your business data",
+   "Change your account ownership, billing, or who has access"
+  ],
+  "roles": [
+   {
+    "who": "The agent",
+    "t": "proposes",
+    "d": "Read access to everything, permission to change nothing."
+   },
+   {
+    "who": "A GoLumin operator",
+    "t": "approves",
+    "d": "A named person signs or rejects. Never their own work."
+   },
+   {
+    "who": "The software",
+    "t": "enforces",
+    "d": "Caps are hard limits at the apply gate, not a policy."
+   },
+   {
+    "who": "You",
+    "t": "can stop it",
+    "d": "One switch pauses every agent on your account, instantly."
+   }
+  ]
+ },
+ "landing": {
+  "landings": [
+   {
+    "slug": "ads",
+    "service": "advertising",
+    "auditType": "Ad account",
+    "seoTitle": "Free Google & Meta Ads Audit | GoLumin",
+    "seoDescription": "Free ad account audit. Read-only access, then we show you the wasted spend, missing negatives and broken tracking in your Google, Meta and Microsoft Ads.",
+    "eyebrow": "Free ad account audit",
+    "h": [
+     "Stop paying for clicks ",
+     "that never call."
+    ],
+    "sub": "Give us read-only access. Our agents go through your Google, Meta and Microsoft Ads accounts, and a person walks you through the wasted spend, missing negatives and broken tracking they find.",
+    "variants": {
+     "waste": {
+      "h": [
+       "Your ad account is leaking. ",
+       "We'll show you where."
+      ]
+     },
+     "leads": {
+      "h": [
+       "Cheap leads that never buy ",
+       "aren't cheap."
+      ],
+      "sub": "Most accounts are optimised for form fills. We audit yours for what actually turns into customers: tracking that works, spend on searches that buy, and sold leads fed back so bidding learns."
+     },
+     "chatgpt": {
+      "h": [
+       "Google, Meta, Microsoft, ",
+       "and now ChatGPT."
+      ],
+      "sub": "Ads now run inside ChatGPT too. Start with a free audit of the accounts you already have, and we'll tell you where the next dollar belongs."
+     }
+    },
+    "checks": [
+     "Read-only access. Nothing in your account changes.",
+     "Findings in plain English, with the dollars attached",
+     "Your accounts stay in your name, hire us or not"
+    ],
+    "submitLabel": "Get my free ad audit →",
+    "findsHeading": [
+     "What the audit ",
+     "looks for."
+    ],
+    "finds": [
+     {
+      "t": "Search terms that spend and never convert",
+      "d": "We go through the search-terms report and list the queries eating budget with nothing to show, each with its spend next to it."
+     },
+     {
+      "t": "Missing negatives",
+      "d": "Job seekers, DIY-ers, the wrong city. The negatives you need, drafted and ready to add."
+     },
+     {
+      "t": "Conversion tracking that quietly broke",
+      "d": "A tag changed but never published, a form that stopped firing. It looks exactly like a campaign that stopped working."
+     },
+     {
+      "t": "Budget pacing",
+      "d": "Whether the month runs dry on the 20th, and whether money sits in campaigns that convert worse than the ones starved of it."
+     },
+     {
+      "t": "Tired ad copy",
+      "d": "Headlines and descriptions that have run unchanged for months, and what we would test in their place."
+     },
+     {
+      "t": "What we'd change first",
+      "d": "A short, ranked list. The three changes worth making this week, whoever makes them."
+     }
+    ],
+    "cases": [],
+    "casesHeading": "",
+    "faqs": [
+     {
+      "q": "What if we already have an agency?",
+      "a": "The audit works the same way: read-only access, a person walks you through what they found, and you keep it. Use it as a second opinion."
+     },
+     {
+      "q": "How is it priced?",
+      "a": "A monthly fee, quoted after the audit once we know what is actually there. The audit itself is free and you keep the findings whether or not you hire us."
+     }
+    ],
+    "closing": {
+     "h": "See what your ad account is wasting.",
+     "blurb": "Read-only access, then the agents go through the account: wasted spend, missing negatives, broken conversion tracking, pacing, and the changes we would propose first. You keep the findings either way."
+    }
+   },
+   {
+    "slug": "ai-search",
+    "service": "local-ai-search",
+    "auditType": "Local + AI search",
+    "seoTitle": "Free Local & AI Search Visibility Check | GoLumin",
+    "seoDescription": "See how your business shows up on Google Maps, in search and in ChatGPT answers, in every market you serve. Free visibility check, real findings.",
+    "eyebrow": "Free AI search visibility check",
+    "h": [
+     "When someone asks ChatGPT who to call, ",
+     "is it you?"
+    ],
+    "sub": "Customers now ask ChatGPT, Perplexity and Google's AI answers for a nearby lawyer, plumber or storage unit. We'll check how you show up in the markets you serve and show you what's keeping you out of the answer.",
+    "variants": {
+     "maps": {
+      "h": [
+       "Found on Google Maps. ",
+       "Cited when someone asks an AI."
+      ]
+     },
+     "competitor": {
+      "h": [
+       "Is ChatGPT recommending ",
+       "your competitor?"
+      ]
+     },
+     "local": {
+      "h": [
+       "Show up in every town you serve, ",
+       "not just the one you're in."
+      ],
+      "sub": "One page per market, business details that agree everywhere, and content that answers what buyers actually ask. Start with a free check of where you stand today."
+     }
+    },
+    "checks": [
+     "Every market you serve, not just your home city",
+     "Maps, search results and AI answers in one check",
+     "Straight about what can be controlled, and what can't"
+    ],
+    "submitLabel": "Check my visibility →",
+    "findsHeading": [
+     "What the check ",
+     "looks at."
+    ],
+    "finds": [
+     {
+      "t": "Where your details disagree",
+      "d": "Hours, address, phone and services that say one thing on your site and another on your listings. Assistants notice, and so do customers."
+     },
+     {
+      "t": "Markets with no page",
+      "d": "Towns and service areas you serve but have nothing written about, so nothing can rank or be cited there."
+     },
+     {
+      "t": "Thin and duplicate location pages",
+      "d": "The same paragraph with the town name swapped. We flag which pages are too thin to earn an answer."
+     },
+     {
+      "t": "Questions nothing on your site answers",
+      "d": "The questions buyers put to search and to AI assistants, and whether any page of yours is a credible answer."
+     },
+     {
+      "t": "Structured data",
+      "d": "Whether the machine-readable version of your business, services and locations exists, and whether it matches the page."
+     },
+     {
+      "t": "What we'd fix first",
+      "d": "A short, ranked list of the pages and details worth changing first, whoever makes the changes."
+     }
+    ],
+    "cases": [
+     "inbox-portable-storage",
+     "white-and-white",
+     "mulebox"
+    ],
+    "casesHeading": "A page for every place they serve.",
+    "faqs": [
+     {
+      "q": "Can you guarantee ChatGPT will recommend us?",
+      "a": "No, and be wary of anyone who does. No assistant publishes how it chooses. What we can do is make sure the pages, details and citations it draws on exist, agree and answer the question."
+     },
+     {
+      "q": "How is it priced?",
+      "a": "A monthly fee, quoted after the audit once we know what is actually there. The audit itself is free and you keep the findings whether or not you hire us."
+     }
+    ],
+    "closing": {
+     "h": "Find out if AI search can find you.",
+     "blurb": "We look at how you show up across maps, search and AI answers in the markets you actually serve, where your details disagree with each other, and which pages are too thin to earn an answer."
+    }
+   },
+   {
+    "slug": "websites",
+    "service": "websites",
+    "auditType": "Website",
+    "seoTitle": "Free Website Audit for Local Businesses | GoLumin",
+    "seoDescription": "Free website audit: speed, forms, tracking and the pages losing you leads. Then a site that gets edited weekly, with every URL kept on migration.",
+    "eyebrow": "Free website audit",
+    "h": [
+     "A website that brings in calls, ",
+     "not just compliments."
+    ],
+    "sub": "We build, migrate and host your site, then keep improving it. Edits go live in under a minute, every URL survives the move, and every form lands in your inbox. Start with a free audit of the site you have now.",
+    "variants": {
+     "migrate": {
+      "h": [
+       "Move to a new website ",
+       "without losing your rankings."
+      ],
+      "sub": "We write the redirect map from your live sitemap before anything is cut over, then verify every old URL afterwards. Start with a free audit of the site you have now."
+     },
+     "forms": {
+      "h": [
+       "Your site is slow and your forms leak. ",
+       "Let's fix both."
+      ]
+     },
+     "edits": {
+      "h": [
+       "Stop waiting on a developer ",
+       "to change a phone number."
+      ],
+      "sub": "Copy, rates, staff, offers and locations are content, and edits go live in under a minute. Start with a free audit of the site you have now."
+     }
+    },
+    "checks": [
+     "You keep the findings, hire us or not",
+     "Speed, forms, tracking and structure in one pass",
+     "No redesign pitch before we've looked"
+    ],
+    "submitLabel": "Audit my website →",
+    "findsHeading": [
+     "What the audit ",
+     "looks at."
+    ],
+    "finds": [
+     {
+      "t": "Forms that leak",
+      "d": "Every form submitted and followed: does it reach a person, does the customer get a confirmation, is it counted as a conversion."
+     },
+     {
+      "t": "Speed on a phone",
+      "d": "How the site loads on the device most of your visitors are holding, and what is slowing it down."
+     },
+     {
+      "t": "Calls you can't see",
+      "d": "Whether phone calls from the site are tracked at all, or whether your best leads are invisible in the reports."
+     },
+     {
+      "t": "Pages losing people",
+      "d": "Where visitors land and leave, and which pages have no clear next step."
+     },
+     {
+      "t": "Structure for search",
+      "d": "Titles, descriptions, one page per service and per market, and the pages search engines have nothing to work with."
+     },
+     {
+      "t": "What we'd fix first",
+      "d": "A short, ranked list of changes worth making this month, whoever makes them."
+     }
+    ],
+    "cases": [
+     "mulebox",
+     "kalamazoo-mortgage",
+     "inbox-portable-storage",
+     "wise-insurance"
+    ],
+    "casesHeading": "Sites we built. Running today.",
+    "faqs": [
+     {
+      "q": "How is it priced?",
+      "a": "A monthly fee, quoted after the audit once we know what is actually there. The audit itself is free and you keep the findings whether or not you hire us."
+     }
+    ],
+    "closing": {
+     "h": "Find out what your site is costing you.",
+     "blurb": "We read your live site the way a search engine and a buyer do: speed, structure, forms, tracking and the pages that are quietly losing people. You keep the findings either way."
+    }
+   }
+  ]
+ },
+ "adgroups": {
+  "adGroupLandings": [
+   {
+    "slug": "google-ads",
+    "adGroup": "A1 | Google Ads Management",
+    "auditType": "Ad account",
+    "seoTitle": "Google Ads Management | Free Landing Page Included | GoLumin",
+    "seoDescription": "Google Ads management with a landing page built free, a $2,500 value. Your account stays in your name. Free audit first, findings yours either way.",
+    "eyebrow": "Google Ads management",
+    "h": [
+     "You already paid for the click. ",
+     "The page decides if it pays you back."
+    ],
+    "sub": "We run your Google Ads and build the page they land on, free. Most accounts do not need more budget; they need the click to arrive somewhere built to take a lead.",
+    "variants": {
+     "agency": {
+      "h": [
+       "A Google Ads agency ",
+       "that builds the page too."
+      ],
+      "sub": "Most agencies buy the click and send it to whatever page you already had. We run the account and build the landing page it lands on, at no charge, then keep improving both."
+     },
+     "switch": {
+      "h": [
+       "Switching Google Ads agencies? ",
+       "Start with the audit, not the pitch."
+      ],
+      "sub": "Read-only access, and we show you what your account is actually doing: the terms eating budget, the tracking that quietly broke, and what we would change first. You keep it whether or not you switch."
+     },
+     "manage": {
+      "h": [
+       "Google Ads, managed daily. ",
+       "Not checked on Mondays."
+      ],
+      "sub": "Every search term read every day, negatives proposed with the spend attached, and a named person approving each change. Plus the landing page, built free."
+     },
+     "cost": {
+      "h": [
+       "Your cost per lead is a page problem, ",
+       "not a bidding problem."
+      ],
+      "sub": "Doubling the budget doubles the clicks and the cost. Fixing where they land changes what a lead costs. We do both, and the page is free."
+     }
+    },
+    "checks": [
+     "A written marketing plan for your account, yours to keep either way",
+     "A landing page built free with every account — a $2,500 value",
+     "Your ad account stays in your name, revocable any time"
+    ],
+    "submitLabel": "Get my free marketing plan →",
+    "painHeading": [
+     "Said on the first call, ",
+     "nearly every time."
+    ],
+    "pains": [
+     {
+      "t": "We're paying for searches that will never buy.",
+      "d": "Search terms are read every day and negatives proposed with the wasted spend attached, so you can see what each one cost before you approve it."
+     },
+     {
+      "t": "The clicks come in and nothing happens.",
+      "d": "Almost always the page. A homepage gives a visitor nine things to do; a landing page gives them one. That is the gap this offer exists to close."
+     },
+     {
+      "t": "Our cost per lead looks fine and the leads are junk.",
+      "d": "Mark a lead sold or lost. That verdict goes back to Google, so bidding optimises toward customers instead of form fills."
+     },
+     {
+      "t": "Budget runs out on the 20th.",
+      "d": "Pacing is watched against the month, and caps are hard limits in software rather than a note in someone's calendar."
+     },
+     {
+      "t": "Nobody can tell us what changed or why.",
+      "d": "Every change carries its evidence, its approver and its timestamp, and the record stays in your account's history."
+     }
+    ],
+    "cases": [
+     "biofuse",
+     "kalamazoo-mortgage",
+     "behnke-logistics",
+     "foxbox-moves"
+    ],
+    "casesHeading": "Accounts we run. Numbers from the accounts themselves.",
+    "faqs": [
+     {
+      "q": "Do I need to be running Google Ads already?",
+      "a": "No. If you are not, we look at what people actually search for in your market, what those clicks cost, and whether ads are even the right first move. Sometimes the answer is that your site or your local listings need the work first, and we will say so."
+     },
+     {
+      "q": "What is in the plan, exactly?",
+      "a": "The search terms that spent and never converted, with the dollars next to each one. The negatives that stop it, already written. Whatever is broken in your conversion tracking. Budget pacing. Ad copy that has run unchanged for months. Then a short ranked list of what we would change first, whoever ends up making the changes. We go through it with you live, and you keep all of it."
+     },
+     {
+      "q": "What's the catch on the free plan?",
+      "a": "There isn't one, but here is the honest version of why we do it. Most accounts we look at have something obviously wrong in them, and showing you that is a better argument than anything we could put in a pitch. If you take the plan and fix it yourself, or hand it to your current agency, that is a fine outcome for us. Some of those people come back later."
+     },
+     {
+      "q": "How long before we see anything?",
+      "a": "The audit findings come back within a few days of read-only access. Once an account is live, the first weeks are spent building enough conversion history for bidding to have something to learn from, and we will tell you plainly where that stands rather than declare victory early."
+     }
+    ],
+    "closing": {
+     "h": "Get the plan. Decide after.",
+     "blurb": "Read-only access, then the agents go through the account: wasted spend, missing negatives, broken conversion tracking, pacing, and the changes we would make first. A person walks you through it live. The plan is yours at the end of that call whether or not you ever hire us."
+    }
+   },
+   {
+    "slug": "ads-audit",
+    "adGroup": "A4 | Ads Audit and Switch",
+    "auditType": "Ad account",
+    "seoTitle": "Free Google Ads Audit by a Google Partner | GoLumin",
+    "seoDescription": "A certified Google Partner with 10+ years in paid search reads your Google Ads account and writes up what they find. Free, read-only, and yours to keep.",
+    "eyebrow": "Google Ads audit & second opinion",
+    "showReviewer": true,
+    "showEvidence": true,
+    "h": [
+     "Get a second opinion ",
+     "before you sign another month."
+    ],
+    "sub": "A certified Google Partner with more than ten years in paid search goes through your account and writes up exactly what is in it. Read-only, no obligation, and the findings are yours whether you switch, stay, or fix it yourself.",
+    "variants": {
+     "audit": {
+      "h": [
+       "Your Google Ads audit, ",
+       "done by a Google Partner."
+      ],
+      "sub": "Not an automated scorecard. A certified Google Partner reads the search terms, the conversion actions and the spend, and tells you in writing what is working, what is wasting and what they would change first."
+     },
+     "switch": {
+      "h": [
+       "Switching agencies? ",
+       "Read the account first."
+      ],
+      "sub": "The worst time to choose a new agency is while you are angry with the old one. Get the account read by a Google Partner, in writing, then decide — including deciding to stay."
+     },
+     "notperforming": {
+      "h": [
+       "Your agency isn't performing. ",
+       "Find out why, in writing."
+      ],
+      "sub": "Most underperforming accounts have a specific, findable cause: terms nobody would buy on purpose, conversion tracking counting page views, campaigns bidding against each other. We will name yours."
+     },
+     "review": {
+      "h": [
+       "A Google Ads account review, ",
+       "free and yours to keep."
+      ],
+      "sub": "Read-only access, a certified Google Partner goes through it, and you keep the write-up whatever you decide. We have no way to hold it hostage and no interest in trying."
+     }
+    },
+    "checks": [
+     "Read by a certified Google Partner — 10+ years in paid search",
+     "Read-only access. Nothing in your account can change.",
+     "The written plan is yours, whether you switch or stay"
+    ],
+    "submitLabel": "Get my free account review →",
+    "painHeading": [
+     "Said by everyone ",
+     "who eventually switched."
+    ],
+    "pains": [
+     {
+      "t": "The reports look fine but the phone doesn't ring.",
+      "d": "Almost always a conversion action counting something that is not a lead. We check what every conversion in your account actually fires on before we believe a single number in it."
+     },
+     {
+      "t": "We can't tell what they actually do each month.",
+      "d": "Ask for the change history. If nobody can produce a list of what changed, when, and who approved it, that is the answer. Ours carries the evidence and the approver on every line."
+     },
+     {
+      "t": "Our account is in their name, so we can't leave.",
+      "d": "That is the trap, and it is worth knowing before you sign anywhere else. Your accounts stay in your name with us, and the history stays with you if you go."
+     },
+     {
+      "t": "Cost per lead keeps climbing and nobody explains it.",
+      "d": "Usually spend drifting to broad terms nobody negated, and a landing page doing none of the work. Both are visible in an afternoon if someone actually looks."
+     },
+     {
+      "t": "We asked for the search terms and got a summary.",
+      "d": "You will get the list. Every term, its spend, and whether it produced anything — the raw rows, not a chart of them."
+     }
+    ],
+    "cases": [
+     "biofuse",
+     "kalamazoo-mortgage",
+     "behnke-logistics",
+     "foxbox-moves"
+    ],
+    "casesHeading": "What we found when we opened the last agency's work.",
+    "faqs": [
+     {
+      "q": "Will you contact our current agency?",
+      "a": "No. We never contact them, and the audit does not require telling them anything. Read-only access is something you grant and revoke yourself in Google Ads, and it does not notify them."
+     },
+     {
+      "q": "What if the audit says our agency is doing fine?",
+      "a": "Then we will say so, and you will have that in writing too. It happens. An account that is genuinely well run is easy to recognise, and telling you otherwise to win the work would be found out in about a month."
+     },
+     {
+      "q": "Do we have to switch to get the audit?",
+      "a": "No, and there is nothing to sign. Plenty of people use the write-up as a list of things to ask their existing agency to fix, which is a perfectly good outcome. Some of them come back a few months later."
+     },
+     {
+      "q": "How long does it take?",
+      "a": "Findings come back within a few days of read-only access. The walkthrough is a call whenever suits you, and you keep the write-up at the end of it."
+     }
+    ],
+    "closing": {
+     "h": "Find out what's actually in the account.",
+     "blurb": "Read-only access, then a certified Google Partner goes through the whole thing: wasted spend with the dollars attached, missing negatives, conversion tracking that quietly broke, pacing, and what we would change first. You keep it whether you switch, stay, or hand it to the agency you already have."
+    }
+   },
+   {
+    "slug": "chatgpt-ads",
+    "adGroup": "A3 | ChatGPT and AI Ads",
+    "auditType": "Ad account",
+    "seoTitle": "ChatGPT Ads Management | OpenAI Ads Agency | GoLumin",
+    "seoDescription": "Ads inside ChatGPT, run by an agency already shipping the pixel and the Conversions API. Free plan first, and we will tell you if it is too early for you.",
+    "eyebrow": "ChatGPT & AI ads",
+    "h": [
+     "Ads inside ChatGPT. ",
+     "Running, not theorising."
+    ],
+    "sub": "ChatGPT ads are new enough that most agencies are still writing think-pieces about them. We have the pixel and the server-side Conversions API shipped and deduplicating on our own site, and we run the same stack for clients.",
+    "variants": {
+     "agency": {
+      "h": [
+       "A ChatGPT ads agency ",
+       "that has actually shipped it."
+      ],
+      "sub": "The pixel, the conversion event, and the server-side Conversions API deduplicating against it. Not a waitlist and not a webinar. We will show you the implementation on the call."
+     },
+     "openai": {
+      "h": [
+       "OpenAI ads management, ",
+       "measured like everything else."
+      ],
+      "sub": "Same approvals queue, same hard spend caps, same weekly plain-English email as your Google and Meta budgets. A new channel should not mean a new blind spot."
+     },
+     "ai": {
+      "h": [
+       "AI advertising, ",
+       "without the hand-waving."
+      ],
+      "sub": "We run Google, Microsoft, Meta and ChatGPT as one portfolio. If AI ads are not where your next dollar belongs yet, we will say so and tell you where it should go instead."
+     }
+    },
+    "checks": [
+     "A written marketing plan for your account, yours to keep either way",
+     "Straight answer on whether this channel is ready for you yet",
+     "A landing page built free with every account — a $2,500 value"
+    ],
+    "submitLabel": "Get my free marketing plan →",
+    "painHeading": [
+     "The honest part, ",
+     "before you spend anything."
+    ],
+    "pains": [
+     {
+      "t": "Is anyone actually buying from ChatGPT ads yet?",
+      "d": "It is early, and volume is nothing like Google's. We will not pretend otherwise. What we will do is measure it properly from day one, so you find out with a test budget instead of a guess."
+     },
+     {
+      "t": "Our agency says they 'do AI' but can't show us anything.",
+      "d": "Ask them for the pixel, the conversion event and the server-side integration. We will show you ours on the call, running on this very site, and how the two halves deduplicate so one lead is not counted twice."
+     },
+     {
+      "t": "We can't afford to experiment with the whole budget.",
+      "d": "You should not. This runs as a small, capped line inside a portfolio that still puts most of the money where it already converts. Caps are enforced in software, not by a reminder."
+     },
+     {
+      "t": "How would we even know if it worked?",
+      "d": "The same way as any other channel: a conversion action that fires on a real lead, not a page view, and sold-or-lost fed back so the platform learns what a customer looks like."
+     }
+    ],
+    "cases": [
+     "biofuse",
+     "kalamazoo-mortgage",
+     "behnke-logistics",
+     "foxbox-moves"
+    ],
+    "casesHeading": "Paid media we already run. Same team, same approvals queue.",
+    "faqs": [
+     {
+      "q": "Are these real ads inside ChatGPT?",
+      "a": "Yes. OpenAI has an advertising platform with its own pixel, conversion events and a server-side Conversions API. We have all three running on golumin.io and we are happy to show you the implementation, including the deduplication between the browser event and the server one."
+     },
+     {
+      "q": "Should we be spending here yet?",
+      "a": "Honestly, for most businesses it is a small test line rather than a main channel — the volume is not Google's and it will not be soon. The reason to start now is that the measurement takes longer to get right than the ads do, and the accounts with tracking in place first will be the ones that can tell whether it works."
+     },
+     {
+      "q": "What if the answer is that we should not?",
+      "a": "Then we will say so on the call, and the plan will tell you where the money should go instead. We run Google, Microsoft and Meta too, so we have no reason to push you into the newest channel."
+     }
+    ],
+    "closing": {
+     "h": "Find out if ChatGPT ads are worth your money.",
+     "blurb": "Read-only access to what you run today, then a plan that covers all of it: what is working, what is wasting, and whether a ChatGPT line is worth opening yet. A person walks you through it, and you keep it whether or not you hire us."
+    }
+   },
+   {
+    "slug": "marketing-agency",
+    "adGroup": "D1 | One Agency, Three Services",
+    "auditType": "Full system (web + search + ads)",
+    "seoTitle": "One Marketing Agency for Website, SEO and Ads | GoLumin",
+    "seoDescription": "Website, local and AI search, and paid ads from one team, with one approvals queue. Free marketing plan across all three, yours to keep either way.",
+    "eyebrow": "Website · search · ads",
+    "h": [
+     "Three vendors blaming each other ",
+     "is not a marketing department."
+    ],
+    "sub": "The site, the search visibility and the ad accounts are one system. We run all three with one team and one approvals queue, so nobody gets to point at somebody else when the leads stop.",
+    "variants": {
+     "outsource": {
+      "h": [
+       "An outsourced marketing department ",
+       "you can actually audit."
+      ],
+      "sub": "Website, local and AI search, and every paid channel, run by one team. Every change carries its evidence, its approver and its timestamp, so you can see exactly what was done and why."
+     },
+     "fullservice": {
+      "h": [
+       "One agency for the website, ",
+       "the search and the ads."
+      ],
+      "sub": "Not three retainers and three reports that disagree. One team, one queue, and a weekly email in plain English that ties what changed to what it did."
+     },
+     "local": {
+      "h": [
+       "Local business marketing ",
+       "that closes the loop."
+      ],
+      "sub": "Ads bring the traffic, the site takes the lead, and local and AI search pick up the demand you are not paying for. Each one makes the others cheaper, which is the whole reason to buy them together."
+     }
+    },
+    "checks": [
+     "A plan across all three — site, search and ads — yours to keep either way",
+     "One team, one approvals queue, one weekly email",
+     "A landing page built free with every account — a $2,500 value"
+    ],
+    "submitLabel": "Get my free marketing plan →",
+    "painHeading": [
+     "Said on the first call, ",
+     "nearly every time."
+    ],
+    "pains": [
+     {
+      "t": "My web guy blames the SEO guy, who blames the ads guy.",
+      "d": "One team owns all three, so there is nobody to point at. When a form stops converting we can see the tag, the page and the campaign in the same place."
+     },
+     {
+      "t": "We're paying three retainers and nobody owns the number.",
+      "d": "One engagement, one weekly email, and one place where every change is recorded with who approved it and what evidence it carried."
+     },
+     {
+      "t": "Our site takes two weeks to change a phone number.",
+      "d": "Copy, rates, staff, offers and locations are content on Lumin CMS. Edits are live in under a minute, and you do not need a developer or a ticket."
+     },
+     {
+      "t": "We rank fine but the phone doesn't ring.",
+      "d": "Usually the page, not the ranking. Traffic that lands somewhere with nine things to do produces fewer leads than traffic that lands on a page with one."
+     },
+     {
+      "t": "Nobody can tell us what changed or why.",
+      "d": "Every change carries its evidence, its approver and its timestamp, and the record stays in your account. That is the same whether it was a bid, a page or a listing."
+     }
+    ],
+    "cases": [
+     "foxbox-moves",
+     "inbox-portable-storage",
+     "biofuse",
+     "kalamazoo-mortgage"
+    ],
+    "casesHeading": "What it looks like when one team runs all three.",
+    "faqs": [
+     {
+      "q": "Do I have to buy all three?",
+      "a": "No. Plenty of clients start with ads, or with a site. The three are strongest together because the loop closes — ads tell you which searches actually buy, and that tells the site and the search work what to aim at — but none of them is a condition of the others."
+     },
+     {
+      "q": "We already have a website we like. Does that rule us out?",
+      "a": "Not at all. We will audit it, tell you what it is costing you and what we would change, and leave it where it is if that is the right call. The free landing page is built for your ads either way, because paid traffic wants a different page than a homepage does."
+     },
+     {
+      "q": "Who actually does the work?",
+      "a": "Agents do the legwork — reading accounts, drafting changes, writing first passes — and a named person at GoLumin approves every consequential one, never their own proposal. On a call you get the founders, not an account manager reading from a deck."
+     }
+    ],
+    "closing": {
+     "h": "One plan across all three.",
+     "blurb": "Read-only access to the site, the listings and the ad accounts, and the agents go through all of it: what is wasting money, what is broken, what is missing, and what we would do first. A person walks you through it, and you keep the plan whether or not you hire us."
+    }
+   }
+  ],
+  "benchmarks": {
+   "landingPage": 6.6,
+   "landingPageSource": "Unbounce Conversion Benchmark Report — median of 41,000 landing pages",
+   "googleAds": 8.18,
+   "googleAdsSource": "WordStream / LocalIQ Google Ads Benchmarks 2026, all industries",
+   "ourLow": 15,
+   "ourHigh": 25,
+   "ourMethod": "Our range counts form submissions and tracked phone calls as a share of ad clicks, measured on pages we built for paid traffic across the accounts we run. That is what a purpose-built page does. Send the same clicks to a homepage instead and the rate drops to the benchmarks above, which is the whole reason we build you the page."
+  },
+  "clickMath": {
+   "clicks": 1000,
+   "rows": [
+    {
+     "label": "A typical landing page",
+     "rate": 6.6,
+     "note": "Median of 41,000 pages",
+     "tone": "muted"
+    },
+    {
+     "label": "The Google Ads average",
+     "rate": 8.18,
+     "note": "All industries, 2026",
+     "tone": "muted"
+    },
+    {
+     "label": "A page we build for your ads",
+     "rate": 15,
+     "hi": 25,
+     "note": "Form submissions and tracked calls",
+     "tone": "brand"
+    }
+   ]
+  },
+  "comparison": {
+   "rows": [
+    {
+     "k": "Who owns the ad account",
+     "a": "Often the agency's own account, so the history leaves when you do",
+     "b": "Yours. In your name, revocable, and the history stays with you"
+    },
+    {
+     "k": "Search terms reviewed",
+     "a": "Page one of the report, when someone remembers",
+     "b": "Every term, every day, with the spend figure attached"
+    },
+    {
+     "k": "Where the clicks land",
+     "a": "Your homepage, or a page you paid someone else to build",
+     "b": "A landing page we build free and keep improving"
+    },
+    {
+     "k": "What counts as a conversion",
+     "a": "Whatever the dashboard was set to, often page views",
+     "b": "Verified before it is reported. A page view is not a lead"
+    },
+    {
+     "k": "Who approves a change",
+     "a": "Unclear, and rarely recorded",
+     "b": "A named person, never their own proposal, with the evidence attached"
+    },
+    {
+     "k": "Spend caps",
+     "a": "A reminder in someone's calendar",
+     "b": "Hard limits in software. An over-cap change cannot be applied, even after approval"
+    },
+    {
+     "k": "Reporting",
+     "a": "A monthly PDF",
+     "b": "The raw platform data, and a plain-English email each week"
+    },
+    {
+     "k": "Contract",
+     "a": "Six or twelve months",
+     "b": "Month to month"
+    }
+   ]
+  },
+  "credentials": {
+   "badge": "https://www.gstatic.com/partners/badge/images/2026/PartnerBadgeClickable.svg",
+   "title": "Certified Google Partner",
+   "lines": [
+    "$1M+ in ad spend managed",
+    "Google, Microsoft, Meta and ChatGPT ads"
+   ]
+  },
+  "founders": {
+   "heading": "You talk to the people who do the work.",
+   "sub": "No sales team, and no hand-off to a junior account manager after you sign. There are two of us, we are equal partners in the business, and we are the two who build and run the thing. Either of us answers the phone.",
+   "people": [
+    {
+     "slug": "jordan-tag",
+     "name": "Jordan Tag",
+     "role": "Co-founder",
+     "bio": "Fifteen-plus years running paid media in personal injury, mass tort and class action law — the most expensive clicks in search, where a single one can cost hundreds of dollars. He runs the advertising side: the accounts, the spend and the reporting."
+    },
+    {
+     "slug": "ted-martin",
+     "name": "Ted Martin",
+     "role": "Co-founder",
+     "bio": "Builds and runs the two platforms every GoLumin engagement passes through: Lumin Ads, where the agents work and every change waits for approval, and Lumin CMS, which runs the sites. He runs the build side: your website, your tracking and the software."
+    }
+   ]
+  },
+  "offer": {
+   "value": "$2,500",
+   "label": "Free landing page with every account",
+   "headline": "We build your landing page free.",
+   "sub": "Every new client gets a landing page built for their ads, at no charge. On its own it is a $2,500 build. You keep it, and it stays yours if you leave.",
+   "includes": [
+    {
+     "t": "Written for one search",
+     "d": "The page answers the thing the person typed. Not a homepage with a menu and nine other places to go."
+    },
+    {
+     "t": "Built to be read on a phone",
+     "d": "Most paid clicks are on a phone at a red light. It loads fast and the form fits the screen."
+    },
+    {
+     "t": "One form and one phone number",
+     "d": "No nav bar, no footer maze, no exit. The only two things to do are the two things you want."
+    },
+    {
+     "t": "Tracked end to end",
+     "d": "Every submission and every call counted, so the bidding learns from real leads instead of page views."
+    },
+    {
+     "t": "Yours to keep",
+     "d": "On your domain, in your name. If you stop working with us it does not switch off."
+    }
+   ]
+  },
+  "plan": {
+   "name": "your free marketing plan",
+   "headline": "You leave with the plan. Whether you hire us or not.",
+   "sub": "Give us read-only access and we build the thing an agency normally charges for and keeps: a written plan for your account, ranked, with the money attached to every line. It is yours at the end of the call, and there is nothing to sign to get it.",
+   "keep": [
+    {
+     "t": "The wasted-spend list",
+     "d": "Every search term that took your money and never produced a lead, with its cost beside it. Usually the first time anyone has shown you this."
+    },
+    {
+     "t": "Negatives, already written",
+     "d": "The keyword list that stops it happening again, drafted and ready to paste in — by you, by us, or by the agency you already have."
+    },
+    {
+     "t": "What's broken in tracking",
+     "d": "Tags that stopped firing, conversions counting page views, calls nobody is recording. With what it would take to fix each one."
+    },
+    {
+     "t": "A ranked plan",
+     "d": "The three or four changes worth making first, in order, with what we would expect each to do. Not a 40-slide deck."
+    },
+    {
+     "t": "A walkthrough with a person",
+     "d": "We go through it live, on your screen, in your account. Ask anything — including what we would do if we were you and could not afford an agency."
+    }
+   ],
+   "refrain": "Ask anything. Keep the plan either way.",
+   "effort": "Four fields. A named person reads it, not an autoresponder."
+  },
+  "reviewer": {
+   "h": "A Google Partner reads it. Personally.",
+   "sub": "Not a script, not a PDF an automated tool spat out, and not a junior working through a checklist. Your account is read by a certified Google Partner who has spent more than ten years buying clicks in the most expensive categories in search — where getting it wrong costs hundreds of dollars a click.",
+   "points": [
+    {
+     "t": "Certified Google Partner",
+     "d": "Badged by Google, which means a live account history, current certifications and performance Google itself measures. Not a logo we drew."
+    },
+    {
+     "t": "Ten-plus years in paid search",
+     "d": "Personal injury, mass tort and class action law, then home services, storage, logistics and healthcare. Categories where a wasted click is not a rounding error."
+    },
+    {
+     "t": "A person, start to finish",
+     "d": "The agents pull every search term and every conversion action, which is the part software is good at. A named human reads the result and decides what it means."
+    },
+    {
+     "t": "Read-only, the whole time",
+     "d": "We take view access and nothing else. No changes are possible in your account during an audit, even by accident."
+    }
+   ]
+  },
+  "sharedFaqs": [
+   {
+    "q": "Is the free landing page really free?",
+    "a": "Yes. It is built as part of onboarding for every new client, and there is no separate charge for it. On its own that build is $2,500. It goes on your domain, in your name, and it stays yours if you stop working with us."
+   },
+   {
+    "q": "Who owns the ad account?",
+    "a": "You do. Google, Microsoft, Meta and ChatGPT accounts stay in your name, and you can revoke our access at any time without losing the history. We do not run clients out of our own account."
+   },
+   {
+    "q": "Can the AI change my ads on its own?",
+    "a": "No. Agents read the account continuously and propose changes; every consequential change waits for a named person at GoLumin, who cannot approve their own proposal. Spend caps are hard limits in software and cannot be overridden, even by an approver."
+   },
+   {
+    "q": "Is there a contract?",
+    "a": "No. We work month to month."
+   },
+   {
+    "q": "How is it priced?",
+    "a": "A monthly fee based on ad spend and whether we run your site. It is quoted after the free audit, once we know what is actually there rather than what we guessed."
+   },
+   {
+    "q": "What if we already have an agency?",
+    "a": "The audit works the same way: read-only access, a person walks you through what they found, and you keep the findings. Plenty of people use it as a second opinion and stay where they are."
+   }
+  ]
+ },
+ "laspalmas": {
+  "banner": {
+   "wordmark": "WEBSITES + DIGITAL ADVERTISING + AI",
+   "line": [
+    "AI-powered marketing that drives traffic and ",
+    "grows revenue."
+   ],
+   "platforms": [
+    "Google",
+    "Meta",
+    "ChatGPT",
+    "YouTube"
+   ],
+   "image": {
+    "src": "/laspalmas-banner.jpg",
+    "w": 1600,
+    "h": 800
+   },
+   "phoneHref": "tel:+14152836736",
+   "phoneLabel": "(415) 283-6736"
+  },
+  "cases": [
+   "biofuse",
+   "kalamazoo-mortgage",
+   "behnke-logistics",
+   "foxbox-moves"
+  ],
+  "closing": {
+   "h": [
+    "Keep the plan either way. ",
+    "That is the whole offer."
+   ],
+   "blurb": "Four fields, and a named person reads it rather than an autoresponder. If you would rather just talk it through, the number on the banner is the number below and it reaches us directly."
+  },
+  "faqs": [
+   {
+    "q": "I run a small local business. Am I too small for this?",
+    "a": "No. Most of the businesses in the case studies on this page are owner-run companies in one or two towns. The plan is free to produce and it is useful at any size — if the honest answer turns out to be that you should not be spending on ads yet, we will tell you that and show you why."
+   },
+   {
+    "q": "What is the catch with the free plan?",
+    "a": "There is not one, and the plan is yours in writing at the end of the call. The catch, if you want to call it that, is that we think you will read it and conclude we are worth hiring. If you read it and hand it to your current agency instead, that is a fine outcome and it happens."
+   },
+   {
+    "q": "What does it actually cost if I do hire you?",
+    "a": "A monthly fee based on what you spend on ads and whether we also run your website. We quote it after the free review, once we have seen what is really in the account rather than guessed. There is no setup fee and no contract."
+   },
+   {
+    "q": "I already have someone doing my marketing.",
+    "a": "Then use it as a second opinion. It is read-only access, nothing changes in your account, and plenty of people go through this and stay exactly where they are. Knowing what your current spend is doing is worth an hour either way."
+   },
+   {
+    "q": "I do not have a website yet. Is that a problem?",
+    "a": "No. We build sites — that is half of what the banner says. If you are starting from nothing we will tell you what to build first and what it should cost, and the landing page that comes free with an ads engagement is often the whole thing a service business needs to start."
+   },
+   {
+    "q": "Is the free landing page really free?",
+    "a": "Yes. It is built during onboarding for every new client and there is no separate charge. On its own that build is $2,500. It goes on your domain, in your name, and it stays yours if you stop working with us."
+   },
+   {
+    "q": "Who owns the ad account?",
+    "a": "You do. Google, Microsoft, Meta and ChatGPT accounts stay in your name and you can revoke our access at any time without losing the history. We do not run clients out of our own account."
+   },
+   {
+    "q": "Is there a contract?",
+    "a": "No. We work month to month."
+   }
+  ],
+  "hero": {
+   "eyebrow": "Proud sponsor · Las Palmas Jog-A-Thon",
+   "sub": "You scanned the banner. Here is what is behind it: a written marketing plan for your business, built by a certified Google Partner, and it is yours to keep whether you hire us or not.",
+   "checks": [
+    "A real plan for your business, not a sales deck",
+    "A $2,500 landing page built free with every account",
+    "Month to month, and the ad account stays in your name"
+   ],
+   "submitLabel": "Get my free marketing plan →"
+  },
+  "pains": {
+   "h": [
+    "You do not need a marketing department. ",
+    "You need the phone to ring."
+   ],
+   "items": [
+    {
+     "t": "“I am paying someone and I cannot tell you what it does.”",
+     "d": "A monthly invoice, a PDF of charts, and no answer to the only question that matters: how many customers came from this, and what did each one cost?"
+    },
+    {
+     "t": "“My website looks fine and nobody contacts me.”",
+     "d": "Looking fine and converting are different jobs. A site built to describe your business will not out-perform a page built to get one specific person to act."
+    },
+    {
+     "t": "“I tried Google Ads and burned through the budget.”",
+     "d": "Almost always the same two causes: the ads showed for searches that were never going to buy, and the clicks landed on a homepage with nine other places to go."
+    },
+    {
+     "t": "“I do not know what I do not know.”",
+     "d": "That is fair, and it is exactly what the free plan is for. You get the findings in writing, in plain English, and you are free to hand them to someone else."
+    }
+   ]
+  },
+  "school": {
+   "name": "Las Palmas Elementary",
+   "place": "San Clemente, California",
+   "event": "Jog-A-Thon",
+   "ptaUrl": "https://www.laspalmaspta.com/shop/p/jog-a-thon-sponsorship",
+   "funds": [
+    "Meet-the-Masters",
+    "STEAM Lab",
+    "Field trips",
+    "Assemblies",
+    "The Garden",
+    "Imagination Machine"
+   ]
+  },
+  "why": {
+   "h": [
+    "We are on that banner because ",
+    "one of us is a Las Palmas parent."
+   ],
+   "body": [
+    "When the PTA opened Jog-A-Thon sponsorships, Lumin took one — the money goes to the programs below.",
+    "The QR code is the other half of it. A banner is only worth printing if the people reading it get something out of it, so this is the same offer we would make any business that called us cold: a written marketing plan for your business, free, and yours to keep."
+   ]
+  }
+ },
+ "referrals": {
+  "calc": {
+   "build": {
+    "min": 0,
+    "max": 30000,
+    "step": 500,
+    "start": 6000
+   },
+   "monthly": {
+    "min": 0,
+    "max": 15000,
+    "step": 100,
+    "start": 2000
+   }
+  },
+  "faqs": [
+   {
+    "q": "What actually counts as a referral?",
+    "a": "A named introduction to a real decision-maker: a warm email, a call, a form submission with their details. Not a list of leads, not a scraped spreadsheet. It is registered to you for 90 days from the day you make it."
+   },
+   {
+    "q": "When do I get paid?",
+    "a": "30 days after each of their invoices clears, then monthly for 12 months. Every payment comes with the invoice it was calculated from, so you can check the maths yourself."
+   },
+   {
+    "q": "What if they only buy a website and never come back?",
+    "a": "Then you earn 10% of the build and hosting, and that is the end of it. One rate on everything is the whole point. There is nothing to read twice and nothing that pays out differently depending on which service they picked."
+   },
+   {
+    "q": "Do I have to be a client to refer someone?",
+    "a": "No. Most of the best referrers are not clients. They are the accountant, the designer or the IT provider who gets asked the question. Clients get the one extra option: credit instead of cash, at 1.5× the value."
+   },
+   {
+    "q": "What happens to the person I send us?",
+    "a": "They get the same free audit as anyone else: read-only access, findings they keep either way, and a person on the phone rather than a deck. Your name is attached to that introduction, so we treat it as yours to protect."
+   },
+   {
+    "q": "Is there a cap?",
+    "a": "No cap, and no tier you have to hit before anything pays out. The first referral pays at the same rate as the tenth."
+   },
+   {
+    "q": "What if they were already talking to you?",
+    "a": "We will tell you within one business day. If they have been in an active conversation with us in the last 90 days, it is not a referral, and you will hear that from us immediately rather than discovering it when nothing arrives."
+   },
+   {
+    "q": "I'm an attorney, or I work in healthcare. Can I take a percentage?",
+    "a": "No, and we would rather say so up front. Percentage-of-revenue referral fees are restricted by state bar rules for attorneys and can implicate the federal Anti-Kickback Statute where healthcare providers are involved. Regulated referrers are offered a flat fee at fair market value, in a written agreement your compliance counsel signs off. Ask and we will send the paper."
+   },
+   {
+    "q": "Can my company be the referrer rather than me personally?",
+    "a": "Yes, and for most people it should be. Payment goes wherever the W-9 says: your business, your LLC, or you."
+   }
+  ],
+  "headline": "10% of everything a business you refer pays us, for their first 12 months.",
+  "rules": [
+   {
+    "t": "Register it before we talk to them",
+    "d": "An introduction is yours from the day you make it, for 90 days. If they come to us cold first and you register them afterwards, it is not a referral, and we will tell you that on the day rather than at invoice time."
+   },
+   {
+    "t": "Paid on money collected, never on money invoiced",
+    "d": "If a client never pays, there is nothing to share. We are not going to pay you for revenue we did not receive, and you would not want us to fund it out of the next one."
+   },
+   {
+    "t": "Never on ad spend",
+    "d": "Commission is on what the client pays GoLumin. Media budget passes straight through to Google, Meta and Microsoft. We do not mark it up and we do not pay commission on it. A $40,000 ad budget is not $4,000 to you, and any programme that says otherwise is lying to one of you."
+   },
+   {
+    "t": "Twelve months, then it stops",
+    "d": "The 10% runs for 12 months from their first paid invoice. If they leave in month four, you keep everything paid to that point and the rest simply stops. Nothing is clawed back."
+   },
+   {
+    "t": "Cash or credit, your call",
+    "d": "ACH in US dollars, or, if you are a client, 1.5× the cash value as credit against your own invoices. The credit is worth more; the cash is yours to spend. Over $600 in a year we will need a W-9 and will issue a 1099-NEC."
+   },
+   {
+    "t": "No self-dealing, no brand bidding",
+    "d": "You cannot refer a business you own or control, and you cannot bid on GoLumin's brand terms or dress up as us to collect. This is an introduction programme between people, not an affiliate link."
+   },
+   {
+    "t": "You are not the middleman",
+    "d": "After the introduction you are out of the loop unless you want to be in it. You will not be forwarded scoping threads, and we will not use you to chase an invoice."
+   }
+  ],
+  "steps": [
+   {
+    "t": "Send the intro",
+    "d": "Use the form, forward an email, or just copy us in. We need the business name and a way to reach someone who can make a decision. That registers it to you for 90 days."
+   },
+   {
+    "t": "We do the audit",
+    "d": "Same free audit everyone gets: read-only access, real findings, a person walking them through it. They keep the findings whether or not they hire us. No hard sell, because your name is on this introduction."
+   },
+   {
+    "t": "They sign, or they don't",
+    "d": "You hear which, from us, either way. If they were already in our pipeline we tell you within a day rather than letting you wonder."
+   },
+   {
+    "t": "You get paid",
+    "d": "10% of every invoice they pay, for 12 months, sent 30 days after their money clears. Monthly, by ACH, with the invoice it came from attached."
+   }
+  ],
+  "terms": {
+   "rate": 10,
+   "months": 12,
+   "creditMultiple": 1.5,
+   "window": 90,
+   "payoutDays": 30,
+   "form1099": 600
+  },
+  "who": [
+   {
+    "t": "Clients we've already earned it from",
+    "d": "You have seen the work, you know what we bill, and you are the referral a prospect actually believes. Take cash, or take it as credit on your own invoice at 1.5×.",
+    "line": "You already do this for free"
+   },
+   {
+    "t": "Designers and freelancers",
+    "d": "You build beautiful sites and have no interest in running someone's Google Ads, chasing their Maps listing or answering a call about a broken form at 9pm. Hand that part over and keep the client relationship.",
+    "line": "Keep the design work, hand off the rest"
+   },
+   {
+    "t": "IT providers and MSPs",
+    "d": "You are already the person a local business calls when something digital breaks, which means you are asked about the website constantly. It is not your line of work, but the referral is worth real money.",
+    "line": "You get asked anyway"
+   },
+   {
+    "t": "Accountants, bookkeepers and fractional CFOs",
+    "d": "You see the marketing line on the P&L and you know exactly which clients are lighting money on fire with an agency that cannot show them a lead. You are the most credible referrer on this list.",
+    "line": "You can see the wasted spend"
+   },
+   {
+    "t": "Agencies with a gap",
+    "d": "An SEO shop with no paid arm. A paid shop that will not touch a CMS. A branding studio that does not build. Send the part you do not want; we do not go after the part you do.",
+    "line": "Send the half you don't want"
+   },
+   {
+    "t": "Chambers, franchisors and trade groups",
+    "d": "You have a membership that all needs the same three things and keeps asking you who to use. A standing arrangement with terms you can publish to members is a straightforward one to set up.",
+    "line": "Your members keep asking who to use"
+   }
+  ]
+ },
+ "roles": {
+  "process": [
+   {
+    "t": "You apply",
+    "d": "The form below, or an email. Tell us what you have built or run. A link beats a résumé; a real example beats both."
+   },
+   {
+    "t": "A conversation",
+    "d": "45 minutes with a person who does the work, not a recruiter. What you would own, what we are actually like, and your questions."
+   },
+   {
+    "t": "Something real",
+    "d": "A paid exercise or a working session on an actual problem — an account, a codebase, a market. No take-home that takes your weekend."
+   },
+   {
+    "t": "Decision",
+    "d": "An answer either way, with a reason. Compensation is discussed openly at this point, against what you would own."
+   }
+  ],
+  "roles": [
+   {
+    "slug": "full-stack-engineer",
+    "title": "Full-stack engineer",
+    "n": "01",
+    "team": "Product engineering",
+    "promise": "Build the two platforms the whole agency runs on.",
+    "lede": "We built our own ads platform and our own CMS, and every client engagement runs through them. You would work across both: the agent layer that drafts the work, the approval gates that stop anything shipping on its own, and the ad-platform and publishing integrations underneath.",
+    "owns": [
+     "Features across Lumin Ads and Lumin CMS, end to end — schema, jobs, API, UI",
+     "The agent layer: tool definitions, prompt templates, evals, budgets and run lifecycle",
+     "The approval gates and guardrails — the code that makes it impossible to overspend",
+     "Integrations with Google Ads, Meta, Microsoft Advertising, ChatGPT Ads and Search Console",
+     "Making the thing fast and keeping it boring to operate"
+    ],
+    "stack": [
+     {
+      "t": "Ruby 4 and Rails 8.1",
+      "d": "Both products. Conventional Rails, no microservices, no clever architecture for its own sake."
+     },
+     {
+      "t": "Inertia.js and React 19",
+      "d": "Server-driven routing, React views. The CMS is TypeScript with the React compiler on; the ads app is still JavaScript."
+     },
+     {
+      "t": "Tailwind 4 with design tokens",
+      "d": "CSS-first config, OKLCH token layer, shadcn primitives aliased onto our own tokens. Per-tenant branding flows through CSS custom properties."
+     },
+     {
+      "t": "SQLite, one database per tenant",
+      "d": "activerecord-tenanted. Each client's data is a separate file, not a WHERE clause. No Postgres, and we are not looking to add it."
+     },
+     {
+      "t": "Solid Queue, Cache and Cable",
+      "d": "All async work, caching and websockets on the database. No Redis and no Sidekiq anywhere."
+     },
+     {
+      "t": "RubyLLM, plus a Claude Code harness",
+      "d": "Inference goes through one door — a single service class, enforced by a test that fails the build if anyone calls around it. A second executor runs Claude Code on worker boxes over MCP."
+     },
+     {
+      "t": "Kamal and Docker",
+      "d": "Self-hosted on our own boxes, deployed with Kamal. No Heroku, no Vercel, no managed platform between you and the machine."
+     },
+     {
+      "t": "Minitest, RSpec and architecture tests",
+      "d": "Including tests that assert the shape of the codebase, not just its behaviour — that every agent template is valid, that inference has one door."
+     }
+    ],
+    "need": [
+     "Real production Rails experience — you have owned a schema, a background job system and a deploy",
+     "Comfortable in React, or clearly able to get there fast",
+     "You write tests because you want the thing to keep working, not because someone asked",
+     "You can read a codebase you did not write and change it without breaking it",
+     "You explain a technical trade-off in plain language to someone non-technical"
+    ],
+    "bonus": [
+     "You have worked with an ad platform API — Google Ads, Meta Marketing, or similar",
+     "You have shipped something with an LLM in the loop and learned where it fails",
+     "You have run your own infrastructure and have opinions about it",
+     "You have built multi-tenant software and know where the sharp edges are"
+    ],
+    "honest": "Both codebases are young and moving. The ads app is mid-migration from ERB to Inertia. The CMS has RSpec but no continuous integration yet, and Capybara installed with no browser specs written. None of that is hidden from you on day one — and all of it is work somebody gets to own.",
+    "growth": "There is no engineering layer above you to wait behind. The first engineer here shapes how we build, and grows into leading the product engineering team as it grows under them.",
+    "chips": [
+     "Rails 8.1",
+     "React 19",
+     "Inertia",
+     "SQLite",
+     "Solid Queue",
+     "Kamal",
+     "LLM agents"
+    ]
+   },
+   {
+    "slug": "local-seo-ai-search",
+    "title": "Local SEO + AI search lead",
+    "n": "02",
+    "team": "Search",
+    "promise": "Own whether our clients get found — on maps, in search results, and in AI answers.",
+    "lede": "Search split in two. People still type into Google, and they also ask an assistant for a plumber, a lawyer, a storage unit near them. Both answers come from the same raw material, and you own it: the pages, the entities, the citations and the consistency across every market a client serves.",
+    "owns": [
+     "Local and AI search visibility for a book of local and multi-location clients",
+     "Location and service page systems — hundreds of pages per client, each one genuinely different",
+     "Business detail consistency across the site, listings and structured data",
+     "Directing the CMS agent crew: freshness, internal linking, metadata, schema, content gaps, cannibalisation",
+     "Being the named editor who approves what an agent drafted before it publishes"
+    ],
+    "stack": [
+     {
+      "t": "Lumin CMS",
+      "d": "Our own system. Pages, locations, collections and revisions in one place, with a page live under a minute after you approve it."
+     },
+     {
+      "t": "A crew of search agents",
+      "d": "Eight of them, each with one job and a schedule: technical SEO, metadata, schema markup, internal linking, content freshness, content gaps, cannibalisation, alt text. They research and draft. You decide."
+     },
+     {
+      "t": "Google Search Console",
+      "d": "Wired into the CMS, so query and page data sits next to the thing you would change."
+     },
+     {
+      "t": "Programmatic page systems",
+      "d": "One client has 343 town pages and 272 zip-code pages. You work at that scale without letting the pages turn into duplicates."
+     },
+     {
+      "t": "Real scheduled audits",
+      "d": "Broken link scans, content freshness reports, asset usage audits and sitemap pings run on their own and surface what needs a human."
+     }
+    ],
+    "need": [
+     "You have moved local search results for real businesses and can talk through how",
+     "You understand local search as a system — pages, listings, entities, reviews, consistency — not a checklist",
+     "You can write, and you can judge whether something an agent drafted is actually true",
+     "You are honest about what is measurable and what is not, especially with AI search",
+     "You are comfortable being the person whose name is on the approval"
+    ],
+    "bonus": [
+     "Multi-location or franchise search experience",
+     "You have worked with a headless CMS or structured content model",
+     "Technical enough to read a sitemap, a schema blob and a server log without help",
+     "You have already been experimenting with how assistants cite sources"
+    ],
+    "honest": "AI search visibility is a young discipline full of people selling certainty they do not have. We would rather you say what is controllable and what is not. That is a harder job and a more durable one.",
+    "growth": "This is the first dedicated search hire. It becomes the head of the search practice — defining the process, then hiring and leading the people who run it.",
+    "chips": [
+     "Local SEO",
+     "AI search",
+     "Lumin CMS",
+     "Search Console",
+     "Multi-location",
+     "Schema"
+    ]
+   },
+   {
+    "slug": "google-ads-manager",
+    "title": "Google Ads manager",
+    "n": "03",
+    "team": "Paid media",
+    "promise": "Run a book of Google and Microsoft accounts toward qualified leads, not cheap clicks.",
+    "lede": "Agents work the accounts around the clock — mining search terms, pacing budget, auditing conversion tracking, rewriting tired copy. Every change they want to make waits in a queue for a person. You are that person, and you are accountable for what the spend actually produced.",
+    "owns": [
+     "A book of Google Ads and Microsoft Advertising accounts, and what they deliver",
+     "The approvals queue for those accounts — approving, rejecting, and saying why",
+     "Spend caps, pacing and the conversion tracking that everything else depends on",
+     "Closing the loop: sold and lost lead outcomes fed back as offline conversions",
+     "The client relationship on media — you talk to them, not through an account manager"
+    ],
+    "stack": [
+     {
+      "t": "Lumin Ads",
+      "d": "Our own platform. Every channel in one place, one approvals queue, and a record of every change with the evidence attached."
+     },
+     {
+      "t": "An agent crew per account",
+      "d": "Waste cutter, search term harvest, budget pacing, creative refresh, growth research. Each proposes with the money at stake attached. None can apply anything."
+     },
+     {
+      "t": "Hard guardrails",
+      "d": "Spend caps enforced at the apply gate, in code. A proposal over the cap is blocked even if you approve it. You set the caps with the client."
+     },
+     {
+      "t": "Real conversion plumbing",
+      "d": "Google Tag Manager integration, call tracking, customer match, and offline conversion upload — so bidding optimises toward customers."
+     },
+     {
+      "t": "Microsoft Advertising",
+      "d": "Run as part of the same portfolio rather than an afterthought nobody logs into."
+     }
+    ],
+    "need": [
+     "You have managed Google Ads spend you were genuinely accountable for",
+     "You can audit a conversion tracking setup and find the thing that is silently broken",
+     "You think in qualified leads and cost per sale, not clicks and impressions",
+     "You can reject a confident recommendation when the evidence does not hold up",
+     "You can explain to a client why you did something, in their language"
+    ],
+    "bonus": [
+     "Microsoft Advertising experience",
+     "Local business or lead-gen experience specifically — legal, medical, home services or similar",
+     "You have worked with offline conversion imports and know why they matter",
+     "Google Ads scripts, the API, or any history of automating your own work"
+    ],
+    "honest": "The agents will find things faster than you would alone, and they will also be confidently wrong sometimes. The job is judgement at volume. If you want to hand-build every campaign yourself, you would be bored here.",
+    "growth": "Grows into leading the paid media practice across every channel — setting how accounts are run, and hiring the team that runs them.",
+    "chips": [
+     "Google Ads",
+     "Microsoft Ads",
+     "Conversion tracking",
+     "GTM",
+     "Offline conversions"
+    ]
+   },
+   {
+    "slug": "meta-ads-manager",
+    "title": "Meta Ads manager",
+    "n": "04",
+    "team": "Paid media",
+    "promise": "Own paid social as part of one portfolio, not a silo with its own scoreboard.",
+    "lede": "Meta is where the demand that has not started searching yet lives. You own it for a book of clients — creative strategy, audience structure, lead quality — inside the same approvals queue and the same feedback loop as everything else we run.",
+    "owns": [
+     "A book of Meta accounts and what they produce in qualified leads",
+     "Creative strategy and the testing cadence behind it",
+     "Lead ad quality — the difference between a form fill and someone who answers the phone",
+     "Approving or rejecting what the agents propose on your accounts",
+     "Working with the Google Ads manager as one portfolio, sized against each other"
+    ],
+    "stack": [
+     {
+      "t": "Lumin Ads",
+      "d": "Meta sits in the same platform, the same approvals queue and the same reporting as search. One place, one record."
+     },
+     {
+      "t": "Creative refresh agents",
+      "d": "They surface fatigue and draft variants. You own the brief, the judgement and the brand."
+     },
+     {
+      "t": "Lead outcomes fed back",
+      "d": "Sold and lost go back to Meta as offline conversions, so optimisation learns what a customer looks like instead of what a form fill looks like."
+     },
+     {
+      "t": "Client-owned accounts",
+      "d": "Every account stays in the client's name. You work inside their asset, with access they can revoke."
+     }
+    ],
+    "need": [
+     "You have run Meta lead generation for local businesses and know how bad a cheap lead can be",
+     "You have a real point of view on creative — what to test, and how to tell what won",
+     "You are comfortable with audience structure, exclusions and the current state of tracking",
+     "You can write a brief someone else could execute",
+     "You care what happened after the lead came in"
+    ],
+    "bonus": [
+     "You can produce or direct creative yourself",
+     "Local or multi-location business experience",
+     "You have worked with the Conversions API or offline event uploads",
+     "Any experience running paid social alongside search rather than separately"
+    ],
+    "honest": "Paid social in a lead-gen business is judged on lead quality, and lead quality data is always messier than the dashboard suggests. We would rather argue about the messy number than celebrate the clean one.",
+    "growth": "Grows into owning paid social across the book, and into the paid media leadership the practice will need as it scales.",
+    "chips": [
+     "Meta Ads",
+     "Paid social",
+     "Creative testing",
+     "Lead quality",
+     "CAPI"
+    ]
+   }
+  ],
+  "values": [
+   {
+    "t": "Teamwork",
+    "d": "Three services, one team, one record. Nobody here gets to optimise their own number at another person's expense — the whole point of the company is that the handoffs do not leak."
+   },
+   {
+    "t": "Initiative",
+    "d": "Nobody will hand you a ticket queue. You will find the problem, write up what you would do, and go. Asking permission for everything is slower than we can afford."
+   },
+   {
+    "t": "Discipline",
+    "d": "Agents propose, a named person approves, the software enforces the limits. That only works if the person signing is genuinely careful. Accuracy, follow-through, and saying no to a plausible-looking bad idea."
+   },
+   {
+    "t": "Room to grow",
+    "d": "Early team, flat structure, no layer to wait behind. The people who join now define how their function works and then lead it. Compensation is expected to move with that, and we would rather talk about it honestly than post a band we would outgrow."
+   }
+  ]
+ },
+ "site": {
+  "email": "marketing@golumin.io",
+  "phoneHref": "tel:+12695326248",
+  "phoneLabel": "(269) 532-6248"
+ },
+ "nav": {
+  "footerColumns": [
+   {
+    "t": "Services",
+    "links": [
+     {
+      "h": "/services",
+      "l": "Overview"
+     },
+     {
+      "h": "/services/websites",
+      "l": "Websites"
+     },
+     {
+      "h": "/services/local-ai-search",
+      "l": "Local + AI search"
+     },
+     {
+      "h": "/services/advertising",
+      "l": "Advertising"
+     }
+    ]
+   },
+   {
+    "t": "Company",
+    "links": [
+     {
+      "h": "/how-it-works",
+      "l": "How Lumin works"
+     },
+     {
+      "h": "/trust",
+      "l": "Trust & approvals"
+     },
+     {
+      "h": "/work",
+      "l": "Results"
+     },
+     {
+      "h": "/referrals",
+      "l": "Referral program"
+     },
+     {
+      "h": "/blog",
+      "l": "Blog"
+     },
+     {
+      "h": "/careers",
+      "l": "Careers"
+     },
+     {
+      "h": "/lets-talk",
+      "l": "Let's talk"
+     }
+    ]
+   }
+  ],
+  "primary": [
+   {
+    "href": "/services",
+    "label": "Services",
+    "desktopMenu": true,
+    "children": [
+     {
+      "href": "/services/websites",
+      "label": "Websites",
+      "note": "Edge hosting · Migrations · Multi-location"
+     },
+     {
+      "href": "/services/local-ai-search",
+      "label": "Local + AI search",
+      "note": "Google Maps · ChatGPT · Perplexity"
+     },
+     {
+      "href": "/services/advertising",
+      "label": "Advertising",
+      "note": "Google · Microsoft · Meta"
+     }
+    ]
+   },
+   {
+    "href": "/how-it-works",
+    "label": "How it works",
+    "desktopMenu": true,
+    "children": [
+     {
+      "href": "/how-it-works",
+      "label": "The operating model",
+      "note": "Agents propose · a person approves"
+     },
+     {
+      "href": "/trust",
+      "label": "Trust & approvals",
+      "note": "Access · ownership · guardrails"
+     }
+    ]
+   },
+   {
+    "href": "/work",
+    "label": "Results",
+    "children": [
+     {
+      "href": "/work/mulebox",
+      "label": "Mule Box"
+     },
+     {
+      "href": "/work/foxbox-moves",
+      "label": "FoxBox Moves"
+     },
+     {
+      "href": "/work/inbox-portable-storage",
+      "label": "Inbox Portable Storage"
+     },
+     {
+      "href": "/work/kalamazoo-mortgage",
+      "label": "Kalamazoo Mortgage"
+     },
+     {
+      "href": "/work/the-foundry",
+      "label": "The Foundry"
+     },
+     {
+      "href": "/work/wise-insurance",
+      "label": "Wise Insurance"
+     },
+     {
+      "href": "/work/white-and-white",
+      "label": "White & White Construction"
+     },
+     {
+      "href": "/work/shine-learning-alliance",
+      "label": "Shine Learning Alliance"
+     },
+     {
+      "href": "/work/biofuse",
+      "label": "BioFuse"
+     },
+     {
+      "href": "/work/behnke-logistics",
+      "label": "Behnke Dedicated & Logistics"
+     }
+    ]
+   },
+   {
+    "href": "/referrals",
+    "label": "Referrals"
+   }
+  ]
+ }
+}

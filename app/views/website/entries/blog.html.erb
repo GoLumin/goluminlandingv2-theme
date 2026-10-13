@@ -1,0 +1,81 @@
+<%# locals: (entry:) -%>
+<%# A post (blog/[slug].astro): kicker, headline, standfirst, byline and reading time; the banner art; the prose and its figures (the entry's blocks, else its Markdown) beside a contact form; the ad-account audit; two more posts. %>
+<% f = website_fields(entry) %>
+<% words = entry.body_markdown.to_s.split.size %>
+<% minutes = [1, (words / 220.0).ceil].max %>
+<% updated = f.updated_date.present? && (Time.zone.parse(f.updated_date.to_s) rescue nil) %>
+<% posts = gl_posts %>
+<% more = posts.sort_by(&:slug).reject { |p| p == entry }.first(2) %>
+<% content_for :head do %>
+  <%= gl_seo_tags(entry, title: entry.seo.to_h["meta_title"].presence || "#{entry.title} | #{gl_name}", description: f.description, image: f.share_image) %>
+  <script nonce="<%= content_security_policy_nonce %>">try { if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("fig-motion") } catch (e) {}</script>
+<% end %>
+<% content_for :sticky_cta, "Get a free audit →" %>
+<section class="relative overflow-hidden">
+  <div class="grid-paper pointer-events-none absolute inset-0 -z-10 opacity-70"></div>
+  <div class="mx-auto max-w-6xl px-5 pb-10 pt-12 md:px-8 md:pb-14 md:pt-20">
+    <p class="reveal mb-8 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[12px] uppercase tracking-[0.14em] sm:tracking-[0.18em]">
+      <a href="/blog" class="text-text-muted hover:text-text">Blog</a><span class="text-text-muted">/</span><span class="font-semibold"><%= f.eyebrow %></span>
+    </p>
+    <h1 class="reveal display display-lg max-w-4xl"><%= entry.title %></h1>
+    <p class="reveal mt-8 max-w-2xl text-xl leading-snug text-text-subtle md:text-2xl"><%= f.lede %></p>
+    <div class="reveal mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-text-muted">
+      <span><%= f.author.presence || gl_name %></span>
+      <span aria-hidden="true">·</span>
+      <time datetime="<%= entry.published_at&.iso8601 %>"><%= entry.published_at&.strftime("%B %-d, %Y") %></time>
+      <span aria-hidden="true">·</span>
+      <span><%= minutes %> min read</span>
+      <% if updated %><span aria-hidden="true">·</span><span>Updated <%= updated.strftime("%B %-d, %Y") %></span><% end %>
+    </div>
+  </div>
+</section>
+<% if f.art.present? %>
+  <section class="rule-t">
+    <div class="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-12">
+      <%= gl_image f.art, alt: "", sizes: "(min-width: 72rem) 70rem, 100vw", loading: :eager, fetchpriority: :high, class: "reveal block w-full h-auto border-2 border-text" %>
+    </div>
+  </section>
+<% end %>
+<section class="rule-t">
+  <div class="mx-auto grid max-w-6xl gap-12 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-16">
+    <article class="post">
+      <% if Array(entry.blocks).any? %>
+        <% @gl_in_post = true %>
+        <%= website_blocks entry %>
+        <% @gl_in_post = false %>
+      <% else %>
+        <%= website_markdown entry.body_markdown %>
+      <% end %>
+    </article>
+    <aside class="lg:sticky lg:top-24 lg:self-start">
+      <div class="border-2 border-text bg-surface p-6">
+        <h2 class="text-2xl font-bold tracking-tight">Let's Talk</h2>
+        <div class="mt-5"><%= render "website/shared/contact_form", prefix: "blog-side" %></div>
+      </div>
+    </aside>
+  </div>
+</section>
+<%= gl_section(tone: "subtle", id: "audit", klass: "scroll-mt-16") do %>
+  <div class="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-start md:gap-14">
+    <div class="md:sticky md:top-24">
+      <h2 class="reveal display display-md">We'll tell you how many of your ads <span class="text-primary">passed review.</span></h2>
+      <p class="reveal mt-6 max-w-md text-lg leading-snug text-text-subtle">Read-only access to the ad account, real findings written down, and you keep them whether or not you hire us.</p>
+    </div>
+    <%= render "website/shared/audit_form", prefix: "blog", audit_type: "Ad account", cta: "blog-audit" %>
+  </div>
+<% end %>
+<% if more.any? %>
+  <%= gl_section do %>
+    <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">More reading</p>
+    <ul class="mt-6 rule-t">
+      <% more.each do |post| %>
+        <li>
+          <a href="<%= website_path(post) %>" class="group flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-border py-5">
+            <span class="max-w-2xl text-xl font-bold tracking-tight group-hover:text-primary"><%= post.title %></span>
+            <span class="font-mono text-[11px] uppercase tracking-wider text-text-muted"><%= website_fields(post).eyebrow %></span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>

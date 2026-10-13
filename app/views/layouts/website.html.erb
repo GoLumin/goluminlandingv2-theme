@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="<%= website_settings["default_locale"].presence || "en" %>" class="antialiased bg-bg" data-theme="<%= website_design(:color_scheme) %>">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%# The theme's files come from the theme itself (Goluminlandingv2::AssetsController), not the asset pipeline. %>
+    <link rel="preload" href="<%= gl_asset_path("Geist-Variable.woff2") %>" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="<%= gl_asset_path("site.css") %>">
+    <%= website_design_tags %>
+    <%= yield :head %>
+    <meta name="theme-color" content="<%= website_design(:color_scheme) == "dark" ? "#0f0b17" : "#faf9fc" %>">
+    <link rel="icon" href="<%= gl_favicon_href %>">
+    <link rel="apple-touch-icon" href="<%= gl_asset_path("apple-touch-icon.png") %>">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="sitemap" href="/sitemap.xml">
+    <%= website_scripts("head") %>
+    <%= gl_javascript_tags %>
+  </head>
+  <body class="min-h-screen">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <% if content_for?(:header) %>
+      <%= yield :header %>
+    <% else %>
+      <%= render "website/shared/header" %>
+    <% end %>
+    <main id="main"><%= yield %></main>
+    <% if content_for?(:footer) %>
+      <%= yield :footer %>
+    <% else %>
+      <%= render "website/shared/footer" %>
+    <% end %>
+    <% if content_for?(:sticky_cta) && website_design(:sticky_cta) %>
+      <%= render "website/shared/sticky_cta", label: content_for(:sticky_cta) %>
+    <% end %>
+    <%= website_scripts("body") %>
+  </body>
+</html>

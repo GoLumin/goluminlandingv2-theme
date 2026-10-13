@@ -1,0 +1,51 @@
+<%# locals: (data:) -%>
+<%# What a referral is worth, with the visitor's own numbers (ReferralCalc.astro): drawn with the starting values, so it's right before calc.js runs and without it. %>
+<% rate = data.rate.to_f %>
+<% months = data.months.to_i %>
+<% credit = data.credit_multiple.to_f %>
+<% one_time = data.build.start.to_f * rate / 100 %>
+<% recurring = data.monthly.start.to_f * months * rate / 100 %>
+<% total = one_time + recurring %>
+<%= gl_section(tone: "subtle", id: data.anchor, klass: "scroll-mt-16") do %>
+  <div class="max-w-3xl">
+    <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+    <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
+    <p class="reveal mt-6 text-lg leading-snug text-text-subtle"><%= data.body %></p>
+  </div>
+  <div class="reveal mt-12">
+    <div class="border-2 border-text bg-surface shadow-[8px_8px_0_0_var(--color-text)]" data-referral-calc data-rate="<%= rate %>" data-months="<%= months %>" data-credit="<%= credit %>">
+      <div class="grid gap-x-10 gap-y-8 p-6 md:grid-cols-2 md:p-8">
+        <% [["build", "One-off work: a build or a migration", data.build], ["monthly", "What they'd pay us per month", data.monthly]].each do |key, label, cfg| %>
+          <div>
+            <label for="calc-<%= key %>" class="flex items-baseline justify-between gap-3">
+              <span class="text-[15px] font-semibold tracking-tight"><%= label %></span>
+              <output id="calc-<%= key %>-out" for="calc-<%= key %>" data-out="<%= key %>" class="font-mono text-[15px] font-semibold tabular-nums text-primary"><%= gl_money(cfg.start) %></output>
+            </label>
+            <input id="calc-<%= key %>" data-slider="<%= key %>" type="range" min="<%= cfg.min %>" max="<%= cfg.max %>" step="<%= cfg.step %>" value="<%= cfg.start %>" class="calc-range mt-4 w-full">
+            <div class="mt-1.5 flex justify-between font-mono text-[10.5px] uppercase tracking-wider text-text-muted">
+              <span><%= gl_money(cfg.min) %></span><span><%= gl_money(cfg.max) %><%= "/mo" if key == "monthly" %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="grid border-t-2 border-text sm:grid-cols-3" aria-live="polite">
+        <div class="border-b-2 border-text p-6 sm:border-b-0 sm:border-r-2">
+          <p class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-text-muted">On the one-off work</p>
+          <p data-out="onetime" class="mt-2 text-3xl font-bold tabular-nums tracking-tight md:text-4xl"><%= gl_money(one_time) %></p>
+          <p class="mt-1 text-[13px] leading-snug text-text-subtle">Paid once, <%= data.payout_days %> days after their first invoice clears.</p>
+        </div>
+        <div class="border-b-2 border-text p-6 sm:border-b-0 sm:border-r-2">
+          <p class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-text-muted">On <%= months %> months of retainer</p>
+          <p data-out="recurring" class="mt-2 text-3xl font-bold tabular-nums tracking-tight md:text-4xl"><%= gl_money(recurring) %></p>
+          <p class="mt-1 text-[13px] leading-snug text-text-subtle">Arrives monthly, with the invoice it came from.</p>
+        </div>
+        <div class="bg-bg-subtle p-6">
+          <p class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-text-muted">Per referred client</p>
+          <p data-out="total" class="mt-2 text-3xl font-bold tabular-nums tracking-tight text-primary md:text-4xl"><%= gl_money(total) %></p>
+          <p class="mt-1 text-[13px] leading-snug text-text-subtle">Or <span data-out="credit" class="font-semibold text-text tabular-nums"><%= gl_money(total * credit) %></span> as credit against your own invoices.</p>
+        </div>
+      </div>
+      <p class="border-t-2 border-text px-6 py-4 text-[13px] leading-snug text-text-subtle md:px-8"><%= data.note %></p>
+    </div>
+  </div>
+<% end %>

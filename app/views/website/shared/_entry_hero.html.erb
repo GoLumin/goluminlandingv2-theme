@@ -1,0 +1,20 @@
+<%# locals: (crumb_label:, crumb_href:, eyebrow:, heading:, lede:, chips: [], after: nil) -%>
+<%# An entry's opening (ui/PageHero.astro with its breadcrumb): back to the listing, the entry's eyebrow, its headline and standfirst. %>
+<section class="relative overflow-hidden">
+  <div class="grid-paper pointer-events-none absolute inset-0 -z-10 opacity-70"></div>
+  <div class="mx-auto max-w-6xl px-5 pb-12 pt-12 md:px-8 md:pb-16 md:pt-20">
+    <p class="reveal mb-8 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[12px] uppercase tracking-[0.14em] sm:tracking-[0.18em]">
+      <a href="<%= crumb_href %>" class="text-text-muted hover:text-text"><%= crumb_label %></a>
+      <span class="text-text-muted">/</span>
+      <span class="font-semibold"><%= eyebrow %></span>
+    </p>
+    <h1 class="reveal display display-xl max-w-5xl"><%= gl_heading(heading) %></h1>
+    <p class="reveal mt-8 max-w-2xl text-xl leading-snug text-text-subtle md:text-2xl"><%= lede %></p>
+    <% if chips.any? %>
+      <div class="reveal mt-8 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider">
+        <% chips.each do |chip| %><span class="border border-text px-2 py-1 text-text"><%= chip %></span><% end %>
+      </div>
+    <% end %>
+    <%= after %>
+  </div>
+</section>

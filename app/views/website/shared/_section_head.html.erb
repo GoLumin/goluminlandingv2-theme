@@ -1,0 +1,8 @@
+<%# locals: (data:, size: "lg", klass: "max-w-3xl") -%>
+<%# A section's eyebrow and heading, as most sections open. %>
+<div class="<%= klass %>">
+  <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+  <% if data.heading.present? %>
+    <h2 class="reveal display display-<%= size %>"><%= gl_heading(data.heading) %></h2>
+  <% end %>
+</div>

@@ -1,0 +1,33 @@
+<%# locals: (data:) -%>
+<%# The same clicks landing in three places (laspalmas.astro), every bar on one scale: the Ad landing pages global's click maths and benchmarks. %{clicks} in the heading is how many. %>
+<% ad = gl_global(:ad_landing) %>
+<% clicks = ad.click_math.clicks.to_i %>
+<% scale = ad.benchmarks.our_high.to_f.nonzero? || 1 %>
+<% leads = ->(rate) { (clicks * rate.to_f / 100).round } %>
+<% rate = ->(r) { r.hi.present? ? "#{r.rate}–#{r.hi}%" : "#{r.rate}%" } %>
+<%= gl_section(tone: "subtle") do %>
+  <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+  <h2 class="display display-md max-w-3xl"><%= gl_heading(data.heading.to_s.gsub("%{clicks}", number_with_delimiter(clicks))) %></h2>
+  <p class="mt-5 max-w-2xl text-[17px] leading-relaxed text-text-subtle"><%= data.body %></p>
+  <div class="mt-10 border-2 border-text bg-surface p-6 md:p-8">
+    <div class="space-y-7">
+      <% ad.click_math.rows.each do |r| %>
+        <div>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <p class="text-[16px] font-bold tracking-tight"><%= r.label %></p>
+            <p class="font-mono text-[13px] tabular-nums text-text-muted"><%= rate.(r) %></p>
+          </div>
+          <div class="mt-2.5 h-9 w-full border-2 border-border bg-bg">
+            <div class="<%= r.tone == "brand" ? "brand-gradient-bg h-full" : "h-full bg-text-muted" %>" style="width:<%= ((r.hi.presence || r.rate).to_f / scale * 100).round(3) %>%"></div>
+          </div>
+          <p class="mt-2 text-[14px] text-text-subtle">
+            <span class="font-mono font-semibold tabular-nums text-text"><%= r.hi.present? ? "#{leads.(r.rate)}–#{leads.(r.hi)}" : leads.(r.rate) %></span>
+            leads from <%= number_with_delimiter(clicks) %> clicks · <span class="text-text-muted"><%= r.note %></span>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    <p class="mt-8 border-t-2 border-border pt-5 text-[14px] leading-relaxed text-text-subtle"><%= ad.benchmarks.our_method %></p>
+    <p class="mt-3 font-mono text-[11px] leading-relaxed text-text-muted">Sources: <%= ad.benchmarks.landing_page_source %>. <%= ad.benchmarks.google_ads_source %>.</p>
+  </div>
+<% end %>

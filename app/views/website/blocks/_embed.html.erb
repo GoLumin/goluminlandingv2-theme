@@ -1,0 +1,7 @@
+<%# locals: (data:) -%>
+<% src = gl_href(data.url) %>
+<% if src&.start_with?("https://") %>
+  <section class="mx-auto max-w-6xl px-5 py-10 md:px-8">
+    <div class="aspect-video overflow-hidden rounded-lg border-2 border-text"><iframe src="<%= src %>" title="Embedded content" loading="lazy" allowfullscreen class="h-full w-full"></iframe></div>
+  </section>
+<% end %>

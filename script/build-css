@@ -1,0 +1,8 @@
+#!/bin/sh
+# Compiles script/site.src.css (Tailwind 4, against the theme's templates)
+# into the plain stylesheet the site serves. Run after changing a template's
+# classes or the source stylesheet; commit both.
+set -e
+cd "$(dirname "$0")/.."
+[ -d node_modules/@tailwindcss/cli ] || npm install --no-audit --no-fund --silent
+npx tailwindcss -i script/site.src.css -o app/assets/stylesheets/goluminlandingv2/site.css "$@"

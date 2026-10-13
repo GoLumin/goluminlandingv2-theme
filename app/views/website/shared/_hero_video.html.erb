@@ -1,0 +1,31 @@
+<%# locals: (title:, duration:, label:, base:, name:) -%>
+<%# The promo in the hero (HeroVideo.astro), served from media.golumin.io: nothing loads until it's near the screen, muted autoplay, sound a tap away (video.js). %>
+<% src = ->(ext) { "#{base.to_s.chomp("/")}/#{name}.#{ext}" } %>
+<figure class="hero-video reveal console overflow-hidden rounded-lg border-2 border-text bg-bg shadow-[8px_8px_0_0_oklch(0.17_0.03_292)]" style="--i:2" data-hero-video>
+  <div class="flex items-center justify-between gap-3 border-b border-border px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-text-muted">
+    <span class="flex items-center gap-2.5">
+      <span class="pulse-dot relative inline-block h-2 w-2 shrink-0 rounded-full bg-signal"></span>
+      <span class="text-text"><%= title %></span>
+    </span>
+    <span class="hidden sm:inline"><%= duration %></span>
+  </div>
+  <div class="relative aspect-video">
+    <video class="absolute inset-0 h-full w-full object-cover" poster="<%= src.("poster.webp") %>" muted loop playsinline preload="none" aria-label="<%= label %>">
+      <source data-src="<%= src.("webm") %>" type="video/webm">
+      <source data-src="<%= src.("mp4") %>" type="video/mp4">
+    </video>
+    <button type="button" data-play data-cta="hero-video-play" class="absolute inset-0 hidden items-center justify-center bg-black/30 text-white transition-colors hover:bg-black/20" aria-label="Play the video">
+      <span class="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-on-primary shadow-[0_20px_60px_-10px_rgb(139_61_255/0.8)]">
+        <svg viewBox="0 0 24 24" class="ml-1 h-8 w-8" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+      </span>
+    </button>
+    <button type="button" data-sound data-cta="hero-video-sound" class="absolute bottom-3 right-3 flex items-center gap-2 rounded-full border border-white/25 bg-black/55 px-3.5 py-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white backdrop-blur transition-colors hover:bg-black/75 md:bottom-4 md:right-4" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5 6 9H2v6h4l5 4z"/>
+        <path data-on class="hidden" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>
+        <path data-off d="m22 9-6 6M16 9l6 6"/>
+      </svg>
+      <span data-label>Sound on</span>
+    </button>
+  </div>
+</figure>

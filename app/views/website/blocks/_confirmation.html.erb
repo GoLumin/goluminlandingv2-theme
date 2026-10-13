@@ -1,0 +1,13 @@
+<%# locals: (data:) -%>
+<%# One of the thank-you page's variants (thank-you.astro): the audit's shows by default; forms.js sends the visitor here with ?form=<slug>, and site.js shows the variant for that form instead. %>
+<% back = gl_href(data.back_link) %>
+<section class="relative overflow-hidden" data-variant="<%= data.variant %>" data-form="<%= data.form %>" data-title="<%= data.title %>"<% if data.form.present? %> hidden<% end %>>
+  <div class="grid-paper pointer-events-none absolute inset-0 -z-10 opacity-70"></div>
+  <div class="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+    <p class="reveal mb-8 flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.18em]"><span class="pulse-dot relative inline-block h-2 w-2 rounded-full bg-signal"></span><%= data.eyebrow %></p>
+    <h1 class="reveal display display-xl max-w-4xl"><%= gl_heading(data.heading) %></h1>
+    <p class="reveal mt-8 max-w-xl text-xl leading-snug text-text-subtle md:text-2xl"><%= data.lede %></p>
+    <div class="mt-14"><%= render "website/shared/steps", items: data.steps.each_with_index.map { |s, i| [gl_n(i), s.title, s.body] }, h2: true %></div>
+    <% if back %><a href="<%= back %>" class="reveal mt-12 inline-flex items-center gap-2 font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text" data-back><%= data.back_label %></a><% end %>
+  </div>
+</section>

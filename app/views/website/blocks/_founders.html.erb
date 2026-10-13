@@ -1,0 +1,21 @@
+<%# locals: (data:) -%>
+<%# Who picks up: the team collection, under the Ad landing pages global's heading. %>
+<% founders = gl_global(:ad_landing).founders %>
+<%= gl_section(tone: "subtle") do %>
+  <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+  <h2 class="display display-md max-w-3xl"><%= founders.heading %></h2>
+  <p class="mt-5 max-w-2xl text-[17px] leading-relaxed text-text-subtle"><%= founders.sub %></p>
+  <div class="mt-10 grid items-start gap-px border-2 border-text bg-border md:grid-cols-2">
+    <% gl_team.each do |person| %>
+      <% p = website_fields(person) %>
+      <div class="flex h-full gap-5 bg-surface p-6 md:p-7">
+        <%= gl_image p.photo, alt: person.title, sizes: "5rem", class: "h-20 w-20 shrink-0 rounded-full border-2 border-text object-cover" %>
+        <div>
+          <p class="text-[17px] font-bold tracking-tight"><%= person.title %></p>
+          <p class="mt-0.5 font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted"><%= p.role %></p>
+          <p class="mt-3 text-[15px] leading-relaxed text-text-subtle"><%= p.bio %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<%# locals: (image:, host:, crop:) -%>
+<%# A product screenshot, optionally cropped by CSS against the original (Shot.astro). crop: "x y w h", fractions of the source. %>
+<% asset = website_image(image) %>
+<% if asset %>
+  <% w = asset[:width].to_f.nonzero? || 1600.0 %>
+  <% h = asset[:height].to_f.nonzero? || 1000.0 %>
+  <% a = w / h %>
+  <% x, y, cw, ch = crop.to_s.split.map(&:to_f) %>
+  <% view = cw ? "aspect-ratio:#{(cw * a / ch).round(5)};" : "aspect-ratio:#{a.round(5)};" %>
+  <% style = cw ? "width:#{(100 / cw).round(4)}%;margin-left:#{(-x / cw * 100).round(4)}%;margin-top:#{(-y / cw * 100 / a).round(4)}%;" : "width:100%;" %>
+  <div class="shot">
+    <% if host.present? %>
+      <div class="shot-bar"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="shot-host"><%= host %></span></div>
+    <% end %>
+    <div class="shot-view" style="<%= view %>"><%= gl_image image, sizes: "(min-width: 64rem) 80rem, 200vw", style: %></div>
+  </div>
+<% end %>
