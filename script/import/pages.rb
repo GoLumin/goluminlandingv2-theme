@@ -616,7 +616,7 @@ module GoluminImport
         "form" => {"type" => "select", "options" => ["", "application", "referral", "contact"]},
         "variant" => {"type" => "select", "options" => %w[audit referral application]},
         "figure" => {"type" => "select", "options" => %w[thermostat_vs_shift three_kinds surface_area review_timeline atomic_vs_steps insights_gap shot]},
-        "cases" => {"help" => "Case studies (work collection slugs)."},
+        "cases" => {"type" => "string_list", "help" => "Case studies (work collection slugs)."},
         "heading" => {"help" => "Mark words *for the brand gradient*, _for the underline_ or ^in violet^."}
       }
       TYPES.each do |slug, (label, category, description)|

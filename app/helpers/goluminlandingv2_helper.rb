@@ -38,7 +38,8 @@ module Goluminlandingv2Helper
   def gl_case(slug) = gl_work.find { it.slug == slug.to_s }
 
   # Case studies by slug, in the order given, skipping any that aren't live.
-  def gl_cases(slugs) = Array(slugs).filter_map { gl_case(it) }
+  # A list of work slugs; a comma- or space-separated string works too (a field typed as text).
+  def gl_cases(slugs) = (slugs.is_a?(String) ? slugs.split(/[\s,]+/) : Array(slugs)).compact_blank.filter_map { gl_case(it) }
 
   # A client's permissioned quote: the one for a case study, else the first.
   def gl_testimonial(slug = nil)
