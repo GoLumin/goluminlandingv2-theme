@@ -3,6 +3,6 @@
 <div class="<%= klass %>">
   <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
   <% if data.heading.present? %>
-    <h2 class="reveal display display-<%= size %>"><%= gl_heading(data.heading) %></h2>
+    <h2 class="<%= class_names("reveal display", "display-md": size == "md", "display-lg": size != "md") %>"><%= gl_heading(data.heading) %></h2>
   <% end %>
 </div>

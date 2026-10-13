@@ -40,9 +40,8 @@
   <div class="mx-auto grid max-w-6xl gap-12 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-16">
     <article class="post">
       <% if Array(entry.blocks).any? %>
-        <% @gl_in_post = true %>
+        <% content_for :gl_in_post, "true" %>
         <%= website_blocks entry %>
-        <% @gl_in_post = false %>
       <% else %>
         <%= website_markdown entry.body_markdown %>
       <% end %>

@@ -1,6 +1,7 @@
 // The website's entry point: the site's behaviours, each a module of its own,
 // and the few things every page does (attribution, analytics events, the
 // landing pages' headline variants, the thank-you page's variant).
+import "goluminlandingv2/attribution"
 import "goluminlandingv2/motion"
 import "goluminlandingv2/forms"
 import "goluminlandingv2/video"
@@ -9,22 +10,6 @@ import "goluminlandingv2/calc"
 import "goluminlandingv2/figures"
 
 const push = (data) => { window.dataLayer = window.dataLayer || []; window.dataLayer.push(data) }
-
-// Attribution, captured once per session so every form carries it (Base.astro).
-try {
-  const params = new URLSearchParams(location.search)
-  const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid", "msclkid", "v"]
-  const got = {}
-  keys.forEach((k) => { const x = params.get(k); if (x) got[k] = x })
-  if (Object.keys(got).length) {
-    const prev = JSON.parse(sessionStorage.getItem("lumin_attr") || "{}")
-    if (!prev.landing_path) got.landing_path = location.pathname + location.search
-    if (!prev.referrer) got.referrer = document.referrer || ""
-    sessionStorage.setItem("lumin_attr", JSON.stringify(Object.assign(prev, got)))
-  } else if (!sessionStorage.getItem("lumin_attr")) {
-    sessionStorage.setItem("lumin_attr", JSON.stringify({ landing_path: location.pathname, referrer: document.referrer || "" }))
-  }
-} catch {}
 
 // Message match on the landing pages: ?v=<key> swaps the headline (and standfirst).
 const variants = document.querySelector("[data-gl-variants]")

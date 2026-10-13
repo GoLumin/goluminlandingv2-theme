@@ -11,8 +11,6 @@
   </div>
   <p class="reveal mt-6 max-w-2xl text-lg leading-snug text-text-subtle"><%= data.lede %></p>
   <div class="mt-12 grid gap-6 lg:grid-cols-3" data-stagger>
-    <% gl_services.each do |service| %>
-      <%= render "website/shared/service_card", service: %>
-    <% end %>
+    <%= render partial: "website/shared/service_card", collection: gl_services, as: :service %>
   </div>
 <% end %>

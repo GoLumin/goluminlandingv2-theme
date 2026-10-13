@@ -29,9 +29,8 @@
         <%= gl_control(form, :company, id: id.("company"), autocomplete: "organization") %>
         <%= gl_control(form, :website_url, id: id.("website"), inputmode: "url", autocomplete: "url") %>
       </div>
-      <div class="<%= "sm:col-span-2" unless compact %>" data-spend-field<%= " hidden" unless spend %>>
-        <%= gl_control(form, :monthly_ad_spend, id: id.("spend"), required: spend, select: {prompt: "Choose one"}, data: {spend: true}) %>
-      </div>
+      <%= tag.div(gl_control(form, :monthly_ad_spend, id: id.("spend"), required: spend, select: {prompt: "Choose one"}, data: {spend: true}),
+        class: ("sm:col-span-2" unless compact), hidden: !spend, data: {spend_field: true}) %>
       <% unless compact %>
         <%= gl_control(form, :message, id: id.("message"), hint: "(optional)", wrapper: "sm:col-span-2", rows: 2) %>
       <% end %>

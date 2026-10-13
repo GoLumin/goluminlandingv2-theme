@@ -18,8 +18,7 @@
     <% if data.ctas.any? %>
       <div class="reveal mt-8 flex flex-wrap items-center gap-3"><%= gl_ctas(data.ctas) %></div>
     <% end %>
-    <% case data.items_style %>
-    <% when "roles" %>
+    <% if data.items_style == "roles" %>
       <ul class="reveal mt-12 grid rule-t sm:grid-cols-2 lg:grid-cols-4" data-stagger>
         <% gl_roles.each do |role| %>
           <% r = website_fields(role) %>
@@ -32,7 +31,7 @@
           </li>
         <% end %>
       </ul>
-    <% when "figures" %>
+    <% elsif data.items_style == "figures" %>
       <ul class="reveal mt-12 grid rule-t sm:grid-cols-2 lg:grid-cols-4" data-stagger>
         <% data.items.each do |item| %>
           <li class="reveal border-b-2 border-text py-5 sm:border-b-0 sm:border-r-2 sm:pr-5 sm:last:border-r-0 sm:[&:not(:first-child)]:pl-5 lg:[&:not(:first-child)]:pl-5">
@@ -41,7 +40,7 @@
           </li>
         <% end %>
       </ul>
-    <% when "capabilities" %>
+    <% elsif data.items_style == "capabilities" %>
       <ul class="reveal mt-12 grid rule-t sm:grid-cols-2 lg:grid-cols-4" data-stagger>
         <% data.items.each do |item| %>
           <li class="reveal border-b-2 border-text py-4 sm:border-b-0 sm:border-r-2 sm:pr-5 sm:last:border-r-0 sm:[&:not(:first-child)]:pl-5 lg:[&:not(:first-child)]:pl-5">

@@ -174,7 +174,7 @@ module GoluminImport
       body = []
       position = 0
       rest.to_enum(:scan, FIGURE).map { Regexp.last_match }.each do |match|
-        prose = rest[position...match.begin(0)].strip
+        prose = prose(rest[position...match.begin(0)].strip)
         if prose.present?
           blocks << {"type" => "text", "version" => 1, "data" => {"body" => prose}}
           body << prose
@@ -184,12 +184,35 @@ module GoluminImport
         body << "*#{figure["caption"]}*" if figure["caption"].present?
         position = match.end(0)
       end
-      tail = rest[position..].to_s.strip
+      tail = prose(rest[position..].to_s.strip)
       if tail.present?
         blocks << {"type" => "text", "version" => 1, "data" => {"body" => tail}}
         body << tail
       end
       [meta, blocks, body.join("\n\n")]
+    end
+
+    # Prose as Astro's Markdown set it: a paragraph's wrapped lines joined (the
+    # CMS keeps a line break as a <br>), and straight quotes curled, as
+    # smartypants did, outside code.
+    BLOCK_START = /\A\s*([-*+]\s|\d+\.\s|#|>|\||```|<)/
+
+    def prose(text)
+      text.split(/\n{2,}/).map do |para|
+        lines = para.split("\n")
+        joined = lines.each_with_object([]) do |line, out|
+          if out.any? && !line.match?(BLOCK_START) && !out.last.match?(/\A\s*(\||```)/)
+            out[-1] = "#{out.last.rstrip} #{line.strip}"
+          else
+            out << line
+          end
+        end.join("\n")
+        joined.split(/(`[^`]*`)/).map { it.start_with?("`") ? it : curl(it) }.join
+      end.join("\n\n")
+    end
+
+    def curl(text)
+      text.gsub(/(^|[\s(\[—–-])"/, '\1“').gsub('"', "”").gsub(/(^|[\s(\[—–-])'/, '\1‘').gsub("'", "’")
     end
 
     def figure_block(attrs, inner)

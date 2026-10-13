@@ -21,7 +21,7 @@
               <span class="text-[15px] font-semibold tracking-tight"><%= label %></span>
               <output id="calc-<%= key %>-out" for="calc-<%= key %>" data-out="<%= key %>" class="font-mono text-[15px] font-semibold tabular-nums text-primary"><%= gl_money(cfg.start) %></output>
             </label>
-            <input id="calc-<%= key %>" data-slider="<%= key %>" type="range" min="<%= cfg.min %>" max="<%= cfg.max %>" step="<%= cfg.step %>" value="<%= cfg.start %>" class="calc-range mt-4 w-full">
+            <input id="calc-<%= key %>" data-slider="<%= key %>" type="range" min="<%= cfg.min %>" max="<%= cfg.max %>" step="<%= cfg.step %>" value="<%= cfg.start %>" class="calc-range mt-4 w-full" autocomplete="off">
             <div class="mt-1.5 flex justify-between font-mono text-[10.5px] uppercase tracking-wider text-text-muted">
               <span><%= gl_money(cfg.min) %></span><span><%= gl_money(cfg.max) %><%= "/mo" if key == "monthly" %></span>
             </div>

@@ -28,7 +28,7 @@
     </div>
   <% end %>
 <% end %>
-<%= render "website/shared/lp_hero", entry:, lp:, extra:,
+<%= render "website/shared/lp_hero", entry:, lp:, extra:, top: "md:pt-14",
   form: render("website/shared/audit_form", prefix: "lp-#{entry.slug}-hero", compact: true, cta: cta.("hero-form"), audit_type: lp.audit_type, lock_type: true, submit_label: lp.submit_label,
     kicker: "Free marketing plan", heading: "Built on your account. Yours to keep.", blurb: ad.plan.effort, note: ad.plan.refrain) %>
 

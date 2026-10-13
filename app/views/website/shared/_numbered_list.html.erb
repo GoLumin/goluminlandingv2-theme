@@ -3,14 +3,13 @@
 <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-14">
   <div class="md:sticky md:top-24 md:self-start">
     <%= gl_eyebrow(eyebrow, eyebrow_n) %>
-    <h2 class="reveal display display-<%= size %>"><%= gl_heading(heading) %></h2>
+    <h2 class="<%= class_names("reveal display", "display-md": size == "md", "display-lg": size != "md") %>"><%= gl_heading(heading) %></h2>
     <% if body.present? %><p class="reveal mt-6 max-w-md text-lg leading-snug text-text-subtle"><%= body %></p><% end %>
     <% if ctas.any? %><div class="reveal mt-8 flex flex-wrap gap-3"><%= gl_ctas(ctas, size: :md) %></div><% end %>
   </div>
   <ol class="rule-t" data-stagger>
     <% items.each_with_index do |(title, text, label), i| %>
-      <% case marker %>
-      <% when "dot" %>
+      <% if marker == "dot" %>
         <li class="reveal flex items-start gap-4 border-b border-border py-4">
           <%= gl_dot("mt-[9px] h-2 w-2") %>
           <div>
@@ -18,7 +17,7 @@
             <p class="mt-1 text-[15px] leading-snug text-text-subtle"><%= text %></p>
           </div>
         </li>
-      <% when "tag" %>
+      <% elsif marker == "tag" %>
         <li class="reveal border-b border-border py-6">
           <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <span class="tag font-mono text-[11px] text-text-muted"><%= gl_n(i) %></span>

@@ -20,7 +20,7 @@
           <% if item[:menu] && item[:children].any? %>
             <div class="group relative">
               <a href="<%= item[:href] %>" class="<%= class_names("flex items-center gap-1.5 transition-colors hover:text-text", "text-text": gl_active?(item[:href])) %>">
-                <%= item[:label] %><svg class="mt-px transition-transform group-hover:translate-y-0.5" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                <%= item[:label] %><svg class="mt-px transition-transform group-hover:translate-y-0.5" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </a>
               <div class="invisible absolute -left-4 top-full w-64 pt-4 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                 <ul class="border-2 border-text bg-surface shadow-[6px_6px_0_0_var(--color-text)]">
@@ -50,7 +50,7 @@
               <details class="nav-group border-b border-border">
                 <summary class="<%= class_names("flex cursor-pointer list-none items-center justify-between px-5 py-4 text-[17px] font-semibold tracking-tight", "text-primary": gl_active?(item[:href])) %>">
                   <%= item[:label] %>
-                  <svg class="chev shrink-0 text-text-muted transition-transform duration-200" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  <svg class="chev shrink-0 text-text-muted transition-transform duration-200" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
                 </summary>
                 <ul class="bg-bg-subtle pb-1">
                   <% unless item[:children].any? { |c| c[:href] == item[:href] } %>

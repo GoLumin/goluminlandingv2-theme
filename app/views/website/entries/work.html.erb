@@ -162,7 +162,7 @@
       <h2 class="reveal display display-md">More work.</h2>
       <a href="/work" class="reveal font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text">All case studies →</a>
     </div>
-    <div class="mt-10 grid gap-6 md:grid-cols-2" data-stagger><% more.each do |study| %><%= render "website/shared/case_card", study: %><% end %></div>
+    <div class="mt-10 grid gap-6 md:grid-cols-2" data-stagger><%= render partial: "website/shared/case_card", collection: more, as: :study %></div>
   </div>
 </section>
 

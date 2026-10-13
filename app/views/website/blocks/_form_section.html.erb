@@ -11,10 +11,9 @@
       </ul>
       <% if data.footnote.present? %><%= render "website/shared/inline_markdown", text: data.footnote, klass: "reveal mt-8 text-[15px] text-text-subtle" %><% end %>
     </div>
-    <% case data.form %>
-    <% when "application" %><%= render "website/shared/apply_form" %>
-    <% when "referral" %><%= render "website/shared/referral_form" %>
-    <% when "contact" %><%= render "website/shared/contact_form", prefix: "contact" %>
+    <% if data.form == "application" %><%= render "website/shared/apply_form" %>
+    <% elsif data.form == "referral" %><%= render "website/shared/referral_form" %>
+    <% elsif data.form == "contact" %><%= render "website/shared/contact_form", prefix: "contact" %>
     <% end %>
   </div>
 <% end %>

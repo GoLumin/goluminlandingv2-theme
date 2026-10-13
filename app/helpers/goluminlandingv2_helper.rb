@@ -7,7 +7,7 @@
 module Goluminlandingv2Helper
   INLINE_EDIT_MARKS = [Website::InlineEdit::START, Website::InlineEdit::FINISH, *Website::InlineEdit::DIGITS].join
   GL_DIGESTS = {} # rubocop:disable Style/MutableConstant
-  GL_MODULES = %w[site motion forms video metrics calc figures].freeze
+  GL_MODULES = %w[site attribution motion forms video metrics calc figures].freeze
   # The attribution a form carries (lead-forms.js fills them from the session).
   ATTRIBUTION = %w[utm_source utm_medium utm_campaign utm_term utm_content gclid fbclid msclkid v landing_path referrer source form_path].freeze
 
@@ -106,10 +106,11 @@ module Goluminlandingv2Helper
     magnet ? tag.span(button, class: "magnet-zone") : button
   end
 
-  # A block's buttons ({label, link, style}), the first magnetic and large.
+  # A block's buttons ({label, link, style}; the core blocks' {label, url,
+  # style}), the first magnetic and large.
   def gl_ctas(ctas, size: :lg, cta: nil)
     safe_join(Array(ctas).each_with_index.filter_map do |item, index|
-      href = gl_href(item.link) or next
+      href = gl_href(item.respond_to?(:link) ? item.link : item.url) or next
       gl_button(item.label, href, variant: item.style, size:, magnet: index.zero? && item.style.to_s.in?(["", "ink", "primary"]), cta: cta && "#{cta}-#{index + 1}")
     end)
   end
