@@ -133,13 +133,13 @@
     <div class="border-t-2 border-text bg-bg-subtle px-5 py-4 md:px-7">
       <p class="text-[13px] leading-relaxed text-text-subtle">
         <span class="font-semibold text-text">Where these come from.</span>
-        The typical landing page figure is the median of 41,000 pages in the <span class="font-semibold"><%= ad.benchmarks.landing_page_source.to_s.split(" — ").first %></span>. The Google Ads average is the all-industries figure from the <span class="font-semibold"><%= ad.benchmarks.google_ads_source.to_s.split(",").first %></span>.
+        The typical landing page figure is the median of 41,000 pages in the <span class="font-semibold"><%= ad.benchmarks.landing_page_source.to_s.split(",").first %></span>. The Google Ads average is the all-industries figure from the <span class="font-semibold"><%= ad.benchmarks.google_ads_source.to_s.split(",").first %></span>.
         <%= ad.benchmarks.our_method %>
       </p>
     </div>
   </div>
   <p class="reveal mt-8 max-w-3xl text-lg leading-snug text-text-subtle">
-    At the same cost per click, that difference is <span class="font-semibold text-text"><%= multiple.(ad.benchmarks.our_low) %> to <%= multiple.(ad.benchmarks.our_high) %> times the leads</span> from a budget you are already spending. It is the cheapest thing you can fix in a Google Ads account, and it is the thing almost nobody fixes — which is why we stopped charging for it.
+    At the same cost per click, that difference is <span class="font-semibold text-text"><%= multiple.(ad.benchmarks.our_low) %> to <%= multiple.(ad.benchmarks.our_high) %> times the leads</span> from a budget you are already spending. It is the cheapest thing you can fix in a Google Ads account, and it is the thing almost nobody fixes, which is why we stopped charging for it.
   </p>
 <% end %>
 
@@ -154,7 +154,7 @@
         <span class="text-[30px] font-bold leading-none tracking-[-0.045em] tabular line-through decoration-[2.5px] decoration-danger"><%= ad.offer.value %></span>
         <span class="text-[17px] font-bold text-primary">$0</span>
       </div>
-      <p class="reveal mt-6 text-[14px] leading-snug text-text-muted">One page per campaign to start. More as the account earns them — each one written for a different search, because that is what makes them work.</p>
+      <p class="reveal mt-6 text-[14px] leading-snug text-text-muted">One page per campaign to start. More as the account earns them, each one written for a different search, because that is what makes them work.</p>
     </div>
     <ol class="rule-t" data-stagger>
       <% ad.offer.includes.each_with_index do |item, i| %>
@@ -171,7 +171,7 @@
   <div class="max-w-3xl">
     <%= gl_eyebrow("Built by us, live now", "Our work") %>
     <h2 class="reveal display display-lg">The pages your ads would land on. <span class="mark">All of these are live.</span></h2>
-    <p class="reveal mt-6 text-lg leading-snug text-text-subtle">Landing pages, quote flows and full sites we designed, built and host — every one of them taking leads for a client right now. Open any address below and check it. The page we build for you is made the same way, and it is included.</p>
+    <p class="reveal mt-6 text-lg leading-snug text-text-subtle">Landing pages, quote flows and full sites we designed, built and host, every one of them taking leads for a client right now. Open any address below and check it. The page we build for you is made the same way, and it is included.</p>
   </div>
   <div class="mt-12 grid gap-6 sm:grid-cols-2" data-stagger>
     <% gallery.each do |study| %>
@@ -353,4 +353,4 @@
 
 <%= render "website/shared/audit_section", eyebrow: "Free plan", heading: lp.closing.h, blurb: lp.closing.blurb, audit_type: lp.audit_type, lock_type: true, submit_label: lp.submit_label,
   note: ad.plan.refrain, prefix: "lp-#{entry.slug}-footer",
-  bullets: ["The written plan is yours, hired or not", "Read-only access — nothing in your account changes", "A landing page built free if you do come on board"] %>
+  bullets: ["The written plan is yours, hired or not", "Read-only access, nothing in your account changes", "A landing page built free if you do come on board"] %>

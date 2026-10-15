@@ -115,7 +115,7 @@ module GoluminImport
       @work = collection("work", name: "Case studies", icon: "Briefcase", fields:)
       D["work"]["work"].zip(list).each do |raw, c|
         vertical = raw["vertical"].split("·").first.strip
-        entry(@work, raw["slug"], title: raw["name"], frontmatter: c, seo: seo("#{raw["name"]} — #{vertical} Case Study | GoLumin", raw["seoDescription"]))
+        entry(@work, raw["slug"], title: raw["name"], frontmatter: c, seo: seo("#{raw["name"]}: #{vertical} Case Study | GoLumin", raw["seoDescription"]))
       end
     end
 
@@ -381,7 +381,7 @@ module GoluminImport
           text.("company", "Business"), text.("message", "What should we talk about?", required: true, type: "textarea")
         ]},
         "application" => {title: "Application", submit: "Send my application →", fields: [
-          {"name" => "role", "label" => "Which role?", "type" => "select", "required" => true, "options" => opts.(*role_titles) + [{"value" => "Something else", "label" => "Something else — I'll explain below"}]},
+          {"name" => "role", "label" => "Which role?", "type" => "select", "required" => true, "options" => opts.(*role_titles) + [{"value" => "Something else", "label" => "Something else, I'll explain below"}]},
           text.("name", "Name", required: true), text.("email", "Email", required: true, type: "email"),
           text.("links", "Links", placeholder: "github.com/you, yoursite.com"),
           text.("message", "What have you built or run?", required: true, type: "textarea", placeholder: "One specific thing you owned, and what happened. We would rather read that than a summary of your career.")

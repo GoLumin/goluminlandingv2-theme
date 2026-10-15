@@ -27,7 +27,7 @@ module GoluminImport
       b("audit_form", {
         "eyebrow" => "Free audit", "heading" => "Pick the audit you actually need.",
         "blurb" => "Website, local and AI search, ad account, or all three. Read-only access, real findings on your own accounts, and a person who walks you through them. You keep the findings either way.",
-        "bullets" => ["Read-only access — nothing changes", "No obligation, no slide deck", "This form is a lead in our own inbox, timer running on us"],
+        "bullets" => ["Read-only access, nothing changes", "No obligation, no slide deck", "This form is a lead in our own inbox, timer running on us"],
         "audit_type" => D["services"]["auditTypes"].first, "lock_type" => false, "submit_label" => "Request my free audit →",
         "note" => "No obligation. Read-only access.", "prefix" => "footer", "tone" => "subtle"
       }.merge(overrides.transform_keys(&:to_s)))
@@ -36,7 +36,7 @@ module GoluminImport
     def service_cards(**overrides)
       b("service_cards", {
         "eyebrow_n" => "What we do", "eyebrow" => "The offer", "heading" => "Three services. Strongest together.",
-        "lede" => "Buy one, or buy the system. Each is a complete service on its own — and each one makes the other two work better, because one team runs all three off the same data.",
+        "lede" => "Buy one, or buy the system. Each is a complete service on its own, and each one makes the other two work better, because one team runs all three off the same data.",
         "link_label" => "How they fit together →", "link" => u("/services"), "tone" => "bg"
       }.merge(overrides.transform_keys(&:to_s)))
     end
@@ -59,11 +59,11 @@ module GoluminImport
       b("platforms", {
         "eyebrow_n" => "Why we're different", "eyebrow" => "The operating system",
         "heading" => "Most agencies rent their tools. *We built ours.*",
-        "body" => "Two platforms we wrote and run ourselves. They are how the work gets done faster and gets recorded properly — not a product you have to learn. Most clients never log in.",
+        "body" => "Two platforms we wrote and run ourselves. They are how the work gets done faster and gets recorded properly, not a product you have to learn. Most clients never log in.",
         "items" => [
           {"anchor" => "cms", "number" => "01", "name" => "Lumin CMS", "role" => "The web and search layer",
            "heading" => "Publishes your site, and keeps working on it.",
-           "body" => "Pages, locations, forms and revisions live in one system of record. A crew of agents each own one job — freshness, internal links, structured data, location pages, metadata — and run it on a schedule. Every edit to a live page is a revision waiting for an editor.",
+           "body" => "Pages, locations, forms and revisions live in one system of record. A crew of agents each own one job (freshness, internal links, structured data, location pages, metadata) and run it on a schedule. Every edit to a live page is a revision waiting for an editor.",
            "bullets" => ["Edits live in under a minute", "Migrations preserve every URL", "Location data held once, published everywhere", "Agents draft, an editor approves"],
            "image" => asset("/screens/cms-agents.webp", alt: "The website agents in Lumin CMS and the jobs each one runs"),
            "caption" => "The website crew in Lumin CMS. One job each, on a schedule.", "flip" => false},
@@ -85,7 +85,7 @@ module GoluminImport
         "eyebrow_n" => "The human gate", "eyebrow" => "Who signs", "heading" => "Agents do the work. _A person signs for it._",
         "body" => "Nothing consequential reaches a live account or a live page on its own. Four roles, in order, every time.",
         "roles" => [
-          ["The agent", "proposes.", "Every change is written up first: what, why, and the evidence — including the money at stake. It has no ability to apply anything."],
+          ["The agent", "proposes.", "Every change is written up first: what, why, and the evidence, including the money at stake. It has no ability to apply anything."],
           ["A GoLumin operator", "approves.", "A named person signs or rejects. Never their own work. Their name stays on the record next to the change."],
           ["The software", "enforces.", "Spend caps are hard limits at the apply gate. A change over the cap cannot apply, even after a human approves it."],
           ["You", "can stop it.", "One switch pauses every agent on your account, instantly, without a support ticket or a phone call."]
@@ -102,9 +102,9 @@ module GoluminImport
         "stats" => [
           ["<1 min", "Approved edit to live page", "A property of the CMS, not a service-level promise. The publish is the deploy."],
           ["0", "Changes applied without a named approver", "Agents have no apply permission. Every consequential change carries a person's name."],
-          ["Hard", "Spend caps, enforced in code", "A proposal over the cap is blocked at the apply gate — even when a human has approved it."]
+          ["Hard", "Spend caps, enforced in code", "A proposal over the cap is blocked at the apply gate, even when a human has approved it."]
         ].map { |v, l, d| {"value" => v, "label" => l, "body" => d} },
-        "body" => "Outcome numbers — leads, cost per qualified lead, revenue — belong to a client and a timeframe, so we publish them on the case study that can carry the baseline and the method, not in a headline.",
+        "body" => "Outcome numbers (leads, cost per qualified lead, revenue) belong to a client and a timeframe, so we publish them on the case study that can carry the baseline and the method, not in a headline.",
         "link_label" => "%{count} client sites live today →", "link" => u("/work")
       })
     end
@@ -166,7 +166,7 @@ module GoluminImport
     def run
       puts "== pages"
       @all = {}
-      add "home", "Home", seo("Full-Service Marketing Agency — Web, Search & Ads | GoLumin",
+      add "home", "Home", seo("Full-Service Marketing Agency: Web, Search & Ads | GoLumin",
         "Marketing agency for local and multi-location businesses. We build websites, win local and AI search, and run your ads as one system. Get a free audit."), home
       add "services", "Services", seo("Marketing Services: Web, Local + AI Search & Ads | GoLumin",
         "Three marketing services run as one system: websites, local and AI search, and paid advertising. See what each includes and request a free audit."), services_page
@@ -179,9 +179,9 @@ module GoluminImport
       add "blog", "Blog", seo("Blog: Paid Media, Local & AI Search Notes | GoLumin",
         "Notes from running websites, local and AI search, and advertising on our own platforms. What actually changed, and what it means for the accounts we run."), blog_index
       add "careers", "Careers", seo("Careers: Marketing & Engineering Jobs | GoLumin",
-        "Open marketing and engineering roles at GoLumin — Google Ads, Meta Ads, local and AI search, and full-stack engineering. See the openings and apply."), careers
+        "Open marketing and engineering roles at GoLumin: Google Ads, Meta Ads, local and AI search, and full-stack engineering. See the openings and apply."), careers
       add "lets-talk", "Let's talk", seo("Contact GoLumin: Request a Free Marketing Audit",
-        "Call (269) 532-6248 or send the form. A named person at GoLumin reads every enquiry — read-only access, real findings on your own accounts, and no obligation."), lets_talk
+        "Call (269) 532-6248 or send the form. A named person at GoLumin reads every enquiry. Read-only access, real findings on your own accounts, and no obligation."), lets_talk
       add "referrals", "Referrals", seo("Referral Program: Earn 10% for 12 Months | GoLumin",
         "Refer a business to GoLumin and earn 10% of everything they pay us for their first 12 months: websites, local and AI search, and advertising. No cap, no tiers."), referrals
       add "privacy", "Privacy", seo("Privacy Policy | GoLumin", "How GoLumin handles information submitted on this page.", noindex: true), privacy
@@ -190,7 +190,7 @@ module GoluminImport
       add "not-found", "Page not found", seo("Page not found | GoLumin",
         "That page doesn't exist. Find GoLumin's services, results and contact details here.", noindex: true), not_found
       add "laspalmas", "Las Palmas Jog-A-Thon", seo("Lumin at the Las Palmas Jog-A-Thon | Free Marketing Plan",
-        "Lumin sponsors the Las Palmas Elementary Jog-A-Thon in San Clemente. Websites, digital advertising and AI for local businesses — plus a free marketing plan you keep.").merge(
+        "Lumin sponsors the Las Palmas Elementary Jog-A-Thon in San Clemente. Websites, digital advertising and AI for local businesses, plus a free marketing plan you keep.").merge(
           "og_image_id" => asset("/laspalmas-banner.jpg", alt: "The Lumin banner at the Las Palmas Elementary Jog-A-Thon").to_s), laspalmas
       block_types
       @all.each { |path, (title, seo, blocks)| page(path, title:, seo:, blocks:) }
@@ -204,7 +204,7 @@ module GoluminImport
         b("home_hero", {
           "eyebrow" => "GoLumin", "badge_label" => "We're hiring", "badge_link" => u("/careers"),
           "heading" => "More calls. *More clients.*",
-          "lede" => "Web, search and ads, run as one growth system — for local and multi-location businesses.",
+          "lede" => "Web, search and ads, run as one growth system for local and multi-location businesses.",
           "body" => "Law firms, medical and dental practices, mortgage and insurance, home services, storage and moving. We connect your site, your local and AI visibility and your paid media, through software we built and people you can reach.",
           "video_title" => "GoLumin in 44 seconds", "video_duration" => "0:44",
           "video_base" => "https://media.golumin.io/video", "video_name" => "golumin-promo-v2",
@@ -238,7 +238,7 @@ module GoluminImport
         service_cards(tone: "subtle", heading: "Three services. One repeatable way of working.",
           lede: "Each one stands alone. Each one hands something to the next. Below each card is the page that shows the work in detail."),
         numbered(eyebrow_n: "The outcome", eyebrow: "What you're buying", heading: "Three services. ^One promise.^", tone: "bg",
-          body: "More qualified demand, captured and improved as one system — rather than pages, listings, campaigns, forms and calls living in separate agency silos that never speak to one another.",
+          body: "More qualified demand, captured and improved as one system, rather than pages, listings, campaigns, forms and calls living in separate agency silos that never speak to one another.",
           items: items([
             ["More qualified demand", "Not more traffic and not more form fills. The leads your team would actually want to call back."],
             ["One team accountable", "From the search someone makes to the lead your phone rings with. No handoff for a problem to fall through."],
@@ -254,7 +254,7 @@ module GoluminImport
                     ]}),
         engagement,
         faq([
-          ["Can I buy the services separately?", "Yes. Web, local and AI search, and advertising are each a complete service. The recommended engagement is all three, because that is the only shape where the feedback loop actually closes — but it is a recommendation, not a requirement."],
+          ["Can I buy the services separately?", "Yes. Web, local and AI search, and advertising are each a complete service. The recommended engagement is all three, because that is the only shape where the feedback loop actually closes, but it is a recommendation, not a requirement."],
           ["Who is this for?", "Local and multi-location businesses where a phone call or a form is the sale: law firms, medical and dental practices, mortgage and insurance, home services and trades, storage and moving. The channel mix differs by category; the operating model does not."],
           ["Who is it not for?", "Ecommerce catalogues, app installs, and anyone who wants a vendor to execute a plan they have already written. We take accountability for the outcome, which means having opinions about the plan."],
           ["Do I have to use your CMS?", "Only if we build or run the site. We manage ads for plenty of businesses whose sites live somewhere else."],
@@ -267,12 +267,12 @@ module GoluminImport
     def how_it_works
       [
         page_hero(eyebrow: "How Lumin works · the operating model", heading: "Agents propose. *People approve.* Software enforces the limits.",
-          lede: "We are an agency, not a software vendor. But the reason a small team can run your web, search and ads together — and show you a record of every change — is that we wrote the software we run them with.",
+          lede: "We are an agency, not a software vendor. But the reason a small team can run your web, search and ads together, and show you a record of every change, is that we wrote the software we run them with.",
           chips: ["Lumin CMS", "Lumin Ads", "Scheduled agents", "Human approvals", "Hard caps"],
           ctas: [cta("Request a free audit", "#audit"), cta("Read the trust page", "/trust", "outline")]),
         numbered(eyebrow_n: "The model", eyebrow: "What you're hiring", heading: "Four things that make ^this different.^", items: items([
           ["A small team, not a pod", "You get named people, not an account-manager layer in front of the people doing the work. The person who approves a change is someone you can email."],
-          ["Agents on schedules", "Each agent has one job — mine search terms, pace budget, audit tracking, flag stale pages — and a shift it runs on. They inspect and propose; they cannot apply."],
+          ["Agents on schedules", "Each agent has one job (mine search terms, pace budget, audit tracking, flag stale pages) and a shift it runs on. They inspect and propose; they cannot apply."],
           ["One approvals queue", "Web changes and ad changes land in the same place, with the evidence attached. That is why the two sides of your marketing stay in step."],
           ["A record that outlives us", "Every applied change carries what, why, who approved it and when. If you leave, the accounts, the content and the history are yours."]
         ])),
@@ -293,7 +293,7 @@ module GoluminImport
         faq([
           ["What exactly can an agent do without a human?", "Read. Agents have read access to your accounts and content, and no apply permission. They can inspect, research, draft and propose. Applying anything consequential requires a named approver, and the spend caps are enforced separately at the apply gate."],
           ["Which model runs the agents?", "The agents are driven through Claude and local harnesses. Which model runs a given job is an implementation detail we change when a better one ships; the approval gate and the caps do not change with it."],
-          ["What happens if an agent proposes something bad?", "It gets rejected, and the rejection is part of the record. A proposal that exceeds a hard cap never reaches an approver's judgement at all — it is blocked at the apply gate."],
+          ["What happens if an agent proposes something bad?", "It gets rejected, and the rejection is part of the record. A proposal that exceeds a hard cap never reaches an approver's judgement at all. It is blocked at the apply gate."],
           ["Can I see the queue?", "Yes. Clients who want visibility get access to the approvals history for their own account. Most prefer the weekly email, so that is the default."],
           ["Do I have to learn your software?", "No. Most clients never log in. The deliverable is the marketing, not the tool."]
         ].map { |q, a| {"question" => q, "answer" => a} }, heading: "What people ask about the agents."),
@@ -316,9 +316,9 @@ module GoluminImport
                           "style" => "ruled", "tone" => "bg", "items" => [
                             ["Account ownership", "Your Google, Microsoft, Meta and ChatGPT ad accounts stay in your name, with you as owner. We are granted access, and you can revoke it from your own account settings without losing a day of history. Same for the domain, the phone numbers, and the content."],
                             ["Data access", "We ask for read-only access to start, on the ad accounts and analytics. Write access comes only after onboarding, and only for what you have agreed to. We do not need, and do not ask for, access to your CRM billing, payroll, or customer records beyond the lead data you route to us."],
-                            ["Model use", "The agents are driven through Claude and local harnesses. Your account data is used to do your work — inspect, research, draft — and is not sold, shared with other clients, or used to train a third-party model. Which model runs a given job is an implementation detail; the approval gate does not change with it."],
+                            ["Model use", "The agents are driven through Claude and local harnesses. Your account data is used to do your work (inspect, research, draft) and is not sold, shared with other clients, or used to train a third-party model. Which model runs a given job is an implementation detail; the approval gate does not change with it."],
                             ["Human approvals", "Every consequential change is approved by a named person at GoLumin before it applies. Approvers do not approve their own proposals. The name, the timestamp and the agent's original reasoning stay attached to the change."],
-                            ["Spend limits", "Caps are enforced at the apply gate, in code, not by policy. A proposal over the per-change cap is blocked and shown to you as blocked — an approval does not override it. You set the caps during onboarding and can lower them at any time."],
+                            ["Spend limits", "Caps are enforced at the apply gate, in code, not by policy. A proposal over the per-change cap is blocked and shown to you as blocked. An approval does not override it. You set the caps during onboarding and can lower them at any time."],
                             ["Audit history", "Applied changes, rejected proposals and blocked ones all stay on the record, with the evidence that was attached at the time. Clients who want to see the queue get access to their own account's history."],
                             ["Pause and offboarding", "One switch pauses every agent on your account, instantly, without a support ticket. If you leave, the ad accounts are already yours, the content is portable, and the URLs are yours. We do not hold anything hostage as leverage on a renewal."],
                             ["Retention", "We keep lead and change records for as long as you are a client and for a reasonable period afterwards so the history stays intact. Ask and we will delete what is ours to delete. See the privacy page for the formal version."]
@@ -328,7 +328,7 @@ module GoluminImport
           items: items([
             ["Portfolio result", "Aggregated across clients we run. Always carries the sample and the window."],
             ["Representative client result", "One named client, one timeframe, with the baseline and where the number came from."],
-            ["Operating benchmark", "A property of how the platform runs — publish time, cap enforcement, change frequency — verifiable in the product."]
+            ["Operating benchmark", "A property of how the platform runs (publish time, cap enforcement, change frequency), verifiable in the product."]
           ])),
         b("callout", {"heading" => "Something here not answered?", "body" => "Email a person. We would rather answer an awkward question before you sign than after.",
                       "button_label" => "Email marketing@golumin.io", "button_link" => u("mailto:marketing@golumin.io"),
@@ -343,7 +343,7 @@ module GoluminImport
           lede: "A selection from our client work, one case study each: what the business needed, what we built, and the numbers as they stand on the live site today. Every figure is counted from the sitemap or the pages at capture, not from a deck."),
         case_studies(eyebrow_n: "", eyebrow: "", heading: "", body: "", all: true, link_label: "",
           note_lead: "On the numbers.",
-          note: "What you see here is build evidence — what exists, at what scale, on a live site we are responsible for. Client performance data belongs to the client, so we publish it only where they have agreed, and with the baseline, the timeframe and the method attached."),
+          note: "What you see here is build evidence: what exists, at what scale, on a live site we are responsible for. Client performance data belongs to the client, so we publish it only where they have agreed, and with the baseline, the timeframe and the method attached."),
         audit_form
       ]
     end
@@ -372,8 +372,8 @@ module GoluminImport
                     "items" => D["roles"]["process"].each_with_index.map { |s, i| {"kicker" => format("%02d", i + 1), "title" => s["t"], "body" => s["d"]} },
                     "note" => "On pay: we'd rather talk about it openly against what you'd actually own than post a band we'd outgrow in a year. Bring your number to the first call and we'll be straight with you."}),
         b("form_section", {"form" => "application", "eyebrow_n" => "Apply", "eyebrow" => "Start here", "heading" => "Tell us about ^one thing you built.^",
-                           "body" => "Not your whole career — one specific thing you owned and what happened to it. That tells us more than a résumé does, and it's what we'll want to talk about anyway.",
-                           "bullets" => ["A person reads every application", "Links beat attachments — GitHub, a site you run, an account you turned around", "No role that fits? Say so in the message and pick 'Something else'"],
+                           "body" => "Not your whole career, just one specific thing you owned and what happened to it. That tells us more than a résumé does, and it's what we'll want to talk about anyway.",
+                           "bullets" => ["A person reads every application", "Links beat attachments: GitHub, a site you run, an account you turned around", "No role that fits? Say so in the message and pick 'Something else'"],
                            "footnote" => "Prefer email with a CV attached? [marketing@golumin.io](mailto:marketing@golumin.io)", "anchor" => "apply", "tone" => "subtle"})
       ]
     end
@@ -385,14 +385,14 @@ module GoluminImport
           lede: "Call and you get a person. Send the form and a person reads it. Either way you end up talking to someone who can actually answer the question, not to a sequence."),
         b("contact_cards", {"eyebrow_n" => "Two ways in", "eyebrow" => "Pick whichever suits", "items" => [
           {"kicker" => "Call us", "title" => site["phoneLabel"], "body" => "The fastest route. Useful when you would rather describe the problem out loud than type it into a box.", "link_label" => "Tap to call →", "link" => u(site["phoneHref"])},
-          {"kicker" => "Email us", "title" => site["email"], "body" => "Best if you want to attach something — an account screenshot, a proposal from someone else, a list of what hurts.", "link_label" => "Open your mail app →", "link" => u("mailto:#{site["email"]}")}
+          {"kicker" => "Email us", "title" => site["email"], "body" => "Best if you want to attach something: an account screenshot, a proposal from someone else, a list of what hurts.", "link_label" => "Open your mail app →", "link" => u("mailto:#{site["email"]}")}
         ]}),
         audit_form(heading: "Or have us look first.",
           blurb: "Tell us what to audit and we will go through it before we talk, so the conversation starts with findings from your own accounts rather than with questions. Read-only access. No obligation."),
         b("steps", {"eyebrow_n" => "After you send it", "eyebrow" => "What happens next", "heading" => "", "aside" => "", "columns" => "3", "figures" => false, "tone" => "bg", "anchor" => "",
                     "items" => [
                       ["A person reads it", "A named person at GoLumin, not an autoresponder and not a sequence. If you called, you already spoke to one."],
-                      ["Read-only access", "We ask for read-only access to whatever you want looked at. Nothing changes, and nothing can — the access we ask for cannot write."],
+                      ["Read-only access", "We ask for read-only access to whatever you want looked at. Nothing changes, and nothing can. The access we ask for cannot write."],
                       ["Real findings", "The agents go through it, a person writes it up, and we walk you through what they found. You keep the findings either way."]
                     ].each_with_index.map { |(t, d), i| {"kicker" => format("%02d", i + 1), "title" => t, "body" => d} }, "note" => ""})
       ]
@@ -512,7 +512,7 @@ module GoluminImport
     def not_found
       [b("error_page", {
         "eyebrow" => "Error 404 · page not found", "heading" => "That page *isn't here.*",
-        "lede" => "The link may be old, or the address mistyped. Everything we do is one of the three services below — or say hello and we'll point you at the right thing.",
+        "lede" => "The link may be old, or the address mistyped. Everything we do is one of the three services below, or say hello and we'll point you at the right thing.",
         "ctas" => [cta("Back to the homepage", "/"), cta("Let's talk", "/lets-talk", "outline")],
         "elsewhere_label" => "Elsewhere",
         "elsewhere" => [["Services", "/services", "Websites, local and AI search, advertising."], ["Results", "/work", "Sites we built and the businesses we run them for."],

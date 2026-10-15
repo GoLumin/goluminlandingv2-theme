@@ -7,7 +7,7 @@
       <%= gl_control(form, :role, id: "apply-role", wrapper: "sm:col-span-2", select: {prompt: "Choose one"}) %>
       <%= gl_control(form, :name, id: "apply-name", autocomplete: "name") %>
       <%= gl_control(form, :email, id: "apply-email", autocomplete: "email", inputmode: "email", data: {email: true}) %>
-      <%= gl_control(form, :links, id: "apply-links", hint: "— GitHub, portfolio, LinkedIn, a site you run", wrapper: "sm:col-span-2", inputmode: "url") %>
+      <%= gl_control(form, :links, id: "apply-links", hint: "GitHub, portfolio, LinkedIn, a site you run", wrapper: "sm:col-span-2", inputmode: "url") %>
       <%= gl_control(form, :message, id: "apply-message", wrapper: "sm:col-span-2", rows: 5) %>
     </div>
     <%= render "website/shared/form_tail", form:, source: "golumin-careers", cta: "apply", label: form.submit_label %>

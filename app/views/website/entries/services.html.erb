@@ -78,5 +78,5 @@
 <%= render "website/shared/faq", items: s.faqs.map { |f| Struct.new(:question, :answer).new(f.q, f.a) }, heading: "Questions about #{entry.title.downcase}." %>
 
 <%= render "website/shared/audit_section", heading: "#{s.audit.cta}.", blurb: s.audit.blurb, audit_type: s.audit.type,
-  bullets: ["Read-only access — nothing changes", "No obligation, no slide deck", "This form is a lead in our own inbox, timer running on us"] %>
+  bullets: ["Read-only access, nothing changes", "No obligation, no slide deck", "This form is a lead in our own inbox, timer running on us"] %>
 <%= tag.div(hidden: true, data: {gl_event: {event: "view_service", service_name: entry.title, service_slug: entry.slug}.to_json}) %>
