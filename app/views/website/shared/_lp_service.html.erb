@@ -69,4 +69,4 @@
 <% faq = lp.faqs.map { |f| [f.q, f.a] } + (svc ? svc.faqs.map { |f| [f.q, f.a] } : []) %>
 <%= render "website/shared/faq", items: faq.map { |q, a| Struct.new(:question, :answer).new(q, a) }, heading: "Before you send it.", tone: lp.cases.any? ? "subtle" : "bg" %>
 <%= render "website/shared/audit_section", heading: lp.closing.h, blurb: lp.closing.blurb, audit_type: lp.audit_type, lock_type: true, submit_label: lp.submit_label, prefix: "lp-#{entry.slug}-footer",
-  bullets: ["Read-only access — nothing changes", "No obligation, no slide deck", "This form is a lead in our own inbox, timer running on us"] %>
+  bullets: ["Read-only access, nothing changes", "No obligation, no slide deck", "This form is a lead in our own inbox, timer running on us"] %>

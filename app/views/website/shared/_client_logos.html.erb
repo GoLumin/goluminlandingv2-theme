@@ -17,7 +17,7 @@
           <% img = gl_image(website_fields(study).logo, alt: study.title, sizes: "12rem", class: "max-h-11 w-auto max-w-full object-contain") %>
           <li class="shrink-0"<% if dup %> aria-hidden="true"<% end %>>
             <% if linked %>
-              <a href="<%= website_path(study) %>"<% if dup %> tabindex="-1"<% end %> data-cta="logo-<%= study.slug %>" class="logo-tile grid h-20 w-[190px] place-items-center rounded-lg border-2 border-text bg-white px-5 md:w-[210px]" aria-label="<%= study.title %> — read the case study"><%= img %></a>
+              <a href="<%= website_path(study) %>"<% if dup %> tabindex="-1"<% end %> data-cta="logo-<%= study.slug %>" class="logo-tile grid h-20 w-[190px] place-items-center rounded-lg border-2 border-text bg-white px-5 md:w-[210px]" aria-label="<%= study.title %>, read the case study"><%= img %></a>
             <% else %>
               <div class="logo-tile grid h-20 w-[190px] place-items-center rounded-lg border-2 border-text bg-white px-5 md:w-[210px]"><%= img %></div>
             <% end %>
