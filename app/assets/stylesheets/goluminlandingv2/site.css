@@ -1609,7 +1609,7 @@ details > summary::-webkit-details-marker {
   background: linear-gradient(90deg, rgba(251,250,255,1) 0%, rgba(251,250,255,.97) 34%, rgba(251,250,255,.72) 52%, rgba(251,250,255,.18) 78%, rgba(251,250,255,.05) 100%), linear-gradient(180deg, rgba(251,250,255,.55) 0%, rgba(251,250,255,0) 30%, rgba(251,250,255,0) 70%, rgba(251,250,255,.6) 100%);
 }
 .page-hero .hero-photo {
-  clip-path: polygon(0 0, 100% 0, 100% 76%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 86%, 0 100%);
 }
 .page-hero .hero-photo::after {
   background: linear-gradient(90deg, rgba(251,250,255,1) 0%, rgba(251,250,255,.98) 46%, rgba(251,250,255,.7) 66%, rgba(251,250,255,.2) 100%), linear-gradient(180deg, rgba(251,250,255,.4) 0%, rgba(251,250,255,0) 35%, rgba(251,250,255,.5) 100%);
@@ -2825,7 +2825,7 @@ details > summary::-webkit-details-marker {
 .page-hero {
   position: relative;
   overflow: hidden;
-  padding: 150px 0 72px;
+  padding: 150px 0 120px;
 }
 .page-hero .hero-light {
   clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
@@ -4185,14 +4185,20 @@ details.is-open .chev, details[open] .chev {
   .nav-lp .nav-actions .btn {
     display: inline-flex;
   }
-  .hero, .page-hero {
+  .hero {
     padding: 112px 0 40px;
+  }
+  .page-hero {
+    padding: 112px 0 72px;
   }
   .hero-light {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   }
-  .hero-photo, .page-hero .hero-photo {
+  .hero-photo {
     clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  }
+  .page-hero .hero-photo {
+    clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
   }
   .hero-photo::after, .page-hero .hero-photo::after {
     background: linear-gradient(180deg, rgba(251,250,255,.92) 0%, rgba(251,250,255,.9) 55%, rgba(251,250,255,.55) 100%);
@@ -4652,9 +4658,29 @@ details.is-open .chev, details[open] .chev {
   color: #fff;
 }
 .is-night .btn-link {
-  color: #D9D1FF;
+  color: #E4DEFF;
 }
 .is-night .btn-link:hover {
+  color: #fff;
+}
+.is-night .hero-links .btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.4);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  background: rgba(12,9,40,.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: border-color .35s var(--ease-soft), background .35s var(--ease-soft);
+}
+.is-night .hero-links .btn-link:hover {
+  border-color: #fff;
+  background: rgba(12,9,40,.55);
   color: #fff;
 }
 .is-night .check-list li {
@@ -4686,21 +4712,23 @@ details.is-open .chev, details[open] .chev {
   color: rgba(255,255,255,.8);
 }
 .is-night .way {
-  background: rgba(12,9,40,.55);
-  border-color: rgba(255,255,255,.14);
+  background: rgba(12,9,40,.5);
+  border-color: rgba(255,255,255,.22);
   color: #fff;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-}
-.is-night .way small {
-  color: rgba(255,255,255,.6);
-}
-.is-night .way p {
-  color: rgba(255,255,255,.78);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .is-night .way:hover {
-  border-color: rgba(255,255,255,.4);
+  border-color: rgba(255,255,255,.5);
+  box-shadow: none;
   color: #fff;
+  background: rgba(12,9,40,.65);
+}
+.is-night .way small {
+  color: rgba(255,255,255,.7);
+}
+.is-night .way p {
+  color: rgba(255,255,255,.84);
 }
 .is-night .dash-list li, .is-night .dash-list a {
   color: rgba(255,255,255,.84);
@@ -4730,6 +4758,7 @@ details.is-open .chev, details[open] .chev {
   backdrop-filter: blur(6px);
 }
 .aurora {
+  display: none;
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -4810,8 +4839,8 @@ details.is-open .chev, details[open] .chev {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  mix-blend-mode: screen;
-  opacity: .38;
+  mix-blend-mode: overlay;
+  opacity: .55;
   background: linear-gradient(115deg, rgba(110,70,255,.0) 0%, rgba(110,70,255,.75) 18%, rgba(50,140,255,.55) 38%, rgba(236,100,255,.7) 58%, rgba(255,160,90,.35) 78%, rgba(110,70,255,.0) 100%);
   background-size: 240% 240%;
   animation: tint 14s ease-in-out infinite alternate;
@@ -4819,14 +4848,14 @@ details.is-open .chev, details[open] .chev {
 @keyframes tint {
   0% {
     background-position: 0% 50%;
-    opacity: .22;
+    opacity: .4;
   }
   50% {
-    opacity: .46;
+    opacity: .7;
   }
   100% {
     background-position: 100% 50%;
-    opacity: .3;
+    opacity: .45;
   }
 }
 .section-alt .aurora i, .is-light .aurora i {
