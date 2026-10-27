@@ -39,7 +39,7 @@ The marquee under the hero draws every case study with a logo, then every other 
 
 ## Launching
 
-1. Approve the held creates (Approvals), so the drafts exist.
+1. Approve the held creates (Approvals), so the drafts exist: one per `redesign-*` slug, the newest proposal for each (older proposals for the same slug carry superseded copy and should be rejected).
 2. Release the theme (`lib/goluminlandingv2/version.rb`, tag, GitHub release) and update it on the site (Settings › Themes).
 3. Copy each draft's blocks onto the live page it replaces (or rename the draft to the final path and trash the old page), and publish.
 4. Apply `globals.json` to the `nav`, `footer` and `ad_landing` globals, and `services.json` to the three service entries.
