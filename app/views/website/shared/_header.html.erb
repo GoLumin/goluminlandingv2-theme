@@ -1,75 +1,30 @@
-<%# locals: () -%>
-<%# The site's bar: the logo, the nav global's items (an item with children opens a panel on wide screens; every item lists in the drawer on a phone), the phone number and the button. Fixed over the hero's light; nav.js adds the shadow on scroll and works the panels and the drawer. %>
-<% nav = gl_global(:nav) %>
-<% items = nav.items.filter_map do |item|
-     href = gl_href(item.link) or next
-     children = case item.children_from
-                when "services" then gl_services.map { |s| f = website_fields(s); {label: f.nav.presence || s.title, href: website_path(s), note: f.card.presence || f.promise} }
-                when "work" then gl_work.map { |w| {label: w.title, href: website_path(w), note: website_fields(w).vertical} }
-                else item.children.filter_map { |c| (h = gl_href(c.link)) && {label: c.label, href: h, note: c.note} }
-                end
-     {label: item.label, href:, menu: item.desktop_menu, children:}
-   end %>
-<% cta = gl_href(nav.cta_link) %>
-<header class="nav" data-nav>
-  <div class="container nav-inner">
-    <a class="nav-logo" href="/" aria-label="<%= gl_name %> home"><%= gl_logo %></a>
-    <nav class="nav-menu" aria-label="Main">
-      <% items.each_with_index do |item, i| %>
-        <% if item[:menu] && item[:children].any? %>
-          <div class="nav-item" data-dropdown>
-            <button class="nav-link<%= " is-active" if gl_active?(item[:href]) %>" type="button" aria-expanded="false" aria-controls="menu-<%= i %>">
-              <%= item[:label] %>
-              <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </button>
-            <div class="nav-panel<%= " nav-panel-wide" if item[:children].size > 4 %>" id="menu-<%= i %>">
-              <div class="<%= item[:children].size > 4 ? "nav-panel-grid" : "nav-panel-list" %>">
-                <% item[:children].each do |child| %>
-                  <a class="nav-panel-link" href="<%= child[:href] %>">
-                    <strong><%= child[:label] %></strong>
-                    <% if child[:note].present? %><span><%= child[:note] %></span><% end %>
-                  </a>
-                <% end %>
-              </div>
-              <% unless item[:children].any? { |c| c[:href] == item[:href] } %>
-                <a class="nav-panel-foot" href="<%= item[:href] %>">All <%= item[:label].downcase %> <span aria-hidden="true">→</span></a>
-              <% end %>
-            </div>
-          </div>
-        <% else %>
-          <a class="nav-link<%= " is-active" if gl_active?(item[:href]) %>" href="<%= item[:href] %>"><%= item[:label] %></a>
-        <% end %>
-      <% end %>
+<%# The Method nav (lumin-method-reference/pages/index.html, <header id="nav">).
+    Two of the reference's links go nowhere on the deployed build and would
+    404 here, so they point at this site's equivalents instead:
+    /work-with-us -> /lets-talk, /story -> /about. Nothing else changed. %>
+<header id="nav">
+  <div class="nav-inner wrap">
+    <a href="/" class="brand" aria-label="Lumin, home">
+      <%= gl_logo(class: "brand-logo", height: 28) %>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/how-it-works" class="ulink">Method</a>
+      <a href="/services" class="ulink">Services</a>
+      <a href="/work" class="ulink">Work</a>
+      <a href="/about" class="ulink">Story</a>
+      <a href="/blog" class="ulink">Blog</a>
     </nav>
-    <div class="nav-actions">
-      <% if website_design(:header_phone) %>
-        <a class="nav-phone" href="<%= gl_tel %>" data-cta="header-phone"><%= gl_phone %></a>
-      <% end %>
-      <% if cta %>
-        <a class="btn btn-primary btn-sm" href="<%= cta %>" data-cta="header"><%= nav.cta_label %></a>
-      <% end %>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer" data-nav-toggle>
-        <span></span><span></span>
-      </button>
-    </div>
+    <div class="nav-cta"><a href="/lets-talk" class="btn btn-primary">Work with us</a></div>
+    <button id="menu-btn" class="menu-btn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
   </div>
-  <div class="nav-drawer" id="nav-drawer" data-nav-drawer>
-    <div class="container">
-      <% items.each do |item| %>
-        <div class="drawer-group">
-          <% if item[:children].any? %>
-            <div class="drawer-label"><%= item[:label] %></div>
-            <% unless item[:children].any? { |c| c[:href] == item[:href] } %><a href="<%= item[:href] %>">All <%= item[:label].downcase %></a><% end %>
-            <% item[:children].each do |child| %><a href="<%= child[:href] %>"><%= child[:label] %></a><% end %>
-          <% else %>
-            <a href="<%= item[:href] %>"><%= item[:label] %></a>
-          <% end %>
-        </div>
-      <% end %>
-      <div class="drawer-actions">
-        <% if cta %><a class="btn btn-primary" href="<%= cta %>" data-cta="drawer"><%= nav.cta_label %></a><% end %>
-        <a class="btn btn-ghost" href="<%= gl_tel %>" data-cta="drawer-phone">Call <%= gl_phone %></a>
-      </div>
-    </div>
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <a href="/how-it-works">Method</a>
+    <a href="/services">Services</a>
+    <a href="/work">Work</a>
+    <a href="/about">Story</a>
+    <a href="/blog">Blog</a>
+    <a href="/lets-talk" class="btn btn-primary">Work with us</a>
   </div>
 </header>

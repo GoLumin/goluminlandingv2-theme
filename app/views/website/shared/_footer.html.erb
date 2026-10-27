@@ -1,31 +1,46 @@
-<%# locals: () -%>
-<%# The footer global: the blurb under the logo and the Google Partner badge, its columns (Services lists the services collection after its own links), then the copyright line with the legal pages. %>
-<% footer = gl_global(:footer) %>
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <%= gl_logo(loading: :lazy) %>
-        <% if footer.blurb.present? %><p><%= website_plain_text(footer.blurb) %></p><% end %>
-        <a class="footer-partner" href="https://www.google.com/partners/agency?id=4365181293" rel="noopener" target="_blank">
-          <%= image_tag gl_asset_path("google-partner.svg"), alt: "Google Partner", width: 44, height: 42, loading: :lazy %>
-          <span>Certified Google Partner</span>
-        </a>
+<%# The Method footer (lumin-method-reference/pages/index.html, <footer class="on-dark">).
+    Same two link substitutions as the nav, and the phone comes from
+    Settings › General so there is one place to change it. %>
+<footer class="on-dark">
+  <div class="wrap foot">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="/" class="fbrand" aria-label="Lumin, home"><%= gl_logo(class: "fbrand-logo", height: 36) %></a>
+        <p class="foot-line">We make marketing legible. Engineering, marketing, and AI fused into one instrumented system that grows revenue through leads.</p>
+        <a href="/lets-talk" class="btn btn-primary">Book a diagnostic <span class="arrow">&rarr;</span></a>
       </div>
-      <% footer.columns.each do |column| %>
-        <% links = column.items.filter_map { |i| (h = gl_href(i.link)) && [i.label, h] } %>
-        <% links += gl_services.map { |s| [website_fields(s).nav.presence || s.title, website_path(s)] } if column.children_from == "services" %>
-        <nav class="footer-col" aria-label="<%= column.heading %>">
-          <div class="footer-head"><%= column.heading %></div>
-          <% links.each do |label, href| %>
-            <a href="<%= href %>"<% if gl_external?(href) %> rel="nofollow"<% end %>><%= label %></a>
-          <% end %>
-        </nav>
-      <% end %>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <p class="foot-head">Search</p>
+          <a href="/services/local-ai-search" class="ulink">Local SEO</a>
+          <a href="/services/local-ai-search" class="ulink">AI Search</a>
+          <a href="/services/local-ai-search" class="ulink">Technical SEO</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-head">Ads</p>
+          <a href="/services/advertising" class="ulink">Google &amp; Bing</a>
+          <a href="/services/advertising" class="ulink">Meta &amp; TikTok</a>
+          <a href="/services/advertising" class="ulink">ChatGPT &amp; Apple Maps</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-head">Web</p>
+          <a href="/services/websites" class="ulink">Websites</a>
+          <a href="/services/websites" class="ulink">Landing Pages</a>
+          <a href="/tracking" class="ulink">CRO &amp; Analytics</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-head">Company</p>
+          <a href="/how-it-works" class="ulink">The Method</a>
+          <a href="/work" class="ulink">Case Studies</a>
+          <a href="/about" class="ulink">Our Story</a>
+          <a href="/blog" class="ulink">Blog</a>
+          <a href="/lets-talk" class="ulink">Work with us</a>
+        </div>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; <%= gl_year %> <%= footer.copyright.presence || gl_name %><% if footer.tagline.present? %> · <%= footer.tagline %><% end %></span>
-      <span class="footer-links"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></span>
+    <div class="foot-bottom">
+      <span class="readout"><span class="tick">&#9670;</span> LUMIN, GROWTH ENGINEERING</span>
+      <span class="foot-meta">&copy; <%= Date.current.year %> Lumin. Month-to-month. You own every asset. <a href="<%= gl_tel %>" class="ulink"><%= gl_phone %></a></span>
     </div>
   </div>
 </footer>

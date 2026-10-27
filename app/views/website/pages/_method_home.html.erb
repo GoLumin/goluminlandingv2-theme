@@ -1,0 +1,178 @@
+<%#
+  The Method homepage, section for section from
+  ~/Downloads/lumin-method-reference/pages/index.html. Structure, class names
+  and copy are the reference's; the classes resolve against method.css, which
+  is Base.css + index.css verbatim.
+
+  Two deliberate departures, both flagged to Jordan:
+    1. Em dashes in the reference copy are written out, per the standing rule.
+    2. The reference has no form. The audit form, whose wiring is frozen,
+       sits in the closing section as the footer placement.
+
+  This copy belongs in CMS blocks before launch; it is in the template so the
+  design can be reviewed now.
+%>
+
+<section class="hero section">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 class="display hero-h" data-reveal>Grow revenue <span class="signal">you can trace.</span></h1>
+        <p class="hero-sub" data-reveal data-reveal-d="1">We fuse engineering, marketing, and AI into one instrumented system, turning local and AI search, paid media and the pages they land on into revenue you can follow to the dollar.</p>
+        <div class="hero-cta" data-reveal data-reveal-d="2">
+          <a href="#footer-form" class="btn btn-primary">Book a diagnostic <span class="arrow">&rarr;</span></a>
+          <a href="/work" class="btn btn-ghost">See the work</a>
+        </div>
+        <div class="hero-readouts" data-reveal data-reveal-d="3">
+          <span class="readout"><span class="tick">&#9670;</span> <span class="val">$25M+</span> in client ad spend managed</span>
+          <span class="readout"><span class="tick">&#9670;</span> <span class="val">15+ years</span> running paid media</span>
+          <span class="readout"><span class="tick">&#9670;</span> <span class="val">Month to month</span> no contract</span>
+        </div>
+      </div>
+      <div class="hero-col2" data-reveal data-reveal-d="2">
+        <div class="instrument">
+          <div class="inst-cap"><span>FIG.01 &#8201;&#9679;&#8201; REVENUE PATH</span><span class="signal">LIVE</span></div>
+          <div class="hero-proof">
+            <span class="hp-num signal">398</span>
+            <p class="hp-copy">
+              <span class="hp-lead">qualified leads for a major U.S. mass-tort case.</span>
+              <span class="hp-sub">One national campaign, every lead sourced from the query that produced it.</span>
+            </p>
+            <span class="hp-spend">Cost per qualified lead <span class="val">under $1,000</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="coord"><span class="idx">&sect; 01</span><span class="name">The Thesis</span><span class="by">What we are actually for</span></div>
+    <div class="thesis">
+      <h2 class="headline thesis-h" data-reveal>Our job is to grow your revenue through leads. <span class="signal">Everything else is just the method.</span></h2>
+      <p class="thesis-p" data-reveal data-reveal-d="1">Most agencies sell you a channel. We sell you the number that channel is supposed to move, and we show our work on the way there.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section services">
+  <div class="wrap">
+    <div class="coord"><span class="idx">&sect; 02</span><span class="name">The Index</span><span class="by">Three tools, pointed at one job</span></div>
+    <div class="fam-grid">
+      <% [
+        ["01", "Search", "Be found", "When someone, or something, goes looking, you are the answer.",
+         [["Local SEO", "Win the map pack"], ["AI Search", "ChatGPT &middot; Perplexity &middot; AI Overviews"], ["Technical SEO", "Fix the plumbing"]]],
+        ["02", "Ads", "Buy demand, profitably", "Every dollar sourced from the query to the closed deal.",
+         [["Google &amp; Bing", "High-intent search"], ["Meta &amp; Instagram", "The audience graph"], ["TikTok", "Creative as targeting"], ["Apple Maps &amp; ChatGPT", "The next surfaces"]]],
+        ["03", "Web", "Convert the click", "The page where the spend either earns or leaks.",
+         [["Websites", "Built in days, owned by you"], ["Landing Pages", "One page, one job"], ["CRO &amp; Analytics", "Test what matters"]]]
+      ].each_with_index do |(code, name, tag, line, items), i| %>
+        <article class="fam" data-reveal data-reveal-d="<%= i + 1 %>">
+          <div class="fam-head">
+            <span class="fam-code"><%= code %></span>
+            <div>
+              <h3 class="headline fam-name"><%= name %></h3>
+              <p class="fam-tag"><%= tag %></p>
+            </div>
+          </div>
+          <p class="fam-line"><%= line %></p>
+          <ul class="fam-list">
+            <% items.each do |k, v| %>
+              <li><span class="fam-k"><%= k.html_safe %></span><span class="fam-v"><%= v.html_safe %></span></li>
+            <% end %>
+          </ul>
+        </article>
+      <% end %>
+    </div>
+    <div class="services-cta"><a href="/services" class="btn btn-ghost">See all services <span class="arrow">&rarr;</span></a></div>
+  </div>
+</section>
+
+<section class="section on-dark">
+  <div class="wrap">
+    <div class="coord"><span class="idx">&sect; 03</span><span class="name">The Record</span><span class="by">Receipts, not promises</span></div>
+    <div class="proof-grid">
+      <% [
+        ["$25M+", "Ad spend managed", "Across Google, Meta, and Microsoft, every dollar in client accounts."],
+        ["2-4&times;", "Typical lead lift", "Across paid clients in the first 90 days after we take over."],
+        ["100%", "Tracking you own", "Instrumented from day one, owned by you forever."],
+        ["15+ yrs", "Clients who stay", "On month-to-month terms. They stay because the work earns it."]
+      ].each_with_index do |(v, l, s), i| %>
+        <div class="stat" data-reveal data-reveal-d="<%= i + 1 %>">
+          <div class="stat-v signal"><%= v.html_safe %></div>
+          <p class="stat-l"><%= l %></p>
+          <p class="stat-s"><%= s %></p>
+        </div>
+      <% end %>
+    </div>
+    <blockquote class="quote" data-reveal>
+      <p>&ldquo;Within 60 days we had clarity on what was working and what wasn't. For the first time, the reporting matched what we saw in the bank.&rdquo;</p>
+      <cite>BioFuse &middot; four clinics, two states</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="coord"><span class="idx">&sect; 04</span><span class="name">The Terms</span><span class="by">In writing, for every client</span></div>
+    <div class="rules">
+      <% [
+        ["01", "Month-to-month. Always.", "No twelve-month lock-ins. Every month is an open door. We stay because we perform, not because you signed."],
+        ["02", "You own every asset.", "Domain, ad accounts, pixels, data, in your name from day one. We manage them; you own them."],
+        ["03", "The math is on the table.", "Shared dashboards, documented decisions, every number sourced. You see what we see, and you can check it."]
+      ].each_with_index do |(n, t, b), i| %>
+        <div class="rule" data-reveal data-reveal-d="<%= i + 1 %>">
+          <span class="rule-n"><%= n %></span>
+          <h3 class="headline rule-t"><%= t %></h3>
+          <p class="rule-b"><%= b %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="section operators">
+  <div class="wrap">
+    <div class="coord"><span class="idx">&sect; 05</span><span class="name">The Operators</span><span class="by">A marketer and an engineer, met in the middle</span></div>
+    <div class="ops-grid">
+      <% [
+        ["Co-founder, the marketer", "Jordan", "Chief Marketing Officer &middot; Performance &amp; Growth",
+         "Built and ran a Google Ads agency from the ground up. Managed millions in spend across local and national accounts, and learned which numbers actually move a business.",
+         ["Google Ads", "Meta", "Revenue strategy", "CRO"]],
+        ["Co-founder, the engineer", "Ted", "Chief Technology Officer &middot; Engineering &amp; Product",
+         "Shipped production software for years: web apps, internal tools, integrations that had to stay up. Builds the instrumentation the marketing runs on.",
+         ["Full-stack", "AI / ML", "Platform", "Analytics"]]
+      ].each_with_index do |(role, name, sub, bio, tags), i| %>
+        <article class="op" data-reveal data-reveal-d="<%= i + 1 %>">
+          <p class="op-role"><%= role %></p>
+          <h3 class="display op-name"><%= name %></h3>
+          <p class="op-sub"><%= sub.html_safe %></p>
+          <p class="op-b"><%= bio %></p>
+          <div class="op-tags"><% tags.each { |t| %><span><%= t %></span><% } %></div>
+        </article>
+      <% end %>
+    </div>
+    <p class="ops-quote" data-reveal>They met in the middle. <span class="signal">Lumin is what happened.</span></p>
+  </div>
+</section>
+
+<section class="section on-dark close" id="book">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="close-inner">
+        <p class="eyebrow">The next step</p>
+        <h2 class="display close-h">Ready to see what's <span class="signal">actually working?</span></h2>
+        <p class="close-p">A 20-minute diagnostic. No pitch deck, no commitment. We look at what you're running, tell you what we'd change, and you keep the findings either way.</p>
+        <div class="close-strip">
+          <% [["&lt;24h", "Response time"], ["7-10d", "Setup"], ["Week 1", "First value"], ["M-T-M", "Contract"]].each do |v, l| %>
+            <div><span class="cs-v signal"><%= v.html_safe %></span><span class="cs-l"><%= l %></span></div>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <%= render "website/shared/audit_form", prefix: "footer", source: "golumin-landing-footer" %>
+      </div>
+    </div>
+  </div>
+</section>

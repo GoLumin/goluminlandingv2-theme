@@ -1,54 +1,92 @@
-<%# locals: (prefix:, audit_type: nil, cta: "form", compact: false, lock_type: false, submit_label: nil, kicker: nil, heading: nil, blurb: nil, note: nil, phone_href: nil, phone_label: nil) -%>
-<%# The audit form (the form card of the redesign), drawn by hand from Forms › audit and posted to the Forms plugin (forms.js), which sends the visitor on to /thank-you. The audit type routes the request: asked first, or fixed by the landing page (lock_type). Monthly ad spend is asked only when the audit involves ads. Every id carries the prefix, since a page can hold two; the page's first form is #plan-form, where the phone's bar and every "Request an audit" button land. %>
-<% form = gl_form(:audit) %>
-<% if form %>
-  <% types = gl_choices(gl_field(form, :audit_type)).pluck("value") %>
-  <% audit_type = audit_type.presence_in(types) || types.first %>
-  <% spend = ["Full system (web + search + ads)", "Ad account"].include?(audit_type) %>
-  <% id = ->(name) { "#{prefix}-#{name}" } %>
-  <% key = gl_turnstile_key %>
-  <% first = !content_for?(:gl_plan_form) %>
-  <% content_for(:gl_plan_form, "1") if first %>
-  <% readers = gl_team.first(2) %>
-  <form id="<%= first ? "plan-form" : "#{prefix}-form" %>" data-audit-form data-form-slug="audit" method="post" action="<%= api_form_submissions_path(form_slug: form.slug) %>" class="form-card" novalidate>
-    <div class="form-head">
-      <% if kicker.present? %><p class="eyebrow" style="margin-bottom:6px"><%= kicker %></p><% end %>
-      <h3 class="form-title"><%= heading.presence || "Request a marketing audit" %></h3>
-      <p class="form-sub"><%= blurb.presence || "Tell us where the business is now. For businesses already investing in marketing, or ready to. A partner reads it personally." %></p>
-    </div>
-    <% if lock_type %>
-      <input type="hidden" name="audit_type" value="<%= audit_type %>" data-audit-type>
-    <% else %>
-      <%= gl_control(form, :audit_type, id: id.("audit"), label: "What should we look at?", select: {selected: audit_type}, data: {audit_type: true}) %>
-    <% end %>
-    <div class="field-row">
-      <%= gl_control(form, :name, id: id.("name"), label: "Name", autocomplete: "name") %>
-      <%= gl_control(form, :email, id: id.("email"), label: "Work email", autocomplete: "email", inputmode: "email", data: {email: true}) %>
-    </div>
-    <div class="field-row">
-      <%= gl_control(form, :company, id: id.("company"), label: "Business", autocomplete: "organization") %>
-      <%= gl_control(form, :website_url, id: id.("website"), label: "Website", inputmode: "url", autocomplete: "url", placeholder: "yourbusiness.com") %>
-    </div>
-    <%= tag.div(gl_control(form, :monthly_ad_spend, id: id.("spend"), label: "Monthly ad spend", required: spend, select: {prompt: "Choose one"}, data: {spend: true}), hidden: !spend, data: {spend_field: true}) %>
-    <% unless compact %>
-      <%= gl_control(form, :message, id: id.("message"), label: "What's the biggest headache right now?", hint: "(optional)", rows: 3) %>
-    <% end %>
-    <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
-      <label>Leave this empty <input type="text" name="<%= Form::HONEYPOT_FIELD %>" tabindex="-1" autocomplete="off"></label>
-    </div>
-    <%= gl_attribution(form, source: "golumin-#{prefix}") %>
-    <% if key %><div data-turnstile data-sitekey="<%= key %>"></div><% end %>
-    <p data-error class="form-error" role="alert" hidden></p>
-    <button type="submit" data-submit data-cta="<%= cta %>" class="btn btn-primary btn-block"><%= submit_label.presence || "Request my audit" %></button>
-    <div class="form-readers">
-      <% if readers.any? %>
-        <span class="form-avatars">
-          <% readers.each do |person| %><%= gl_image website_fields(person).photo, alt: "", sizes: "2rem", loading: :lazy, width: 32, height: 32 %><% end %>
-        </span>
-      <% end %>
-      <span><%= note.presence || "#{readers.map { it.title.split.first }.to_sentence(two_words_connector: " or ")} reads it and replies from a real inbox. No sequence, no sales team." %>
-        Rather talk? <a href="<%= phone_href.presence || gl_tel %>" data-cta="form-phone"><%= phone_label.presence || gl_phone %></a>.</span>
-    </div>
-    <p class="form-fine"><a href="/privacy">Privacy</a></p>
-  </form>
-<% end %>
+<%# locals: (prefix: "hero", source: nil, heading: "Book a diagnostic", blurb: "A 20-minute look at what you're running. No pitch deck, no commitment.", submit_label: "Request my audit", tone: "light") -%>
+<%#
+  THE AUDIT FORM. The wiring is frozen: see FORM-CONTRACT.md in
+  ~/Downloads/lumin-method-reference. Lifted from production golumin.io and
+  not altered here. Frozen, do not touch:
+    action="/api/forms/audit/submissions", method="post"
+    data-audit-form, data-form-slug="audit"
+    every name= : audit_type name email company website_url monthly_ad_spend
+                  message _hp utm_source utm_medium utm_campaign utm_term
+                  utm_content gclid fbclid msclkid v landing_path referrer
+                  source form_path
+    every <option value> on audit_type and monthly_ad_spend, en dashes and all
+    required on audit_type, name, email, company, monthly_ad_spend
+    the honeypot _hp, present and visually hidden
+    `source` carries the placement: golumin-landing-hero / -footer
+  Only the classes, labels and layout below are this design's. The button's
+  visible text is a label, not wiring, so it drops the word "free".
+%>
+<% src = source.presence || "golumin-landing-#{prefix}" %>
+<form id="<%= prefix %>-form" data-audit-form data-form-slug="audit" method="post"
+      action="/api/forms/audit/submissions" class="form-card" novalidate>
+  <div class="form-head">
+    <p class="eyebrow">Start here</p>
+    <h3 class="form-title"><%= heading %></h3>
+    <p class="form-sub"><%= blurb %></p>
+  </div>
+
+  <label class="field">
+    <span class="field-label">What should we look at? <span class="req">*</span></span>
+    <select name="audit_type" required data-audit-type>
+      <option value="Full system (web + search + ads)">Full system (web + search + ads)</option>
+      <option value="Website">Website</option>
+      <option value="Local + AI search">Local + AI search</option>
+      <option value="Ad account">Ad account</option>
+    </select>
+  </label>
+
+  <div class="field-row">
+    <label class="field">
+      <span class="field-label">Name <span class="req">*</span></span>
+      <input type="text" name="name" autocomplete="name" required>
+    </label>
+    <label class="field">
+      <span class="field-label">Work email <span class="req">*</span></span>
+      <input type="email" name="email" autocomplete="email" inputmode="email" required data-email>
+    </label>
+  </div>
+
+  <div class="field-row">
+    <label class="field">
+      <span class="field-label">Business <span class="req">*</span></span>
+      <input type="text" name="company" autocomplete="organization" required>
+    </label>
+    <label class="field">
+      <span class="field-label">Website</span>
+      <input type="text" name="website_url" inputmode="url" autocomplete="url" placeholder="yourbusiness.com">
+    </label>
+  </div>
+
+  <label class="field" data-spend-field>
+    <span class="field-label">Monthly ad spend <span class="req">*</span></span>
+    <select name="monthly_ad_spend" required data-spend>
+      <option value="">Choose one</option>
+      <option value="Not running ads yet">Not running ads yet</option>
+      <option value="Under $2,000">Under $2,000</option>
+      <option value="$2,000 – $10,000">$2,000 – $10,000</option>
+      <option value="$10,000 – $50,000">$10,000 – $50,000</option>
+      <option value="$50,000+">$50,000+</option>
+    </select>
+  </label>
+
+  <label class="field">
+    <span class="field-label">What's the biggest headache right now?</span>
+    <textarea name="message" rows="3" placeholder="e.g. We spend $8k a month on Google and can't tell what it's doing."></textarea>
+  </label>
+
+  <div class="visually-hidden" aria-hidden="true">
+    <label>Leave this empty <input type="text" name="_hp" tabindex="-1" autocomplete="off"></label>
+  </div>
+  <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
+  <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term">
+  <input type="hidden" name="utm_content"><input type="hidden" name="gclid">
+  <input type="hidden" name="fbclid"><input type="hidden" name="msclkid">
+  <input type="hidden" name="v"><input type="hidden" name="landing_path">
+  <input type="hidden" name="referrer">
+  <input type="hidden" name="source" value="<%= src %>">
+  <input type="hidden" name="form_path">
+
+  <p class="form-error" data-error role="alert" hidden></p>
+  <button type="submit" data-submit data-cta="<%= prefix %>-form" class="btn btn-primary"><%= submit_label %> <span class="arrow">&rarr;</span></button>
+  <p class="form-note">Read-only access. Jordan or Ted reads it. Rather talk? <a href="<%= gl_tel %>" class="ulink"><%= gl_phone %></a></p>
+</form>
