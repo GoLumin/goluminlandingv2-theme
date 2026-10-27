@@ -1,9 +1,8 @@
 <%# locals: (data:) -%>
 <%# A page's opening under the light: eyebrow, headline, standfirst, chips and buttons. Its row underneath: the service's capabilities, the open roles (the roles collection) or the figures. "%{count}" in the eyebrow is the number of posts. %>
 <% eyebrow = data.eyebrow.to_s.include?("%{count}") ? gl_count(data.eyebrow, "#{gl_posts.size} post#{"s" unless gl_posts.size == 1}") : data.eyebrow %>
-<section class="page-hero">
-  <div class="hero-light" aria-hidden="true"></div>
-  <%= render "website/shared/hero_photo" %>
+<section class="page-hero is-night">
+  <%= render "website/shared/scene" %>
   <div class="container">
     <div class="page-hero-inner">
       <%= gl_eyebrow(eyebrow) %>

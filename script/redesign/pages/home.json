@@ -50,8 +50,8 @@
      "featured_label": "",
      "featured_clients": [],
      "audit_eyebrow": "",
-     "audit_heading": "Get your free marketing plan",
-     "audit_body": "Tell us where the business is now. A person reads it, not an autoresponder.",
+     "audit_heading": "Request a marketing audit",
+     "audit_body": "Tell us where the business is now. For businesses already investing in marketing, or ready to. A partner reads it personally.",
      "audit_type": "Full system (web + search + ads)",
      "testimonial": ""
     }
@@ -70,8 +70,8 @@
     "data": {
      "eyebrow_n": "",
      "eyebrow": "What we do",
-     "heading": "Three jobs. One team. One set of numbers.",
-     "lede": "Most agencies sell you one piece and blame the other two. We run all three off the same numbers, so your ads tell us what to fix on the site, and the site tells us what the ads should buy.",
+     "heading": "We build the site, run the ads and get you found. Then we count what came of it.",
+     "lede": "Three services, one team, one set of numbers. When your phone rings, we can tell you which page, which ad and which dollar made it happen. Most agencies sell you one piece and blame the other two.",
      "link_label": "Underneath all three: tracking that ties every call and form to what paid for it",
      "link": {
       "kind": "url",
@@ -159,9 +159,9 @@
     "version": 1,
     "data": {
      "eyebrow_n": "",
-     "eyebrow": "What you walk away with",
-     "heading": "You leave with the plan. Whether you hire us or not.",
-     "body": "We go through what you have without changing a thing in it, and build what an agency normally charges for and keeps: a written plan for your site, your search presence and your ads, ranked, with the money attached to every line. It's yours at the end of the call, and there's nothing to sign to get it.",
+     "eyebrow": "The audit",
+     "heading": "It tells you where the money's going. Then where it should go.",
+     "body": "We go through your site, your search presence and your ads without changing a thing in them, and write up what we find with the money attached to every line. Ranked, specific, and built against your real accounts rather than a template. Then we quote the work, or tell you plainly that you don't need us yet.",
      "items": [
       {
        "title": "Where your money is going",
@@ -216,20 +216,20 @@
      "heading": "The things people ask on the first call.",
      "items": [
       {
-       "question": "I run a small local business. Am I too small for this?",
-       "answer": "Probably not. Most of our clients are a single location or a handful of them, and plenty started with a $30-a-day ad budget to find out how much demand the market actually held. The free plan is the same either way, and it will tell you honestly if ads aren't the right first move."
+       "question": "Who is this for?",
+       "answer": "Businesses already investing in marketing, or ready to, with an owner who can take the calls a working campaign produces. Most of our clients are a single location or a handful of them, in categories where a phone call or a form is the sale. If you're earlier than that, the audit will say so honestly and tell you what to do first."
       },
       {
-       "question": "What's the catch with the free plan?",
-       "answer": "There isn't one. We ask for read-only access, go through your site and accounts, and write up what we find with the money attached. You keep it whether you hire us, stay where you are, or fix it yourself. Some people use it as a second opinion and never call back. That's fine."
+       "question": "What does the audit involve?",
+       "answer": "Read-only access to your site and your accounts. We go through them, write up what we find with the money attached, and walk you through it live on your screen. If we're a fit, we quote the engagement. If we're not, you still leave knowing exactly what's wrong and what to fix first."
       },
       {
-       "question": "What does it actually cost if I do hire you?",
-       "answer": "A monthly fee based on your ad spend and whether we run your site, quoted after the plan, once we know what's actually there rather than what we guessed. There's no contract. We work month to month."
+       "question": "What does it cost?",
+       "answer": "A monthly fee based on your ad spend and whether we run your site, quoted after the audit, once we know what's actually there rather than what we guessed. There's no contract. We work month to month, and we're not the cheapest option, because the people doing the work are the people you talk to."
       },
       {
        "question": "I already have someone doing my marketing.",
-       "answer": "The plan works the same way, and we never contact your current agency. Ask them for the change history and the search-terms report. If nobody can produce a list of what changed, when, and who approved it, that's the answer."
+       "answer": "The audit works the same way, and we never contact your current agency. Ask them for the change history and the search-terms report. If nobody can produce a list of what changed, when, and who approved it, that's the answer."
       },
       {
        "question": "Can the software change my ads on its own?",
@@ -255,22 +255,22 @@
     "type": "closing_form",
     "version": 1,
     "data": {
-     "heading": "Keep the plan either way. That's the whole offer.",
-     "blurb": "A named person reads what you send and builds the plan against your real accounts, not a template. If you'd rather just talk it through, the number below reaches us directly.",
+     "heading": "Start with an audit of what you already have.",
+     "blurb": "A partner reads what you send and builds the audit against your real accounts, not a template. If you'd rather talk it through first, the number below reaches us directly.",
      "phone_kicker": "Call us direct",
      "phone_label": "(269) 532-6248",
      "phone_link": {
       "kind": "url",
       "value": "tel:+12695326248"
      },
-     "submit_label": "Get my free plan",
+     "submit_label": "Request my audit",
      "note": ""
     }
    }
   ],
   "seo": {
    "meta_title": "GoLumin · Marketing that shows you what's making you money",
-   "meta_description": "Websites, search and advertising for local and multi-location businesses, run as one system and tracked to the dollar. Get a free marketing plan from people who've done this for 15 years."
+   "meta_description": "Websites, search and advertising for local and multi-location businesses, run as one system and tracked to the dollar. Run by people who have done this for 15 years."
   }
  }
 }

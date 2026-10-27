@@ -113,11 +113,11 @@ RSpec.describe "The GoLumin website", type: :request, website: true do
     expect(html.css("main ul a").map { it["href"] }).to eq(posts.map { "/blog/#{it["slug"]}" })
   end
 
-  it "puts every client logo in the band under the hero, each to its case study" do
+  it "puts every client logo in the marquee under the hero, each to its case study" do
     get "/"
 
     with_logo = entries("work").select { it.dig("frontmatter", "logo").present? }
-    expect(html.css(".logo-list a").map { it["href"] }.uniq).to eq(with_logo.map { "/work/#{it["slug"]}" })
+    expect(html.css(".marquee-track a").map { it["href"] }.uniq).to eq(with_logo.map { "/work/#{it["slug"]}" })
   end
 
   it "draws its 404 from the CMS's not-found page, never indexed" do

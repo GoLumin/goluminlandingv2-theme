@@ -2,7 +2,7 @@
 <%# A client's quote, set large, with the outcome beside it as a figure. %>
 <% q = website_fields(quote) %>
 <%= gl_section(tone: "ink", klass: "has-photo") do %>
-  <%= render "website/shared/hero_photo", key: "quote", night: true %>
+  <%= render "website/shared/scene", key: "quote", night: true %>
   <div class="quote-grid<%= " is-alone" if q.result_figure.blank? %>">
     <blockquote class="reveal">
       <p class="quote-text">“<%= q.quote %>”</p>

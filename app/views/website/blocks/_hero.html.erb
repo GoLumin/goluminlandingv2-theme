@@ -1,8 +1,7 @@
 <%# locals: (data:) -%>
 <%# The core hero, under the light, with its image beside the copy. %>
-<section class="<%= data.image_id.present? ? "hero" : "page-hero" %>">
-  <div class="hero-light" aria-hidden="true"></div>
-  <%= render "website/shared/hero_photo" %>
+<section class="<%= data.image_id.present? ? "hero" : "page-hero" %> is-night">
+  <%= render "website/shared/scene" %>
   <div class="container <%= data.image_id.present? ? "hero-grid" : "" %>">
     <div class="<%= data.image_id.present? ? "hero-copy" : "page-hero-inner" %>">
       <h1 class="h-hero"><%= gl_heading(data.heading) %></h1>

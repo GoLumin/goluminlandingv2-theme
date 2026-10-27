@@ -128,7 +128,7 @@
     "version": 1,
     "data": {
      "eyebrow_n": "",
-     "eyebrow": "The free visibility check",
+     "eyebrow": "The visibility check",
      "heading": "What the check looks at.",
      "body": "Maps, search results and AI answers in one check, for every market you serve. We're straight about what can be controlled and what can't.",
      "items": [
@@ -192,25 +192,45 @@
       },
       {
        "question": "How is it priced?",
-       "answer": "A monthly fee, quoted after the check once we know what's actually there. The check itself is free and you keep the findings whether or not you hire us."
+       "answer": "A monthly fee, quoted after the check once we know what's actually there. You keep the findings whether or not you hire us."
       }
      ],
      "tone": "bg"
     }
    },
    {
+    "type": "audit_form",
+    "version": 1,
+    "data": {
+     "eyebrow": "The audit",
+     "heading": "Check my visibility.",
+     "blurb": "Tell us where the business is now. For businesses already investing in marketing, or ready to. A partner reads it personally.",
+     "bullets": [
+      "Read-only access. Nothing changes.",
+      "No slide deck. The findings, with the money attached.",
+      "A partner walks you through it live."
+     ],
+     "audit_type": "Local + AI search",
+     "lock_type": false,
+     "submit_label": "Request my audit",
+     "note": "",
+     "prefix": "search",
+     "tone": "subtle"
+    }
+   },
+   {
     "type": "closing_form",
     "version": 1,
     "data": {
-     "heading": "Keep the plan either way. That's the whole offer.",
-     "blurb": "A named person reads what you send and builds the plan against your real accounts, not a template. If you'd rather just talk it through, the number below reaches us directly.",
+     "heading": "Start with an audit of what you already have.",
+     "blurb": "A partner reads what you send and builds the audit against your real accounts, not a template. If you'd rather talk it through first, the number below reaches us directly.",
      "phone_kicker": "Call us direct",
      "phone_label": "(269) 532-6248",
      "phone_link": {
       "kind": "url",
       "value": "tel:+12695326248"
      },
-     "submit_label": "Get my free plan",
+     "submit_label": "Request my audit",
      "note": ""
     }
    }

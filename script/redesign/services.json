@@ -1,7 +1,7 @@
 {
  "websites": {
   "nav": "Websites",
-  "promise": "A site you can change the same day you think of it.",
+  "promise": "A site built to turn visits into calls, that you can edit yourself.",
   "capabilities": [
    "Edits live in under a minute, no developer",
    "Built to turn visits into calls",
@@ -20,7 +20,7 @@
  },
  "advertising": {
   "nav": "Advertising",
-  "promise": "You pay for the click. The phone starts ringing this week.",
+  "promise": "Google, Meta and Microsoft ads, worked every day, in your name.",
   "capabilities": [
    "Google, Meta, Microsoft and ChatGPT ads",
    "Worked every day, not every month",
@@ -31,15 +31,15 @@
    "source": ""
   },
   "cases": [
-   "kalamazoo-mortgage",
    "biofuse",
+   "kalamazoo-mortgage",
    "behnke-logistics",
    "foxbox-moves"
   ]
  },
  "local-ai-search": {
   "nav": "Getting found",
-  "promise": "The listings you don't pay for, still working when the ads are off.",
+  "promise": "Show up on Google Maps and in ChatGPT when someone nearby is searching.",
   "capabilities": [
    "Google Maps and your business profile",
    "Named when someone asks ChatGPT or Gemini",
@@ -50,10 +50,10 @@
    "source": ""
   },
   "cases": [
+   "kalamazoo-rejuvenation",
    "inbox-portable-storage",
    "white-and-white",
-   "mulebox",
-   "foxbox-moves"
+   "mulebox"
   ]
  }
 }

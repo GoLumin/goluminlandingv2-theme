@@ -5,23 +5,29 @@
 <% cases = gl_cases(lp.cases) %>
 <% faqs = (lp.faqs.any? ? lp.faqs : ad.faqs).map { |f| Struct.new(:question, :answer).new(f.q, f.a) } %>
 <% reviewer = gl_team.first %>
-<% submit = lp.submit_label.to_s.delete_suffix("→").strip.presence || "Get my free plan" %>
+<% submit = lp.submit_label.to_s.delete_suffix("→").strip.presence || "Request my audit" %>
 <% items = lp.kind == "adgroup" ? lp.pains : lp.finds %>
 <% items_heading = (lp.kind == "adgroup" ? lp.pain_heading : lp.finds_heading) %>
 <% content_for :head, gl_seo_tags(entry, description: lp.sub, noindex: true) %>
 <% content_for :sticky_cta, submit %>
 <% content_for :header, render("website/shared/landing_header", phone_label: gl_phone, phone_href: gl_tel, cta: "lp-#{entry.slug}", line: [ad.credentials.title, ad.credentials.lines.first].compact_blank.join(" · ")) %>
 <% content_for :footer, render("website/shared/landing_footer") %>
-<section class="hero">
-  <div class="hero-light" aria-hidden="true"></div>
-  <%= render "website/shared/hero_photo", key: "/" %>
+<section class="hero is-night">
+  <%= render "website/shared/scene", key: "/lp", lamp: ["70%", "80%"] %>
   <div class="container hero-grid">
     <div class="hero-copy">
+      <a class="hero-badge" href="https://www.google.com/partners/agency?id=4365181293" target="_blank" rel="noopener" data-enter="1" data-cta="lp-partner">
+        <span class="badge-tile"><%= image_tag gl_asset_path("google-partner.svg"), alt: "Google Partner badge", width: 64, height: 61 %></span>
+        <span class="badge-text"><strong><%= ad.credentials.title %></strong><span><%= ad.credentials.lines.join(". ") %>.</span></span>
+      </a>
       <% if lp.eyebrow.present? %><p class="hero-kicker"><%= lp.eyebrow %></p><% end %>
       <h1 class="h-hero"><span data-lp-h1><%= Array(lp.h)[0] %></span> <span class="em" data-lp-h2><%= Array(lp.h)[1] %></span></h1>
       <p class="lede" data-lp-sub><%= lp.sub %></p>
       <% if lp.checks.any? %><ul class="check-list"><% lp.checks.each do |check| %><li><%= check %></li><% end %></ul><% end %>
-      <%= render "website/shared/credentials" %>
+      <div class="hero-proof">
+        <div class="proof"><span><strong>$25M+</strong> in client ad spend managed</span></div>
+        <div class="proof"><span><strong>Month to month.</strong> No contract.</span></div>
+      </div>
     </div>
     <%= render "website/shared/audit_form", prefix: "lp", cta: "lp-#{entry.slug}-form", audit_type: lp.audit_type, lock_type: true, submit_label: submit %>
   </div>
@@ -31,7 +37,7 @@
 
 <% if Array(items).any? %>
   <%= gl_section do %>
-    <%= render "website/shared/numbered_list", eyebrow: (lp.kind == "adgroup" ? "Said on the first call, nearly every time" : "The free audit"), heading: Array(items_heading).join, quoted: lp.kind == "adgroup", items: items.map { |p| [p.t, p.d] } %>
+    <%= render "website/shared/numbered_list", eyebrow: (lp.kind == "adgroup" ? "Said on the first call, nearly every time" : "The audit"), heading: Array(items_heading).join, quoted: lp.kind == "adgroup", items: items.map { |p| [p.t, p.d] } %>
   <% end %>
 <% end %>
 
@@ -81,7 +87,7 @@
 <% if faqs.any? %><%= render "website/shared/faq", items: faqs, heading: "Before you fill in the form.", tone: "subtle" %><% end %>
 
 <section class="section section-night has-photo" id="contact">
-  <%= render "website/shared/hero_photo", key: "closing", night: true %>
+  <%= render "website/shared/scene", key: "closing", night: true %>
   <div class="container cta-grid">
     <div class="reveal">
       <h2 class="h-2"><%= gl_heading(lp.closing.h.presence || ad.plan.refrain) %></h2>
@@ -89,7 +95,7 @@
       <a class="cta-call" href="<%= gl_tel %>" data-cta="lp-<%= entry.slug %>-closing-phone"><small>Call us direct</small><strong><%= gl_phone %></strong></a>
     </div>
     <div class="reveal" style="--i:1">
-      <%= render "website/shared/audit_form", prefix: "lp-closing", cta: "lp-#{entry.slug}-closing", audit_type: lp.audit_type, lock_type: true, submit_label: submit, heading: "Tell us about your business" %>
+      <%= render "website/shared/audit_form", prefix: "lp-closing", cta: "lp-#{entry.slug}-closing", audit_type: lp.audit_type, lock_type: true, submit_label: submit, heading: "Tell us about the business" %>
     </div>
   </div>
 </section>

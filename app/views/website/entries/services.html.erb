@@ -4,10 +4,9 @@
 <% next_service = gl_service(s.handoff.to) %>
 <% others = gl_services.reject { |o| o == entry } %>
 <% content_for :head, gl_seo_tags(entry, description: s.lede) %>
-<% content_for :sticky_cta, "Get my free plan" %>
-<section class="page-hero">
-  <div class="hero-light" aria-hidden="true"></div>
-  <%= render "website/shared/hero_photo" %>
+<% content_for :sticky_cta, "Request an audit" %>
+<section class="page-hero is-night">
+  <%= render "website/shared/scene" %>
   <div class="container">
     <div class="page-hero-inner">
       <p class="breadcrumb"><a href="/services">Services</a><span aria-hidden="true">/</span><span><%= s.nav.presence || entry.title %></span></p>

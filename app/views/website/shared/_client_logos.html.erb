@@ -1,17 +1,20 @@
 <%# locals: (label:, linked: true) -%>
-<%# The band of client marks under the hero: every case study with a logo, each to its write-up (unlinked on the landing pages, which offer no exits). %>
+<%# The band of client marks under the hero, as a marquee (nav.js doubles the track so the loop is seamless): every case study with a logo, each to its write-up (unlinked on the landing pages, which offer no exits), and every other client cleared for public mention as a wordmark, interleaved. %>
 <% logos = gl_work.select { |study| website_fields(study).logo.present? } %>
-<% if logos.any? %>
+<% names = gl_clients.map(&:title) - logos.map(&:title) %>
+<% items = logos.zip(names).flatten.compact + (names.size > logos.size ? names[logos.size..] : []) %>
+<% if items.any? %>
   <section class="logo-band">
-    <div class="container logo-band-inner">
-      <% if label.present? %><span class="logo-band-label"><%= label %></span><% end %>
-      <div class="logo-list">
-        <% logos.each do |study| %>
-          <% img = gl_image(website_fields(study).logo, alt: study.title, sizes: "9rem", loading: :lazy) %>
-          <% if linked %>
-            <a href="<%= website_path(study) %>" data-cta="logo-<%= study.slug %>" aria-label="<%= study.title %>: read the case study"><%= img %></a>
+    <% if label.present? %><div class="container"><span class="logo-band-label"><%= label %></span></div><% end %>
+    <div class="marquee" aria-label="Clients">
+      <div class="marquee-track" data-marquee>
+        <% items.each do |item| %>
+          <% if item.is_a?(String) %>
+            <span class="marquee-item is-text"><%= item %></span>
+          <% elsif linked %>
+            <a class="marquee-item" href="<%= website_path(item) %>" data-cta="logo-<%= item.slug %>" aria-label="<%= item.title %>: read the case study"><%= gl_image(website_fields(item).logo, alt: item.title, sizes: "10rem", loading: :lazy) %></a>
           <% else %>
-            <%= img %>
+            <span class="marquee-item"><%= gl_image(website_fields(item).logo, alt: item.title, sizes: "10rem", loading: :lazy) %></span>
           <% end %>
         <% end %>
       </div>

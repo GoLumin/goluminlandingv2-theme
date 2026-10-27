@@ -1,5 +1,5 @@
 <%# locals: (prefix:, audit_type: nil, cta: "form", compact: false, lock_type: false, submit_label: nil, kicker: nil, heading: nil, blurb: nil, note: nil, phone_href: nil, phone_label: nil) -%>
-<%# The plan form (the form card of the redesign), drawn by hand from Forms › audit and posted to the Forms plugin (forms.js), which sends the visitor on to /thank-you. The audit type routes the request: asked first, or fixed by the landing page (lock_type). Monthly ad spend is asked only when the audit involves ads. Every id carries the prefix, since a page can hold two; the page's first form is #plan-form, where the phone's bar and every "Get my free plan" button land. %>
+<%# The audit form (the form card of the redesign), drawn by hand from Forms › audit and posted to the Forms plugin (forms.js), which sends the visitor on to /thank-you. The audit type routes the request: asked first, or fixed by the landing page (lock_type). Monthly ad spend is asked only when the audit involves ads. Every id carries the prefix, since a page can hold two; the page's first form is #plan-form, where the phone's bar and every "Request an audit" button land. %>
 <% form = gl_form(:audit) %>
 <% if form %>
   <% types = gl_choices(gl_field(form, :audit_type)).pluck("value") %>
@@ -13,8 +13,8 @@
   <form id="<%= first ? "plan-form" : "#{prefix}-form" %>" data-audit-form data-form-slug="audit" method="post" action="<%= api_form_submissions_path(form_slug: form.slug) %>" class="form-card" novalidate>
     <div class="form-head">
       <% if kicker.present? %><p class="eyebrow" style="margin-bottom:6px"><%= kicker %></p><% end %>
-      <h3 class="form-title"><%= heading.presence || "Get your free marketing plan" %></h3>
-      <p class="form-sub"><%= blurb.presence || "Tell us where the business is now. A person reads it, not an autoresponder." %></p>
+      <h3 class="form-title"><%= heading.presence || "Request a marketing audit" %></h3>
+      <p class="form-sub"><%= blurb.presence || "Tell us where the business is now. For businesses already investing in marketing, or ready to. A partner reads it personally." %></p>
     </div>
     <% if lock_type %>
       <input type="hidden" name="audit_type" value="<%= audit_type %>" data-audit-type>
@@ -39,14 +39,14 @@
     <%= gl_attribution(form, source: "golumin-#{prefix}") %>
     <% if key %><div data-turnstile data-sitekey="<%= key %>"></div><% end %>
     <p data-error class="form-error" role="alert" hidden></p>
-    <button type="submit" data-submit data-cta="<%= cta %>" class="btn btn-primary btn-block"><%= submit_label.presence || "Get my free plan" %></button>
+    <button type="submit" data-submit data-cta="<%= cta %>" class="btn btn-primary btn-block"><%= submit_label.presence || "Request my audit" %></button>
     <div class="form-readers">
       <% if readers.any? %>
         <span class="form-avatars">
           <% readers.each do |person| %><%= gl_image website_fields(person).photo, alt: "", sizes: "2rem", loading: :lazy, width: 32, height: 32 %><% end %>
         </span>
       <% end %>
-      <span><%= note.presence || "#{readers.map { it.title.split.first }.to_sentence(two_words_connector: " or ")} reads it personally. No obligation, and the plan is yours to keep." %>
+      <span><%= note.presence || "#{readers.map { it.title.split.first }.to_sentence(two_words_connector: " or ")} reads it and replies from a real inbox. No sequence, no sales team." %>
         Rather talk? <a href="<%= phone_href.presence || gl_tel %>" data-cta="form-phone"><%= phone_label.presence || gl_phone %></a>.</span>
     </div>
     <p class="form-fine"><a href="/privacy">Privacy</a></p>

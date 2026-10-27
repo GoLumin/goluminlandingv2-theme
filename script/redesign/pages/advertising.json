@@ -98,7 +98,7 @@
       },
       {
        "kicker": "",
-       "title": "A landing page, built free",
+       "title": "A landing page, included",
        "body": "Every new account gets a page written for the search, built to be read on a phone, with one form and one number. On its own it's a $2,500 build. It's yours."
       }
      ]
@@ -170,7 +170,7 @@
        "answer": "The audit works the same way: read-only access, a person walks you through what they found, and you keep it. We never contact your current agency. Plenty of people use it as a second opinion and stay where they are."
       },
       {
-       "question": "Is the free landing page really free?",
+       "question": "Is the landing page included?",
        "answer": "Yes. It's built as part of onboarding for every new client, with no separate charge. On its own that build is $2,500. It goes on your domain, in your name, and it stays yours if you stop working with us."
       },
       {
@@ -186,18 +186,38 @@
     }
    },
    {
+    "type": "audit_form",
+    "version": 1,
+    "data": {
+     "eyebrow": "The audit",
+     "heading": "Audit my ad accounts.",
+     "blurb": "Tell us where the business is now. For businesses already investing in marketing, or ready to. A partner reads it personally.",
+     "bullets": [
+      "Read-only access. Nothing changes.",
+      "No slide deck. The findings, with the money attached.",
+      "A partner walks you through it live."
+     ],
+     "audit_type": "Ad account",
+     "lock_type": false,
+     "submit_label": "Request my audit",
+     "note": "",
+     "prefix": "advertising",
+     "tone": "subtle"
+    }
+   },
+   {
     "type": "closing_form",
     "version": 1,
     "data": {
-     "heading": "Keep the plan either way. That's the whole offer.",
-     "blurb": "A named person reads what you send and builds the plan against your real accounts, not a template. If you'd rather just talk it through, the number below reaches us directly.",
+     "heading": "Start with an audit of what you already have.",
+     "blurb": "A partner reads what you send and builds the audit against your real accounts, not a template. If you'd rather talk it through first, the number below reaches us directly.",
      "phone_kicker": "Call us direct",
      "phone_label": "(269) 532-6248",
      "phone_link": {
       "kind": "url",
       "value": "tel:+12695326248"
      },
-     "submit_label": "Get my free plan",
+     "submit_label": "Request my audit",
      "note": ""
     }
    }

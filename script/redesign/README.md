@@ -5,9 +5,10 @@ here so the launch is a set of known steps rather than a retype.
 
 | File | What it is |
 | --- | --- |
+| `build.py` | Writes `pages/*.json`, `globals.json` and `services.json` from the redesign's copy (v3: audits, never "free"). |
 | `pages/*.json` | One CMS page per redesign page, as blocks of the existing block types. Posted to the live CMS as drafts named `redesign-<slug>` (held for approval first, as every agent write is there). |
 | `globals.json` | The `nav` and `footer` globals, and the `ad_landing` global's `founders` group, as the redesign wants them. Globals have no draft state, so these are **not** written to the live CMS: apply them at launch. |
-| `services.json` | The services collection's card copy (`nav`, `promise`, `capabilities`, `proof`, `cases`) as the redesign's service cards say it. The entries are published, so these are not written to the live CMS either: apply at launch. |
+| `services.json` | The services collection's card copy (`nav`, `promise`, `capabilities`, `proof`, `cases`) as the redesign's service cards say it. The entries are published, so these are not written to the live CMS either: apply at launch. A card's picture is its first case study's homepage: Advertising wants the new BioFuse screenshot (replace asset 25's file with the redesign's `work-biofuse.webp`), Getting found wants Kalamazoo Rejuvenation, which needs a `work` entry (title, host, screenshot from the redesign's `work-kalamazoo-rejuvenation.webp`, a logo if there is one) before it can show. |
 | `redirects.json` | The redirects to add if a draft takes a new path at launch. |
 
 ## Where each page is meant to live
@@ -25,6 +26,12 @@ here so the launch is a set of known steps rather than a retype.
 | redesign-careers, redesign-referrals | `/careers`, `/referrals` | those pages' blocks (their roles, calculator and forms are kept) |
 
 Links inside the drafts already point at the final paths above.
+
+## Also at launch, in published entries
+
+- The paid landing pages (`lp` entries) keep their own copy. Bring them in line with v3: `submit_label` "Request my audit", no "free" in `h`, `sub`, `checks`, `pains` or `faqs` (the Google Ads page's "Is the free landing page really free?" becomes "Is the landing page included?"), and SEO titles without "Free".
+- The `ad_landing` global's `plan` group (`globals.json`, key `ad_landing.plan`) and its `offer` group still say "free": apply the plan from `globals.json` and reword the offer.
+- The `laspalmas` page's banner copy and the thank-you page's variants mention the free plan; reword by hand.
 
 ## Launching
 

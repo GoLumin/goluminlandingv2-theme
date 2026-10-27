@@ -7,13 +7,14 @@ site serves nothing that has to be built. How themes work: Libre Publish's
 docs/themes.md.
 
 The design is the 2026 redesign, "lit from above" (the redesign's DESIGN.md):
-one family, Inter; one violet accent (#5634E6); white pages with a soft
-lavender wash and one of the branded Lumin landscapes behind each hero,
-ending on a diagonal; a dark "night" section for the product, with the
-approvals board as a real screenshot; real client sites and the two founders
-instead of icons; the plan form in the hero's right column, and a call /
-plan bar at the foot of the screen on a phone. No monospace, no uppercase
-tracked labels, no gradient text. The stylesheet is `script/site.src.css`:
+one family, Inter; one violet accent (#5634E6); every hero a night hero, one
+of the branded Lumin landscapes at full strength under an aurora of drifting
+light, ending on a diagonal; white pages between; dark "night" sections for
+the product, the client quote and the closing call, each with a photo too;
+real client sites and the two founders instead of icons; the audit form in
+the hero's right column, a marquee of client marks under it, and a call /
+audit bar at the foot of the screen on a phone. No monospace, no uppercase
+tracked labels, no gradient text, and never "free": the offer is an audit. The stylesheet is `script/site.src.css`:
 the design is plain, unlayered CSS; Tailwind stays in the pipeline only for
 the block templates that still carry utility classes (below).
 

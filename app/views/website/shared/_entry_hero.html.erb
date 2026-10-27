@@ -1,8 +1,7 @@
 <%# locals: (crumb_label:, crumb_href:, eyebrow:, heading:, lede:, chips: [], after: nil) -%>
 <%# An entry's opening under the light, with its breadcrumb: back to the listing, the entry's name, its headline and standfirst. %>
-<section class="page-hero">
-  <div class="hero-light" aria-hidden="true"></div>
-  <%= render "website/shared/hero_photo" %>
+<section class="page-hero is-night">
+  <%= render "website/shared/scene" %>
   <div class="container">
     <div class="page-hero-inner">
       <p class="breadcrumb"><a href="<%= crumb_href %>"><%= crumb_label %></a><span aria-hidden="true">/</span><span><%= eyebrow %></span></p>

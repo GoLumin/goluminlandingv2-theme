@@ -89,15 +89,15 @@
     "type": "closing_form",
     "version": 1,
     "data": {
-     "heading": "Keep the plan either way. That's the whole offer.",
-     "blurb": "A named person reads what you send and builds the plan against your real accounts, not a template. If you'd rather just talk it through, the number below reaches us directly.",
+     "heading": "Start with an audit of what you already have.",
+     "blurb": "A partner reads what you send and builds the audit against your real accounts, not a template. If you'd rather talk it through first, the number below reaches us directly.",
      "phone_kicker": "Call us direct",
      "phone_label": "(269) 532-6248",
      "phone_link": {
       "kind": "url",
       "value": "tel:+12695326248"
      },
-     "submit_label": "Get my free plan",
+     "submit_label": "Request my audit",
      "note": ""
     }
    }

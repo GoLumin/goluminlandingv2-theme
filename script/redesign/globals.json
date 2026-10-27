@@ -132,7 +132,7 @@
     ]
    }
   ],
-  "cta_label": "Get my free plan",
+  "cta_label": "Request an audit",
   "cta_link": {
    "kind": "url",
    "value": "/lets-talk"
@@ -278,5 +278,12 @@
  "ad_landing.founders": {
   "heading": "Two partners. No account managers in between.",
   "sub": "There's no sales team, and no hand-off to a junior after you sign. There are two of us, we own the business equally, and we're the two who do the work. Either of us answers the phone."
+ },
+ "ad_landing.plan": {
+  "name": "your marketing audit",
+  "headline": "It tells you where the money's going. Then where it should go.",
+  "sub": "We go through your account without changing a thing in it, and write up what we find with the money attached to every line. Ranked, specific, and built against your real accounts rather than a template. Then we quote the work, or tell you plainly that you don't need us yet.",
+  "refrain": "Start with the audit. Decide after.",
+  "effort": "A few fields. A partner reads it, not an autoresponder."
  }
 }

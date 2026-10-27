@@ -7,10 +7,9 @@
 <% quote = gl_testimonial(entry.slug) %>
 <% figure = gl_case_figure(c) %>
 <% content_for :head, gl_seo_tags(entry, description: c.lede, image: c.screenshot) %>
-<% content_for :sticky_cta, "Get my free plan" %>
-<section class="page-hero is-short">
-  <div class="hero-light" aria-hidden="true"></div>
-  <%= render "website/shared/hero_photo" %>
+<% content_for :sticky_cta, "Request an audit" %>
+<section class="page-hero is-night is-short">
+  <%= render "website/shared/scene" %>
   <div class="container">
     <div class="page-hero-inner">
       <p class="breadcrumb"><a href="/work">Results</a><span aria-hidden="true">/</span><span><%= [entry.title, c.vertical, c.place].compact_blank.join(" · ") %></span></p>
@@ -144,6 +143,6 @@
   <% end %>
 <% end %>
 
-<%= render "website/shared/audit_section", heading: "Pick the plan you actually need.", blurb: "Website, local and AI search, ad account, or all three. Read-only access, real findings on your own accounts, and a person who walks you through them. You keep the plan either way.",
+<%= render "website/shared/audit_section", heading: "Pick the audit you actually need.", blurb: "Website, local and AI search, ad account, or all three. Read-only access, real findings on your own accounts, and a partner who walks you through them.",
   bullets: ["Read-only access. Nothing changes.", "No obligation, no slide deck.", "A person walks you through it."], tone: "bg" %>
 <%= tag.div(hidden: true, data: {gl_event: {event: "view_case_study", case_slug: entry.slug, case_name: entry.title, case_vertical: c.vertical}.to_json}) %>

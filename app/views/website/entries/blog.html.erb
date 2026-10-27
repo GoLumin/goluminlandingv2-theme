@@ -10,10 +10,9 @@
   <%= gl_seo_tags(entry, title: entry.seo.to_h["meta_title"].presence || "#{entry.title} | #{gl_name}", description: f.description, image: f.share_image) %>
   <script nonce="<%= content_security_policy_nonce %>">try { if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("fig-motion") } catch (e) {}</script>
 <% end %>
-<% content_for :sticky_cta, "Get my free plan" %>
-<section class="page-hero is-short">
-  <div class="hero-light" aria-hidden="true"></div>
-  <%= render "website/shared/hero_photo" %>
+<% content_for :sticky_cta, "Request an audit" %>
+<section class="page-hero is-night is-short">
+  <%= render "website/shared/scene" %>
   <div class="container">
     <div class="page-hero-inner">
       <p class="breadcrumb"><a href="/blog">Blog</a><% if f.eyebrow.present? %><span aria-hidden="true">/</span><span><%= f.eyebrow %></span><% end %></p>
@@ -49,7 +48,7 @@
     </aside>
   </div>
 </section>
-<%= render "website/shared/audit_section", heading: "We'll tell you how many of your ads ^passed review.^", blurb: "Read-only access to the ad account, real findings written down, and you keep them whether or not you hire us.", audit_type: "Ad account", prefix: "blog", bullets: [] %>
+<%= render "website/shared/audit_section", heading: "We'll tell you how many of your ads ^passed review.^", blurb: "Read-only access to the ad account, and real findings written down, with the money attached.", audit_type: "Ad account", prefix: "blog", bullets: [] %>
 <% if more.any? %>
   <%= gl_section(tight: true) do %>
     <%= gl_eyebrow("More reading") %>

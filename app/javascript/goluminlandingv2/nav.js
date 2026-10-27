@@ -48,6 +48,9 @@ if (toggle && drawer) {
 }
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeAll(null); closeDrawer() } })
 
+// The logo marquee: the track twice over, so the loop never shows a seam.
+document.querySelectorAll("[data-marquee]").forEach((t) => { t.innerHTML += t.innerHTML })
+
 // The hero's entrance: once the sequence has played, pin everything visible.
 setTimeout(() => document.querySelectorAll(".hero [data-enter]").forEach((el) => el.classList.add("is-done")), 1700)
 

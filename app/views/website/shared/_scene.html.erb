@@ -1,0 +1,7 @@
+<%# locals: (key: nil, night: false, glow: false, lamp: nil) -%>
+<%# What sits behind a night hero or a dark section: the branded photograph (the url inline on the element, so it resolves against the page), the aurora's four drifting lights (the lamp placed by --lamp-x/--lamp-y), the moving tint, and for a product section the lamp glow. %>
+<% url, position = gl_brand_photo(key || request.path) %>
+<div class="<%= night ? "night-photo" : "hero-photo" %>" aria-hidden="true"><i style="background-image:url(<%= url %>)<% if position %>;background-position:<%= position %><% end %>"></i></div>
+<div class="aurora" aria-hidden="true"<% if lamp %> style="--lamp-x:<%= lamp[0] %>;--lamp-y:<%= lamp[1] %>"<% end %>><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a4"></i></div>
+<div class="tint" aria-hidden="true"></div>
+<% if glow %><div class="night-glow" aria-hidden="true"></div><% end %>

@@ -1,8 +1,7 @@
 <%# locals: (data:) -%>
 <%# A policy: its heading, its date and its Markdown. %>
-<section class="page-hero is-short">
-  <div class="hero-light" aria-hidden="true"></div>
-  <%= render "website/shared/hero_photo" %>
+<section class="page-hero is-night is-short">
+  <%= render "website/shared/scene" %>
   <div class="container page-hero-inner">
     <h1 class="h-hero"><%= data.heading %></h1>
     <% if data.updated.present? %><p class="small" style="margin-top:16px"><%= data.updated %></p><% end %>

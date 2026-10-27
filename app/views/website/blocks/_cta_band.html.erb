@@ -1,7 +1,7 @@
 <%# locals: (data:) -%>
 <%# A closing band: the heading, a line, and the buttons. Dark unless "muted". %>
 <%= gl_section(tone: (data.background == "muted" ? "subtle" : "ink"), klass: (data.background == "muted" ? nil : "has-photo")) do %>
-  <% unless data.background == "muted" %><%= render "website/shared/hero_photo", key: "closing", night: true %><% end %>
+  <% unless data.background == "muted" %><%= render "website/shared/scene", key: "closing", night: true %><% end %>
   <div class="cta-grid">
     <div class="reveal">
       <h2 class="h-2"><%= gl_heading(data.heading) %></h2>

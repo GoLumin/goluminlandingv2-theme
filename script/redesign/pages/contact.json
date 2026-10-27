@@ -52,17 +52,17 @@
     "type": "audit_form",
     "version": 1,
     "data": {
-     "eyebrow": "Free marketing plan",
-     "heading": "Get your free marketing plan.",
-     "blurb": "Tell us where the business is now. A person reads it, not an autoresponder.",
+     "eyebrow": "The audit",
+     "heading": "Request a marketing audit.",
+     "blurb": "Tell us where the business is now. For businesses already investing in marketing, or ready to. A partner reads it personally.",
      "bullets": [
-      "Jordan or Ted reads it personally.",
       "Read-only access. Nothing changes.",
-      "No obligation, and the plan is yours to keep."
+      "No slide deck. The findings, with the money attached.",
+      "A partner walks you through it live."
      ],
      "audit_type": "Full system (web + search + ads)",
      "lock_type": false,
-     "submit_label": "Get my free plan",
+     "submit_label": "Request my audit",
      "note": "",
      "prefix": "contact",
      "tone": "subtle"
@@ -103,7 +103,7 @@
   ],
   "seo": {
    "meta_title": "Let's talk · GoLumin",
-   "meta_description": "Call (269) 532-6248 or send the form. A named person at GoLumin reads every message. Read-only access, real findings on your own accounts, no obligation."
+   "meta_description": "Call (269) 532-6248 or send the form. A named person at GoLumin reads every message. Read-only access, real findings on your own accounts."
   }
  }
 }

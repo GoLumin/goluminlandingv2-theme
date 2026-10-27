@@ -5,7 +5,7 @@
 <% text = q ? q.quote : website_plain_text(data.text) %>
 <% stat = q && q.result_figure.present? %>
 <section class="section section-night has-photo">
-  <%= render "website/shared/hero_photo", key: "quote", night: true %>
+  <%= render "website/shared/scene", key: "quote", night: true %>
   <div class="container quote-grid<%= " is-alone" unless stat %>">
     <blockquote class="reveal">
       <p class="quote-text">“<%= text %>”</p>
