@@ -28,14 +28,10 @@ module Goluminlandingv2
       Website.register :goluminlandingv2, name: "GoLumin", version: Goluminlandingv2::VERSION,
         views: Goluminlandingv2::Engine.root.join("app/views"),
         importmap: Importmap::Map.new.draw(Goluminlandingv2::Engine.root.join("config/importmap.rb")),
-        # Settings › Themes › Customize. The site is ink on violet-cast paper;
-        # "dark" draws every page in the console palette its product panels use.
+        # Settings › Themes › Customize.
         design: [
-          {name: "color_scheme", label: "Colors", type: "select", default: "light",
-           options: {"light" => "light", "dark" => "dark"},
-           help: "Paper and ink, or the dark console palette the product panels use, for the whole site."},
           {name: "header_phone", label: "Show the phone number in the header", type: "boolean", default: true},
-          {name: "sticky_cta", label: "Show the audit bar at the foot of the screen on phones", type: "boolean", default: true}
+          {name: "sticky_cta", label: "Show the call / plan bar at the foot of the screen on phones", type: "boolean", default: true}
         ]
     end
   end

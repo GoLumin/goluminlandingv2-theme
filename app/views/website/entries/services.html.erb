@@ -1,82 +1,87 @@
 <%# locals: (entry:) -%>
-<%# A service's page (ServicePage.astro): outcome, the problems it solves, how the work runs, the platform behind it and where the person sits, case studies, the handoff to the next service, its questions, and the audit for it. %>
+<%# A service's page: its headline and the plan it comes with, the problems it fixes, how the work runs, the software behind it, where it's running, the next service, its questions, and the plan form. %>
 <% s = website_fields(entry) %>
 <% next_service = gl_service(s.handoff.to) %>
 <% others = gl_services.reject { |o| o == entry } %>
 <% content_for :head, gl_seo_tags(entry, description: s.lede) %>
-<% content_for :sticky_cta, "Get a free audit →" %>
-<% after = capture do %>
-  <div class="reveal mt-8 flex flex-wrap items-center gap-3">
-    <%= gl_button s.audit.cta, "#audit", size: :lg, magnet: true, cta: "#{entry.slug}-hero-primary" %>
-    <%= gl_button "How we deliver it", "/how-it-works", variant: :outline, size: :lg, cta: "#{entry.slug}-hero-secondary" %>
-  </div>
-  <ul class="reveal mt-12 grid rule-t sm:grid-cols-2 lg:grid-cols-4" data-stagger>
-    <% s.capabilities.each do |c| %>
-      <li class="reveal border-b-2 border-text py-4 sm:border-b-0 sm:border-r-2 sm:pr-5 sm:last:border-r-0 sm:[&:not(:first-child)]:pl-5 lg:[&:not(:first-child)]:pl-5"><span class="text-[15px] font-semibold leading-snug"><%= c %></span></li>
+<% content_for :sticky_cta, "Get my free plan" %>
+<section class="page-hero">
+  <div class="hero-light" aria-hidden="true"></div>
+  <%= render "website/shared/hero_photo" %>
+  <div class="container">
+    <div class="page-hero-inner">
+      <p class="breadcrumb"><a href="/services">Services</a><span aria-hidden="true">/</span><span><%= s.nav.presence || entry.title %></span></p>
+      <h1 class="h-hero"><%= gl_heading(s.h) %></h1>
+      <p class="lede"><%= s.lede %></p>
+      <div class="hero-links">
+        <%= gl_button s.audit.cta, "#audit", cta: "#{entry.slug}-hero-primary" %>
+        <%= gl_button "See how we deliver it", "/how-it-works", variant: :ghost, cta: "#{entry.slug}-hero-secondary" %>
+      </div>
+    </div>
+    <% if s.capabilities.any? %>
+      <ul class="page-hero-row check-list is-two" data-stagger>
+        <% s.capabilities.each do |c| %><li class="reveal"><%= c %></li><% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
-<%= render "website/shared/entry_hero", crumb_label: "Services", crumb_href: "/services", eyebrow: entry.title, heading: s.h, lede: s.lede, chips: s.chips, after: %>
+  </div>
+</section>
 
-<%= gl_section(tone: "subtle") do %>
-  <%= render "website/shared/numbered_list", eyebrow: "What this fixes", eyebrow_n: "Problems", heading: "Said on the first call, ^nearly every time.^", quoted: true,
-    items: s.problems.map { |p| [p.t, p.d] } %>
+<%= gl_section(tone: "subtle", rule: true) do %>
+  <%= render "website/shared/numbered_list", eyebrow: "What this fixes", heading: "Said on the first call, ^nearly every time.^", quoted: true, items: s.problems.map { |p| [p.t, p.d] } %>
 <% end %>
 
 <%= gl_section do %>
-  <div class="max-w-3xl">
-    <%= gl_eyebrow("How the work runs", "Process") %>
-    <h2 class="reveal display display-lg"><%= s.promise %></h2>
+  <div class="section-head reveal">
+    <%= gl_eyebrow("How the work runs") %>
+    <h2 class="h-2"><%= gl_heading(s.promise) %></h2>
   </div>
-  <div class="mt-12"><%= render "website/shared/steps", items: s.process.each_with_index.map { |p, i| [gl_n(i), p.t, p.d] }, columns: "4" %></div>
+  <%= render "website/shared/steps", items: s.process.each_with_index.map { |p, i| [gl_n(i), p.t, p.d] }, columns: "4" %>
 <% end %>
 
-<%= gl_section(tone: "subtle") do %>
-  <div class="grid items-start gap-10 md:grid-cols-2 md:gap-14" data-stagger>
-    <div class="reveal">
-      <%= gl_eyebrow(s.platform["name"], "Show, don't tell") %>
-      <h2 class="reveal display display-md">The software behind it, <span class="mark">not the software you buy.</span></h2>
-      <p class="mt-6 text-lg leading-snug text-text-subtle"><%= s.platform.d %></p>
-      <div class="mt-8 border-l-2 border-signal bg-surface px-5 py-4">
-        <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">Where the person sits</p>
-        <p class="mt-2 text-[15px] leading-snug"><%= s.human %></p>
-      </div>
-      <a href="/trust" class="mt-8 inline-flex items-center gap-2 font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text">What never runs on its own →</a>
+<%= gl_section(tone: "ink") do %>
+  <div class="feature-row">
+    <div class="feature-copy reveal">
+      <%= gl_eyebrow(s.platform["name"]) %>
+      <h2 class="h-2">The software behind it, <span class="em">not the software you buy.</span></h2>
+      <p class="lede"><%= s.platform.d %></p>
+      <% if s.human.present? %><div class="callout-box" style="margin-top:24px"><h3 class="h-4">Where the person sits</h3><p><%= s.human %></p></div><% end %>
+      <div class="btn-row"><a class="btn-link" href="/trust">What never runs on its own <span class="arrow" aria-hidden="true">→</span></a></div>
     </div>
     <% if s.platform.image.present? %>
-      <div class="reveal tilt-zone" style="--i:1"><div class="tilt"><%= render "website/shared/screenshot", image: s.platform.image, caption: s.platform.caption %></div></div>
+      <div class="feature-media reveal" style="--i:1"><%= render "website/shared/screen", image: s.platform.image, caption: s.platform.caption, browser: true %></div>
     <% end %>
   </div>
 <% end %>
 
-<%= render layout: "website/shared/case_studies", locals: {studies: gl_cases(s.cases), eyebrow: "Live right now", eyebrow_n: "Results", heading: "Where this is running today.",
-  body: "Every figure below comes from the live site or its sitemap at capture time. Where a client's performance data is theirs to release, we ask first and publish the baseline and the method with it.",
-  link_label: "All %{count} case studies →", tone: "bg"} do %><% end %>
+<%= render layout: "website/shared/case_studies", locals: {studies: gl_cases(s.cases), eyebrow: "Results", heading: "Where this is running today.",
+  body: "Every figure comes from the live site or its sitemap at capture time. Where a client's performance data is theirs to release, we ask first and publish the baseline and the method with it.",
+  link_label: "All %{count} case studies", tone: "subtle"} do %><% end %>
 
-<%= gl_section(tone: "subtle") do %>
-  <div class="grid items-start gap-10 md:grid-cols-[1fr_1fr] md:gap-14">
-    <div>
-      <%= gl_eyebrow("What's next door", "The handoff") %>
-      <h2 class="reveal display display-md"><%= entry.title %> hands off to <span class="text-primary"><%= next_service&.title %>.</span></h2>
-      <p class="reveal mt-6 max-w-md text-lg leading-snug text-text-subtle"><%= s.handoff.d %></p>
+<% if next_service || others.any? %>
+  <%= gl_section do %>
+    <div class="two-col">
+      <div class="reveal">
+        <%= gl_eyebrow("What's next door") %>
+        <h2 class="h-2"><%= entry.title %> hands off to <span class="em"><%= next_service&.title || "the rest." %><%= "." if next_service %></span></h2>
+        <% if s.handoff.d.present? %><p class="lede"><%= s.handoff.d %></p><% end %>
+      </div>
+      <div class="steps is-two reveal" style="--i:1">
+        <% others.each do |other| %>
+          <% o = website_fields(other) %>
+          <a href="<%= website_path(other) %>" data-cta="<%= entry.slug %>-related-<%= other.slug %>" class="step">
+            <p class="step-when"><%= o.nav.presence || other.title %></p>
+            <h3 class="h-4"><%= o.promise %></h3>
+          </a>
+        <% end %>
+      </div>
     </div>
-    <div class="grid gap-4" data-stagger>
-      <% others.each do |other| %>
-        <% o = website_fields(other) %>
-        <a href="<%= website_path(other) %>" data-cta="<%= entry.slug %>-related-<%= other.slug %>" class="reveal lift group flex items-start justify-between gap-4 border-2 border-text bg-surface p-5">
-          <span>
-            <span class="block font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= o.n %> · <%= o.nav %></span>
-            <span class="mt-2 block text-lg font-semibold leading-snug tracking-tight"><%= o.promise %></span>
-          </span>
-          <span class="mt-1 shrink-0 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-        </a>
-      <% end %>
-    </div>
-  </div>
+  <% end %>
 <% end %>
 
-<%= render "website/shared/faq", items: s.faqs.map { |f| Struct.new(:question, :answer).new(f.q, f.a) }, heading: "Questions about #{entry.title.downcase}." %>
+<% if s.faqs.any? %>
+  <%= render "website/shared/faq", items: s.faqs.map { |f| Struct.new(:question, :answer).new(f.q, f.a) }, heading: "Questions about #{(s.nav.presence || entry.title).downcase}." %>
+<% end %>
 
 <%= render "website/shared/audit_section", heading: "#{s.audit.cta}.", blurb: s.audit.blurb, audit_type: s.audit.type,
-  bullets: ["Read-only access — nothing changes", "No obligation, no slide deck", "This form is a lead in our own inbox, timer running on us"] %>
+  bullets: ["Read-only access. Nothing changes.", "No obligation, no slide deck.", "A person walks you through it."] %>
 <%= tag.div(hidden: true, data: {gl_event: {event: "view_service", service_name: entry.title, service_slug: entry.slug}.to_json}) %>

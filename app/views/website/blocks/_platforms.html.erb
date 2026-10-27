@@ -1,39 +1,31 @@
 <%# locals: (data:) -%>
-<%# The two platforms (Platforms.astro), each beside its screenshot, and the note that they aren't the product. %>
+<%# Feature rows under one heading: each item is a heading and standfirst, a check list of bullets and a screenshot in a browser frame, flipped where asked. Then the note, with its link. %>
 <% link = gl_href(data.link) %>
 <%= gl_section(id: "platform") do %>
-  <div class="max-w-4xl">
-    <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-    <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
-    <p class="reveal mt-6 text-lg leading-snug text-text-subtle"><%= data.body %></p>
-  </div>
-  <div class="mt-14 space-y-20 md:mt-20 md:space-y-28">
-    <% data.items.each do |x| %>
-      <article id="<%= x.anchor.presence %>" class="scroll-mt-20 grid items-start gap-8 rule-t pt-8 md:grid-cols-2 md:gap-14" data-stagger>
-        <div class="<%= class_names("reveal", "md:order-2": x.flip) %>">
-          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[12px] uppercase tracking-[0.18em]">
-            <span class="tag text-text-muted"><%= x.number %></span>
-            <span class="font-semibold text-text"><%= x["name"] %></span>
-            <span class="text-text-muted">· <%= x.role %></span>
-          </div>
-          <h3 class="display display-md mt-5"><%= gl_heading(x.heading) %></h3>
-          <p class="mt-5 max-w-lg text-lg leading-snug text-text-subtle"><%= x.body %></p>
-          <ul class="mt-7 grid gap-x-6 gap-y-2.5 sm:grid-cols-2" data-stagger>
-            <% x.bullets.each do |bullet| %>
-              <li class="reveal flex items-start gap-3 text-[15px] font-medium leading-snug"><span class="pop mt-[6px] h-2 w-2 shrink-0 bg-signal" aria-hidden="true"></span><%= bullet %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="<%= class_names("reveal tilt-zone", "md:order-1": x.flip) %>" style="--i:1">
-          <div class="tilt"><%= render "website/shared/screenshot", image: x.image, caption: x.caption %></div>
-        </div>
-      </article>
-    <% end %>
-  </div>
+  <% if data.heading.present? || data.eyebrow.present? %>
+    <div class="section-head reveal">
+      <%= gl_eyebrow(data.eyebrow) %>
+      <% if data.heading.present? %><h2 class="h-2"><%= gl_heading(data.heading) %></h2><% end %>
+      <% if data.body.present? %><p class="lede"><%= data.body %></p><% end %>
+    </div>
+  <% end %>
+  <% data.items.each do |x| %>
+    <div id="<%= x.anchor.presence %>" class="feature-row<%= " is-flipped" if x.flip %>">
+      <div class="feature-copy reveal">
+        <%= gl_eyebrow([x["name"], x.role].compact_blank.join(" · ")) %>
+        <h2 class="h-2"><%= gl_heading(x.heading) %></h2>
+        <% if x.body.present? %><p class="lede"><%= x.body %></p><% end %>
+        <% if x.bullets.any? %>
+          <ul class="check-list"><% x.bullets.each do |bullet| %><li><%= bullet %></li><% end %></ul>
+        <% end %>
+      </div>
+      <div class="feature-media reveal" style="--i:1"><%= render "website/shared/screen", image: x.image, caption: x.caption, browser: true %></div>
+    </div>
+  <% end %>
   <% if data.note.present? %>
-    <p class="reveal mt-14 border-l-2 border-signal bg-bg-subtle px-5 py-4 text-[15px] leading-snug text-text-subtle md:mt-20">
-      <span class="font-semibold text-text"><%= data.note_lead %></span> <%= data.note %>
-      <% if link %><a href="<%= link %>" class="ml-1 font-semibold text-text underline decoration-2 decoration-signal underline-offset-[4px] hover:decoration-text"><%= data.link_label %></a><% end %>
-    </p>
+    <div class="service-underline reveal" style="margin-top:72px">
+      <p><% if data.note_lead.present? %><strong><%= data.note_lead %></strong> <% end %><%= data.note %></p>
+      <% if link && data.link_label.present? %><a class="btn-link" href="<%= link %>"><%= data.link_label.to_s.delete_suffix("→").strip %> <span class="arrow" aria-hidden="true">→</span></a><% end %>
+    </div>
   <% end %>
 <% end %>

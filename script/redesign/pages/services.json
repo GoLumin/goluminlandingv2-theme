@@ -1,0 +1,225 @@
+{
+ "page": {
+  "slug": "services",
+  "title": "Services",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Services",
+     "heading": "Everything a local business needs to turn demand into customers.",
+     "lede": "Three services, one team, one set of numbers. Buy the one you need now. The others make it work harder when you're ready.",
+     "chips": [],
+     "ctas": [
+      {
+       "label": "Get my free plan",
+       "link": {
+        "kind": "url",
+        "value": "#audit"
+       },
+       "style": "primary"
+      },
+      {
+       "label": "See how we deliver it",
+       "link": {
+        "kind": "url",
+        "value": "/how-it-works"
+       },
+       "style": "ghost"
+      }
+     ],
+     "items_style": "none",
+     "items": []
+    }
+   },
+   {
+    "type": "service_cards",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "",
+     "heading": "",
+     "lede": "",
+     "link_label": "Underneath all three: tracking that ties every call and form to what paid for it",
+     "link": {
+      "kind": "url",
+      "value": "/tracking"
+     },
+     "tone": "bg"
+    }
+   },
+   {
+    "type": "steps",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Why one team",
+     "heading": "Leads teach the ads. Ads teach the site.",
+     "aside": "Split web, search and ads across three vendors and this loop breaks at every hand-off. Nobody sends the sold-lead data back. Nobody rewrites the page the ad points at. One team closes it.",
+     "columns": "3",
+     "figures": false,
+     "tone": "subtle",
+     "anchor": "",
+     "items": [
+      {
+       "kicker": "Leads teach the ads",
+       "title": "Mark a lead sold or lost.",
+       "body": "That verdict goes back to Google and Meta as a real conversion, so the bidding learns to find customers instead of form fills."
+      },
+      {
+       "kicker": "Pages become ad copy",
+       "title": "The page that converts becomes the ad.",
+       "body": "Same promise on both sides of the click, because the same team owns both sides."
+      },
+      {
+       "kicker": "Ads fix the website",
+       "title": "A page losing people gets flagged and fixed.",
+       "body": "We see it in the ad data the day it starts, redraft the page, and it's live the same week."
+      }
+     ],
+     "note": ""
+    }
+   },
+   {
+    "type": "steps",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "How to start",
+     "heading": "Start anywhere. Strongest together.",
+     "aside": "",
+     "columns": "3",
+     "figures": false,
+     "tone": "bg",
+     "anchor": "",
+     "items": [
+      {
+       "kicker": "Common",
+       "title": "Buy one service",
+       "body": "Ads only, or a website only, is a normal way to start. Most engagements do."
+      },
+      {
+       "kicker": "Better",
+       "title": "Buy two",
+       "body": "Web and search together, since the same pages do both jobs. Or ads and web, so the landing page and the campaign match."
+      },
+      {
+       "kicker": "Strongest",
+       "title": "Buy the system",
+       "body": "All three, so the loop closes: sold leads teach the ads, the ads teach the site, the site feeds search."
+      }
+     ],
+     "note": ""
+    }
+   },
+   {
+    "type": "engagement",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "What to expect",
+     "heading": "No mystery about what happens next.",
+     "phases": [
+      {
+       "when": "Days 1 to 3",
+       "title": "We look",
+       "body": "Read-only access to the accounts and the site. We go through them and write up what we find, with the money attached.",
+       "items": [
+        "Read-only, nothing changes",
+        "You keep the findings, hired or not",
+        "A person walks you through it"
+       ]
+      },
+      {
+       "when": "Days 4 to 10",
+       "title": "We set up",
+       "body": "Accounts connected, tracking verified, spend limits and approval rules set with you before anything runs.",
+       "items": [
+        "Your accounts stay in your name",
+        "You set the spend limits",
+        "Tracking checked first"
+       ]
+      },
+      {
+       "when": "Day 10 onward",
+       "title": "We run it",
+       "body": "The account gets worked every day. Changes carry their evidence, a named person approves them, and you get one plain-English email a week.",
+       "items": [
+        "Every change explained",
+        "One email each week",
+        "Leads on your phone as they arrive"
+       ]
+      }
+     ],
+     "answers": []
+    }
+   },
+   {
+    "type": "trust_lists",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Fit",
+     "heading": "Who this is for, and who it isn't.",
+     "never_label": "Not a fit",
+     "never": [
+      "Ecommerce catalogues and app installs",
+      "Anyone who wants a vendor to execute a plan they've already written",
+      "Businesses that can't take the calls a working campaign produces"
+     ],
+     "always_label": "A good fit",
+     "always": [
+      "Local and multi-location businesses where a phone call or a form is the sale",
+      "Law firms, medical and dental practices, mortgage and insurance",
+      "Home services and trades, storage and moving, clinics and wellness",
+      "Owners who want to see the numbers, not just a monthly PDF"
+     ],
+     "note": "We take accountability for the outcome, which means having opinions about the plan."
+    }
+   },
+   {
+    "type": "audit_form",
+    "version": 1,
+    "data": {
+     "eyebrow": "Free marketing plan",
+     "heading": "Get your free marketing plan.",
+     "blurb": "Tell us where the business is now. A person reads it, not an autoresponder.",
+     "bullets": [
+      "Read-only access. Nothing changes.",
+      "No obligation, no slide deck.",
+      "A person walks you through it."
+     ],
+     "audit_type": "Full system (web + search + ads)",
+     "lock_type": false,
+     "submit_label": "Get my free plan",
+     "note": "",
+     "prefix": "services",
+     "tone": "subtle"
+    }
+   },
+   {
+    "type": "closing_form",
+    "version": 1,
+    "data": {
+     "heading": "Keep the plan either way. That's the whole offer.",
+     "blurb": "A named person reads what you send and builds the plan against your real accounts, not a template. If you'd rather just talk it through, the number below reaches us directly.",
+     "phone_kicker": "Call us direct",
+     "phone_label": "(269) 532-6248",
+     "phone_link": {
+      "kind": "url",
+      "value": "tel:+12695326248"
+     },
+     "submit_label": "Get my free plan",
+     "note": ""
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "Services · GoLumin",
+   "meta_description": "Websites, advertising, and local and AI search for local businesses, run as one system by one team. Buy one, or buy the system."
+  }
+ }
+}

@@ -1,0 +1,223 @@
+{
+ "page": {
+  "slug": "search",
+  "title": "Local & AI search",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Local & AI search",
+     "heading": "When someone asks Google or ChatGPT who to call, is it you?",
+     "lede": "Customers now ask Google Maps, ChatGPT, Perplexity and Google's AI answers for a nearby lawyer, plumber or storage unit. We make sure the pages, details and listings those answers draw on exist, agree, and answer the question, in every market you serve.",
+     "chips": [],
+     "ctas": [
+      {
+       "label": "Check my visibility",
+       "link": {
+        "kind": "url",
+        "value": "#audit"
+       },
+       "style": "primary"
+      },
+      {
+       "label": "What the check looks at",
+       "link": {
+        "kind": "url",
+        "value": "#looks"
+       },
+       "style": "ghost"
+      }
+     ],
+     "items_style": "none",
+     "items": []
+    }
+   },
+   {
+    "type": "cards",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Where you're found",
+     "heading": "Five places a customer looks for you now.",
+     "body": "Most businesses aren't set up correctly for even one of them.",
+     "columns": "3",
+     "tone": "bg",
+     "numbered": false,
+     "service_links": false,
+     "items": [
+      {
+       "kicker": "",
+       "title": "Google search",
+       "body": "Still the biggest. Service and town pages that answer the search."
+      },
+      {
+       "kicker": "",
+       "title": "Google Maps",
+       "body": "Your business profile, reviews, hours and categories, kept right."
+      },
+      {
+       "kicker": "",
+       "title": "ChatGPT",
+       "body": "Cites pages and listings. If they disagree, it picks someone else."
+      },
+      {
+       "kicker": "",
+       "title": "Gemini & AI answers",
+       "body": "Google's own AI pulls from the same structured data."
+      },
+      {
+       "kicker": "",
+       "title": "Apple Maps",
+       "body": "Every iPhone. Most businesses have never claimed it."
+      }
+     ]
+    }
+   },
+   {
+    "type": "platforms",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "",
+     "heading": "",
+     "body": "",
+     "items": [
+      {
+       "anchor": "markets",
+       "number": "",
+       "name": "",
+       "role": "Every market, not just your home city",
+       "heading": "A page for every town you serve, that actually says something.",
+       "body": "\"Areas we serve\" with a list of towns can't rank anywhere. We build a real page for each market, from data you already hold, and keep the hours, services and phone numbers consistent across all of them.",
+       "bullets": [
+        "Inbox Portable Storage: 400+ pages indexed on a domain that started at zero",
+        "White & White: nineteen service-area pages across two counties",
+        "Mule Box: three cities, each with its own site, number and offers"
+       ],
+       "image": "22",
+       "caption": "White & White Construction: a page for every city they build in.",
+       "flip": false
+      },
+      {
+       "anchor": "listings",
+       "number": "",
+       "name": "",
+       "role": "Listings that agree with each other",
+       "heading": "Hours, address, phone and services, the same everywhere.",
+       "body": "An assistant that finds your hours saying one thing on your site and another on Maps doesn't pick a side. It picks another business. We manage the listings, the citations and the reviews so there's one version of the truth.",
+       "bullets": [
+        "Google Business Profile, Apple Maps, Bing Places and the directories that feed them",
+        "A review system that asks the right customers at the right moment",
+        "Structured data so the machine-readable version matches the page"
+       ],
+       "image": "10",
+       "caption": "Mule Box: three cities, one place to edit it all.",
+       "flip": true
+      }
+     ],
+     "note_lead": "",
+     "note": "",
+     "link_label": ""
+    }
+   },
+   {
+    "type": "numbered_list",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "The free visibility check",
+     "heading": "What the check looks at.",
+     "body": "Maps, search results and AI answers in one check, for every market you serve. We're straight about what can be controlled and what can't.",
+     "items": [
+      {
+       "title": "Where your details disagree",
+       "body": "Hours, address, phone and services that say one thing on your site and another on your listings. Assistants notice, and so do customers.",
+       "tag": ""
+      },
+      {
+       "title": "Markets with no page",
+       "body": "Towns and service areas you serve but have nothing written about, so nothing can rank or be cited there.",
+       "tag": ""
+      },
+      {
+       "title": "Thin and duplicate location pages",
+       "body": "The same paragraph with the town name swapped. We flag which pages are too thin to earn an answer.",
+       "tag": ""
+      },
+      {
+       "title": "Questions nothing on your site answers",
+       "body": "The questions buyers put to search and to AI assistants, and whether any page of yours is a credible answer.",
+       "tag": ""
+      },
+      {
+       "title": "Structured data",
+       "body": "Whether the machine-readable version of your business, services and locations exists, and whether it matches the page.",
+       "tag": ""
+      },
+      {
+       "title": "What we'd fix first",
+       "body": "A short, ranked list of the pages and details worth changing first, whoever makes the changes.",
+       "tag": ""
+      }
+     ],
+     "tone": "subtle",
+     "heading_size": "lg",
+     "quoted": false,
+     "marker": "dot",
+     "ctas": [],
+     "anchor": "looks"
+    }
+   },
+   {
+    "type": "faq",
+    "version": 1,
+    "data": {
+     "eyebrow": "Questions",
+     "heading": "The honest answers.",
+     "items": [
+      {
+       "question": "Can you guarantee ChatGPT will recommend us?",
+       "answer": "No, and be wary of anyone who does. No assistant publishes how it chooses. What we can do is make sure the pages, details and citations it draws on exist, agree and answer the question. That's also exactly what Google Maps and Google search reward, so the work pays twice."
+      },
+      {
+       "question": "How long before search does the work instead of ads?",
+       "answer": "Months, not weeks, and it depends on how far behind the site starts. FoxBox started from zero; ads carried the bookings while search was built, and the ads budget came down to a third once organic took over. We'll tell you where you are on that curve."
+      },
+      {
+       "question": "Do I have to use your CMS?",
+       "answer": "Only if we build or run the site. We manage search and listings for plenty of businesses whose sites live somewhere else."
+      },
+      {
+       "question": "How is it priced?",
+       "answer": "A monthly fee, quoted after the check once we know what's actually there. The check itself is free and you keep the findings whether or not you hire us."
+      }
+     ],
+     "tone": "bg"
+    }
+   },
+   {
+    "type": "closing_form",
+    "version": 1,
+    "data": {
+     "heading": "Keep the plan either way. That's the whole offer.",
+     "blurb": "A named person reads what you send and builds the plan against your real accounts, not a template. If you'd rather just talk it through, the number below reaches us directly.",
+     "phone_kicker": "Call us direct",
+     "phone_label": "(269) 532-6248",
+     "phone_link": {
+      "kind": "url",
+      "value": "tel:+12695326248"
+     },
+     "submit_label": "Get my free plan",
+     "note": ""
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "Local & AI search · GoLumin",
+   "meta_description": "Show up in Google Maps, Google search, ChatGPT and Gemini for every market you serve. Local SEO and AI search visibility for local businesses."
+  }
+ }
+}

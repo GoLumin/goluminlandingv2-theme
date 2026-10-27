@@ -1,0 +1,148 @@
+{
+ "page": {
+  "slug": "careers",
+  "title": "Careers",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Careers · 4 open roles · remote, US",
+     "heading": "Come build the marketing company that runs on software it wrote.",
+     "lede": "Small team, real clients, real money moving through accounts we're accountable for. That's the appeal and it's also the warning. Four things we actually select for.",
+     "chips": [],
+     "ctas": [
+      {
+       "label": "Apply",
+       "link": {
+        "kind": "url",
+        "value": "#apply"
+       },
+       "style": "primary"
+      },
+      {
+       "label": "See how we work",
+       "link": {
+        "kind": "url",
+        "value": "/how-it-works"
+       },
+       "style": "ghost"
+      }
+     ],
+     "items_style": "roles",
+     "items": []
+    }
+   },
+   {
+    "type": "cards",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "What we select for",
+     "heading": "Four things we actually select for.",
+     "body": "",
+     "columns": "2",
+     "tone": "bg",
+     "numbered": false,
+     "service_links": false,
+     "items": [
+      {
+       "kicker": "",
+       "title": "Teamwork",
+       "body": "Three services, one team, one record. Nobody here gets to optimise their own number at another person's expense. The whole point of the company is that the hand-offs don't leak."
+      },
+      {
+       "kicker": "",
+       "title": "Initiative",
+       "body": "Nobody will hand you a ticket queue. You'll find the problem, write up what you'd do, and go."
+      },
+      {
+       "kicker": "",
+       "title": "Discipline",
+       "body": "The software proposes, a named person approves. That only works if the person signing is genuinely careful. Accuracy, follow-through, and saying no to a plausible-looking bad idea."
+      },
+      {
+       "kicker": "",
+       "title": "Room to grow",
+       "body": "Early team, flat structure, no layer to wait behind. The people who join now define how their function works and then lead it."
+      }
+     ]
+    }
+   },
+   {
+    "type": "steps",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Hiring process",
+     "heading": "We'll give you an answer either way.",
+     "aside": "",
+     "columns": "4",
+     "figures": false,
+     "tone": "subtle",
+     "anchor": "",
+     "items": [
+      {
+       "kicker": "You apply",
+       "title": "",
+       "body": "Email us one specific thing you built or ran, and what happened to it. A link beats a résumé; a real example beats both."
+      },
+      {
+       "kicker": "A conversation",
+       "title": "",
+       "body": "45 minutes with a person who does the work, not a recruiter."
+      },
+      {
+       "kicker": "Something real",
+       "title": "",
+       "body": "A paid exercise or a working session on an actual problem. No take-home that takes your weekend."
+      },
+      {
+       "kicker": "Decision",
+       "title": "",
+       "body": "An answer either way, with a reason. Compensation discussed openly against what you'd own."
+      }
+     ],
+     "note": "On pay: we'd rather talk about it openly than post a band we'd outgrow in a year. Bring your number to the first call and we'll be straight with you."
+    }
+   },
+   {
+    "type": "roles",
+    "version": 1,
+    "data": {
+     "apply_label": "Apply for this role",
+     "apply_link": {
+      "kind": "url",
+      "value": "#apply"
+     },
+     "location": "Remote, US"
+    }
+   },
+   {
+    "type": "form_section",
+    "version": 1,
+    "data": {
+     "form": "application",
+     "eyebrow_n": "Apply",
+     "eyebrow": "Start here",
+     "heading": "Tell us about ^one thing you built.^",
+     "body": "Not your whole career, just one specific thing you owned and what happened to it. That tells us more than a résumé does, and it's what we'll want to talk about anyway.",
+     "bullets": [
+      "A person reads every application",
+      "Links beat attachments: GitHub, a site you run, an account you turned around",
+      "No role that fits? Say so in the message and pick 'Something else'"
+     ],
+     "footnote": "Prefer email with a CV attached? [marketing@golumin.io](mailto:marketing@golumin.io)",
+     "anchor": "apply",
+     "tone": "subtle"
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "Careers · GoLumin",
+   "meta_description": "Open marketing and engineering roles at GoLumin: Google Ads, Meta Ads, local and AI search, and full-stack engineering. Remote, US."
+  }
+ }
+}

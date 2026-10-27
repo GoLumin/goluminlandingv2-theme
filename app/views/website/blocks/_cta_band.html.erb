@@ -1,10 +1,12 @@
 <%# locals: (data:) -%>
-<section class="<%= data.background == "muted" ? "bg-bg-subtle" : "console ink" %> rule-t">
-  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-14 md:flex-row md:items-center md:justify-between md:px-8 md:py-20">
-    <div class="max-w-3xl">
-      <h2 class="reveal display display-md"><%= gl_heading(data.heading) %></h2>
-      <% if data.body.present? %><p class="reveal mt-4 text-lg leading-snug text-text-subtle"><%= website_plain_text(data.body) %></p><% end %>
+<%# A closing band: the heading, a line, and the buttons. Dark unless "muted". %>
+<%= gl_section(tone: (data.background == "muted" ? "subtle" : "ink"), klass: (data.background == "muted" ? nil : "has-photo")) do %>
+  <% unless data.background == "muted" %><%= render "website/shared/hero_photo", key: "closing", night: true %><% end %>
+  <div class="cta-grid">
+    <div class="reveal">
+      <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+      <% if data.body.present? %><p class="lede"><%= website_plain_text(data.body) %></p><% end %>
     </div>
-    <div class="reveal flex flex-wrap gap-3"><%= gl_ctas(data.ctas) %></div>
+    <div class="btn-row reveal" style="--i:1"><%= gl_ctas(data.ctas, size: :lg) %></div>
   </div>
-</section>
+<% end %>

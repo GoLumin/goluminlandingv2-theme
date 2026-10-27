@@ -1,31 +1,13 @@
 <%# locals: (data:) -%>
-<%# A ruled row of numbered steps: the worked example, what happens next, the hiring process (dark), the referral steps. %>
-<% ink = data.tone == "ink" %>
-<% steps = data.items.map { |item| [item.kicker, item.title, item.body] } %>
-<% if ink %>
-  <section class="console ink rule-t">
-    <div class="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
-      <div class="max-w-3xl">
-        <%= gl_pulse_eyebrow(data.eyebrow) %>
-        <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
-      </div>
-      <div class="mt-12"><%= render "website/shared/steps", items: steps, columns: data.columns %></div>
-      <% if data.note.present? %><p class="reveal mt-8 max-w-2xl text-[15px] leading-snug text-text-subtle"><%= data.note %></p><% end %>
+<%# A row of step cards under a heading: what happens next, the hiring process, the worked example (figures: the kicker set large). %>
+<%= gl_section(tone: data.tone, id: data.anchor) do %>
+  <% if data.heading.present? || data.eyebrow.present? %>
+    <div class="section-head reveal">
+      <%= gl_eyebrow(data.eyebrow) %>
+      <% if data.heading.present? %><h2 class="h-2"><%= gl_heading(data.heading) %></h2><% end %>
+      <% if data.aside.present? %><p class="lede"><%= data.aside %></p><% end %>
     </div>
-  </section>
-<% else %>
-  <%= gl_section(tone: data.tone, id: data.anchor) do %>
-    <% if data.aside.present? %>
-      <div class="grid items-end gap-6 md:grid-cols-[1fr_auto]">
-        <%= render "website/shared/section_head", data:, klass: "" %>
-        <p class="reveal max-w-xs text-text-subtle md:text-right"><%= data.aside %></p>
-      </div>
-    <% elsif data.heading.present? %>
-      <%= render "website/shared/section_head", data: %>
-    <% else %>
-      <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-    <% end %>
-    <div class="<%= data.heading.present? ? "mt-12" : "mt-10" %>"><%= render "website/shared/steps", items: steps, columns: data.columns, figures: data.figures, h2: data.heading.blank? %></div>
-    <% if data.note.present? %><p class="reveal mt-6 font-mono text-[11px] text-text-muted"><%= data.note %></p><% end %>
   <% end %>
+  <%= render "website/shared/steps", items: data.items.map { |item| [item.kicker, item.title, item.body] }, columns: data.columns, figures: data.figures, h2: data.heading.blank? %>
+  <% if data.note.present? %><p class="note steps-note reveal"><%= data.note %></p><% end %>
 <% end %>

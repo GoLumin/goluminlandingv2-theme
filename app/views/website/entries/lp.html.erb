@@ -1,12 +1,96 @@
 <%# locals: (entry:) -%>
-<%# A paid landing page at /lp/<slug>: one offer, one form, no site nav, never indexed. kind "service" sells one service's audit (LandingPage.astro); kind "adgroup" is one Google Ads ad group's page, leading with the free landing page (AdGroupLanding.astro). ?v=<key> swaps the headline (site.js, from the page's variants). %>
+<%# A paid landing page at /lp/<slug>: the slim bar, the offer and the plan form in the hero, the client logos, what people say (kind adgroup: pains; kind service: what the audit looks at), the click maths, the accounts we run, who reads the account, the plan you keep, its questions, and the dark close. Never indexed. ?v=<key> swaps the headline (site.js, from the page's variants). %>
 <% lp = website_fields(entry) %>
+<% ad = gl_global(:ad_landing) %>
+<% cases = gl_cases(lp.cases) %>
+<% faqs = (lp.faqs.any? ? lp.faqs : ad.faqs).map { |f| Struct.new(:question, :answer).new(f.q, f.a) } %>
+<% reviewer = gl_team.first %>
+<% submit = lp.submit_label.to_s.delete_suffix("→").strip.presence || "Get my free plan" %>
+<% items = lp.kind == "adgroup" ? lp.pains : lp.finds %>
+<% items_heading = (lp.kind == "adgroup" ? lp.pain_heading : lp.finds_heading) %>
 <% content_for :head, gl_seo_tags(entry, description: lp.sub, noindex: true) %>
-<% content_for :sticky_cta, (lp.kind == "adgroup" ? lp.submit_label : "Get a free audit →") %>
-<% if lp.kind == "adgroup" %>
-  <%= render "website/shared/lp_adgroup", entry:, lp: %>
-<% else %>
-  <%= render "website/shared/lp_service", entry:, lp: %>
-<% end %>
+<% content_for :sticky_cta, submit %>
+<% content_for :header, render("website/shared/landing_header", phone_label: gl_phone, phone_href: gl_tel, cta: "lp-#{entry.slug}", line: [ad.credentials.title, ad.credentials.lines.first].compact_blank.join(" · ")) %>
 <% content_for :footer, render("website/shared/landing_footer") %>
+<section class="hero">
+  <div class="hero-light" aria-hidden="true"></div>
+  <%= render "website/shared/hero_photo", key: "/" %>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <% if lp.eyebrow.present? %><p class="hero-kicker"><%= lp.eyebrow %></p><% end %>
+      <h1 class="h-hero"><span data-lp-h1><%= Array(lp.h)[0] %></span> <span class="em" data-lp-h2><%= Array(lp.h)[1] %></span></h1>
+      <p class="lede" data-lp-sub><%= lp.sub %></p>
+      <% if lp.checks.any? %><ul class="check-list"><% lp.checks.each do |check| %><li><%= check %></li><% end %></ul><% end %>
+      <%= render "website/shared/credentials" %>
+    </div>
+    <%= render "website/shared/audit_form", prefix: "lp", cta: "lp-#{entry.slug}-form", audit_type: lp.audit_type, lock_type: true, submit_label: submit %>
+  </div>
+</section>
+
+<%= render "website/shared/client_logos", label: "Running today for", linked: false %>
+
+<% if Array(items).any? %>
+  <%= gl_section do %>
+    <%= render "website/shared/numbered_list", eyebrow: (lp.kind == "adgroup" ? "Said on the first call, nearly every time" : "The free audit"), heading: Array(items_heading).join, quoted: lp.kind == "adgroup", items: items.map { |p| [p.t, p.d] } %>
+  <% end %>
+<% end %>
+
+<%= gl_section(tone: "subtle", rule: true) do %>
+  <%= render "website/shared/chart", eyebrow: "Why the page matters", heading: "Same %{clicks} clicks. Very different months.", body: "Advertising buys you a click. What happens in the next eight seconds is a separate problem, and it's the one almost nobody solves." %>
+<% end %>
+
+<% if cases.any? %>
+  <%= gl_section do %>
+    <div class="section-head reveal">
+      <%= gl_eyebrow("Accounts we run") %>
+      <h2 class="h-2"><%= gl_heading(lp.cases_heading.presence || "Numbers from the accounts themselves.") %></h2>
+    </div>
+    <div class="case-grid" data-stagger><%= render partial: "website/shared/case_card", collection: cases, as: :study %></div>
+  <% end %>
+<% end %>
+
+<% if reviewer && ad.reviewer.h.present? %>
+  <%= gl_section(tone: "subtle", rule: true) do %>
+    <div class="feature-row feature-row-person">
+      <div class="feature-media reveal"><%= gl_image website_fields(reviewer).photo, alt: reviewer.title, sizes: "14rem", loading: :lazy %></div>
+      <div class="feature-copy reveal" style="--i:1">
+        <%= gl_eyebrow("Who reads your account") %>
+        <h2 class="h-2"><%= gl_heading(ad.reviewer.h) %></h2>
+        <p class="lede"><%= ad.reviewer.sub %></p>
+        <% if ad.reviewer.points.any? %>
+          <ul class="check-list"><% ad.reviewer.points.each do |pt| %><li><strong><%= pt.t %>.</strong> <%= pt.d %></li><% end %></ul>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<%= gl_section do %>
+  <div class="plan-grid">
+    <div class="reveal">
+      <%= gl_eyebrow("What you walk away with") %>
+      <h2 class="h-2"><%= gl_heading(ad.plan.headline) %></h2>
+      <p class="lede"><%= ad.plan.sub %></p>
+    </div>
+    <div class="plan-list reveal" style="--i:1">
+      <% ad.plan.keep.each do |item| %><div class="plan-item"><h3 class="h-4"><%= item.t %></h3><p><%= item.d %></p></div><% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if faqs.any? %><%= render "website/shared/faq", items: faqs, heading: "Before you fill in the form.", tone: "subtle" %><% end %>
+
+<section class="section section-night has-photo" id="contact">
+  <%= render "website/shared/hero_photo", key: "closing", night: true %>
+  <div class="container cta-grid">
+    <div class="reveal">
+      <h2 class="h-2"><%= gl_heading(lp.closing.h.presence || ad.plan.refrain) %></h2>
+      <% if lp.closing.blurb.present? %><p class="lede"><%= lp.closing.blurb %></p><% end %>
+      <a class="cta-call" href="<%= gl_tel %>" data-cta="lp-<%= entry.slug %>-closing-phone"><small>Call us direct</small><strong><%= gl_phone %></strong></a>
+    </div>
+    <div class="reveal" style="--i:1">
+      <%= render "website/shared/audit_form", prefix: "lp-closing", cta: "lp-#{entry.slug}-closing", audit_type: lp.audit_type, lock_type: true, submit_label: submit, heading: "Tell us about your business" %>
+    </div>
+  </div>
+</section>
 <%= tag.div(hidden: true, data: {gl_variants: lp.variants.to_h { |v| [v.key, {h: v.h, sub: v.sub}] }.to_json, gl_event: {event: "view_landing", landing_slug: entry.slug}.to_json}) %>

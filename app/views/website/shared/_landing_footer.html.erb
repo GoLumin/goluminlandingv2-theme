@@ -1,8 +1,8 @@
 <%# locals: () -%>
-<%# A landing page's slim footer. %>
-<footer class="rule-t">
-  <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 font-mono text-[12px] text-text-muted sm:flex-row sm:items-center sm:justify-between md:px-8">
-    <span>&copy; <%= gl_year %> <%= gl_name %> · <a href="<%= gl_tel %>" class="hover:text-text"><%= gl_phone %></a></span>
-    <span class="flex gap-5"><a href="/privacy" class="hover:text-text">Privacy</a><a href="/terms" class="hover:text-text">Terms</a><a href="/" class="hover:text-text">golumin.io</a></span>
+<%# A landing page's slim footer: the copyright, the phone, the email and the privacy policy. %>
+<footer class="footer footer-lp">
+  <div class="container footer-bottom">
+    <span>&copy; <%= gl_year %> <%= gl_name %> · Websites, search and advertising</span>
+    <span class="footer-links"><a href="<%= gl_tel %>"><%= gl_phone %></a><a href="mailto:<%= gl_email %>"><%= gl_email %></a><a href="/privacy">Privacy</a></span>
   </div>
 </footer>

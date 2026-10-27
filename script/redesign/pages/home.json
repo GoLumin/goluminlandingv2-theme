@@ -1,0 +1,276 @@
+{
+ "page": {
+  "slug": "home",
+  "title": "Home",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "home_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Marketing for local and multi-location businesses",
+     "badge_label": "Badged by Google, not drawn by us. 15+ years in paid search.",
+     "badge_link": {
+      "kind": "url",
+      "value": "https://www.google.com/partners/agency?id=4365181293"
+     },
+     "heading": "Know what's making you money. *Spend more on that.*",
+     "lede": "We build the website, win the search and run the ads, then track every call and form back to the dollar that bought it. Fifteen years of doing this, with software we built to see what most agencies guess at.",
+     "body": "",
+     "video_title": "",
+     "video_duration": "",
+     "video_base": "",
+     "video_name": "",
+     "video_label": "",
+     "ctas": [
+      {
+       "label": "Call (269) 532-6248",
+       "link": {
+        "kind": "url",
+        "value": "tel:+12695326248"
+       },
+       "style": "outline"
+      },
+      {
+       "label": "See the results",
+       "link": {
+        "kind": "url",
+        "value": "#work"
+       },
+       "style": "ghost"
+      }
+     ],
+     "chips": [
+      "Certified Google Partner",
+      "**$25M+** in client ad spend managed",
+      "**15+ years** running paid media",
+      "**Month to month.** No contract."
+     ],
+     "featured_label": "",
+     "featured_clients": [],
+     "audit_eyebrow": "",
+     "audit_heading": "Get your free marketing plan",
+     "audit_body": "Tell us where the business is now. A person reads it, not an autoresponder.",
+     "audit_type": "Full system (web + search + ads)",
+     "testimonial": ""
+    }
+   },
+   {
+    "type": "client_logos",
+    "version": 1,
+    "data": {
+     "label": "Running today for",
+     "linked": true
+    }
+   },
+   {
+    "type": "service_cards",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "What we do",
+     "heading": "Three jobs. One team. One set of numbers.",
+     "lede": "Most agencies sell you one piece and blame the other two. We run all three off the same numbers, so your ads tell us what to fix on the site, and the site tells us what the ads should buy.",
+     "link_label": "Underneath all three: tracking that ties every call and form to what paid for it",
+     "link": {
+      "kind": "url",
+      "value": "/tracking"
+     },
+     "tone": "bg"
+    }
+   },
+   {
+    "type": "media_text",
+    "version": 1,
+    "data": {
+     "heading": "A marketing company that doesn't sleep.",
+     "body": "Most agencies touch your account once a month, the week the report is due. We built software that watches yours every day, so small problems get caught the day they start instead of the month after they cost you. A person signs off on every change. You can call that person.\n\nEvery change that touches your spend lands here first, timestamped and waiting on a yes. Budget moves, bid changes, negative keywords from the search terms people actually typed. Nothing goes live until someone whose name is on it decides it should.",
+     "image_id": "36",
+     "side": "right",
+     "background": "accent",
+     "cta_label": ""
+    }
+   },
+   {
+    "type": "cards",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "",
+     "heading": "",
+     "body": "The point of all of it is simple: make the phone ring, and keep the cost of each call going down.",
+     "columns": "2",
+     "tone": "ink",
+     "numbered": false,
+     "service_links": false,
+     "items": [
+      {
+       "kicker": "",
+       "title": "Worked every single day",
+       "body": "Budgets, bids, search terms and copy get reviewed daily, weekends included. A wasted-spend problem that would normally run for three weeks gets caught the same day."
+      },
+      {
+       "kicker": "",
+       "title": "More places to be found",
+       "body": "Google, Microsoft, Meta, ChatGPT, Maps and your own website, all pointed at the same goal. One team, one budget, one number to call. Not four invoices that disagree."
+      },
+      {
+       "kicker": "",
+       "title": "Fixes in hours, not weeks",
+       "body": "When something stops working we change it that day. No support ticket, no waiting for the next reporting cycle to find out it broke."
+      },
+      {
+       "kicker": "",
+       "title": "A person you can call",
+       "body": "Every change that touches your money is approved by a named human first, and you can stop everything with one switch. The software never spends on its own."
+      }
+     ]
+    }
+   },
+   {
+    "type": "click_math",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Why the page matters",
+     "heading": "Same %{clicks} clicks. Very different months.",
+     "body": "Advertising buys you a click. What happens in the next eight seconds is a separate problem, and it's the one almost nobody solves. Here is the same traffic landing in three different places."
+    }
+   },
+   {
+    "type": "case_studies",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Results",
+     "heading": "What it did for their phone.",
+     "body": "Every number below is the client's own, measured against their own baseline, and approved by them before it went on this page.",
+     "cases": "biofuse kalamazoo-mortgage behnke-logistics foxbox-moves inbox-portable-storage white-and-white mulebox wise-insurance",
+     "all": false,
+     "link_label": "All case studies",
+     "tone": "subtle",
+     "note_lead": "",
+     "note": ""
+    }
+   },
+   {
+    "type": "numbered_list",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "What you walk away with",
+     "heading": "You leave with the plan. Whether you hire us or not.",
+     "body": "We go through what you have without changing a thing in it, and build what an agency normally charges for and keeps: a written plan for your site, your search presence and your ads, ranked, with the money attached to every line. It's yours at the end of the call, and there's nothing to sign to get it.",
+     "items": [
+      {
+       "title": "Where your money is going",
+       "body": "Every dollar that bought a click and never produced a customer, with the figure beside it. You also get the list of searches to block, written out, whether you use it, we use it, or you hand it to the agency you already have.",
+       "tag": ""
+      },
+      {
+       "title": "Where customers are falling off",
+       "body": "The gap between someone clicking and someone calling. Pages that lose people, forms nobody answers, phone calls landing with no one counting them.",
+       "tag": ""
+      },
+      {
+       "title": "What to fix first, and in what order",
+       "body": "The three or four changes worth making before anything else, ranked, with what we'd expect each one to do for the phone. Not a 40-slide deck.",
+       "tag": ""
+      },
+      {
+       "title": "An hour with the people who do the work",
+       "body": "We go through it live, on your screen. Ask anything, including what we'd do if we were you and couldn't afford an agency.",
+       "tag": ""
+      }
+     ],
+     "tone": "bg",
+     "heading_size": "lg",
+     "quoted": false,
+     "marker": "dot",
+     "ctas": [],
+     "anchor": "plan"
+    }
+   },
+   {
+    "type": "quote",
+    "version": 1,
+    "data": {
+     "text": "Good CDL-A drivers are the hardest hire in trucking, and we needed them in four markets at once. GoLumin built a page that talks to drivers the way drivers think: the pay up front, the real routes and shifts, and a form you can finish from the cab. Inside three months, every seat was filled.",
+     "attribution": "behnke-logistics"
+    }
+   },
+   {
+    "type": "founders",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Who you'll talk to"
+    }
+   },
+   {
+    "type": "faq",
+    "version": 1,
+    "data": {
+     "eyebrow": "Questions",
+     "heading": "The things people ask on the first call.",
+     "items": [
+      {
+       "question": "I run a small local business. Am I too small for this?",
+       "answer": "Probably not. Most of our clients are a single location or a handful of them, and plenty started with a $30-a-day ad budget to find out how much demand the market actually held. The free plan is the same either way, and it will tell you honestly if ads aren't the right first move."
+      },
+      {
+       "question": "What's the catch with the free plan?",
+       "answer": "There isn't one. We ask for read-only access, go through your site and accounts, and write up what we find with the money attached. You keep it whether you hire us, stay where you are, or fix it yourself. Some people use it as a second opinion and never call back. That's fine."
+      },
+      {
+       "question": "What does it actually cost if I do hire you?",
+       "answer": "A monthly fee based on your ad spend and whether we run your site, quoted after the plan, once we know what's actually there rather than what we guessed. There's no contract. We work month to month."
+      },
+      {
+       "question": "I already have someone doing my marketing.",
+       "answer": "The plan works the same way, and we never contact your current agency. Ask them for the change history and the search-terms report. If nobody can produce a list of what changed, when, and who approved it, that's the answer."
+      },
+      {
+       "question": "Can the software change my ads on its own?",
+       "answer": "No. The software reads your accounts every day and proposes changes. Every change that touches your money waits for a named person at GoLumin, who can't approve their own proposal. Spend limits are hard limits in code and can't be overridden, even by an approver."
+      },
+      {
+       "question": "I don't have a website yet. Is that a problem?",
+       "answer": "No. We build sites, and every new advertising client gets a landing page built for their ads at no charge. On your domain, in your name, and it stays yours if you ever leave."
+      },
+      {
+       "question": "Who owns the ad account?",
+       "answer": "You do. Google, Microsoft, Meta and ChatGPT accounts stay in your name, and you can revoke our access any time without losing the history. We don't run clients out of our own account."
+      },
+      {
+       "question": "Is there a contract?",
+       "answer": "No. Month to month. If we're not making the phone ring, you shouldn't have to wait out a term to say so."
+      }
+     ],
+     "tone": "bg"
+    }
+   },
+   {
+    "type": "closing_form",
+    "version": 1,
+    "data": {
+     "heading": "Keep the plan either way. That's the whole offer.",
+     "blurb": "A named person reads what you send and builds the plan against your real accounts, not a template. If you'd rather just talk it through, the number below reaches us directly.",
+     "phone_kicker": "Call us direct",
+     "phone_label": "(269) 532-6248",
+     "phone_link": {
+      "kind": "url",
+      "value": "tel:+12695326248"
+     },
+     "submit_label": "Get my free plan",
+     "note": ""
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "GoLumin · Marketing that shows you what's making you money",
+   "meta_description": "Websites, search and advertising for local and multi-location businesses, run as one system and tracked to the dollar. Get a free marketing plan from people who've done this for 15 years."
+  }
+ }
+}

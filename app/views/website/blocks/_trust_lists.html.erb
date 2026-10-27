@@ -1,20 +1,19 @@
 <%# locals: (data:) -%>
-<%# Where autonomy stops (trust.astro): what never happens without a person, in red, and what runs on its own, in green. %>
-<%= gl_section(tone: "subtle") do %>
-  <%= render "website/shared/section_head", data: %>
-  <div class="mt-12 grid gap-6 md:grid-cols-2" data-stagger>
-    <div class="reveal border-2 border-text bg-surface p-6">
-      <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-danger"><%= data.never_label %></p>
-      <ul class="mt-5 space-y-3">
-        <% data.never.each do |line| %><li class="flex items-start gap-3 text-[15px] font-medium leading-snug"><span class="mt-[3px] shrink-0 font-mono text-danger" aria-hidden="true">✕</span><%= line %></li><% end %>
-      </ul>
+<%# What never happens without a person, and what runs on its own. %>
+<%= gl_section(tone: "subtle", id: "trust", rule: true) do %>
+  <div class="section-head reveal">
+    <%= gl_eyebrow(data.eyebrow) %>
+    <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+  </div>
+  <div class="split-lists" data-stagger>
+    <div class="list-card is-never reveal">
+      <h3 class="h-4"><%= data.never_label %></h3>
+      <ul><% data.never.each do |line| %><li><%= line %></li><% end %></ul>
     </div>
-    <div class="reveal border-2 border-text bg-surface p-6">
-      <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-success"><%= data.always_label %></p>
-      <ul class="mt-5 space-y-3">
-        <% data.always.each do |line| %><li class="flex items-start gap-3 text-[15px] font-medium leading-snug"><span class="mt-[3px] shrink-0 font-mono text-success" aria-hidden="true">✓</span><%= line %></li><% end %>
-      </ul>
+    <div class="list-card reveal">
+      <h3 class="h-4"><%= data.always_label %></h3>
+      <ul><% data.always.each do |line| %><li><%= line %></li><% end %></ul>
     </div>
   </div>
-  <p class="reveal mt-6 font-mono text-[11px] text-text-muted"><%= data.note %></p>
+  <% if data.note.present? %><p class="note reveal"><%= data.note %></p><% end %>
 <% end %>

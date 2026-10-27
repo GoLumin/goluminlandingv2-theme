@@ -1,22 +1,16 @@
 <%# locals: (data:) -%>
-<%# The dark band of operating figures (OperatingProof.astro). %{count} in the link is the number of case studies. %>
+<%# The record, as figures: each stat with its label and a line about it. %>
 <% link = gl_href(data.link) %>
-<section class="console ink rule-t" aria-labelledby="operating-h">
-  <div class="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
-    <%= gl_pulse_eyebrow(data.eyebrow) %>
-    <h2 id="operating-h" class="reveal display display-lg max-w-5xl"><%= gl_heading(data.heading) %></h2>
-    <div class="mt-10 grid divide-y divide-border-strong border-y border-border-strong md:grid-cols-3 md:divide-x md:divide-y-0" data-stagger>
-      <% data.stats.each do |stat| %>
-        <div class="reveal py-8 md:px-8 md:first:pl-0 md:last:pr-0">
-          <div class="bump-target figure text-[clamp(3.25rem,9vw,6rem)] text-text"><%= stat.value %></div>
-          <div class="mt-5 flex items-start gap-2.5 text-lg font-semibold leading-snug"><%= gl_dot("mt-[9px] h-2 w-2") %><%= stat.label %></div>
-          <p class="mt-1.5 text-[15px] leading-snug text-text-subtle"><%= stat.body %></p>
-        </div>
-      <% end %>
-    </div>
-    <p class="reveal mt-8 max-w-3xl text-[15px] leading-snug text-text-subtle">
-      <%= data.body %>
-      <% if link %><a href="<%= link %>" class="ml-1 font-semibold text-text underline decoration-2 decoration-signal underline-offset-[4px] hover:decoration-text"><%= gl_count(data.link_label, gl_work.size) %></a><% end %>
-    </p>
+<%= gl_section(tone: "ink") do %>
+  <div class="section-head reveal">
+    <%= gl_eyebrow(data.eyebrow) %>
+    <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+    <% if data.body.present? %><p class="lede"><%= data.body %></p><% end %>
   </div>
-</section>
+  <div class="stat-row<%= " is-four" if data.stats.size >= 4 %>" data-stagger>
+    <% data.stats.each do |stat| %>
+      <div class="stat reveal"><span class="num"><%= stat.value %></span><p><strong><%= stat.label %></strong></p><% if stat.body.present? %><p class="small"><%= stat.body %></p><% end %></div>
+    <% end %>
+  </div>
+  <% if link && data.link_label.present? %><p class="btn-row" style="margin-top:40px"><a class="btn-link" href="<%= link %>"><%= data.link_label.to_s.delete_suffix("→").strip %> <span class="arrow" aria-hidden="true">→</span></a></p><% end %>
+<% end %>

@@ -1,0 +1,254 @@
+{
+ "page": {
+  "slug": "how-we-work",
+  "title": "How we work",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "How we work",
+     "heading": "People decide. Software does the legwork. Nothing moves without a name on it.",
+     "lede": "We're marketers first. We built our own software because the tools we rented couldn't show us what was happening in an account every day. Here's how an engagement actually runs, and what never happens without you.",
+     "chips": [],
+     "ctas": [
+      {
+       "label": "Get my free plan",
+       "link": {
+        "kind": "url",
+        "value": "#audit"
+       },
+       "style": "primary"
+      },
+      {
+       "label": "What we can and can't do",
+       "link": {
+        "kind": "url",
+        "value": "#trust"
+       },
+       "style": "ghost"
+      }
+     ],
+     "items_style": "none",
+     "items": []
+    }
+   },
+   {
+    "type": "engagement",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "The first two weeks",
+     "heading": "No mystery about what happens next.",
+     "phases": [
+      {
+       "when": "Days 1 to 3",
+       "title": "We look",
+       "body": "Read-only access to the accounts and the site. We go through them and write up what we find, with the money attached.",
+       "items": [
+        "Read-only, nothing changes",
+        "You keep the findings, hired or not",
+        "A person walks you through it"
+       ]
+      },
+      {
+       "when": "Days 4 to 10",
+       "title": "We set up",
+       "body": "Accounts connected, tracking verified, spend limits and approval rules set with you before anything runs.",
+       "items": [
+        "Your accounts stay in your name",
+        "You set the spend limits",
+        "Tracking checked first"
+       ]
+      },
+      {
+       "when": "Day 10 onward",
+       "title": "We run it",
+       "body": "The account gets worked every day. Changes carry their evidence, a named person approves them, and you get one plain-English email a week.",
+       "items": [
+        "Every change explained",
+        "One email each week",
+        "Leads on your phone as they arrive"
+       ]
+      }
+     ],
+     "answers": []
+    }
+   },
+   {
+    "type": "media_text",
+    "version": 1,
+    "data": {
+     "heading": "What gets looked at while you're running your business.",
+     "body": "Each check has one job and a schedule: harvest search terms, pace the budget, audit conversion tracking, flag a page that's gone stale. The software reads, researches and drafts. It writes up what it found, with the dollars at stake. It cannot apply anything.",
+     "image_id": "27",
+     "side": "right",
+     "background": "accent",
+     "cta_label": ""
+    }
+   },
+   {
+    "type": "cards",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "",
+     "heading": "",
+     "body": "",
+     "columns": "2",
+     "tone": "ink",
+     "numbered": false,
+     "service_links": false,
+     "items": [
+      {
+       "kicker": "",
+       "title": "The software proposes",
+       "body": "Every change is written up first: what, why, and the evidence, including the money at stake. It has no ability to apply anything."
+      },
+      {
+       "kicker": "",
+       "title": "Jordan or Ted approves",
+       "body": "A named person signs or rejects. Never their own work. Their name stays on the record next to the change."
+      },
+      {
+       "kicker": "",
+       "title": "The limits are enforced in code",
+       "body": "Spend limits are hard limits at the point of applying. A change over the limit cannot apply, even after a human approves it."
+      },
+      {
+       "kicker": "",
+       "title": "You can stop it",
+       "body": "One switch pauses everything on your account, instantly, without a support ticket or a phone call."
+      }
+     ]
+    }
+   },
+   {
+    "type": "numbered_list",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "What it looks like from your side",
+     "heading": "Email at 9:14. Fixed by 9:31.",
+     "body": "No ticket queue, no Tuesday meeting. You ask, the software reads the live account and drafts the change, a person checks it and applies it. You get a reply, not a ticket number. An illustration of the path, not a response-time promise: turnaround depends on the change and who has to sign it.",
+     "items": [
+      {
+       "title": "",
+       "body": "“We're still getting calls about the $300/day ad. Can we fix it?”",
+       "tag": "9:14 · You"
+      },
+      {
+       "title": "",
+       "body": "Reads the live account. Finds the price extension. Drafts the removal with the evidence attached.",
+       "tag": "9:15 · The software"
+      },
+      {
+       "title": "",
+       "body": "Checks it, approves it. Applied. You get a reply from a person.",
+       "tag": "9:31 · Jordan"
+      }
+     ],
+     "tone": "bg",
+     "heading_size": "lg",
+     "quoted": false,
+     "marker": "tag",
+     "ctas": [],
+     "anchor": ""
+    }
+   },
+   {
+    "type": "trust_lists",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Trust & approvals",
+     "heading": "What we can do, what we can't, and who signs.",
+     "never_label": "Never without a person",
+     "never": [
+      "Apply a change to a live ad account without a named approver",
+      "Publish or alter a live page without a named editor",
+      "Exceed a spend limit, even with an approval behind it",
+      "Create a campaign that starts unpaused",
+      "Move, sell, or train a third-party model on your business data",
+      "Change your account ownership, billing, or who has access"
+     ],
+     "always_label": "Runs on a schedule, unsupervised",
+     "always": [
+      "Read your accounts and your site to find problems",
+      "Research what buyers in your market are asking",
+      "Draft a change, with its evidence and the money at stake",
+      "Flag a page that has gone stale, thin, or broken",
+      "Surface a conversion-tracking failure the moment it appears",
+      "Write up what it found, whether or not anyone acts on it"
+     ],
+     "note": "Handing anyone access to your ad accounts and your website is a real risk, and \"we have human oversight\" isn't an answer. This is the mechanism, in plain English."
+    }
+   },
+   {
+    "type": "faq",
+    "version": 1,
+    "data": {
+     "eyebrow": "The detail",
+     "heading": "The answers we'd want if it were our account.",
+     "items": [
+      {
+       "question": "Account ownership",
+       "answer": "Your Google, Microsoft, Meta and ChatGPT ad accounts stay in your name, with you as owner. We're granted access, and you can revoke it from your own settings without losing a day of history. Same for the domain, the phone numbers, and the content."
+      },
+      {
+       "question": "Data access",
+       "answer": "We ask for read-only access to start, on the ad accounts and analytics. Write access comes only after onboarding, and only for what you've agreed to. We don't need, and don't ask for, access to billing, payroll, or customer records beyond the lead data you route to us."
+      },
+      {
+       "question": "How the software uses your data",
+       "answer": "Your account data is used to do your work: inspect, research, draft. It isn't sold, shared with other clients, or used to train a third-party model. Which AI model runs a given job is an implementation detail we change when a better one ships. The approval gate doesn't change with it."
+      },
+      {
+       "question": "Human approvals",
+       "answer": "Every consequential change is approved by a named person at GoLumin before it applies. Approvers don't approve their own proposals. The name, the timestamp and the original reasoning stay attached to the change."
+      },
+      {
+       "question": "Spend limits",
+       "answer": "Limits are enforced in code, not by policy. A proposal over the per-change limit is blocked and shown to you as blocked. An approval doesn't override it. You set the limits during onboarding and can lower them at any time."
+      },
+      {
+       "question": "Audit history",
+       "answer": "Applied changes, rejected proposals and blocked ones all stay on the record, with the evidence that was attached at the time. Clients who want to see the queue get access to their own account's history. Most prefer the weekly email."
+      },
+      {
+       "question": "Pause and leaving",
+       "answer": "One switch pauses everything on your account, instantly. If you leave, the ad accounts are already yours, the content is portable, and the URLs are yours. We don't hold anything hostage as leverage on a renewal."
+      },
+      {
+       "question": "Retention",
+       "answer": "We keep lead and change records for as long as you're a client and for a reasonable period afterwards so the history stays intact. Ask and we'll delete what's ours to delete. The formal version is in the privacy policy at /privacy."
+      }
+     ],
+     "tone": "bg"
+    }
+   },
+   {
+    "type": "closing_form",
+    "version": 1,
+    "data": {
+     "heading": "Keep the plan either way. That's the whole offer.",
+     "blurb": "A named person reads what you send and builds the plan against your real accounts, not a template. If you'd rather just talk it through, the number below reaches us directly.",
+     "phone_kicker": "Call us direct",
+     "phone_label": "(269) 532-6248",
+     "phone_link": {
+      "kind": "url",
+      "value": "tel:+12695326248"
+     },
+     "submit_label": "Get my free plan",
+     "note": ""
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "How we work · GoLumin",
+   "meta_description": "How a GoLumin engagement runs: the first two weeks, what gets looked at daily, who approves every change, what you own, and what never runs on its own."
+  }
+ }
+}

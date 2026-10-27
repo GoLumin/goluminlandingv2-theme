@@ -1,7 +1,7 @@
 <%# locals: (page:) -%>
-<%# Every CMS page, from its blocks. A page with an audit form gets the phone's sticky audit bar. %>
+<%# Every CMS page, from its blocks. A page with a plan form (the hero's, a plan section's or the closing one's) gets the phone's call / plan bar. %>
 <% content_for :head, gl_seo_tags(page) %>
-<% if Array(page.blocks).any? { |block| block.is_a?(Hash) && block["type"] == "audit_form" } %>
-  <% content_for :sticky_cta, "Get a free audit →" %>
+<% if Array(page.blocks).any? { |block| block.is_a?(Hash) && block["type"].in?(%w[audit_form home_hero closing_form]) } %>
+  <% content_for :sticky_cta, "Get my free plan" %>
 <% end %>
 <%= website_blocks page %>

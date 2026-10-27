@@ -1,46 +1,12 @@
 <%# locals: (data:) -%>
-<%# The leads app on a phone (ClientPortal.astro) beside its copy. The phone is an illustration with a demo account's leads. %>
-<% badge = {"new" => "bg-warning/15 text-warning", "called" => "bg-info/15 text-info", "contacted" => "bg-primary/15 text-primary-strong", "sold" => "bg-success/15 text-success"} %>
-<% leads = [["Marcus T.", "Water heater replacement, today", "2m ago", "new", "Google lead form"], ["(269) 555-0142", "Inbound call, 4 min 12 s", "26m ago", "called", "Phone"],
-            ["Priya R.", "Quote for drain cleaning, Portage", "1h ago", "contacted", "Website"], ["Dale W.", "Sump pump, basement flooding", "Yesterday", "sold", "Meta lead ad"]] %>
-<%= gl_section(tone: "subtle", id: "clients") do %>
-  <div class="grid items-center gap-12 md:grid-cols-2">
-    <div class="order-2 md:order-1 flex justify-center tilt-zone">
-      <div class="tilt reveal w-[300px] rounded-[2.2rem] border-2 border-text bg-text p-2.5 shadow-[10px_10px_0_0_var(--color-primary)]">
-        <div class="overflow-hidden rounded-[1.8rem] bg-bg">
-          <div class="flex items-center justify-between px-5 pt-3 font-mono text-[10px] text-text-muted"><span>9:41</span><span>●●● 5G</span></div>
-          <div class="px-4 pb-2 pt-3">
-            <div class="flex items-center gap-2">
-              <span class="grid h-7 w-7 place-items-center rounded-lg bg-[oklch(0.45_0.15_60)] text-[11px] font-bold text-white">NP</span>
-              <div class="text-sm font-semibold">Northwind Plumbing Leads</div>
-            </div>
-            <div class="mt-3 flex gap-2 font-mono text-[10.5px]">
-              <span class="rounded-full bg-surface-raised px-2 py-0.5">Today 3</span><span class="rounded-full bg-surface-raised px-2 py-0.5">Cost/lead $31</span><span class="rounded-full bg-success/15 px-2 py-0.5 text-success">Reply 4m</span>
-            </div>
-          </div>
-          <ul class="divide-y divide-border-light">
-            <% leads.each do |name, summary, time, status, source| %>
-              <li class="px-4 py-3">
-                <div class="flex items-center justify-between">
-                  <div class="text-[13px] font-medium"><%= name %></div>
-                  <span class="rounded-full px-2 py-0.5 font-mono text-[10px] <%= badge[status] %>"><%= status %></span>
-                </div>
-                <div class="mt-0.5 text-[12px] text-text-subtle"><%= summary %></div>
-                <div class="mt-1.5 flex items-center justify-between">
-                  <span class="font-mono text-[10px] text-text-muted"><%= source %> · <%= time %></span>
-                  <% if status == "new" %><span class="flex gap-1.5"><span class="rounded-md bg-text px-2 py-0.5 text-[11px] font-medium text-bg">Call</span><span class="rounded-md border border-border px-2 py-0.5 text-[11px]">Text</span></span><% end %>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-          <div class="px-4 py-3 text-center font-mono text-[10px] text-text-muted">Push: new lead from Google · 2m ago</div>
-        </div>
-      </div>
+<%# The client app: its heading and standfirst beside the approvals board. %>
+<%= gl_section(tone: "ink", id: "client-app") do %>
+  <div class="feature-row">
+    <div class="feature-copy reveal">
+      <%= gl_eyebrow(data.eyebrow) %>
+      <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+      <% if data.body.present? %><p class="lede"><%= data.body %></p><% end %>
     </div>
-    <div class="order-1 md:order-2">
-      <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-      <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
-      <p class="mt-6 max-w-md text-lg leading-snug text-text-subtle"><%= data.body %></p>
-    </div>
+    <div class="feature-media reveal" style="--i:1"><%= render "website/shared/approvals_mock" %></div>
   </div>
 <% end %>

@@ -1,0 +1,12 @@
+<%# locals: (image:, caption: nil, browser: false, url: nil, eager: false, alt: nil, klass: nil) -%>
+<%# A screenshot: a client's site in a soft frame (.screen), or the product in a browser frame (.browser). Nothing without the image. %>
+<% img = gl_image(image, **{sizes: "(min-width: 72rem) 36rem, (min-width: 768px) 50vw, 100vw", loading: eager ? :eager : :lazy}.merge(alt.nil? ? {} : {alt:})) %>
+<% if img %>
+  <figure class="<%= class_names(browser ? "browser" : "screen", klass) %>">
+    <% if browser %>
+      <div class="browser-bar"><i></i><i></i><i></i><% if url.present? %><span class="browser-url"><%= url %></span><% end %></div>
+    <% end %>
+    <%= img %>
+    <% if caption.present? %><figcaption class="browser-caption"><%= caption %></figcaption><% end %>
+  </figure>
+<% end %>

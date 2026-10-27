@@ -1,0 +1,3 @@
+<%# locals: (key: nil, night: false) -%>
+<%# The branded photograph behind a hero (under the white gradient), or behind a night section (under the indigo overlay). %>
+<div class="<%= night ? "night-photo" : "hero-photo" %>" aria-hidden="true"><i style="background-image:url(<%= gl_brand_photo(key || request.path) %>)"></i></div>

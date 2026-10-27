@@ -1,20 +1,20 @@
-<%# locals: (heading:, blurb:, bullets:, audit_type: nil, eyebrow: "Free audit", lock_type: false, submit_label: nil, note: nil, prefix: "footer", tone: "subtle") -%>
-<%# The free-audit section (DemoForm.astro): the pitch, its bullets and the phone on the left, the audit form on the right, at #audit, where every "Request a free audit" button lands. %>
-<%= gl_section(tone:, id: "audit", klass: "scroll-mt-16") do %>
-  <div class="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-start">
-    <div class="md:sticky md:top-24">
-      <%= gl_eyebrow("Start here", eyebrow) %>
-      <h2 class="reveal display display-lg"><%= gl_heading(heading) %></h2>
-      <p class="reveal mt-6 max-w-md text-lg leading-snug text-text-subtle"><%= blurb %></p>
-      <ul class="mt-8 rule-t text-[15px]" data-stagger>
-        <% bullets.each do |bullet| %>
-          <li class="reveal flex items-start gap-3 border-b border-border py-3"><%= gl_dot %><%= bullet %></li>
-        <% end %>
-      </ul>
-      <p class="reveal mt-8 text-[15px] text-text-subtle">
-        Or call us: <a href="<%= gl_tel %>" data-cta="audit-section-phone" class="font-semibold text-text underline decoration-2 decoration-signal underline-offset-[5px] hover:decoration-text"><%= gl_phone %></a>
-      </p>
+<%# locals: (heading:, blurb:, bullets:, audit_type: nil, eyebrow: "Free marketing plan", lock_type: false, submit_label: nil, note: nil, prefix: "footer", tone: "subtle") -%>
+<%# The plan section: the pitch and its bullets on the left, the form on the right, at #audit, where every "Get my free plan" button lands. %>
+<%= gl_section(tone:, id: "audit") do %>
+  <div class="cta-grid">
+    <div class="reveal">
+      <%= gl_eyebrow(eyebrow) %>
+      <h2 class="h-2"><%= gl_heading(heading) %></h2>
+      <% if blurb.present? %><p class="lede"><%= blurb %></p><% end %>
+      <% if Array(bullets).any? %>
+        <ul class="check-list">
+          <% bullets.each do |bullet| %><li><%= bullet %></li><% end %>
+        </ul>
+      <% end %>
+      <p class="note">Or call us: <a href="<%= gl_tel %>" data-cta="audit-section-phone"><%= gl_phone %></a></p>
     </div>
-    <%= render "website/shared/audit_form", prefix:, audit_type:, lock_type:, submit_label:, note: %>
+    <div class="reveal" style="--i:1">
+      <%= render "website/shared/audit_form", prefix:, audit_type:, lock_type:, submit_label:, note: %>
+    </div>
   </div>
 <% end %>

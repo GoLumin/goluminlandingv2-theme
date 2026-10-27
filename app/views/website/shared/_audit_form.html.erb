@@ -1,5 +1,5 @@
-<%# locals: (prefix:, audit_type: nil, cta: "form", compact: false, lock_type: false, submit_label: nil, kicker: "Free audit", heading: "Real findings. Your accounts.", blurb: "Read-only access. The agents look, a person walks you through it.", note: nil, phone_href: nil, phone_label: nil) -%>
-<%# The audit form (AuditForm.astro), drawn by hand from Forms › audit and posted to the Forms plugin (forms.js), which sends the visitor on to /thank-you. The audit type routes the request: asked first, or fixed by the landing page (lock_type). Monthly ad spend is asked only when the audit involves ads. Every id carries the prefix, since a page can hold two. %>
+<%# locals: (prefix:, audit_type: nil, cta: "form", compact: false, lock_type: false, submit_label: nil, kicker: nil, heading: nil, blurb: nil, note: nil, phone_href: nil, phone_label: nil) -%>
+<%# The plan form (the form card of the redesign), drawn by hand from Forms › audit and posted to the Forms plugin (forms.js), which sends the visitor on to /thank-you. The audit type routes the request: asked first, or fixed by the landing page (lock_type). Monthly ad spend is asked only when the audit involves ads. Every id carries the prefix, since a page can hold two; the page's first form is #plan-form, where the phone's bar and every "Get my free plan" button land. %>
 <% form = gl_form(:audit) %>
 <% if form %>
   <% types = gl_choices(gl_field(form, :audit_type)).pluck("value") %>
@@ -7,44 +7,48 @@
   <% spend = ["Full system (web + search + ads)", "Ad account"].include?(audit_type) %>
   <% id = ->(name) { "#{prefix}-#{name}" } %>
   <% key = gl_turnstile_key %>
-  <form id="<%= prefix %>-form" data-audit-form data-form-slug="audit" method="post" action="<%= api_form_submissions_path(form_slug: form.slug) %>" class="<%= class_names("relative rounded-xl border-2 border-text bg-surface shadow-[8px_8px_0_0_var(--color-text)]", "p-5 md:p-6": compact, "p-6 md:p-8": !compact) %>" novalidate>
-    <% if compact %>
-      <div class="mb-4">
-        <div class="tag font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= kicker %></div>
-        <div class="mt-1.5 text-2xl font-bold tracking-tight"><%= heading %></div>
-        <p class="mt-1 text-sm text-text-subtle"><%= blurb %></p>
-      </div>
-    <% end %>
-    <div class="<%= class_names("grid gap-4", "sm:grid-cols-2": !compact) %>">
-      <% if lock_type %>
-        <input type="hidden" name="audit_type" value="<%= audit_type %>" data-audit-type>
-      <% else %>
-        <%= gl_control(form, :audit_type, id: id.("audit"), wrapper: ("sm:col-span-2" unless compact), select: {selected: audit_type}, data: {audit_type: true}) %>
-      <% end %>
-      <div class="<%= compact ? "grid gap-4 sm:grid-cols-2" : "contents" %>">
-        <%= gl_control(form, :name, id: id.("name"), label: "Name", autocomplete: "name") %>
-        <%= gl_control(form, :email, id: id.("email"), autocomplete: "email", inputmode: "email", data: {email: true}) %>
-      </div>
-      <div class="<%= compact ? "grid gap-4 sm:grid-cols-2" : "contents" %>">
-        <%= gl_control(form, :company, id: id.("company"), autocomplete: "organization") %>
-        <%= gl_control(form, :website_url, id: id.("website"), inputmode: "url", autocomplete: "url") %>
-      </div>
-      <%= tag.div(gl_control(form, :monthly_ad_spend, id: id.("spend"), required: spend, select: {prompt: "Choose one"}, data: {spend: true}),
-        class: ("sm:col-span-2" unless compact), hidden: !spend, data: {spend_field: true}) %>
-      <% unless compact %>
-        <%= gl_control(form, :message, id: id.("message"), hint: "(optional)", wrapper: "sm:col-span-2", rows: 2) %>
-      <% end %>
+  <% first = !content_for?(:gl_plan_form) %>
+  <% content_for(:gl_plan_form, "1") if first %>
+  <% readers = gl_team.first(2) %>
+  <form id="<%= first ? "plan-form" : "#{prefix}-form" %>" data-audit-form data-form-slug="audit" method="post" action="<%= api_form_submissions_path(form_slug: form.slug) %>" class="form-card" novalidate>
+    <div class="form-head">
+      <% if kicker.present? %><p class="eyebrow" style="margin-bottom:6px"><%= kicker %></p><% end %>
+      <h3 class="form-title"><%= heading.presence || "Get your free marketing plan" %></h3>
+      <p class="form-sub"><%= blurb.presence || "Tell us where the business is now. A person reads it, not an autoresponder." %></p>
     </div>
-    <div class="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+    <% if lock_type %>
+      <input type="hidden" name="audit_type" value="<%= audit_type %>" data-audit-type>
+    <% else %>
+      <%= gl_control(form, :audit_type, id: id.("audit"), label: "What should we look at?", select: {selected: audit_type}, data: {audit_type: true}) %>
+    <% end %>
+    <div class="field-row">
+      <%= gl_control(form, :name, id: id.("name"), label: "Name", autocomplete: "name") %>
+      <%= gl_control(form, :email, id: id.("email"), label: "Work email", autocomplete: "email", inputmode: "email", data: {email: true}) %>
+    </div>
+    <div class="field-row">
+      <%= gl_control(form, :company, id: id.("company"), label: "Business", autocomplete: "organization") %>
+      <%= gl_control(form, :website_url, id: id.("website"), label: "Website", inputmode: "url", autocomplete: "url", placeholder: "yourbusiness.com") %>
+    </div>
+    <%= tag.div(gl_control(form, :monthly_ad_spend, id: id.("spend"), label: "Monthly ad spend", required: spend, select: {prompt: "Choose one"}, data: {spend: true}), hidden: !spend, data: {spend_field: true}) %>
+    <% unless compact %>
+      <%= gl_control(form, :message, id: id.("message"), label: "What's the biggest headache right now?", hint: "(optional)", rows: 3) %>
+    <% end %>
+    <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
       <label>Leave this empty <input type="text" name="<%= Form::HONEYPOT_FIELD %>" tabindex="-1" autocomplete="off"></label>
     </div>
-    <%= gl_attribution(form, source: "golumin-landing-#{prefix}") %>
-    <% if key %><div data-turnstile data-sitekey="<%= key %>" class="mt-5 min-h-[65px] empty:hidden"></div><% end %>
-    <p data-error class="mt-4 hidden text-sm text-danger" role="alert"></p>
-    <div class="<%= compact ? "mt-8" : "mt-9" %>"><div class="magnet-zone is-block"><button type="submit" data-submit data-cta="<%= cta %>" class="magnet inline-flex h-14 w-full items-center justify-center rounded-md bg-text px-7 text-base font-semibold text-bg transition-colors hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60"><%= submit_label.presence || form.submit_label %></button></div></div>
-    <p class="mt-4 text-center text-[14px] text-text-subtle">
-      Rather talk? <a href="<%= phone_href.presence || gl_tel %>" data-cta="form-phone" class="font-semibold text-text underline decoration-2 decoration-signal underline-offset-[5px] hover:decoration-text"><%= phone_label.presence || gl_phone %></a>
-    </p>
-    <p class="mt-3 text-center font-mono text-[11px] text-text-muted"><%= note.presence || "No obligation. Read-only access." %> <a href="/privacy" class="underline underline-offset-2 hover:text-text">Privacy</a></p>
+    <%= gl_attribution(form, source: "golumin-#{prefix}") %>
+    <% if key %><div data-turnstile data-sitekey="<%= key %>"></div><% end %>
+    <p data-error class="form-error" role="alert" hidden></p>
+    <button type="submit" data-submit data-cta="<%= cta %>" class="btn btn-primary btn-block"><%= submit_label.presence || "Get my free plan" %></button>
+    <div class="form-readers">
+      <% if readers.any? %>
+        <span class="form-avatars">
+          <% readers.each do |person| %><%= gl_image website_fields(person).photo, alt: "", sizes: "2rem", loading: :lazy, width: 32, height: 32 %><% end %>
+        </span>
+      <% end %>
+      <span><%= note.presence || "#{readers.map { it.title.split.first }.to_sentence(two_words_connector: " or ")} reads it personally. No obligation, and the plan is yours to keep." %>
+        Rather talk? <a href="<%= phone_href.presence || gl_tel %>" data-cta="form-phone"><%= phone_label.presence || gl_phone %></a>.</span>
+    </div>
+    <p class="form-fine"><a href="/privacy">Privacy</a></p>
   </form>
 <% end %>

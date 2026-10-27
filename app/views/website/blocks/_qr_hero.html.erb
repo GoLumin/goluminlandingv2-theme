@@ -4,7 +4,7 @@
 <% plan = gl_global(:ad_landing).plan %>
 <% content_for :header do %>
   <a href="#plan-form" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-text focus:px-4 focus:py-2 focus:text-bg">Skip to the form</a>
-  <%= render "website/shared/landing_header", phone_label: data.phone_label, phone_href: phone, cta_label: "Get my free plan", cta_href: "#plan-form", cta: "laspalmas", offer: :narrow %>
+  <%= render "website/shared/landing_header", phone_label: data.phone_label, phone_href: phone, cta: "laspalmas", line: data.wordmark %>
 <% end %>
 <% content_for :footer do %>
   <footer class="rule-t bg-bg">

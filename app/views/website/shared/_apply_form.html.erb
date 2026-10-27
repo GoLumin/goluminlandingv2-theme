@@ -1,18 +1,17 @@
 <%# locals: () -%>
-<%# The application (ApplyForm.astro), from Forms › application. %>
+<%# The application, from Forms › application. %>
 <% form = gl_form(:application) %>
 <% if form %>
-  <form id="apply-form" data-audit-form data-form-slug="application" method="post" action="<%= api_form_submissions_path(form_slug: form.slug) %>" class="relative rounded-xl border-2 border-text bg-surface p-6 shadow-[8px_8px_0_0_var(--color-text)] md:p-8" novalidate>
-    <div class="grid gap-4 sm:grid-cols-2">
-      <%= gl_control(form, :role, id: "apply-role", wrapper: "sm:col-span-2", select: {prompt: "Choose one"}) %>
+  <form id="apply-form" data-audit-form data-form-slug="application" method="post" action="<%= api_form_submissions_path(form_slug: form.slug) %>" class="form-card" novalidate>
+    <div class="form-head"><h3 class="form-title">Apply</h3><p class="form-sub">One specific thing you built or ran, and what happened. A person reads it.</p></div>
+    <%= gl_control(form, :role, id: "apply-role", select: {prompt: "Choose one"}) %>
+    <div class="field-row">
       <%= gl_control(form, :name, id: "apply-name", autocomplete: "name") %>
       <%= gl_control(form, :email, id: "apply-email", autocomplete: "email", inputmode: "email", data: {email: true}) %>
-      <%= gl_control(form, :links, id: "apply-links", hint: "— GitHub, portfolio, LinkedIn, a site you run", wrapper: "sm:col-span-2", inputmode: "url") %>
-      <%= gl_control(form, :message, id: "apply-message", wrapper: "sm:col-span-2", rows: 5) %>
     </div>
+    <%= gl_control(form, :links, id: "apply-links", hint: "(GitHub, portfolio, LinkedIn, a site you run)", inputmode: "url") %>
+    <%= gl_control(form, :message, id: "apply-message", rows: 5) %>
     <%= render "website/shared/form_tail", form:, source: "golumin-careers", cta: "apply", label: form.submit_label %>
-    <p class="mt-3 text-center font-mono text-[11px] text-text-muted">
-      Or email <a href="mailto:<%= gl_email %>" class="underline underline-offset-2 hover:text-text"><%= gl_email %></a> with a CV attached. <a href="/privacy" class="underline underline-offset-2 hover:text-text">Privacy</a>
-    </p>
+    <p class="form-fine">Or email <a href="mailto:<%= gl_email %>"><%= gl_email %></a> with a CV attached. <a href="/privacy">Privacy</a></p>
   </form>
 <% end %>

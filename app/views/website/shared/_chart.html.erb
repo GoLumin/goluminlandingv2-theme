@@ -1,0 +1,24 @@
+<%# locals: (eyebrow: nil, heading: nil, body: nil) -%>
+<%# The same clicks landing in three places, as bars on one scale: the Ad landing pages global's click maths and benchmarks. %{clicks} in the heading is how many. %>
+<% ad = gl_global(:ad_landing) %>
+<% clicks = ad.click_math.clicks.to_i %>
+<% scale = ad.benchmarks.our_high.to_f.nonzero? || 1 %>
+<% leads = ->(rate) { number_with_delimiter((clicks * rate.to_f / 100).round) } %>
+<% rate = ->(r) { r.hi.present? ? "#{r.rate} to #{r.hi}%" : "#{r.rate}%" } %>
+<div class="chart-grid">
+  <div class="reveal">
+    <%= gl_eyebrow(eyebrow) %>
+    <h2 class="h-2"><%= gl_heading(heading.to_s.gsub("%{clicks}", number_with_delimiter(clicks))) %></h2>
+    <% if body.present? %><p class="lede"><%= body %></p><% end %>
+  </div>
+  <div class="chart reveal" style="--i:1">
+    <% ad.click_math.rows.each do |r| %>
+      <div class="chart-row<%= " is-us" if r.tone == "brand" %>">
+        <div class="chart-head"><strong><%= r.label %></strong><span><%= rate.(r) %></span></div>
+        <div class="chart-track"><div class="chart-bar" data-bar="<%= ((r.hi.presence || r.rate).to_f / scale * 100).round(1) %>"></div></div>
+        <p class="chart-note"><strong><%= r.hi.present? ? "#{leads.(r.rate)} to #{leads.(r.hi)}" : leads.(r.rate) %></strong> leads from <%= number_with_delimiter(clicks) %> clicks · <%= r.note %></p>
+      </div>
+    <% end %>
+    <p class="chart-foot"><%= ad.benchmarks.our_method %> Sources: <%= ad.benchmarks.landing_page_source %>; <%= ad.benchmarks.google_ads_source %>.</p>
+  </div>
+</div>

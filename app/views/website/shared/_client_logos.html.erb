@@ -1,29 +1,20 @@
 <%# locals: (label:, linked: true) -%>
-<%# The marquee of client marks (ClientLogos.astro): every case study with a logo, each to its write-up, three copies so the loop never shows a seam. Unlinked on the landing pages, which offer no exits. %>
+<%# The band of client marks under the hero: every case study with a logo, each to its write-up (unlinked on the landing pages, which offer no exits). %>
 <% logos = gl_work.select { |study| website_fields(study).logo.present? } %>
-<% track = Array.new(3) { logos }.flatten %>
-<section class="rule-t bg-surface">
-  <div class="mx-auto max-w-6xl px-5 py-6 md:px-8 md:py-7">
-    <div class="flex items-baseline justify-between gap-4">
-      <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text"><%= label %></p>
-      <% if linked %>
-        <a href="/work" data-cta="logos-all-work" class="shrink-0 font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted underline decoration-signal decoration-2 underline-offset-4 transition-colors hover:text-text">All case studies →</a>
-      <% end %>
-    </div>
-    <div class="logo-marquee mt-4 overflow-hidden">
-      <ul class="logo-track flex w-max items-stretch gap-4" style="--marquee-duration:<%= [30, logos.size * 5].max %>s">
-        <% track.each_with_index do |study, i| %>
-          <% dup = i >= logos.size %>
-          <% img = gl_image(website_fields(study).logo, alt: study.title, sizes: "12rem", class: "max-h-11 w-auto max-w-full object-contain") %>
-          <li class="shrink-0"<% if dup %> aria-hidden="true"<% end %>>
-            <% if linked %>
-              <a href="<%= website_path(study) %>"<% if dup %> tabindex="-1"<% end %> data-cta="logo-<%= study.slug %>" class="logo-tile grid h-20 w-[190px] place-items-center rounded-lg border-2 border-text bg-white px-5 md:w-[210px]" aria-label="<%= study.title %> — read the case study"><%= img %></a>
-            <% else %>
-              <div class="logo-tile grid h-20 w-[190px] place-items-center rounded-lg border-2 border-text bg-white px-5 md:w-[210px]"><%= img %></div>
-            <% end %>
-          </li>
+<% if logos.any? %>
+  <section class="logo-band">
+    <div class="container logo-band-inner">
+      <% if label.present? %><span class="logo-band-label"><%= label %></span><% end %>
+      <div class="logo-list">
+        <% logos.each do |study| %>
+          <% img = gl_image(website_fields(study).logo, alt: study.title, sizes: "9rem", loading: :lazy) %>
+          <% if linked %>
+            <a href="<%= website_path(study) %>" data-cta="logo-<%= study.slug %>" aria-label="<%= study.title %>: read the case study"><%= img %></a>
+          <% else %>
+            <%= img %>
+          <% end %>
         <% end %>
-      </ul>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+<% end %>

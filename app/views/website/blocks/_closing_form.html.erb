@@ -1,21 +1,19 @@
 <%# locals: (data:) -%>
-<%# The dark close (laspalmas.astro): the banner's phone number, and the plan form again. %>
-<% phone = gl_href(data.phone_link) %>
-<section class="console ink relative overflow-hidden rule-t">
-  <div class="pointer-events-none absolute inset-0 -z-10 opacity-[0.5]" style="background:radial-gradient(820px 400px at 85% 110%, oklch(0.42 0.2 292 / 0.75), transparent 70%), radial-gradient(700px 340px at 10% 0%, oklch(0.40 0.17 262 / 0.55), transparent 72%);"></div>
-  <div class="mx-auto grid max-w-6xl items-start gap-10 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
-    <div>
-      <h2 class="display display-md"><%= gl_heading(data.heading) %></h2>
-      <p class="mt-5 max-w-xl text-[17px] leading-relaxed text-text-subtle"><%= data.blurb %></p>
-      <% if phone %>
-        <a href="<%= phone %>" data-cta="laspalmas-close-phone" class="mt-8 inline-flex items-center gap-3 border-2 border-border-strong bg-surface px-5 py-4 transition-colors hover:border-primary">
-          <%= gl_phone_icon(20, klass: "shrink-0 text-primary") %>
-          <span><span class="block font-mono text-[11px] uppercase tracking-[0.14em] text-text-muted"><%= data.phone_kicker %></span><span class="block text-[19px] font-bold tracking-tight"><%= data.phone_label %></span></span>
-        </a>
-      <% end %>
+<%# The dark close: the offer restated, the phone, and the plan form again. %>
+<% phone = gl_href(data.phone_link) || gl_tel %>
+<section class="section section-night has-photo" id="contact">
+  <%= render "website/shared/hero_photo", key: "closing", night: true %>
+  <div class="container cta-grid">
+    <div class="reveal">
+      <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+      <% if data.blurb.present? %><p class="lede"><%= data.blurb %></p><% end %>
+      <a class="cta-call" href="<%= phone %>" data-cta="closing-phone">
+        <small><%= data.phone_kicker.presence || "Call us direct" %></small>
+        <strong><%= data.phone_label.presence || gl_phone %></strong>
+      </a>
     </div>
-    <div id="plan-form-footer" class="scroll-mt-20">
-      <%= render "website/shared/audit_form", prefix: "laspalmas-footer", cta: "laspalmas-footer", submit_label: data.submit_label, note: data.note, phone_href: phone, phone_label: data.phone_label %>
+    <div class="reveal" style="--i:1">
+      <%= render "website/shared/audit_form", prefix: "closing", cta: "closing-form", heading: "Tell us about your business", submit_label: data.submit_label, note: data.note, phone_href: phone, phone_label: data.phone_label %>
     </div>
   </div>
 </section>

@@ -1,31 +1,31 @@
 <%# locals: () -%>
-<%# The footer global (Footer.astro): the blurb under the logo, its columns (Services lists the services collection after its own links), the copyright and the line about who signs. %>
+<%# The footer global: the blurb under the logo and the Google Partner badge, its columns (Services lists the services collection after its own links), then the copyright line with the legal pages. %>
 <% footer = gl_global(:footer) %>
-<footer class="rule-t">
-  <div class="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-    <div class="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
-      <div>
-        <%= gl_logo(class: "h-7 w-auto", loading: :lazy) %>
-        <% if footer.blurb.present? %>
-          <p class="mt-4 max-w-xs text-[15px] leading-snug text-text-subtle"><%= website_plain_text(footer.blurb) %></p>
-        <% end %>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <%= gl_logo(loading: :lazy) %>
+        <% if footer.blurb.present? %><p><%= website_plain_text(footer.blurb) %></p><% end %>
+        <a class="footer-partner" href="https://www.google.com/partners/agency?id=4365181293" rel="noopener" target="_blank">
+          <%= image_tag gl_asset_path("google-partner.svg"), alt: "Google Partner", width: 44, height: 42, loading: :lazy %>
+          <span>Certified Google Partner</span>
+        </a>
       </div>
       <% footer.columns.each do |column| %>
         <% links = column.items.filter_map { |i| (h = gl_href(i.link)) && [i.label, h] } %>
-        <% links += gl_services.map { |s| [website_fields(s).nav, website_path(s)] } if column.children_from == "services" %>
-        <nav aria-label="<%= column.heading %>">
-          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= column.heading %></p>
-          <ul class="mt-4 space-y-2">
-            <% links.each do |label, href| %>
-              <li><a href="<%= href %>" class="text-[15px] text-text-subtle transition-colors hover:text-text"<% if gl_external?(href) %> rel="nofollow"<% end %>><%= label %></a></li>
-            <% end %>
-          </ul>
+        <% links += gl_services.map { |s| [website_fields(s).nav.presence || s.title, website_path(s)] } if column.children_from == "services" %>
+        <nav class="footer-col" aria-label="<%= column.heading %>">
+          <div class="footer-head"><%= column.heading %></div>
+          <% links.each do |label, href| %>
+            <a href="<%= href %>"<% if gl_external?(href) %> rel="nofollow"<% end %>><%= label %></a>
+          <% end %>
         </nav>
       <% end %>
     </div>
-    <div class="mt-12 flex flex-col gap-3 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-text-muted md:flex-row md:items-center md:justify-between">
-      <span>&copy; <%= gl_year %> <%= footer.copyright.presence || gl_name %></span>
-      <span class="normal-case tracking-normal"><%= footer.tagline %></span>
+    <div class="footer-bottom">
+      <span>&copy; <%= gl_year %> <%= footer.copyright.presence || gl_name %><% if footer.tagline.present? %> · <%= footer.tagline %><% end %></span>
+      <span class="footer-links"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></span>
     </div>
   </div>
 </footer>
