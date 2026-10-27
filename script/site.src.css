@@ -671,6 +671,7 @@ details > summary::-webkit-details-marker { display: none; }
 .page-hero-inner .lede { margin-top: 22px; }
 .page-hero-inner .hero-links { margin-top: 32px; }
 .page-hero-inner .chips { margin-top: 24px; }
+.page-hero-inner .hero-badge, .contact-grid .hero-badge { margin-bottom: 30px; }
 .page-hero-row { position: relative; z-index: 1; margin-top: 48px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { display: inline-block; padding: 6px 12px; border-radius: 999px; background: var(--violet-tint); color: var(--violet); font-size: 13.5px; font-weight: 500; }
@@ -803,7 +804,7 @@ details > summary::-webkit-details-marker { display: none; }
 details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-light::after, .hero-photo i, .night-photo i, .aurora i, .tint { animation: none; }
+  .hero-light::after, .hero-photo i, .night-photo i, .is-night .hero-photo::after, .night-photo::after, .aurora i, .tint { animation: none; }
   .hero [data-enter] { animation: none; }
   .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
@@ -1096,10 +1097,13 @@ details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
 }
 .page-hero.is-night .hero-photo::after {
   background:
-    linear-gradient(90deg, rgba(12,9,40,.88) 0%, rgba(12,9,40,.72) 48%, rgba(12,9,40,.4) 100%),
-    linear-gradient(180deg, rgba(12,9,40,.4) 0%, rgba(12,9,40,0) 40%, rgba(12,9,40,.5) 100%);
+    linear-gradient(90deg, rgba(12,9,40,.72) 0%, rgba(12,9,40,.5) 48%, rgba(12,9,40,.18) 100%),
+    linear-gradient(180deg, rgba(12,9,40,.35) 0%, rgba(12,9,40,0) 40%, rgba(12,9,40,.25) 100%);
 }
-.is-night .hero-photo i { animation: breathe-night 16s ease-in-out infinite; }
+/* Breathing: every hero and every dark photo section. The photo swells, brightens and shifts its hue a little; the darkness over it ebbs. */
+.is-night .hero-photo i, .night-photo i { animation: breathe-night 14s ease-in-out infinite; }
+.is-night .hero-photo::after, .night-photo::after { animation: ebb 14s ease-in-out infinite; }
+@keyframes ebb { 0%, 100% { opacity: 1; } 50% { opacity: .78; } }
 /* The home hero: the lit figure sits low and to the right, with room beneath the copy. */
 .hero-home { padding-bottom: 150px; }
 .hero-home .hero-photo i { background-size: cover; background-position: 50% 100%; }
@@ -1111,8 +1115,10 @@ details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
 }
 .hero-home .hero-copy .lede, .hero-home .hero-proof { text-shadow: 0 1px 12px rgba(12,9,40,.6); }
 @keyframes breathe-night {
-  0%, 100% { transform: scale(1); filter: brightness(1) saturate(1); }
-  50% { transform: scale(1.07); filter: brightness(1.1) saturate(1.1); }
+  0%, 100% { transform: scale(1) translate3d(0,0,0); filter: brightness(1) saturate(1) hue-rotate(0deg); }
+  35% { filter: brightness(1.16) saturate(1.2) hue-rotate(-7deg); }
+  50% { transform: scale(1.07) translate3d(-1%,-1%,0); }
+  70% { filter: brightness(1.08) saturate(1.12) hue-rotate(6deg); }
 }
 .is-night .h-hero, .is-night .h-2, .is-night .h-3, .is-night .h-4 { color: #fff; }
 .is-night .form-card, .is-night .form-card .form-title, .is-night .form-card .h-3 { color: var(--ink); }

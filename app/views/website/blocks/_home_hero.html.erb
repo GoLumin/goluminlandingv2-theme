@@ -1,16 +1,12 @@
 <%# locals: (data:) -%>
-<%# The homepage's opening: the Google Partner pill (the chip naming it, with the badge line and link), the headline (a *marked* phrase in violet), the standfirst, the proof line (the other chips, **bold** words allowed), the buttons, and the plan form on the right (under the headline on a phone). The photograph behind it is the theme's. The video and the featured clients of the old hero are not drawn. %>
+<%# The homepage's opening: the Google Partner credential (shown while a chip names it; its words come from the Ad landing pages global), the headline (a *marked* phrase in violet), the standfirst, the proof line (the other chips, **bold** words allowed), the buttons, and the audit form on the right (under the headline on a phone). The photograph behind it is the theme's. The badge link and label, the video and the featured clients of the old hero are not drawn. %>
 <% partner, proofs = data.chips.partition { |chip| chip.to_s.match?(/google partner/i) } %>
-<% badge = gl_href(data.badge_link) %>
 <section class="hero is-night hero-home">
   <%= render "website/shared/scene", key: "/" %>
   <div class="container hero-grid">
     <div class="hero-copy">
       <% if partner.any? %>
-        <%= content_tag(badge ? :a : :div, class: "hero-badge", href: badge, target: (badge && gl_external?(badge) ? "_blank" : nil), rel: (badge && gl_external?(badge) ? "noopener" : nil), data: {enter: "1", cta: "hero-partner"}) do %>
-          <span class="badge-tile"><%= image_tag gl_asset_path("google-partner.svg"), alt: "Google Partner badge", width: 64, height: 61 %></span>
-          <span class="badge-text"><strong><%= gl_inline(partner.first) %></strong><% if data.badge_label.present? %><span><%= data.badge_label %></span><% end %></span>
-        <% end %>
+        <%= render "website/shared/badge", enter: true %>
       <% elsif data.eyebrow.present? %>
         <p class="hero-kicker" data-enter="1"><%= data.eyebrow %></p>
       <% end %>

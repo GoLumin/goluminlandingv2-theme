@@ -3,6 +3,7 @@
 <section class="page-hero is-night is-short">
   <%= render "website/shared/scene" %>
   <div class="container page-hero-inner">
+    <%= render "website/shared/badge" %>
     <h1 class="h-hero"><%= data.heading %></h1>
     <% if data.updated.present? %><p class="small" style="margin-top:16px"><%= data.updated %></p><% end %>
   </div>

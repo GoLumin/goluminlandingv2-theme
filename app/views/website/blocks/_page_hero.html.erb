@@ -5,6 +5,7 @@
   <%= render "website/shared/scene" %>
   <div class="container">
     <div class="page-hero-inner">
+      <%= render "website/shared/badge" %>
       <%= gl_eyebrow(eyebrow) %>
       <h1 class="h-hero"><%= gl_heading(data.heading) %></h1>
       <% if data.lede.present? %><p class="lede"><%= data.lede %></p><% end %>

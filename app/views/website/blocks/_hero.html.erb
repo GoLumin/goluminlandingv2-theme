@@ -4,6 +4,7 @@
   <%= render "website/shared/scene" %>
   <div class="container <%= data.image_id.present? ? "hero-grid" : "" %>">
     <div class="<%= data.image_id.present? ? "hero-copy" : "page-hero-inner" %>">
+      <%= render "website/shared/badge" %>
       <h1 class="h-hero"><%= gl_heading(data.heading) %></h1>
       <% if data.subheading.present? %><p class="lede"><%= website_plain_text(data.subheading) %></p><% end %>
       <% if data.ctas.any? %><div class="hero-links"><%= gl_ctas(data.ctas, cta: "hero") %></div><% end %>

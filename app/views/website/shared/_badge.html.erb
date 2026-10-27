@@ -1,0 +1,7 @@
+<%# locals: (enter: false) -%>
+<%# The Google Partner credential that opens every hero: the official badge on the frosted card, with the title and the line from the Ad landing pages global's credentials. %>
+<% c = gl_global(:ad_landing).credentials %>
+<a class="hero-badge" href="https://www.google.com/partners/agency?id=4365181293" target="_blank" rel="noopener" data-cta="hero-partner"<% if enter %> data-enter="1"<% end %>>
+  <span class="badge-tile"><%= image_tag gl_asset_path("google-partner.svg"), alt: "Google Partner badge", width: 64, height: 61 %></span>
+  <span class="badge-text"><strong><%= c.title.presence || "Certified Google Partner" %></strong><span>Badged by Google, not drawn by us. <%= c.lines.first.presence || "15+ years in paid search" %>.</span></span>
+</a>

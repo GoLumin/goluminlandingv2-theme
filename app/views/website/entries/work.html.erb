@@ -12,6 +12,7 @@
   <%= render "website/shared/scene" %>
   <div class="container">
     <div class="page-hero-inner">
+      <%= render "website/shared/badge" %>
       <p class="breadcrumb"><a href="/work">Results</a><span aria-hidden="true">/</span><span><%= [entry.title, c.vertical, c.place].compact_blank.join(" · ") %></span></p>
       <h1 class="h-hero"><%= gl_heading(c.h) %></h1>
       <p class="lede"><%= c.lede %></p>

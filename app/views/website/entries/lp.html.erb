@@ -16,10 +16,7 @@
   <%= render "website/shared/scene", key: "/lp" %>
   <div class="container hero-grid">
     <div class="hero-copy">
-      <a class="hero-badge" href="https://www.google.com/partners/agency?id=4365181293" target="_blank" rel="noopener" data-enter="1" data-cta="lp-partner">
-        <span class="badge-tile"><%= image_tag gl_asset_path("google-partner.svg"), alt: "Google Partner badge", width: 64, height: 61 %></span>
-        <span class="badge-text"><strong><%= ad.credentials.title %></strong><span><%= ad.credentials.lines.join(". ") %>.</span></span>
-      </a>
+      <%= render "website/shared/badge", enter: true %>
       <% if lp.eyebrow.present? %><p class="hero-kicker"><%= lp.eyebrow %></p><% end %>
       <h1 class="h-hero"><span data-lp-h1><%= Array(lp.h)[0] %></span> <span class="em" data-lp-h2><%= Array(lp.h)[1] %></span></h1>
       <p class="lede" data-lp-sub><%= lp.sub %></p>

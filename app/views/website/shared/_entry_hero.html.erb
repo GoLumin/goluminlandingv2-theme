@@ -4,6 +4,7 @@
   <%= render "website/shared/scene" %>
   <div class="container">
     <div class="page-hero-inner">
+      <%= render "website/shared/badge" %>
       <p class="breadcrumb"><a href="<%= crumb_href %>"><%= crumb_label %></a><span aria-hidden="true">/</span><span><%= eyebrow %></span></p>
       <h1 class="h-hero"><%= gl_heading(heading) %></h1>
       <% if lede.present? %><p class="lede"><%= lede %></p><% end %>

@@ -9,6 +9,7 @@
   <%= render "website/shared/scene" %>
   <div class="container">
     <div class="page-hero-inner">
+      <%= render "website/shared/badge" %>
       <p class="breadcrumb"><a href="/services">Services</a><span aria-hidden="true">/</span><span><%= s.nav.presence || entry.title %></span></p>
       <h1 class="h-hero"><%= gl_heading(s.h) %></h1>
       <p class="lede"><%= s.lede %></p>

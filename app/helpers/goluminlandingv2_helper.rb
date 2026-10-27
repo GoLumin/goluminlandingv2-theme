@@ -183,10 +183,10 @@ module Goluminlandingv2Helper
   # of them behind it, by the page it is on, as the redesign chose them; the
   # dark sections ("night:" keys), the closing call and the client quote have
   # theirs. Anything else gets a steady pick from its key. [number, position]
-  BRAND_PHOTOS = {"/" => ["10-hero"], "/home" => ["10-hero"], "/lp" => ["10-hero"], "/services" => [4], "/services/websites" => [9], "/services/advertising" => [2],
-                  "/services/local-ai-search" => [7], "/websites" => [9], "/advertising" => [2], "/search" => [7], "/tracking" => [10], "/work" => [8],
-                  "/how-it-works" => [9], "/how-we-work" => [9], "/trust" => [9], "/about" => [5], "/lets-talk" => [6], "/contact" => [6], "/careers" => [2],
-                  "/referrals" => [6], "/blog" => [6], "/privacy" => [6], "/terms" => [6], "/thank-you" => [4],
+  BRAND_PHOTOS = {"/" => ["10-hero"], "/home" => ["10-hero"], "/lp" => [1], "/services" => [4], "/services/websites" => [1], "/services/advertising" => [2],
+                  "/services/local-ai-search" => [7], "/websites" => [1], "/advertising" => [2], "/search" => [7], "/tracking" => [10], "/work" => [8], "/work/*" => [10],
+                  "/how-it-works" => [9], "/how-we-work" => [9], "/trust" => [9], "/about" => [5], "/lets-talk" => [3], "/contact" => [3], "/careers" => [2],
+                  "/referrals" => [6], "/blog" => [4], "/blog/*" => [4], "/privacy" => [7], "/terms" => [8], "/thank-you" => [4],
                   "night:/" => [2, "center 30%"], "night:/home" => [2, "center 30%"], "night:/services/advertising" => [7], "night:/advertising" => [7], "night:/how-it-works" => [2, "center 30%"],
                   "night:/how-we-work" => [2, "center 30%"], "closing" => ["9-hero", "60% 70%"], "quote" => [5]}.freeze
 
@@ -199,7 +199,8 @@ module Goluminlandingv2Helper
     path = path.sub(%r{\A/redesign[/-]}, "/") if path.match?(%r{\A/redesign[/-]})
     path = "/lp" if path.start_with?("/lp/")
     lookup = prefix ? "#{prefix}:#{path}" : path
-    n, position = BRAND_PHOTOS[lookup] || BRAND_PHOTOS[[prefix, path.split("/").first(2).join("/")].compact.join(":")] || (prefix == "night" ? [2] : nil) || [Zlib.crc32(path) % 10 + 1]
+    entry = "/#{path.split("/")[1]}/*" if path.count("/") > 1
+    n, position = BRAND_PHOTOS[lookup] || (entry && !prefix && BRAND_PHOTOS[entry]) || BRAND_PHOTOS[[prefix, path.split("/").first(2).join("/")].compact.join(":")] || (prefix == "night" ? [2] : nil) || [Zlib.crc32(path) % 10 + 1]
     [gl_asset_path("brand-#{n}.webp"), position]
   end
 
