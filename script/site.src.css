@@ -991,8 +991,7 @@ details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
   .hero { padding: 112px 0 40px; }
   .page-hero { padding: 112px 0 72px; }
   .hero-light { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
-  .hero-photo { clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); }
-  .page-hero .hero-photo { clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%); }
+  .hero-photo, .page-hero .hero-photo { clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%); }
   .hero-photo::after, .page-hero .hero-photo::after { background: linear-gradient(180deg, rgba(251,250,255,.92) 0%, rgba(251,250,255,.9) 55%, rgba(251,250,255,.55) 100%); }
   .is-night .hero-photo::after, .page-hero.is-night .hero-photo::after { background: linear-gradient(180deg, rgba(12,9,40,.78) 0%, rgba(12,9,40,.7) 60%, rgba(12,9,40,.85) 100%); }
   .hero-badge { gap: 12px; padding: 8px 16px 8px 8px; border-radius: 14px; }
