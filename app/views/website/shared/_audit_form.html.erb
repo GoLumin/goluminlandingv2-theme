@@ -1,95 +1,101 @@
-<%# locals: (prefix: "hero", source: nil, cta: nil, compact: false, audit_type: nil, lock_type: false, kicker: "Start here", heading: "Book a diagnostic", blurb: "A 20-minute look at what you're running. No pitch deck, no commitment.", submit_label: "Request my audit", note: nil, phone_href: nil, phone_label: nil) -%>
+<%# locals: (prefix: "hero", source: nil, cta: nil, compact: false, audit_type: nil, lock_type: false, kicker: "Request, diagnostic", heading: "Book a diagnostic", blurb: nil, submit_label: "Request my audit", note: nil, phone_href: nil, phone_label: nil) -%>
 <%#
-  THE AUDIT FORM. The wiring is frozen: see FORM-CONTRACT.md in
-  ~/Downloads/lumin-method-reference. Lifted from production golumin.io and
-  not altered here. Frozen, do not touch:
-    action="/api/forms/audit/submissions", method="post"
+  THE AUDIT FORM. Wiring frozen, see FORM-CONTRACT.md in
+  ~/Downloads/lumin-method-reference. Not altered here:
+    action="/api/forms/audit/submissions", method="post", novalidate
     data-audit-form, data-form-slug="audit"
-    every name= : audit_type name email company website_url monthly_ad_spend
-                  message _hp utm_source utm_medium utm_campaign utm_term
-                  utm_content gclid fbclid msclkid v landing_path referrer
-                  source form_path
-    every <option value> on audit_type and monthly_ad_spend, en dashes and all
+    the 21 names: audit_type name email company website_url monthly_ad_spend
+      message _hp utm_source utm_medium utm_campaign utm_term utm_content
+      gclid fbclid msclkid v landing_path referrer source form_path
+    every <option value>, en dashes included
     required on audit_type, name, email, company, monthly_ad_spend
-    the honeypot _hp, present and visually hidden
-    `source` carries the placement: golumin-landing-hero / -footer
-  Only the classes, labels and layout below are this design's. The button's
-  visible text is a label, not wiring, so it drops the word "free".
+    the _hp honeypot, present and visually hidden
+    `source` carries the placement
+    the data-* hooks forms.js binds to
+  The look is the Method design's own form (pages/work-with-us.html:
+  .wwu-form-wrap, .form-cap, .field, .row, .wwu-submit). That page's form is
+  a dead mock with different field names; only its styling is borrowed. It
+  offers the audit type as radio chips, but the contract specifies a select,
+  so this stays a select.
 %>
 <% src = source.presence || "golumin-landing-#{prefix}" %>
-<form id="<%= prefix %>-form" data-audit-form data-form-slug="audit" method="post"
-      action="/api/forms/audit/submissions" class="form-card" novalidate>
-  <div class="form-head">
-    <p class="eyebrow"><%= kicker %></p>
-    <h3 class="form-title"><%= heading %></h3>
-    <p class="form-sub"><%= blurb %></p>
-  </div>
-
 <% types = ["Full system (web + search + ads)", "Website", "Local + AI search", "Ad account"] %>
 <% chosen = types.include?(audit_type) ? audit_type : types.first %>
-<% if lock_type %>
-  <input type="hidden" name="audit_type" value="<%= chosen %>" data-audit-type>
-<% else %>
-  <label class="field">
-    <span class="field-label">What should we look at? <span class="req">*</span></span>
-    <select name="audit_type" required data-audit-type>
-      <% types.each do |t| %><option value="<%= t %>"<%= " selected" if t == chosen %>><%= t %></option><% end %>
-    </select>
-  </label>
-<% end %>
+<div class="wwu-form-wrap">
+  <div class="form-cap"><span><%= kicker.to_s.upcase %></span><span class="signal">OPEN</span></div>
+  <form id="<%= prefix %>-form" data-audit-form data-form-slug="audit" method="post"
+        action="/api/forms/audit/submissions" class="wwu-form" novalidate>
+    <% if heading.present? || blurb.present? %>
+      <div class="form-intro">
+        <% if heading.present? %><h3 class="headline form-title"><%= heading %></h3><% end %>
+        <% if blurb.present? %><p class="form-sub"><%= blurb %></p><% end %>
+      </div>
+    <% end %>
 
-  <div class="field-row">
-    <label class="field">
-      <span class="field-label">Name <span class="req">*</span></span>
-      <input type="text" name="name" autocomplete="name" required>
-    </label>
-    <label class="field">
-      <span class="field-label">Work email <span class="req">*</span></span>
-      <input type="email" name="email" autocomplete="email" inputmode="email" required data-email>
-    </label>
-  </div>
+    <% if lock_type %>
+      <input type="hidden" name="audit_type" value="<%= chosen %>" data-audit-type>
+    <% else %>
+      <div class="field">
+        <label for="<%= prefix %>-type">What should we look at?</label>
+        <select id="<%= prefix %>-type" name="audit_type" required data-audit-type>
+          <% types.each do |t| %><option value="<%= t %>"<%= " selected" if t == chosen %>><%= t %></option><% end %>
+        </select>
+      </div>
+    <% end %>
 
-  <div class="field-row">
-    <label class="field">
-      <span class="field-label">Business <span class="req">*</span></span>
-      <input type="text" name="company" autocomplete="organization" required>
-    </label>
-    <label class="field">
-      <span class="field-label">Website</span>
-      <input type="text" name="website_url" inputmode="url" autocomplete="url" placeholder="yourbusiness.com">
-    </label>
-  </div>
+    <div class="row">
+      <div class="field">
+        <label for="<%= prefix %>-name">Name</label>
+        <input id="<%= prefix %>-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="<%= prefix %>-email">Work email</label>
+        <input id="<%= prefix %>-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" inputmode="email" required data-email>
+      </div>
+    </div>
 
-  <label class="field" data-spend-field>
-    <span class="field-label">Monthly ad spend <span class="req">*</span></span>
-    <select name="monthly_ad_spend" required data-spend>
-      <option value="">Choose one</option>
-      <option value="Not running ads yet">Not running ads yet</option>
-      <option value="Under $2,000">Under $2,000</option>
-      <option value="$2,000 – $10,000">$2,000 – $10,000</option>
-      <option value="$10,000 – $50,000">$10,000 – $50,000</option>
-      <option value="$50,000+">$50,000+</option>
-    </select>
-  </label>
+    <div class="row">
+      <div class="field">
+        <label for="<%= prefix %>-company">Business</label>
+        <input id="<%= prefix %>-company" name="company" type="text" placeholder="Company" autocomplete="organization" required>
+      </div>
+      <div class="field">
+        <label for="<%= prefix %>-site">Website</label>
+        <input id="<%= prefix %>-site" name="website_url" type="text" placeholder="yourbusiness.com" inputmode="url" autocomplete="url">
+      </div>
+    </div>
 
-  <label class="field">
-    <span class="field-label">What's the biggest headache right now?</span>
-    <textarea name="message" rows="3" placeholder="e.g. We spend $8k a month on Google and can't tell what it's doing."></textarea>
-  </label>
+    <div class="field" data-spend-field>
+      <label for="<%= prefix %>-spend">Monthly ad spend</label>
+      <select id="<%= prefix %>-spend" name="monthly_ad_spend" required data-spend>
+        <option value="">Choose one</option>
+        <option value="Not running ads yet">Not running ads yet</option>
+        <option value="Under $2,000">Under $2,000</option>
+        <option value="$2,000 – $10,000">$2,000 – $10,000</option>
+        <option value="$10,000 – $50,000">$10,000 – $50,000</option>
+        <option value="$50,000+">$50,000+</option>
+      </select>
+    </div>
 
-  <div class="visually-hidden" aria-hidden="true">
-    <label>Leave this empty <input type="text" name="_hp" tabindex="-1" autocomplete="off"></label>
-  </div>
-  <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
-  <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term">
-  <input type="hidden" name="utm_content"><input type="hidden" name="gclid">
-  <input type="hidden" name="fbclid"><input type="hidden" name="msclkid">
-  <input type="hidden" name="v"><input type="hidden" name="landing_path">
-  <input type="hidden" name="referrer">
-  <input type="hidden" name="source" value="<%= src %>">
-  <input type="hidden" name="form_path">
+    <div class="field">
+      <label for="<%= prefix %>-msg">What are you running now?</label>
+      <textarea id="<%= prefix %>-msg" name="message" rows="3" placeholder="Channels, spend, what's working, what isn't."></textarea>
+    </div>
 
-  <p class="form-error" data-error role="alert" hidden></p>
-  <button type="submit" data-submit data-cta="<%= cta.presence || "#{prefix}-form" %>" class="btn btn-primary"><%= submit_label %> <span class="arrow">&rarr;</span></button>
-  <p class="form-note"><%= note.presence || "Read-only access. Jordan or Ted reads it." %> Rather talk? <a href="<%= phone_href.presence || gl_tel %>" class="ulink"><%= phone_label.presence || gl_phone %></a></p>
-</form>
+    <div class="visually-hidden" aria-hidden="true">
+      <label>Leave this empty <input type="text" name="_hp" tabindex="-1" autocomplete="off"></label>
+    </div>
+    <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
+    <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term">
+    <input type="hidden" name="utm_content"><input type="hidden" name="gclid">
+    <input type="hidden" name="fbclid"><input type="hidden" name="msclkid">
+    <input type="hidden" name="v"><input type="hidden" name="landing_path">
+    <input type="hidden" name="referrer">
+    <input type="hidden" name="source" value="<%= src %>">
+    <input type="hidden" name="form_path">
+
+    <p class="form-error" data-error role="alert" hidden></p>
+    <button type="submit" data-submit data-cta="<%= cta.presence || "#{prefix}-form" %>" class="btn btn-primary wwu-submit"><%= submit_label %> <span class="arrow">&rarr;</span></button>
+    <p class="form-note"><%= note.presence || "We reply within one business day. No sales sequence, no drip campaign." %> <a href="<%= phone_href.presence || gl_tel %>" class="ulink"><%= phone_label.presence || gl_phone %></a></p>
+  </form>
+</div>

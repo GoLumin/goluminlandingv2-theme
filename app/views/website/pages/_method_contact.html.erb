@@ -1,0 +1,27 @@
+<%# /lets-talk, built from lumin-method-reference/pages/work-with-us.html.
+    That page's form is a dead mock with its own field names; the real audit
+    form goes in its place, wiring frozen. %>
+<section class="wwu section">
+  <div class="wrap">
+    <div class="wwu-grid">
+      <div>
+        <p class="eyebrow">Work with us</p>
+        <h1 class="display wwu-h">Book a <span class="signal">diagnostic.</span></h1>
+        <p class="wwu-sub">Twenty minutes. No pitch deck, no commitment. We look at what you are running, tell you what we would change, and you keep the findings either way.</p>
+        <ul class="wwu-list">
+          <li>&#9670; A read on where your spend is leaking</li>
+          <li>&#9670; The one lever we would pull first, and why</li>
+          <li>&#9670; A prioritised fix list, yours to keep</li>
+        </ul>
+        <div class="wwu-strip">
+          <% [["&lt;24h", "Response time"], ["20 min", "The diagnostic call"], ["7-10d", "Setup to live"], ["M-T-M", "No long contracts"]].each do |v, l| %>
+            <div class="wwu-stat"><span class="wwu-v signal"><%= v.html_safe %></span><span class="wwu-l"><%= l %></span></div>
+          <% end %>
+        </div>
+      </div>
+      <%= render "website/shared/audit_form", prefix: "contact", source: "golumin-landing-contact",
+            kicker: "Request, diagnostic", heading: nil, blurb: nil,
+            note: "We reply within one business day. No sales sequence, no drip campaign." %>
+    </div>
+  </div>
+</section>

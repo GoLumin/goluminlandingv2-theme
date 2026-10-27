@@ -209,35 +209,163 @@ a { color: inherit; text-decoration: none; }
   .close-strip { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
 }
 
+
+
+/* ---------- /story, /work-with-us, /services, /work, /blog ----------
+   Verbatim from the inline <style> blocks of those five mirrored pages,
+   with Astro's scope hashes removed. These carry the page-specific
+   components the shared Base/index CSS does not. */
+.phero{padding-block:clamp(3.5rem,8vw,7rem) clamp(2rem,4vw,3.5rem)}
+.phero-h{margin:1.4rem 0 0;font-size:clamp(2.6rem,7.5vw,6rem)}
+.phero-sub{color:var(--ink-soft);max-width:62ch;margin:1.8rem 0 0;font-size:clamp(1.1rem,1.7vw,1.35rem);line-height:1.6}
+.founders{grid-template-columns:1fr 1fr;gap:1.25rem;display:grid}
+.founder{background:var(--paper-2);border:1px solid var(--hair);padding:clamp(1.75rem,3.5vw,3rem)}
+.f-role{font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin:0;font-size:.72rem}
+.f-name{margin:.6rem 0 .35rem;font-size:clamp(2.6rem,5vw,4rem)}
+.f-sub{font-family:var(--mono);color:var(--graphite);margin:0 0 1.75rem;font-size:.8rem}
+.f-body{color:var(--ink-soft);flex-direction:column;gap:1rem;display:flex}
+.f-body p{margin:0}
+.f-punch{color:var(--ink);font-weight:500}
+.mid-quote{font-family:var(--display);letter-spacing:-.02em;text-align:center;margin:clamp(2.5rem,6vw,4.5rem) 0 0;font-size:clamp(1.6rem,4vw,3rem);font-weight:600}
+.believe-lead{color:var(--on-dark-soft);max-width:62ch;margin:0 0 clamp(2.5rem,5vw,4rem);font-size:1.05rem}
+.beliefs{grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.5rem) clamp(2.5rem,5vw,5rem);display:grid}
+.belief{grid-template-columns:3rem 1fr;gap:1rem;display:grid}
+.belief-n{font-family:var(--mono);font-size:1.1rem;font-weight:600}
+.belief-t{color:var(--on-dark);margin:0 0 .7rem;font-size:1.4rem}
+.belief-b{color:var(--on-dark-soft);margin:0;font-size:.98rem}
+.cta-band{text-align:center}
+.cta-inner{flex-direction:column;align-items:center;max-width:640px;margin:0 auto;display:flex}
+.cta-h{font-size:clamp(2.2rem,6vw,4.5rem)}
+.cta-p{color:var(--ink-soft);max-width:50ch;margin:1.4rem 0 2rem;font-size:1.1rem}
+@media (width<=860px){.founders,.beliefs{grid-template-columns:1fr}}
+.wwu{padding-block:clamp(2.5rem,6vw,5rem) clamp(4rem,8vw,7rem)}
+.wwu-grid{grid-template-columns:1fr 1fr;align-items:start;gap:clamp(2.5rem,5vw,5rem);display:grid}
+.wwu-h{margin:1.3rem 0 0;font-size:clamp(3rem,8vw,6rem)}
+.wwu-sub{color:var(--ink-soft);max-width:48ch;margin:1.6rem 0 2rem;font-size:1.1rem;line-height:1.6}
+.wwu-list{flex-direction:column;gap:.85rem;margin:0 0 2.5rem;padding:0;list-style:none;display:flex}
+.wwu-list li{font-family:var(--body);color:var(--ink);align-items:baseline;gap:.75rem;display:flex}
+.wwu-list .tick{color:var(--signal);font-size:.7rem}
+.wwu-strip{border-top:1px solid var(--hair-strong);grid-template-columns:repeat(2,1fr);gap:1.25rem;max-width:26rem;padding-top:1.75rem;display:grid}
+.wwu-stat{flex-direction:column;gap:.3rem;display:flex}
+.wwu-v{font-family:var(--display);letter-spacing:-.02em;font-size:1.6rem;font-weight:700}
+.wwu-l{font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);font-size:.7rem}
+.wwu-form-wrap{border:1px solid var(--hair-strong);background:var(--paper-2);box-shadow:12px 12px #14161a0f}
+.form-cap{font-family:var(--mono);letter-spacing:.14em;color:var(--graphite);border-bottom:1px solid var(--hair);justify-content:space-between;padding:1rem 1.25rem;font-size:.7rem;display:flex}
+.wwu-form{flex-direction:column;gap:1.25rem;padding:clamp(1.5rem,3vw,2.25rem);display:flex}
+.row{grid-template-columns:1fr 1fr;gap:1rem;display:grid}
+.field{flex-direction:column;gap:.5rem;display:flex}
+.field label{font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-size:.72rem}
+.field input,.field textarea{font-family:var(--body);background:var(--paper);border:1px solid var(--hair-strong);color:var(--ink);resize:vertical;width:100%;padding:.8rem .9rem;font-size:.98rem}
+.field input:focus,.field textarea:focus{outline:2px solid var(--signal);outline-offset:1px;border-color:var(--signal)}
+.field input::placeholder,.field textarea::placeholder{color:var(--graphite-2)}
+.chips{flex-wrap:wrap;gap:.5rem;display:flex}
+.chip{position:relative}
+.chip input{opacity:0;cursor:pointer;position:absolute;inset:0}
+.chip span{font-family:var(--mono);border:1px solid var(--hair-strong);color:var(--ink-soft);cursor:pointer;padding:.5rem .8rem;font-size:.78rem;transition:all .15s;display:inline-block}
+.chip input:checked+span{background:var(--signal);color:#fff;border-color:var(--signal)}
+.chip input:focus-visible+span{outline:2px solid var(--signal);outline-offset:2px}
+.wwu-submit{justify-content:center;margin-top:.5rem}
+.form-note{font-family:var(--mono);color:var(--graphite);text-align:center;margin:0;font-size:.72rem}
+@media (width<=860px){.wwu-grid{grid-template-columns:1fr}.wwu-form-wrap{order:2}}
+@media (width<=480px){.row,.wwu-strip{grid-template-columns:1fr}}
+.phero-h{margin:1.4rem 0 0;font-size:clamp(3rem,9vw,7rem)}
+.phero-sub{color:var(--ink-soft);max-width:56ch;margin:1.8rem 0 0;font-size:clamp(1.1rem,1.8vw,1.4rem);line-height:1.55}
+.fam-lead{grid-template-columns:.8fr 1.2fr;align-items:baseline;gap:clamp(1.5rem,4vw,4rem);margin-bottom:clamp(2rem,4vw,3.5rem);display:grid}
+.fam-sec-h{font-size:clamp(2.2rem,5vw,3.6rem)}
+.fam-sec-thesis{color:var(--ink-soft);font-size:1.05rem}
+.svc-list{border-top:1px solid var(--hair-strong)}
+.svc-row{border-bottom:1px solid var(--hair);grid-template-columns:8rem 1fr 15rem;align-items:start;gap:1.5rem;padding:clamp(1.5rem,3vw,2.4rem) 0;transition:background .2s;display:grid}
+.svc-row:hover{background:var(--paper-2)}
+.svc-idx{font-family:var(--mono);letter-spacing:.12em;color:var(--graphite);padding-top:.5rem;font-size:.72rem}
+.svc-name{margin:0 0 .6rem;font-size:clamp(1.4rem,2.6vw,1.9rem)}
+.svc-blurb{color:var(--ink-soft);max-width:52ch;margin:0}
+.svc-metric{text-align:right;flex-direction:column;gap:.35rem;display:flex}
+.svc-v{font-family:var(--display);letter-spacing:-.03em;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1}
+.svc-l{font-family:var(--mono);letter-spacing:.04em;color:var(--graphite);font-size:.68rem}
+.proc-grid{grid-template-columns:repeat(4,1fr);gap:clamp(1.25rem,3vw,2.5rem);display:grid}
+.proc{border-top:2px solid var(--signal-bright);padding-top:1.25rem}
+.proc-n{font-family:var(--mono);font-size:.85rem;font-weight:600}
+.proc-t{margin:.7rem 0 .6rem;font-size:1.4rem}
+.proc-b{color:var(--on-dark-soft);margin:0;font-size:.92rem}
+.cta-p{color:var(--ink-soft);max-width:46ch;margin:1.4rem 0 2rem;font-size:1.1rem}
+@media (width<=860px){.fam-lead{grid-template-columns:1fr}.svc-row{grid-template-columns:1fr;gap:.75rem}.svc-idx{padding-top:0}.svc-metric{text-align:left;flex-direction:row;align-items:baseline;gap:.75rem;margin-top:.5rem}.proc-grid{grid-template-columns:1fr 1fr}}
+@media (width<=520px){.proc-grid{grid-template-columns:1fr}}
+.phero-sub{color:var(--ink-soft);max-width:58ch;margin:1.8rem 0 0;font-size:clamp(1.1rem,1.8vw,1.4rem);line-height:1.55}
+.cases{flex-direction:column;gap:clamp(2rem,5vw,4rem);display:flex}
+.case{border:1px solid var(--hair);background:var(--paper-2);padding:clamp(1.75rem,4vw,3rem)}
+.case-head{border-bottom:1px solid var(--hair);flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;display:flex}
+.case-idx{font-family:var(--mono);letter-spacing:.18em;color:var(--signal);font-size:.72rem;font-weight:600}
+.case-tags{flex-wrap:wrap;gap:.5rem;display:flex}
+.case-tags span{font-family:var(--mono);letter-spacing:.04em;border:1px solid var(--hair-strong);color:var(--ink-soft);padding:.3rem .65rem;font-size:.68rem}
+.case-body{grid-template-columns:1.6fr 1fr;gap:clamp(2rem,5vw,4rem);display:grid}
+.case-client{font-family:var(--display);letter-spacing:-.02em;margin:0;font-size:1.5rem;font-weight:700}
+.case-industry{font-family:var(--mono);color:var(--graphite);letter-spacing:.04em;margin:.25rem 0 1.5rem;font-size:.75rem}
+.case-h{letter-spacing:-.015em;margin:0 0 1rem;font-size:clamp(1.6rem,3vw,2.4rem)}
+.case-sum{color:var(--ink-soft);max-width:60ch;margin:0}
+.case-quote{border-left:2px solid var(--signal);font-family:var(--display);letter-spacing:-.01em;color:var(--ink);margin:1.75rem 0 0;padding-left:1.25rem;font-size:1.15rem;font-style:normal;font-weight:500;line-height:1.35}
+.case-metrics{border-left:1px solid var(--hair);flex-direction:column;gap:1.5rem;padding-left:clamp(1.5rem,3vw,2.5rem);display:flex}
+.cm{flex-direction:column;gap:.3rem;display:flex}
+.cm-v{font-family:var(--display);letter-spacing:-.03em;font-size:clamp(2.4rem,4vw,3.2rem);font-weight:700;line-height:1}
+.cm-l{font-family:var(--mono);letter-spacing:.04em;color:var(--graphite);font-size:.72rem}
+.on-dark-p{color:var(--on-dark-soft)}
+@media (width<=860px){.case-body{grid-template-columns:1fr}.case-metrics{border-left:none;border-top:1px solid var(--hair);flex-flow:wrap;gap:1.5rem 2.5rem;padding-top:1.5rem;padding-left:0}}
+.phero-sub{color:var(--ink-soft);max-width:60ch;margin:1.8rem 0 0;font-size:clamp(1.1rem,1.7vw,1.35rem);line-height:1.6}
+.feat{border:1px solid var(--hair-strong);background:var(--paper-2);padding:clamp(1.75rem,4vw,3.25rem);transition:border-color .2s,transform .2s;display:block}
+.feat:hover{border-color:var(--signal);transform:translateY(-3px)}
+.feat-meta{font-family:var(--mono);letter-spacing:.06em;color:var(--graphite);flex-wrap:wrap;align-items:center;gap:.6rem;margin-bottom:1.25rem;font-size:.72rem;display:flex}
+.feat-cat{letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.feat-tag{border:1px solid var(--signal);color:var(--signal);letter-spacing:.16em;margin-left:auto;padding:.2rem .55rem}
+.feat-h{max-width:20ch;margin:0 0 1rem;font-size:clamp(1.9rem,4.5vw,3.4rem);line-height:1.02}
+.feat-ex{color:var(--ink-soft);max-width:62ch;margin:0 0 1.5rem;font-size:1.05rem}
+.feat-link{font-family:var(--mono);color:var(--signal);font-size:.85rem;font-weight:500}
+.post-coord{margin-top:clamp(3rem,6vw,5rem)}
+.post-list{grid-template-columns:1fr 1fr;gap:1.25rem;display:grid}
+.post{border:1px solid var(--hair);background:var(--paper);padding:clamp(1.5rem,3vw,2.25rem);transition:border-color .2s,background .2s;position:relative}
+.post:hover{border-color:var(--signal);background:var(--paper-2)}
+.post-meta{font-family:var(--mono);letter-spacing:.04em;color:var(--graphite);flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-bottom:1rem;font-size:.7rem;display:flex}
+.post-cat{letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.post-h{letter-spacing:-.015em;margin:0 0 .7rem;font-size:clamp(1.3rem,2.4vw,1.7rem)}
+.post-ex{color:var(--ink-soft);margin:0;font-size:.95rem}
+.post-arrow{font-family:var(--mono);color:var(--signal);opacity:0;transition:opacity .2s,transform .2s;position:absolute;top:clamp(1.5rem,3vw,2.25rem);right:clamp(1.5rem,3vw,2.25rem)}
+.post:hover .post-arrow{opacity:1;transform:translate(3px)}
+.sub-inner{flex-wrap:wrap;justify-content:space-between;align-items:center;gap:2rem;display:flex}
+.sub-h{color:var(--on-dark);margin:0 0 .5rem;font-size:clamp(1.6rem,3vw,2.4rem)}
+.sub-p{color:var(--on-dark-soft);margin:0}
+.sub-form{flex-wrap:wrap;gap:.6rem;display:flex}
+.sub-form input{font-family:var(--mono);color:var(--on-dark);background:0 0;border:1px solid #ffffff40;min-width:260px;padding:.9rem 1.1rem;font-size:.9rem}
+.sub-form input::placeholder{color:var(--on-dark-soft)}
+.sub-form input:focus{outline:2px solid var(--signal-bright);outline-offset:2px}
+@media (width<=720px){.post-list{grid-template-columns:1fr}.sub-form input{flex:1;min-width:0}}
+
 /* ---------- The audit form ----------
-   The wiring is frozen (see FORM-CONTRACT.md): action, method, slug, every
-   field name, every option value, the honeypot and the hidden attribution
-   fields are untouched. Only this wrapper is new. */
-.form-card { background: var(--paper-2); border: 1px solid var(--hair-strong); padding: clamp(1.5rem, 3vw, 2.25rem); box-shadow: 10px 10px 0 #14161a14; }
-.on-dark .form-card { background: var(--dark-2); border-color: #ffffff2b; box-shadow: 10px 10px 0 #0006; }
-.form-head { border-bottom: 1px solid var(--hair); margin-bottom: 1.4rem; padding-bottom: 1.1rem; }
-.on-dark .form-head { border-color: #ffffff1f; }
-.form-title { font-family: var(--display); letter-spacing: -.02em; font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 700; margin: .5rem 0 0; line-height: 1.05; }
-.form-sub { color: var(--ink-soft); font-size: .92rem; margin: .6rem 0 0; }
-.on-dark .form-sub { color: var(--on-dark-soft); }
-.field { display: block; margin-bottom: 1rem; }
-.field-row { grid-template-columns: 1fr 1fr; gap: 1rem; display: grid; }
-.field-label { font-family: var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--graphite); font-size: .68rem; margin-bottom: .45rem; display: block; }
-.on-dark .field-label { color: var(--on-dark-soft); }
-.field-label .req { color: var(--signal); }
-.field input, .field select, .field textarea {
-  font-family: var(--body); font-size: .95rem; color: var(--ink); width: 100%;
-  background: var(--paper); border: 1px solid var(--hair-strong); border-radius: 0;
-  padding: .75rem .85rem; transition: border-color .15s, box-shadow .15s;
+   The look is the mirror's .wwu-form (above, verbatim). These are the few
+   things the contract's form needs that the mirror's mock did not have: a
+   select control, an intro, an error line and the hidden honeypot. */
+.field select {
+  font-family: var(--body); background: var(--paper); border: 1px solid var(--hair-strong);
+  color: var(--ink); width: 100%; padding: .8rem .9rem; font-size: .98rem;
+  border-radius: 0; appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--graphite) 50%), linear-gradient(135deg, var(--graphite) 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(1.25rem), calc(100% - 13px) calc(1.25rem);
+  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
 }
-.on-dark .field input, .on-dark .field select, .on-dark .field textarea { background: var(--dark); border-color: #ffffff2b; color: var(--on-dark); }
-.field textarea { resize: vertical; min-height: 5.5rem; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--signal); box-shadow: 0 0 0 3px var(--signal-wash); }
-.field.is-invalid input, .field.is-invalid select { border-color: #c0392b; box-shadow: 0 0 0 3px #c0392b1f; }
-.form-card .btn { width: 100%; justify-content: center; margin-top: .4rem; }
-.form-note { font-family: var(--mono); letter-spacing: .04em; color: var(--graphite); font-size: .68rem; margin: 1rem 0 0; text-align: center; }
-.on-dark .form-note { color: var(--on-dark-soft); }
-.form-error { font-family: var(--mono); font-size: .75rem; color: #c0392b; border: 1px solid #c0392b57; background: #c0392b0f; padding: .7rem .85rem; margin: 1rem 0 0; }
+.field select:focus { outline: 2px solid var(--signal); outline-offset: 1px; border-color: var(--signal); }
+.field.is-invalid input, .field.is-invalid select, .field.is-invalid textarea { border-color: #c0392b; }
+.form-intro { border-bottom: 1px solid var(--hair); padding-bottom: 1rem; }
+.form-title { font-size: clamp(1.3rem, 2.2vw, 1.75rem); letter-spacing: -.02em; }
+.form-sub { color: var(--ink-soft); font-size: .92rem; margin: .5rem 0 0; }
+.form-error { font-family: var(--mono); font-size: .75rem; color: #c0392b; border: 1px solid #c0392b57; background: #c0392b0f; padding: .7rem .85rem; margin: 0; }
 .form-error[hidden] { display: none; }
 .visually-hidden { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-@media (width <= 560px) { .field-row { grid-template-columns: 1fr; gap: 0; } }
+.on-dark .wwu-form-wrap { background: var(--dark-2); border-color: #ffffff2b; box-shadow: 12px 12px #0006; }
+.on-dark .form-cap { color: var(--on-dark-soft); border-bottom-color: #ffffff1f; }
+.on-dark .field label { color: var(--on-dark-soft); }
+.on-dark .field input, .on-dark .field select, .on-dark .field textarea { background: var(--dark); border-color: #ffffff2b; color: var(--on-dark); }
+.on-dark .form-sub, .on-dark .form-note { color: var(--on-dark-soft); }
+
+/* A bare <span class="chip"> from the CMS block templates. The mirror's .chip
+   is a radio pill whose styling hangs off a nested span, so a plain one would
+   otherwise come out unstyled. */
+span.chip { font-family: var(--mono); border: 1px solid var(--hair-strong); color: var(--ink-soft);
+  padding: .4rem .75rem; font-size: .72rem; letter-spacing: .04em; display: inline-block; position: static; }
+.on-dark span.chip { border-color: #ffffff38; color: var(--on-dark-soft); }

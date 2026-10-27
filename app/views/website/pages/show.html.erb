@@ -1,10 +1,14 @@
 <%# locals: (page:) -%>
-<%# Every CMS page, from its blocks. The home page is the one the Method
-    reference covers section for section, so it renders from that template
-    until its copy moves into CMS blocks. %>
+<%# Every CMS page, from its blocks, except the ones the Method reference
+    covers section for section. Those render from their own template until
+    their copy moves into CMS blocks. The mapping keeps golumin.io's live
+    URLs: the mirror's /story is this site's /about, and its /work-with-us
+    is /lets-talk. %>
 <% content_for :head, gl_seo_tags(page) %>
-<% if page.slug == "home" %>
-  <%= render "website/pages/method_home" %>
+<% method_page = {"home" => "method_home", "about" => "method_story", "lets-talk" => "method_contact",
+                  "services" => "method_services", "work" => "method_work", "blog" => "method_blog"}[page.slug] %>
+<% if method_page %>
+  <%= render "website/pages/#{method_page}" %>
 <% else %>
   <% if Array(page.blocks).any? { |block| block.is_a?(Hash) && block["type"].in?(%w[audit_form home_hero closing_form]) } %>
     <% content_for :sticky_cta, "Request an audit" %>

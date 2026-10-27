@@ -1,0 +1,59 @@
+<%# /about, built from lumin-method-reference/pages/story.html. Structure and
+    copy are the mirror's; em dashes are written out. %>
+<section class="phero">
+  <div class="wrap">
+    <p class="eyebrow">Our story</p>
+    <h1 class="display phero-h">A marketer and an engineer, <span class="signal">met in the middle.</span></h1>
+    <p class="phero-sub">Most agencies are founded by one person with one perspective. Lumin came together from two: someone who had run the ad accounts and someone who had built the software, who kept arriving at the same missing piece from opposite directions.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="coord"><span class="idx">&sect; 01</span><span class="name">The Founders</span><span class="by">Two opposite ends of the same problem</span></div>
+    <div class="founders">
+      <% [
+        ["Co-founder, the marketer", "Jordan", "Chief Marketing Officer &middot; Performance &amp; Growth",
+         ["Ran a Google Ads agency from the ground up. Managed millions in spend across law firms, insurers, lenders, clinics and storage operators, and learned which numbers actually move a business.",
+          "Watched clients arrive burned by one agency and leave because the next one was not any better. The reporting never matched the bank account."],
+         "Started Lumin because the operator layer was missing from every agency he had ever worked with."],
+        ["Co-founder, the engineer", "Ted", "Chief Technology Officer &middot; Engineering &amp; Product",
+         ["Built production software for years: web apps, internal tools, integrations that had to stay up. The kind of work where being approximately right is the same as being wrong.",
+          "Watched marketing teams beg for tools that did not exist while the platforms turned into rented software nobody could inspect."],
+         "Started Lumin because the software layer was missing from every agency he had ever heard of."]
+      ].each_with_index do |(role, name, sub, paras, punch), i| %>
+        <article class="founder" data-reveal data-reveal-d="<%= i + 1 %>">
+          <p class="f-role"><%= role %></p>
+          <h2 class="display f-name"><%= name %></h2>
+          <p class="f-sub"><%= sub.html_safe %></p>
+          <% paras.each { |t| %><p><%= t %></p><% } %>
+          <p class="f-punch"><%= punch %></p>
+        </article>
+      <% end %>
+    </div>
+    <p class="mid-quote" data-reveal>They met in the middle. <span class="signal">Lumin is what happened.</span></p>
+  </div>
+</section>
+
+<section class="section on-dark">
+  <div class="wrap">
+    <div class="coord"><span class="idx">&sect; 02</span><span class="name">What We Believe</span><span class="by">Four things, in writing</span></div>
+    <p class="believe-lead" data-reveal>Most agency values pages are decorative. These are not. Every hire, every account and every call is measured against them.</p>
+    <div class="beliefs">
+      <% [
+        ["01", "Confident, never cocky.", "If a claim cannot be proven with a number, a dashboard or a documented decision, we do not make it."],
+        ["02", "Radically transparent.", "An honest recommendation, even when it costs us the deal. If a diagnostic ends with \"fix your intake, not your ads\", that is what we say."],
+        ["03", "Technically literate.", "Every claim has data. Every chart is real. We do not hide behind jargon or manufacture metrics that flatter the report."],
+        ["04", "Built by operators, run with AI.", "We built the system so the work runs at machine speed without a layer of project managers between you and the account."]
+      ].each_with_index do |(n, t, b), i| %>
+        <div class="belief" data-reveal data-reveal-d="<%= i + 1 %>">
+          <span class="belief-n signal"><%= n %></span>
+          <h3 class="headline belief-t"><%= t %></h3>
+          <p class="belief-b"><%= b %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%= render "website/pages/method_cta", heading: "If any of this sounds familiar", blurb: "If you have asked an agency where a number came from and been told they would circle back, that is the gap we built Lumin to close." %>

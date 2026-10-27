@@ -1,0 +1,70 @@
+<%# /services, from lumin-method-reference/pages/services.html. The three
+    families and their copy are the mirror's. Figures the mirror could not be
+    checked against the CMS are left out rather than repeated. %>
+<section class="phero">
+  <div class="wrap">
+    <p class="eyebrow">Services, the full spectrum</p>
+    <h1 class="display phero-h">Three tools. <span class="signal">One job.</span></h1>
+    <p class="phero-sub">Search, ads and web are the only levers that reliably turn spend into leads. We run all three as one system, so the number each is supposed to move is the same number.</p>
+  </div>
+</section>
+
+<%
+  families = [
+    ["S &middot; 01", "Search", "Be the answer", "Search.",
+     "When a buyer, or an AI answering for them, goes looking, you show up. Search is the cheapest demand you will ever buy, because you are not buying it.",
+     [["Local SEO", "Google Business Profile, citations and reviews tuned to win the map pack. The asset that keeps earning after the ads pause."],
+      ["AI Search", "Get surfaced by ChatGPT, Perplexity, Claude and Google AI Overviews. Schema, entity alignment and content that answers the question as asked."],
+      ["Technical SEO", "The work most agencies skip: Core Web Vitals, crawl budget, indexation, schema. One audit, ranked by revenue impact."]]],
+    ["A &middot; 02", "Ads", "Buy demand, profitably", "Ads.",
+     "Every ad account in your name, every dollar sourced from the query to the closed deal.",
+     [["Google Ads", "Revenue-first architecture. Campaigns built around conversions that grow revenue, not conversions that flatter a report."],
+      ["Microsoft and Bing", "The network most agencies overlook: same intent, lower CPCs, plus LinkedIn audience targeting."],
+      ["Meta and Instagram", "Full-funnel architecture, Pixel and Conversions API from day one, and creative volume the format actually needs."],
+      ["TikTok", "Creative is the targeting. Native-first production and a testing cadence that matches how fast the platform moves."],
+      ["ChatGPT and AI ads", "The next ad surfaces, instrumented from the start, in front of buyers who are asking rather than scrolling."],
+      ["Apple Maps and Bing Places", "Own the listings on the surfaces beyond Google. Consistent details, real reviews, in your name."]]],
+    ["W &middot; 03", "Web", "Convert the click", "Web.",
+     "Every dollar you spend eventually lands on a page. If the page does not convert, the spend leaks there and nowhere else.",
+     [["Websites", "Conversion infrastructure, not a design exercise. Built in days, edited in under a minute, owned by you."],
+      ["Landing Pages", "One page, one job. Message-matched to the ad and built backwards from the form submit."],
+      ["CRO and Analytics", "Testing, not opinion. Every winner validated before it becomes the new baseline."]]]
+  ]
+%>
+<% families.each_with_index do |(idx, name, by, h, thesis, items), fi| %>
+  <section class="section fam-sec<%= " on-dark" if fi == 1 %>">
+    <div class="wrap">
+      <div class="coord"><span class="idx"><%= idx.html_safe %></span><span class="name"><%= name %></span><span class="by"><%= by %></span></div>
+      <h2 class="headline fam-sec-h" data-reveal><%= h %></h2>
+      <p class="fam-sec-thesis" data-reveal data-reveal-d="1"><%= thesis %></p>
+      <div class="svc-grid">
+        <% items.each_with_index do |(n, blurb), i| %>
+          <article class="svc" data-reveal data-reveal-d="<%= [i + 1, 5].min %>">
+            <h3 class="headline svc-name"><%= n %></h3>
+            <p class="svc-blurb"><%= blurb %></p>
+          </article>
+        <% end %>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<section class="section">
+  <div class="wrap">
+    <div class="coord"><span class="idx">&sect; 04</span><span class="name">The Method</span><span class="by">How every engagement runs</span></div>
+    <div class="rules">
+      <% [["01", "Diagnostic", "A 20-minute look at what you are running. We tell you what we would change, whether you hire us or not."],
+          ["02", "Instrument", "Accounts, pixels and dashboards set up in your name. Nothing gets measured that cannot be checked."],
+          ["03", "Launch", "Live in 7 to 10 days. Search, ads and web pointed at the same conversion goals from day one."],
+          ["04", "Compound", "Continuous optimisation. Every winning test moves the baseline up, so the next test starts higher."]].each_with_index do |(n, t, b), i| %>
+        <div class="rule" data-reveal data-reveal-d="<%= i + 1 %>">
+          <span class="rule-n"><%= n %></span>
+          <h3 class="headline rule-t"><%= t %></h3>
+          <p class="rule-b"><%= b %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%= render "website/pages/method_cta", heading: "Not sure which lever moves your number", blurb: "That is what the diagnostic is for. Twenty minutes, no pitch deck. We look at what you are running and tell you where the leverage is." %>

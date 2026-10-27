@@ -1,0 +1,31 @@
+<%# /blog, from lumin-method-reference/pages/blog.html. The mirror lists five
+    invented notes; these are the real posts from the `blog` collection. %>
+<section class="phero">
+  <div class="wrap">
+    <p class="eyebrow">Field notes</p>
+    <h1 class="display phero-h">The math, <span class="signal">explained.</span></h1>
+    <p class="phero-sub">Plain-language notes on search, ads and web from the people who actually run them.</p>
+  </div>
+</section>
+
+<section class="section blog">
+  <div class="wrap">
+    <% posts = gl_posts %>
+    <div class="coord"><span class="idx">&sect; 01</span><span class="name">All Notes</span><span class="by"><%= posts.size %> published</span></div>
+    <div class="post-list">
+      <% posts.each_with_index do |post, i| %>
+        <% f = website_fields(post) %>
+        <a href="/blog/<%= post.slug %>" class="post" data-reveal data-reveal-d="<%= [i + 1, 5].min %>">
+          <span class="post-meta">
+            <% if f.eyebrow.present? %><span class="post-cat"><%= f.eyebrow %></span><% end %>
+            <% if post.published_at %><span><%= post.published_at.strftime("%b %-d, %Y") %></span><% end %>
+          </span>
+          <h2 class="headline post-t"><%= post.title %></h2>
+          <% if f.lede.present? %><p class="post-b"><%= f.lede %></p><% end %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%= render "website/pages/method_cta", heading: "Rather have the version for your account", blurb: "A diagnostic is the same thinking applied to what you are actually running. Twenty minutes, and you keep the findings." %>

@@ -1,0 +1,43 @@
+<%# /work, from lumin-method-reference/pages/work.html.
+    The mirror's three case studies are NOT used: one of them ("Navi") is not
+    a GoLumin client and appears nowhere in the CMS, and its figures are not
+    in the content either. The mirror's layout is kept; the cases come from
+    the real `work` collection. %>
+<section class="phero">
+  <div class="wrap">
+    <p class="eyebrow">The work, receipts not promises</p>
+    <h1 class="display phero-h">The math, <span class="signal">on the table.</span></h1>
+    <p class="phero-sub">We do not report vanity metrics. Every engagement below is measured the way we would measure our own: what it cost, what it returned, and who answers the phone.</p>
+  </div>
+</section>
+
+<section class="section cases">
+  <div class="wrap">
+    <% gl_work.each_with_index do |entry, i| %>
+      <% f = website_fields(entry) %>
+      <article class="case" data-reveal>
+        <div class="case-top">
+          <span class="case-idx">CASE <%= format("%02d", i + 1) %></span>
+          <% Array(f.tags).first(3).each do |tag| %><span class="case-tag"><%= tag %></span><% end %>
+        </div>
+        <p class="case-client"><%= entry.title %></p>
+        <% if f.vertical.present? %><p class="case-industry"><%= f.vertical %></p><% end %>
+        <% if f.h.present? %><h2 class="headline case-h"><%= f.h %></h2><% end %>
+        <% if f.lede.present? %><p class="case-sum"><%= f.lede %></p><% end %>
+        <% figs = Array(f.figures).first(3) %>
+        <% if figs.any? %>
+          <div class="case-metrics">
+            <% figs.each do |fig| %>
+              <% v = fig.is_a?(Hash) ? fig["n"] : nil %>
+              <% l = fig.is_a?(Hash) ? fig["l"] : fig %>
+              <div><% if v.present? %><span class="cm-v signal"><%= v %></span><% end %><span class="cm-l"><%= l %></span></div>
+            <% end %>
+          </div>
+        <% end %>
+        <a href="/work/<%= entry.slug %>" class="ulink case-link">Read the case <span class="arrow">&rarr;</span></a>
+      </article>
+    <% end %>
+  </div>
+</section>
+
+<%= render "website/pages/method_cta", heading: "Want your numbers to read like this", blurb: "Book a diagnostic. We will show you where the leverage is in what you are already running, and you keep the findings either way." %>
