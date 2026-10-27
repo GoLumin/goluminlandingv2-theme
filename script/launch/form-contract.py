@@ -51,10 +51,22 @@ for f in forms:
     extra = [n for n in names if n not in FIELDS]
     check("all %d field names present" % len(FIELDS), not missing, "missing: " + ", ".join(missing))
     check("no field names added", not extra, "extra: " + ", ".join(sorted(set(extra))))
+    # A landing page locks the audit type to a hidden input with one of the
+    # allowed values; that is what production serves on /lp/*. Everywhere else
+    # it is the required select. Both satisfy the contract.
+    at = re.search(r'<input[^>]*type="hidden"[^>]*name="audit_type"[^>]*>', f)
+    locked = bool(at)
     for n in REQUIRED:
+        if n == "audit_type" and locked:
+            v = (re.search(r'value="([^"]*)"', at.group(0)) or [None, ""])[1]
+            check("audit_type locked to an allowed value", v in OPTIONS["audit_type"],
+                  "value=%r is not one of %r" % (v, OPTIONS["audit_type"]))
+            continue
         m = re.search(r"<(input|select)[^>]*name=\"%s\"[^>]*>" % re.escape(n), f)
         check("%s is required" % n, bool(m) and "required" in m.group(0))
     for sel, want in OPTIONS.items():
+        if sel == "audit_type" and locked:
+            continue
         blk = re.search(r"<select[^>]*name=\"%s\".*?</select>" % sel, f, re.S)
         got = re.findall(r'<option[^>]*value="([^"]*)"', blk.group(0)) if blk else []
         check("%s option values verbatim" % sel, got == want,

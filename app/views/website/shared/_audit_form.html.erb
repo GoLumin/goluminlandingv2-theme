@@ -1,4 +1,4 @@
-<%# locals: (prefix: "hero", source: nil, heading: "Book a diagnostic", blurb: "A 20-minute look at what you're running. No pitch deck, no commitment.", submit_label: "Request my audit", tone: "light") -%>
+<%# locals: (prefix: "hero", source: nil, cta: nil, compact: false, audit_type: nil, lock_type: false, kicker: "Start here", heading: "Book a diagnostic", blurb: "A 20-minute look at what you're running. No pitch deck, no commitment.", submit_label: "Request my audit", note: nil, phone_href: nil, phone_label: nil) -%>
 <%#
   THE AUDIT FORM. The wiring is frozen: see FORM-CONTRACT.md in
   ~/Downloads/lumin-method-reference. Lifted from production golumin.io and
@@ -20,20 +20,23 @@
 <form id="<%= prefix %>-form" data-audit-form data-form-slug="audit" method="post"
       action="/api/forms/audit/submissions" class="form-card" novalidate>
   <div class="form-head">
-    <p class="eyebrow">Start here</p>
+    <p class="eyebrow"><%= kicker %></p>
     <h3 class="form-title"><%= heading %></h3>
     <p class="form-sub"><%= blurb %></p>
   </div>
 
+<% types = ["Full system (web + search + ads)", "Website", "Local + AI search", "Ad account"] %>
+<% chosen = types.include?(audit_type) ? audit_type : types.first %>
+<% if lock_type %>
+  <input type="hidden" name="audit_type" value="<%= chosen %>" data-audit-type>
+<% else %>
   <label class="field">
     <span class="field-label">What should we look at? <span class="req">*</span></span>
     <select name="audit_type" required data-audit-type>
-      <option value="Full system (web + search + ads)">Full system (web + search + ads)</option>
-      <option value="Website">Website</option>
-      <option value="Local + AI search">Local + AI search</option>
-      <option value="Ad account">Ad account</option>
+      <% types.each do |t| %><option value="<%= t %>"<%= " selected" if t == chosen %>><%= t %></option><% end %>
     </select>
   </label>
+<% end %>
 
   <div class="field-row">
     <label class="field">
@@ -87,6 +90,6 @@
   <input type="hidden" name="form_path">
 
   <p class="form-error" data-error role="alert" hidden></p>
-  <button type="submit" data-submit data-cta="<%= prefix %>-form" class="btn btn-primary"><%= submit_label %> <span class="arrow">&rarr;</span></button>
-  <p class="form-note">Read-only access. Jordan or Ted reads it. Rather talk? <a href="<%= gl_tel %>" class="ulink"><%= gl_phone %></a></p>
+  <button type="submit" data-submit data-cta="<%= cta.presence || "#{prefix}-form" %>" class="btn btn-primary"><%= submit_label %> <span class="arrow">&rarr;</span></button>
+  <p class="form-note"><%= note.presence || "Read-only access. Jordan or Ted reads it." %> Rather talk? <a href="<%= phone_href.presence || gl_tel %>" class="ulink"><%= phone_label.presence || gl_phone %></a></p>
 </form>
