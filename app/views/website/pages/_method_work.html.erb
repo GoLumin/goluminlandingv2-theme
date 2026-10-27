@@ -28,9 +28,8 @@
         <% if figs.any? %>
           <div class="case-metrics">
             <% figs.each do |fig| %>
-              <% v = fig.is_a?(Hash) ? fig["n"] : nil %>
-              <% l = fig.is_a?(Hash) ? fig["l"] : fig %>
-              <div><% if v.present? %><span class="cm-v signal"><%= v %></span><% end %><span class="cm-l"><%= l %></span></div>
+              <%# Figure items are Website::Fields (see gl_case_figure): .n is the number, .l the label. %>
+              <div><% if fig.n.present? %><span class="cm-v signal"><%= fig.n %></span><% end %><span class="cm-l"><%= fig.l %></span></div>
             <% end %>
           </div>
         <% end %>

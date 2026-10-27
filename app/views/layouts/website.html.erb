@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%# Marks JS as live before first paint; reveal-hiding CSS is scoped to html.js so a script failure can never blank the page. %>
+    <script nonce="<%= content_security_policy_nonce %>">document.documentElement.classList.add("js")</script>
     <%# The type: Space Grotesk / IBM Plex Sans / IBM Plex Mono, the Method system. The theme's own files come from the theme itself (Goluminlandingv2::AssetsController), not the asset pipeline. %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

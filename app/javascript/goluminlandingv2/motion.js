@@ -3,7 +3,10 @@
 // entirely for anyone who asked for reduced motion.
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches
 
-const reveals = document.querySelectorAll(".reveal, .draw")
+// Two reveal protocols: the Method templates mark elements with
+// [data-reveal] and the CSS waits for .in; older partials use .reveal/.draw
+// and wait for .is-visible. One observer serves both.
+const reveals = document.querySelectorAll(".reveal, .draw, [data-reveal]")
 document.querySelectorAll("[data-stagger]").forEach((parent) => {
   Array.from(parent.children).forEach((el, i) => {
     const target = el.classList.contains("reveal") ? el : el.querySelector(".reveal")
@@ -11,18 +14,26 @@ document.querySelectorAll("[data-stagger]").forEach((parent) => {
   })
 })
 const show = (el) => {
-  el.classList.add("is-visible")
+  if (el.classList.contains("in")) return
+  el.classList.add("is-visible", "in")
   el.querySelectorAll(".bump-target").forEach((n, i) => {
     setTimeout(() => { n.classList.add("bump"); setTimeout(() => n.classList.remove("bump"), 450) }, 250 + i * 90)
   })
 }
 if ("IntersectionObserver" in window && !reduced) {
   const io = new IntersectionObserver((entries) => {
-    for (const e of entries) if (e.isIntersecting) { show(e.target); io.unobserve(e.target) }
+    // Reveal on intersect, and also anything already above the viewport:
+    // anchor jumps and restored scroll positions land past elements the
+    // observer would otherwise leave hidden forever.
+    for (const e of entries) if (e.isIntersecting || e.boundingClientRect.bottom < 0) { show(e.target); io.unobserve(e.target) }
   }, { rootMargin: "0px 0px -6% 0px", threshold: 0 })
   reveals.forEach((el) => io.observe(el))
+  // Safety sweep on bfcache restores: reveal whatever sits at or above the view.
+  addEventListener("pageshow", () => {
+    reveals.forEach((el) => { if (el.getBoundingClientRect().top < innerHeight) show(el) })
+  })
 } else {
-  reveals.forEach((el) => el.classList.add("is-visible"))
+  reveals.forEach((el) => show(el))
 }
 
 // The FAQ: the answer's grid row grows and shrinks (a <details> can't animate on its own).
