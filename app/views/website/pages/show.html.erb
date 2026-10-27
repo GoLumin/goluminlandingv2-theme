@@ -6,7 +6,7 @@
     is /lets-talk. %>
 <% content_for :head, gl_seo_tags(page) %>
 <% method_page = {"home" => "method_home", "about" => "method_story", "lets-talk" => "method_contact",
-                  "services" => "method_services", "work" => "method_work", "blog" => "method_blog"}[page.slug] %>
+                  "services" => "method_services", "work" => "method_work", "blog" => "method_blog", "how-it-works" => "method_how"}[page.slug] %>
 <% if method_page %>
   <%= render "website/pages/#{method_page}" %>
 <% else %>

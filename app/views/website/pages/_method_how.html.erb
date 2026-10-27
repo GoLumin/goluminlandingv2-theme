@@ -1,0 +1,124 @@
+<%# /how-it-works, from lumin-method-reference/pages/method.html.
+    Class names and copy are the mirror's. Two departures:
+      - stage 02's "Free demand" becomes "Demand that costs nothing", the
+        mirror's own wording two sentences later. The ban stands.
+      - the revenue circuit and the three stage schematics are hand-drawn SVG
+        animated by a 72KB compiled JS bundle with no recoverable source. The
+        instrument frames and their captions are kept; the drawings are not. %>
+<div class="page-method">
+<section class="m-hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 class="display m-h" data-reveal>Engines<br>Attention<br><span class="signal">Scale</span></h1>
+      <p class="m-sub" data-reveal data-reveal-d="2">Website, local and AI search, then ads. Not three disconnected services: one revenue system, built in the only order that keeps paid traffic from leaking.</p>
+      <div class="hero-actions" data-reveal data-reveal-d="3">
+        <a href="/lets-talk" class="btn btn-primary">Find your first move <span class="arrow">&rarr;</span></a>
+        <a href="#sequence" class="btn btn-ghost">Run the sequence</a>
+      </div>
+      <div class="hero-assurance" data-reveal data-reveal-d="4">
+        <% ["20-minute diagnostic", "No pitch deck", "Keep the roadmap"].each do |t| %>
+          <span class="readout"><span class="tick">&#9670;</span> <%= t %></span>
+        <% end %>
+      </div>
+    </div>
+    <figure class="revenue-circuit" data-reveal data-reveal-d="2" aria-label="The Lumin method connects a website, local and AI search, and ads into traceable revenue">
+      <figcaption class="circuit-cap"><span>SYS.01 &#8201;&#9679;&#8201; REVENUE CIRCUIT</span><span class="live"><i></i> LIVE MODEL</span></figcaption>
+      <div class="circuit-board">
+        <% [["c-web", "Website", "Turn attention into action", "CONVERT"],
+            ["c-search", "Local + AI", "Get found. Learn intent.", "COMPOUND"],
+            ["c-ads", "Ads", "Buy only proven demand", "AMPLIFY"]].each do |k, name, sub, state| %>
+          <div class="circuit-stage <%= k %>">
+            <div><strong><%= name %></strong><small><%= sub %></small></div>
+            <span class="cs-state"><%= state %></span>
+          </div>
+        <% end %>
+        <div class="revenue-output">
+          <span class="output-label">OUTPUT / ATTRIBUTED</span>
+          <span class="output-value">REVENUE</span>
+          <span class="output-trace"><i></i> QUERY &rarr; LEAD &rarr; CLOSE</span>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="sequence">
+  <div class="wrap">
+    <% [
+      ["01", "Website", "Where every campaign ends up", "First, build<br>the machine.",
+       "Every click you will ever pay for ends on a page. So the page comes first: built in days, owned by you, instrumented from the first visit. One message, one form, no leaks. Until the machine converts, traffic is just an expense.",
+       ["Shipped in days", "Owned by you", "Measured from visit one"], "FIG.02 &#8201;&#9679;&#8201; THE MACHINE", "CONVERTS"],
+      ["02", "Local search", "Demand that costs nothing, pointed at the machine", "Then,<br>get found.",
+       "With a machine that converts, we point unpaid demand at it: the map pack, AI answers, the searches people type when they need you today. Organic clicks cost nothing, and they tell us exactly which words bring buyers. That intelligence is what the next stage runs on.",
+       ["Map pack", "AI search", "$0 per click"], "FIG.03 &#8201;&#9679;&#8201; THE SIGNAL", "$0 / CLICK"],
+      ["03", "Ads", "Paid demand, now that it pays", "Now, turn up<br>the volume.",
+       "Ads come last because ads multiply whatever they land on. Land them on a page that converts, target the words search already proved, and paid traffic stops being a gamble: every dollar traced from the query to the closed deal, every campaign switchable off the moment it stops earning.",
+       ["High-intent only", "Sourced to revenue", "Off anytime"], "FIG.04 &#8201;&#9670;&#8201; THE AMPLIFIER", "EVERY $ SOURCED"]
+    ].each do |n, name, by, lead, body, outs, fig, figv| %>
+      <article class="stage">
+        <div class="rail"><span class="node" aria-hidden="true"><%= n %></span></div>
+        <div class="stage-main">
+          <div class="coord" data-reveal><span class="idx">STAGE <%= n %></span><span class="name"><%= name %></span><span class="by"><%= by %></span></div>
+          <div class="stage-body">
+            <div class="stage-copy">
+              <h2 class="headline stage-h" data-reveal><%= lead.html_safe %></h2>
+              <p class="stage-p" data-reveal data-reveal-d="1"><%= body %></p>
+              <div class="stage-outs" data-reveal data-reveal-d="2">
+                <% outs.each { |o| %><span class="readout"><span class="tick">&#9670;</span> <%= o %></span><% } %>
+              </div>
+            </div>
+            <figure class="instrument" data-reveal data-reveal-d="1">
+              <figcaption class="inst-cap"><span><%= fig.html_safe %></span><span class="signal"><%= figv %></span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</section>
+
+<section class="section punch">
+  <div class="wrap">
+    <div class="coord"><span class="idx">THE DIFFERENCE</span><span class="name">Order changes the outcome</span><span class="by">Same tools. Different economics.</span></div>
+    <h2 class="headline punch-h" data-reveal>Most agencies start by buying traffic. <span class="signal">We start by making traffic worth buying.</span></h2>
+    <div class="order-compare" data-reveal data-reveal-d="1">
+      <% [["wrong", "THE EXPENSIVE ORDER", ["Buy clicks", "Generic page", "Click report"], "SPEND WITHOUT SIGNAL"],
+          ["right", "THE LUMIN ORDER", ["Build conversion", "Prove intent", "Scale winners"], "REVENUE YOU CAN TRACE"]].each do |kind, label, steps, result| %>
+        <div class="order-row <%= kind %>">
+          <span class="order-label"><%= label %></span>
+          <div class="order-chain">
+            <% steps.each_with_index do |st, i| %><% if i > 0 %><b>&rarr;</b><% end %><span><%= st %></span><% end %>
+          </div>
+          <span class="order-result"><%= result %></span>
+        </div>
+      <% end %>
+    </div>
+    <div class="punch-action" data-reveal data-reveal-d="2">
+      <p>Not sure where your system breaks? We can usually find the first leak in twenty minutes.</p>
+      <a href="/lets-talk" class="btn btn-primary">Map my growth system <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section on-dark m-close">
+  <div class="wrap close-in">
+    <div class="chain" data-reveal>
+      <% [["W","Website",false],["S","Search",false],["A","Ads",false],["$","Revenue",true]].each_with_index do |(code, lbl, hot), i| %>
+        <% if i > 0 %><span class="arr" aria-hidden="true">&rarr;</span><% end %>
+        <div class="link"><span class="code<%= " hot" if hot %>"><%= code %></span><span class="lbl"><%= lbl %></span></div>
+      <% end %>
+    </div>
+    <h2 class="display close-h" data-reveal data-reveal-d="1">Which stage is<br><span class="signal">missing?</span></h2>
+    <p class="close-p" data-reveal data-reveal-d="2">A 20-minute diagnostic maps your funnel against this sequence: what is built, what is leaking, and the order we would fix it in. No pitch, no lock-in. You keep the map either way.</p>
+    <div class="close-cta" data-reveal data-reveal-d="3">
+      <a href="/lets-talk" class="btn btn-primary">Show me the first move <span class="arrow">&rarr;</span></a>
+      <a href="/services" class="btn btn-ghost">Explore services</a>
+    </div>
+    <div class="close-proof" data-reveal data-reveal-d="4">
+      <% [["&lt;24h","response"],["20 min","diagnostic"],["7-10d","to launch"],["M-T-M","engagement"]].each do |v, l| %>
+        <span><b><%= v.html_safe %></b> <%= l %></span>
+      <% end %>
+    </div>
+  </div>
+</section>
+</div>
