@@ -1,0 +1,46 @@
+{
+ "entry": {
+  "frontmatter": {
+   "nav": "Getting found",
+   "promise": "Show up on Google Maps and in ChatGPT when someone nearby is searching.",
+   "capabilities": [
+    "Google Maps and your business profile",
+    "Named when someone asks ChatGPT or Gemini",
+    "Hours, service areas and reviews kept current"
+   ],
+   "proof": {
+    "fact": "5 places a customer looks for you now: Google, Maps, ChatGPT, Gemini, Apple Maps.",
+    "source": ""
+   },
+   "cases": [
+    "kalamazoo-rejuvenation",
+    "inbox-portable-storage",
+    "white-and-white",
+    "mulebox"
+   ],
+   "h": "When someone asks Google or ChatGPT who to call, is it you?",
+   "lede": "Customers now ask Google Maps, ChatGPT, Perplexity and Google's AI answers for a nearby lawyer, plumber or storage unit. We make sure the pages, details and listings those answers draw on exist, agree, and answer the question, in every market you serve.",
+   "faqs": [
+    {
+     "q": "Can you guarantee ChatGPT will recommend us?",
+     "a": "No, and be wary of anyone who does. No assistant publishes how it chooses. What we can do is make sure the pages, details and citations it draws on exist, agree and answer the question. That's also exactly what Google Maps and Google search reward, so the work pays twice."
+    },
+    {
+     "q": "How long before search does the work instead of ads?",
+     "a": "Months, not weeks, and it depends on how far behind the site starts. FoxBox started from zero; ads carried the bookings while search was built, and the ads budget came down to a third once organic took over. We'll tell you where you are on that curve."
+    },
+    {
+     "q": "Do I have to use your CMS?",
+     "a": "Only if we build or run the site. We manage search and listings for plenty of businesses whose sites live somewhere else."
+    },
+    {
+     "q": "How is it priced?",
+     "a": "A monthly fee, quoted after the check once we know what's actually there. You keep the findings whether or not you hire us."
+    }
+   ],
+   "audit": {
+    "cta": "Check my visibility"
+   }
+  }
+ }
+}

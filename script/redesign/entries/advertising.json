@@ -1,0 +1,50 @@
+{
+ "entry": {
+  "frontmatter": {
+   "nav": "Advertising",
+   "promise": "Google, Meta and Microsoft ads, worked every day, in your name.",
+   "capabilities": [
+    "Google, Meta, Microsoft and ChatGPT ads",
+    "Worked every day, not every month",
+    "Your ad accounts stay in your name"
+   ],
+   "proof": {
+    "fact": "$25M+ in client ad spend managed, with hard spend limits before any change goes live.",
+    "source": ""
+   },
+   "cases": [
+    "biofuse",
+    "kalamazoo-mortgage",
+    "behnke-logistics",
+    "foxbox-moves"
+   ],
+   "h": "You already paid for the click. The page decides if it pays you back.",
+   "lede": "We run your Google, Meta, Microsoft and ChatGPT ads, build the page they land on, and work the account every day. Your accounts stay in your name, and every change that touches your money is approved by a person first.",
+   "faqs": [
+    {
+     "q": "Do I need to be running ads already?",
+     "a": "No. If you're not, we look at what people actually search for in your market, what those clicks cost, and whether ads are even the right first move. Sometimes the answer is that your site or your listings need the work first, and we'll say so."
+    },
+    {
+     "q": "What if we already have an agency?",
+     "a": "The audit works the same way: read-only access, a person walks you through what they found, and you keep it. We never contact your current agency. Plenty of people use it as a second opinion and stay where they are."
+    },
+    {
+     "q": "Is the landing page included?",
+     "a": "Yes. It's built as part of onboarding for every new client, with no separate charge. On its own that build is $2,500. It goes on your domain, in your name, and it stays yours if you stop working with us."
+    },
+    {
+     "q": "Is anyone actually buying from ChatGPT ads yet?",
+     "a": "It's early, and the volume is nothing like Google's. We won't pretend otherwise. What we do is measure it properly from day one, as a small, capped line, so you find out with a test budget instead of a guess."
+    },
+    {
+     "q": "How is it priced?",
+     "a": "A monthly fee based on ad spend, quoted after the audit once we know what's actually there. Month to month, no contract."
+    }
+   ],
+   "audit": {
+    "cta": "Audit my ad accounts"
+   }
+  }
+ }
+}
