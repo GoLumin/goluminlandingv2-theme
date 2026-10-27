@@ -8,9 +8,11 @@ docs/themes.md.
 
 The design is the 2026 redesign, "lit from above" (the redesign's DESIGN.md):
 one family, Inter; one violet accent (#5634E6); every hero a night hero, one
-of the branded Lumin landscapes at full strength under an aurora of drifting
-light, ending on a diagonal; white pages between; dark "night" sections for
-the product, the client quote and the closing call, each with a photo too;
+of the branded Lumin landscapes at full strength under three drifting lights,
+a moving tint and a scrim that keeps the copy legible (`shared/_scene`, in
+that order; no glows), ending on a diagonal; white pages between; dark
+"night" sections for the product, the client quote and the closing call,
+each with a photo too;
 real client sites and the two founders instead of icons; the audit form in
 the hero's right column, a marquee of client marks under it, and a call /
 audit bar at the foot of the screen on a phone. No monospace, no uppercase

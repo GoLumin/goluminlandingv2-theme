@@ -3,7 +3,7 @@
 <% partner, proofs = data.chips.partition { |chip| chip.to_s.match?(/google partner/i) } %>
 <% badge = gl_href(data.badge_link) %>
 <section class="hero is-night hero-home">
-  <%= render "website/shared/scene", key: "/", lamp: ["56%", "66%"] %>
+  <%= render "website/shared/scene", key: "/" %>
   <div class="container hero-grid">
     <div class="hero-copy">
       <% if partner.any? %>

@@ -315,7 +315,6 @@ details > summary::-webkit-details-marker { display: none; }
 }
 @keyframes drift { from { transform: translate3d(-4%, -2%, 0); } to { transform: translate3d(6%, 4%, 0); } }
 @keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
-@keyframes glow { 0%, 100% { opacity: .78; transform: translate3d(0, 0, 0); } 50% { opacity: 1; transform: translate3d(1.5%, -2%, 0); } }
 @keyframes enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
 /* The branded photo behind a hero (the Lumin landscapes: light in the dark), under a white gradient so the type stays on paper. */
@@ -333,7 +332,7 @@ details > summary::-webkit-details-marker { display: none; }
     linear-gradient(90deg, rgba(251,250,255,1) 0%, rgba(251,250,255,.98) 46%, rgba(251,250,255,.7) 66%, rgba(251,250,255,.2) 100%),
     linear-gradient(180deg, rgba(251,250,255,.4) 0%, rgba(251,250,255,0) 35%, rgba(251,250,255,.5) 100%);
 }
-/* The Google Partner credential: a frosted card with the official badge on a lit white tile */
+/* The Google Partner credential: the official badge on a frosted card, with a small static shadow (no glow) */
 .hero-badge {
   display: inline-flex; align-items: center; gap: 16px;
   padding: 10px 22px 10px 10px; margin-bottom: 28px;
@@ -345,11 +344,10 @@ details > summary::-webkit-details-marker { display: none; }
   transition: background .4s var(--ease-soft), border-color .4s var(--ease-soft);
 }
 .hero-badge:hover { color: #fff; background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.35); }
-.badge-tile { flex-shrink: 0; display: block; line-height: 0; filter: drop-shadow(0 0 14px rgba(196,184,255,.55)); animation: tile-glow 6s ease-in-out infinite; }
-@keyframes tile-glow { 0%, 100% { filter: drop-shadow(0 0 10px rgba(196,184,255,.35)); } 50% { filter: drop-shadow(0 0 26px rgba(196,184,255,.85)); } }
+.badge-tile { flex-shrink: 0; display: block; line-height: 0; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
 .hero-badge img { width: 64px; height: auto; border-radius: 6px; }
 .badge-text strong { display: block; font-size: 16px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
-.badge-text span { display: block; font-size: 13.5px; color: rgba(255,255,255,.72); line-height: 1.35; margin-top: 2px; }
+.badge-text span { display: block; font-size: 13.5px; color: rgba(255,255,255,.86); line-height: 1.35; margin-top: 2px; }
 .hero [data-enter] { animation: enter 1s var(--ease-soft) both; }
 .hero [data-enter="2"] { animation-delay: .12s; }
 .hero [data-enter="3"] { animation-delay: .24s; }
@@ -452,7 +450,8 @@ details > summary::-webkit-details-marker { display: none; }
     radial-gradient(50% 45% at 65% 55%, rgba(86,52,230,.45) 0%, rgba(86,52,230,0) 70%),
     radial-gradient(35% 30% at 20% 10%, rgba(120,90,255,.22) 0%, rgba(120,90,255,0) 70%);
 }
-.night-glow { animation: glow 12s ease-in-out infinite; }
+/* The lamp glow of the dark sections is gone: the light in the photographs is the play. */
+.night-glow { display: none; }
 .section-night .container { position: relative; }
 /* The branded photo behind the closing call and the client quote, under a deep indigo overlay. */
 .night-photo { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
@@ -804,7 +803,7 @@ details > summary::-webkit-details-marker { display: none; }
 details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-light::after, .hero-photo i, .night-glow, .night-photo i, .aurora i, .badge-tile, .hero.is-night .hero-grid::before, .form-card .btn-block, .tint { animation: none; }
+  .hero-light::after, .hero-photo i, .night-photo i, .aurora i, .tint { animation: none; }
   .hero [data-enter] { animation: none; }
   .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
@@ -963,7 +962,6 @@ details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
-  .hero.is-night .hero-grid::before { display: none; }
   .nav-menu { display: none; }
   .nav-toggle { display: flex; }
   .nav-phone { display: none; }
@@ -1000,7 +998,9 @@ details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
   .badge-text strong { font-size: 15px; }
   .badge-text span { font-size: 12.5px; }
   .aurora i { filter: blur(40px); }
-  .hero-home .hero-photo i { background-size: cover; background-position: 60% 55%; }
+  .hero-home { padding-bottom: 40px; }
+  .hero-home .hero-photo i { background-position: 50% 100%; }
+  .scrim, .page-hero .scrim, .section-night .scrim, .has-photo .scrim { background: rgba(12,9,40,.35); }
   .aurora .a1, .aurora .a2, .aurora .a3 { width: 90vw; height: 90vw; }
   .marquee-track { gap: 40px; }
   .marquee-item img { height: 22px; max-width: 120px; }
@@ -1099,27 +1099,31 @@ details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
     linear-gradient(180deg, rgba(12,9,40,.4) 0%, rgba(12,9,40,0) 40%, rgba(12,9,40,.5) 100%);
 }
 .is-night .hero-photo i { animation: breathe-night 16s ease-in-out infinite; }
-.hero-home .hero-photo i { background-size: 118% auto; background-position: 87% 62%; }
+/* The home hero: the lit figure sits low and to the right, with room beneath the copy. */
+.hero-home { padding-bottom: 150px; }
+.hero-home .hero-photo i { background-size: cover; background-position: 50% 100%; }
 .hero-home .hero-copy { max-width: 600px; }
 .hero-home .hero-photo::after {
   background:
-    linear-gradient(90deg, rgba(12,9,40,.88) 0%, rgba(12,9,40,.74) 30%, rgba(12,9,40,.22) 52%, rgba(12,9,40,.12) 72%, rgba(12,9,40,.3) 100%),
-    linear-gradient(180deg, rgba(12,9,40,.45) 0%, rgba(12,9,40,0) 35%, rgba(12,9,40,.1) 70%, rgba(12,9,40,.5) 100%);
+    radial-gradient(78% 72% at 16% 30%, rgba(12,9,40,.92) 0%, rgba(12,9,40,.6) 42%, rgba(12,9,40,0) 100%),
+    linear-gradient(180deg, rgba(12,9,40,.42) 0%, rgba(12,9,40,.04) 38%, rgba(12,9,40,0) 100%);
 }
+.hero-home .hero-copy .lede, .hero-home .hero-proof { text-shadow: 0 1px 12px rgba(12,9,40,.6); }
 @keyframes breathe-night {
   0%, 100% { transform: scale(1); filter: brightness(1) saturate(1); }
-  50% { transform: scale(1.07); filter: brightness(1.22) saturate(1.15); }
+  50% { transform: scale(1.07); filter: brightness(1.1) saturate(1.1); }
 }
-.is-night .h-hero, .is-night .h-2, .is-night .h-3, .is-night .h-4, .is-night .form-title { color: #fff; }
-.is-night .form-card, .is-night .form-card .form-title { color: var(--ink); }
+.is-night .h-hero, .is-night .h-2, .is-night .h-3, .is-night .h-4 { color: #fff; }
+.is-night .form-card, .is-night .form-card .form-title, .is-night .form-card .h-3 { color: var(--ink); }
 .is-night .em { color: #C4B8FF; }
-.is-night .lede { color: rgba(255,255,255,.84); }
-.is-night .eyebrow { color: #C4B8FF; }
+.is-night .lede, .section-night .lede { color: rgba(255,255,255,.92); text-shadow: 0 1px 10px rgba(12,9,40,.55); }
+.is-night .h-hero, .is-night .h-2, .section-night .h-2, .section-night .h-3 { text-shadow: 0 2px 18px rgba(12,9,40,.45); }
+.is-night .eyebrow, .section-night .eyebrow { color: #DDD6FF; font-weight: 600; }
 .is-night .hero-kicker { color: rgba(255,255,255,.78); }
 .is-night .hero-body { color: rgba(255,255,255,.84); }
 .is-night .case-meta, .is-night .case-meta a, .is-night .breadcrumb, .is-night .breadcrumb a, .is-night .blog-meta, .is-night .small { color: rgba(255,255,255,.7); }
 .is-night .hero-proof { border-top-color: rgba(255,255,255,.2); }
-.is-night .proof { color: rgba(255,255,255,.78); }
+.is-night .proof { color: rgba(255,255,255,.9); }
 .is-night .proof strong { color: #fff; }
 .is-night .btn-ghost { color: #fff; border-color: rgba(255,255,255,.38); }
 .is-night .btn-ghost:hover { border-color: #fff; color: #fff; }
@@ -1131,9 +1135,9 @@ details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
 .is-night .stat { border-top-color: rgba(255,255,255,.4); }
 .is-night .stat .num, .is-night .stat .h-4 { color: #fff; }
 .is-night .stat p { color: rgba(255,255,255,.78); }
-.is-night .step { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); }
+.is-night .step { background: rgba(12,9,40,.55); border-color: rgba(255,255,255,.14); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .is-night .step p { color: rgba(255,255,255,.8); }
-.is-night .way { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); color: #fff; }
+.is-night .way { background: rgba(12,9,40,.55); border-color: rgba(255,255,255,.14); color: #fff; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .is-night .way small { color: rgba(255,255,255,.6); }
 .is-night .way p { color: rgba(255,255,255,.78); }
 .is-night .way:hover { border-color: rgba(255,255,255,.4); color: #fff; }
@@ -1141,46 +1145,42 @@ details.is-open .chev, details[open] .chev { transform: rotate(180deg); }
 .is-night .dash { background: #C4B8FF; }
 .is-night .hero-grid, .is-night .page-hero-inner, .is-night .page-hero-row, .is-night .contact-grid { position: relative; z-index: 1; }
 .is-night .form-card { position: relative; z-index: 1; }
+.section-night .tile p, .section-night .ops-caption { color: rgba(255,255,255,.86); }
+.section-night .tile { background: rgba(12,9,40,.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.section-night .plan-item, .section-night .step, .section-night .list-card { background: rgba(12,9,40,.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 
-/* Aurora: slow coloured light that drifts and swells behind the content */
+/* Aurora: three coloured lights that drift and swell behind the content. (The amber lamp, a4, is gone.) */
 .aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-.aurora i { position: absolute; display: block; border-radius: 50%; filter: blur(48px); mix-blend-mode: screen; opacity: .95; will-change: transform; }
+.aurora i { position: absolute; display: block; border-radius: 50%; filter: blur(48px); mix-blend-mode: screen; opacity: .62; will-change: transform; }
 .aurora .a1 { width: 60vw; height: 60vw; left: -16%; top: -30%; background: radial-gradient(circle, rgba(140,100,255,1) 0%, rgba(140,100,255,0) 60%); animation: aur1 13s ease-in-out infinite alternate; }
 .aurora .a2 { width: 52vw; height: 52vw; right: -14%; top: -22%; background: radial-gradient(circle, rgba(70,160,255,.95) 0%, rgba(70,160,255,0) 60%); animation: aur2 15s ease-in-out infinite alternate; }
-.aurora .a3 { width: 48vw; height: 48vw; left: 26%; bottom: -34%; background: radial-gradient(circle, rgba(236,100,255,.9) 0%, rgba(236,100,255,0) 60%); animation: aur3 11s ease-in-out infinite alternate; }
-.aurora .a4 { width: 22vw; height: 22vw; left: var(--lamp-x, 50%); top: var(--lamp-y, 45%); margin: -11vw 0 0 -11vw; background: radial-gradient(circle, rgba(255,180,90,.95) 0%, rgba(255,150,70,.4) 30%, rgba(255,150,70,0) 62%); filter: blur(30px); animation: lamp 5.5s ease-in-out infinite; }
+.aurora .a3 { width: 48vw; height: 48vw; left: 58%; bottom: -36%; background: radial-gradient(circle, rgba(236,100,255,.9) 0%, rgba(236,100,255,0) 60%); animation: aur3 11s ease-in-out infinite alternate; }
+.aurora .a4 { display: none; }
 @keyframes aur1 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(14%,18%) scale(1.25); } 100% { transform: translate(-8%,10%) scale(.9); } }
 @keyframes aur2 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-16%,14%) scale(1.3); } 100% { transform: translate(6%,-8%) scale(.92); } }
 @keyframes aur3 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-18%,-20%) scale(1.35); } 100% { transform: translate(12%,-6%) scale(1.05); } }
-@keyframes lamp { 0%, 100% { transform: scale(.75); opacity: .5; } 50% { transform: scale(1.45); opacity: 1; } }
 
 /* The moving gradient: a wide band of colour that slides across the photo */
 .tint {
   position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  mix-blend-mode: screen; opacity: .6;
+  mix-blend-mode: screen; opacity: .38;
   background: linear-gradient(115deg,
     rgba(110,70,255,.0) 0%, rgba(110,70,255,.75) 18%, rgba(50,140,255,.55) 38%,
     rgba(236,100,255,.7) 58%, rgba(255,160,90,.35) 78%, rgba(110,70,255,.0) 100%);
   background-size: 240% 240%;
   animation: tint 14s ease-in-out infinite alternate;
 }
-@keyframes tint { 0% { background-position: 0% 50%; opacity: .45; } 50% { opacity: .75; } 100% { background-position: 100% 50%; opacity: .5; } }
+@keyframes tint { 0% { background-position: 0% 50%; opacity: .22; } 50% { opacity: .46; } 100% { background-position: 100% 50%; opacity: .3; } }
 .section-alt .aurora i, .is-light .aurora i { mix-blend-mode: normal; opacity: .55; }
 
-/* Halo behind the hero form */
-.hero.is-night .hero-grid::before {
-  content: ""; position: absolute; right: -60px; top: -40px; width: 560px; height: calc(100% + 80px);
-  border-radius: 60px; z-index: 0; pointer-events: none;
-  background: radial-gradient(55% 50% at 50% 42%, rgba(170,140,255,.7) 0%, rgba(170,140,255,0) 70%);
-  filter: blur(36px);
-  animation: halo 8s ease-in-out infinite;
+/* Reading field: a stable dark pool under the copy, above the aurora and the tint, below the content, so the light moves around the words, not under them */
+.scrim {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(60% 62% at 24% 36%, rgba(12,9,40,.82) 0%, rgba(12,9,40,.58) 42%, rgba(12,9,40,.15) 70%, rgba(12,9,40,0) 86%);
 }
-@keyframes halo { 0%, 100% { opacity: .55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
-.form-card .btn-block { animation: btn-breathe 4.5s ease-in-out infinite; }
-@keyframes btn-breathe {
-  0%, 100% { box-shadow: 0 1px 2px rgba(86,52,230,.3), 0 0 0 0 rgba(86,52,230,0); }
-  50% { box-shadow: 0 1px 2px rgba(86,52,230,.3), 0 0 36px 2px rgba(86,52,230,.38); }
-}
+.page-hero .scrim { background: radial-gradient(70% 90% at 26% 46%, rgba(12,9,40,.84) 0%, rgba(12,9,40,.6) 45%, rgba(12,9,40,.15) 75%, rgba(12,9,40,0) 92%); }
+.section-night .scrim { background: radial-gradient(60% 70% at 24% 32%, rgba(12,9,40,.8) 0%, rgba(12,9,40,.55) 45%, rgba(12,9,40,.12) 75%, rgba(12,9,40,0) 92%); }
+.has-photo .scrim { background: radial-gradient(62% 80% at 26% 50%, rgba(12,9,40,.8) 0%, rgba(12,9,40,.55) 45%, rgba(12,9,40,.12) 75%, rgba(12,9,40,0) 92%); }
 
 /* Two dark sections in a row read as one: the second carries no photo of its own and no top padding. */
 .section-night + .section-night { padding-top: 0; }

@@ -13,7 +13,7 @@
 <% content_for :header, render("website/shared/landing_header", phone_label: gl_phone, phone_href: gl_tel, cta: "lp-#{entry.slug}", line: [ad.credentials.title, ad.credentials.lines.first].compact_blank.join(" · ")) %>
 <% content_for :footer, render("website/shared/landing_footer") %>
 <section class="hero is-night">
-  <%= render "website/shared/scene", key: "/lp", lamp: ["70%", "80%"] %>
+  <%= render "website/shared/scene", key: "/lp" %>
   <div class="container hero-grid">
     <div class="hero-copy">
       <a class="hero-badge" href="https://www.google.com/partners/agency?id=4365181293" target="_blank" rel="noopener" data-enter="1" data-cta="lp-partner">
