@@ -37,6 +37,10 @@ Links inside the drafts already point at the final paths above.
 
 The marquee under the hero draws every case study with a logo, then every other published client (the `clients` collection) as a wordmark. Jordan asked for Tru-Colors Contracting to come off it: its client entry (`tru-colors-contracting`) is in draft on the live CMS, and a draft client is one not cleared for public mention, so the marquee leaves it out. Keep it that way.
 
+## The phone number
+
+The number is (415) 283-6736 (tel:+14152836736). The theme reads it from Settings › General › phone (`gl_phone`), with the new number as its fallback; the header, the phone drawer, the call / audit bar, every form's "Rather talk?" line and the landing bar all take it from there. Set it in Settings › General at launch. The footer global's phone item is in `globals.json`; the drafts' closing calls, the home hero's call button and the contact cards carry it in their own copy.
+
 ## Launching
 
 1. Approve the held creates (Approvals), so the drafts exist: one per `redesign-*` slug, the newest proposal for each (older proposals for the same slug carry superseded copy and should be rejected).
