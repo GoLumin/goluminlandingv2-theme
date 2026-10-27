@@ -9,9 +9,9 @@
     "type": "page_hero",
     "version": 1,
     "data": {
-     "eyebrow": "Let's talk",
-     "heading": "Call and you get a person. Send the form and a person reads it.",
-     "lede": "Either way you end up talking to someone who can actually answer the question, not to a sequence.",
+     "eyebrow": "Talk to a partner",
+     "heading": "Stop paying for marketing you can't measure.",
+     "lede": "Call, or send the form. A partner goes through your accounts and tells you what's wasting money and what to fix first. No sales team, no sequence, no slide deck.",
      "chips": [],
      "ctas": [],
      "items_style": "none",
@@ -26,9 +26,9 @@
      "eyebrow": "",
      "items": [
       {
-       "kicker": "Call us",
+       "kicker": "Call",
        "title": "(269) 532-6248",
-       "body": "The fastest route. Useful when you'd rather describe the problem out loud than type it into a box.",
+       "body": "Jordan or Ted picks up. Tell us what's broken.",
        "link_label": "Call",
        "link": {
         "kind": "url",
@@ -36,9 +36,9 @@
        }
       },
       {
-       "kicker": "Email us",
+       "kicker": "Email",
        "title": "marketing@golumin.io",
-       "body": "Best if you want to attach something: an account screenshot, a proposal from someone else, a list of what hurts.",
+       "body": "Attach anything: an account screenshot, the other agency's proposal, a report that doesn't add up.",
        "link_label": "Email",
        "link": {
         "kind": "url",
@@ -102,8 +102,8 @@
    }
   ],
   "seo": {
-   "meta_title": "Let's talk · GoLumin",
-   "meta_description": "Call (269) 532-6248 or send the form. A named person at GoLumin reads every message. Read-only access, real findings on your own accounts."
+   "meta_title": "Talk to a partner · GoLumin",
+   "meta_description": "Stop paying for marketing you can't measure. Call (269) 532-6248 or send the form. A partner goes through your accounts and tells you what's wasting money and what to fix first."
   }
  }
 }
