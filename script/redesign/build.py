@@ -223,7 +223,7 @@ globals_ = {"nav": {"items": [
     {"label": "How we work", "link": url("/how-it-works"), "desktop_menu": False, "children_from": "", "children": []},
     {"label": "Company", "link": url("/about"), "desktop_menu": True, "children_from": "", "children": [
         {"label": "Who you'll work with", "link": url("/about"), "note": "Two partners, no account managers."},
-        {"label": "Trust & approvals", "link": url("/how-it-works#trust"), "note": "Your accounts, your name, a person on every change."},
+        {"label": "Trust & approvals", "link": url("/trust"), "note": "Your accounts, your name, a person on every change."},
         {"label": "Careers", "link": url("/careers"), "note": "Four open roles, remote in the US."},
         {"label": "Referrals", "link": url("/referrals"), "note": "Send us a business, get paid when they sign."},
         {"label": "Let's talk", "link": url("/lets-talk"), "note": "Call, email, or send the form."}]}],

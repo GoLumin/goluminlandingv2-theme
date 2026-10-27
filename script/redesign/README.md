@@ -9,23 +9,25 @@ here so the launch is a set of known steps rather than a retype.
 | `pages/*.json` | One CMS page per redesign page, as blocks of the existing block types. Posted to the live CMS as drafts named `redesign-<slug>` (held for approval first, as every agent write is there). |
 | `globals.json` | The `nav` and `footer` globals, and the `ad_landing` global's `founders` group, as the redesign wants them. Globals have no draft state, so these are **not** written to the live CMS: apply them at launch. |
 | `services.json` | The services collection's card copy (`nav`, `promise`, `capabilities`, `proof`, `cases`) as the redesign's service cards say it. The entries are published, so these are not written to the live CMS either: apply at launch. A card's picture is its first case study's homepage: Advertising wants the new BioFuse screenshot (replace asset 25's file with the redesign's `work-biofuse.webp`), Getting found wants Kalamazoo Rejuvenation, which needs a `work` entry (title, host, screenshot from the redesign's `work-kalamazoo-rejuvenation.webp`, a logo if there is one) before it can show. |
-| `redirects.json` | The redirects to add if a draft takes a new path at launch. |
 
 ## Where each page is meant to live
 
-| Draft | Final path | Replaces |
-| --- | --- | --- |
-| redesign-home | `/` | the home page's blocks |
-| redesign-services | `/services` | the services page's blocks |
-| redesign-websites, redesign-advertising, redesign-search | `/websites`, `/advertising`, `/search`, or fold the copy into the services entries, whose pages at `/services/<slug>` already render in the new design | new |
-| redesign-tracking | `/tracking` | new |
-| redesign-results | `/work` | the results page's blocks |
-| redesign-how-we-work | `/how-it-works` (or `/how-we-work` with a redirect) | how-it-works and trust |
-| redesign-about | `/about` | new |
-| redesign-contact | `/lets-talk` | the let's-talk page's blocks |
-| redesign-careers, redesign-referrals | `/careers`, `/referrals` | those pages' blocks (their roles, calculator and forms are kept) |
+Hard rule: no live URL changes. No renamed paths, no new paths for pages that already exist, no redirects as a substitute. The only new paths are pages that do not exist today, `/tracking` and `/about`.
 
-Links inside the drafts already point at the final paths above.
+| Draft | Goes onto | How |
+| --- | --- | --- |
+| redesign-home | `/` (the `home` page) | copy the draft's blocks onto the live page |
+| redesign-services | `/services` | copy the blocks onto the live page |
+| redesign-websites, redesign-advertising, redesign-search | the service entries at `/services/websites`, `/services/advertising`, `/services/local-ai-search` | the entries' fields (`services.json`, and the proposals filed against each entry); the service page template draws them. The drafts' stat rows and feature rows have no field on an entry and stay in the repo unless the services collection gets blocks |
+| redesign-tracking | `/tracking` | new page: rename the draft (slug `tracking`) and publish |
+| redesign-results | `/work` | copy the blocks onto the live page |
+| redesign-how-we-work | `/how-it-works` | copy the blocks onto the live page. `/trust` stays live as its own page: its existing blocks already render in the new layout; leave its copy |
+| redesign-about | `/about` | new page: rename the draft (slug `about`) and publish |
+| redesign-contact | `/lets-talk` | copy the blocks onto the live page |
+| redesign-careers, redesign-referrals | `/careers`, `/referrals` | copy the blocks onto the live pages (their roles, calculator and forms are kept) |
+| `/privacy`, `/terms`, `/blog`, `/lp/*`, `/work/*` | unchanged | keep their content; the templates draw the new layout |
+
+Every internal link in the drafts, the nav and the footer already points at these live paths ("How we work" → `/how-it-works`, "Trust & approvals" → `/trust`, "Let's talk" → `/lets-talk`, "Local & AI search" → `/services/local-ai-search`, the Tracking link → `/tracking`, Company → `/about`). No redirects are needed.
 
 ## Also at launch, in published entries
 
@@ -45,9 +47,8 @@ The number is (415) 283-6736 (tel:+14152836736). The theme reads it from Setting
 
 1. Approve the held creates (Approvals), so the drafts exist: one per `redesign-*` slug, the newest proposal for each (older proposals for the same slug carry superseded copy and should be rejected).
 2. Release the theme (`lib/goluminlandingv2/version.rb`, tag, GitHub release) and update it on the site (Settings › Themes).
-3. Copy each draft's blocks onto the live page it replaces (or rename the draft to the final path and trash the old page), and publish.
+3. Copy each draft's blocks onto the live page it replaces (never rename a live page); rename only `redesign-tracking` and `redesign-about`, the two new pages; publish.
 4. Apply `globals.json` to the `nav`, `footer` and `ad_landing` globals, and `services.json` to the three service entries.
-5. Add the redirects in `redirects.json` that apply.
 6. Trash the `redesign-*` drafts.
 
 Blog posts, the privacy policy and the terms keep their content and take the new layout.
