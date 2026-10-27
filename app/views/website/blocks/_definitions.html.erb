@@ -1,28 +1,16 @@
 <%# locals: (data:) -%>
-<%# Terms and their answers in two columns: ruled above (trust's eight questions) or below (the referral rules). %>
+<%# Terms and their answers beside the heading: a ruled list. %>
 <%= gl_section(tone: data.tone) do %>
-  <div class="max-w-3xl">
-    <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-    <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
-    <% if data.body.present? %><p class="reveal mt-6 text-lg leading-snug text-text-subtle"><%= data.body %></p><% end %>
+  <div class="plan-grid">
+    <div class="reveal">
+      <%= gl_eyebrow(data.eyebrow) %>
+      <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+      <% if data.body.present? %><p class="lede"><%= data.body %></p><% end %>
+    </div>
+    <dl class="ruled reveal" style="--i:1">
+      <% data.items.each do |item| %>
+        <div><dt class="h-4"><%= item.term %></dt><dd><p><%= item.body %></p></dd></div>
+      <% end %>
+    </dl>
   </div>
-  <% if data.style == "bottom" %>
-    <dl class="mt-12 grid gap-x-10 md:grid-cols-2" data-stagger>
-      <% data.items.each do |item| %>
-        <div class="reveal border-b border-border py-5">
-          <dt class="text-[17px] font-bold tracking-tight"><%= item.term %></dt>
-          <dd class="mt-2 text-[15px] leading-snug text-text-subtle"><%= item.body %></dd>
-        </div>
-      <% end %>
-    </dl>
-  <% else %>
-    <dl class="mt-12 grid gap-x-12 gap-y-8 md:grid-cols-2" data-stagger>
-      <% data.items.each do |item| %>
-        <div class="reveal border-t-2 border-text pt-5">
-          <dt class="text-xl font-bold tracking-tight"><%= item.term %></dt>
-          <dd class="mt-2 text-[15px] leading-snug text-text-subtle"><%= item.body %></dd>
-        </div>
-      <% end %>
-    </dl>
-  <% end %>
 <% end %>

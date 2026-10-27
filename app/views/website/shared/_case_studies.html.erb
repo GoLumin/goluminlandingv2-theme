@@ -1,20 +1,80 @@
-<%# locals: (studies:, eyebrow: nil, eyebrow_n: nil, heading: nil, body: nil, link_label: nil, tone: "subtle", eager: 0) -%>
-<%# Case-study cards under a heading (Work.astro), with the link to every one. %>
-<%= gl_section(tone:, id: "work") do %>
+<%# locals: (studies:, eyebrow: nil, heading: nil, body: nil, link_label: nil, tone: "subtle", all: false) -%>
+<%# Case studies under a heading: a feature, up to four cards, the rest as small tiles; or, with all, every one as a feature. The link goes to the results page. %>
+<% feature, cards, more = all ? [nil, [], []] : [studies.first, studies[1, 4] || [], studies[5..] || []] %>
+<%= gl_section(tone:, id: "work", rule: true) do %>
   <% if heading.present? %>
-    <div class="grid items-end gap-6 md:grid-cols-[1fr_auto]">
-      <div>
-        <%= gl_eyebrow(eyebrow, eyebrow_n) %>
-        <h2 class="reveal display display-lg max-w-3xl"><%= gl_heading(heading) %></h2>
+    <div class="section-head-row reveal">
+      <div class="section-head">
+        <%= gl_eyebrow(eyebrow) %>
+        <h2 class="h-2"><%= gl_heading(heading) %></h2>
+        <% if body.present? %><p class="lede"><%= body %></p><% end %>
       </div>
-      <% if link_label.present? %><a href="/work" class="reveal inline-flex items-center gap-2 font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text"><%= gl_count(link_label, gl_work.size) %></a><% end %>
+      <% if link_label.present? %><a class="btn-link" href="/work" data-cta="work-all"><%= gl_count(link_label.to_s.delete_suffix("→").strip, gl_work.size) %> <span class="arrow" aria-hidden="true">→</span></a><% end %>
     </div>
-    <% if body.present? %><p class="reveal mt-6 max-w-2xl text-lg leading-snug text-text-subtle"><%= body %></p><% end %>
   <% end %>
-  <div class="<%= class_names("grid gap-6 md:grid-cols-2", "mt-12": heading.present?) %>" data-stagger>
+  <% if all %>
     <% studies.each_with_index do |study, i| %>
-      <%= render "website/shared/case_card", study:, eager: i < eager %>
+      <% c = website_fields(study) %>
+      <% figure = gl_case_figure(c) %>
+      <article class="case-feature<%= " is-flipped" if i.odd? %>" id="<%= study.slug %>">
+        <div class="screen reveal"><%= gl_image c.screenshot, alt: "#{study.title} homepage", sizes: "(min-width: 72rem) 34rem, (min-width: 1080px) 50vw, 100vw", loading: i < 2 ? :eager : :lazy %></div>
+        <div class="reveal" style="--i:1">
+          <p class="case-meta"><%= [study.title, c.vertical, c.place, c.tags.first(3).join(", ")].compact_blank.join(" · ") %></p>
+          <h2 class="h-3"><%= gl_heading(c.h) %></h2>
+          <% if c.lede.present? %><p class="lede"><%= c.lede %></p><% end %>
+          <% if figure %>
+            <div class="case-result"><span class="num"><%= figure[0] %></span><span><%= figure[1] %><% if figure[2].present? %><small><%= figure[2] %></small><% end %></span></div>
+          <% end %>
+          <a class="btn-link" href="<%= website_path(study) %>" data-cta="work-<%= study.slug %>">Read the full <%= study.title %> story <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </article>
     <% end %>
-  </div>
+  <% else %>
+    <% if feature %>
+      <% c = website_fields(feature) %>
+      <% figure = gl_case_figure(c) %>
+      <article class="case-feature reveal">
+        <div class="screen"><%= gl_image c.screenshot, alt: "The #{feature.title} website homepage", sizes: "(min-width: 72rem) 34rem, (min-width: 1080px) 50vw, 100vw", loading: :lazy %></div>
+        <div>
+          <p class="case-meta"><%= [feature.title, c.vertical, c.place].compact_blank.join(" · ") %></p>
+          <h3 class="h-3"><%= gl_heading(c.h) %></h3>
+          <% if c.story.problem.present? %>
+            <div class="case-steps">
+              <% [["The problem", c.story.problem], ["What we did", c.story.did], ["What happened", c.story.happened]].each do |term, text| %>
+                <% next if text.blank? %>
+                <div class="case-step"><span class="eyebrow"><%= term %></span><p><%= text %></p></div>
+              <% end %>
+            </div>
+          <% elsif c.lede.present? %>
+            <p class="lede"><%= c.lede %></p>
+          <% end %>
+          <% if figure %>
+            <div class="case-result"><span class="num"><%= figure[0] %></span><span><%= figure[1] %><% if figure[2].present? %><small><%= figure[2] %></small><% end %></span></div>
+          <% end %>
+          <a class="btn-link" href="<%= website_path(feature) %>" data-cta="work-<%= feature.slug %>">Read the full <%= feature.title %> story <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    <% end %>
+    <% if cards.any? %>
+      <div class="case-grid" data-stagger>
+        <%= render partial: "website/shared/case_card", collection: cards, as: :study %>
+      </div>
+    <% end %>
+    <% if more.any? %>
+      <div class="case-more reveal">
+        <h3 class="h-4">More of the work</h3>
+        <div class="case-more-grid">
+          <% more.each do |study| %>
+            <% c = website_fields(study) %>
+            <a class="case-mini" href="<%= website_path(study) %>" data-cta="work-<%= study.slug %>">
+              <div class="screen"><%= gl_image c.screenshot, alt: "", sizes: "(min-width: 72rem) 22rem, (min-width: 720px) 33vw, 100vw", loading: :lazy %></div>
+              <strong><%= study.title %></strong>
+              <p><%= gl_plain(c.h) %></p>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   <%= yield %>
 <% end %>

@@ -1,0 +1,230 @@
+{
+ "page": {
+  "slug": "advertising",
+  "title": "Advertising",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Advertising",
+     "heading": "You already paid for the click. The page decides if it pays you back.",
+     "lede": "We run your Google, Meta, Microsoft and ChatGPT ads, build the page they land on, and work the account every day. Your accounts stay in your name, and every change that touches your money is approved by a person first.",
+     "chips": [],
+     "ctas": [
+      {
+       "label": "Audit my ad accounts",
+       "link": {
+        "kind": "url",
+        "value": "#audit"
+       },
+       "style": "primary"
+      },
+      {
+       "label": "The channels we run",
+       "link": {
+        "kind": "url",
+        "value": "#channels"
+       },
+       "style": "ghost"
+      }
+     ],
+     "items_style": "none",
+     "items": []
+    }
+   },
+   {
+    "type": "stats_section",
+    "version": 1,
+    "data": {
+     "heading": "The accounts, in numbers.",
+     "body": "",
+     "image_id": "",
+     "stats": [
+      {
+       "value": "$25M+",
+       "label": "in client ad spend managed to date, across Google, Microsoft, Meta and ChatGPT"
+      },
+      {
+       "value": "15+ yrs",
+       "label": "buying clicks in the most expensive categories in search"
+      },
+      {
+       "value": "Daily",
+       "label": "every account reviewed every day, weekends included, not once a month"
+      }
+     ]
+    }
+   },
+   {
+    "type": "cards",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Channels",
+     "heading": "One budget. Every place a customer is looking.",
+     "body": "We put the money where it already converts, and test new channels small, with limits enforced in software, so you find out with a test budget instead of a guess.",
+     "columns": "2",
+     "tone": "bg",
+     "numbered": false,
+     "service_links": false,
+     "items": [
+      {
+       "kicker": "",
+       "title": "Google Ads",
+       "body": "Search, Maps and Local Services ads. The highest-intent clicks there are, and the easiest place to waste money without daily negatives and proper tracking."
+      },
+      {
+       "kicker": "",
+       "title": "Meta & Instagram",
+       "body": "Facebook and Instagram, with sold-or-lost results fed back to the platform so it learns what a real customer looks like, not just a form fill."
+      },
+      {
+       "kicker": "",
+       "title": "Microsoft Ads",
+       "body": "Bing and the Windows search box: cheaper clicks, older and wealthier buyers, and almost no competition in most local categories."
+      },
+      {
+       "kicker": "",
+       "title": "ChatGPT & AI ads",
+       "body": "Ads inside ChatGPT, with the pixel and the server-side conversion tracking already running on our own site. New, small, and measured honestly."
+      },
+      {
+       "kicker": "",
+       "title": "Programmatic & streaming",
+       "body": "Display, YouTube and connected TV for businesses with a market to warm up, run as a capped line inside the portfolio, never as the whole budget."
+      },
+      {
+       "kicker": "",
+       "title": "A landing page, included",
+       "body": "Every new account gets a page written for the search, built to be read on a phone, with one form and one number. On its own it's a $2,500 build. It's yours."
+      }
+     ]
+    }
+   },
+   {
+    "type": "media_text",
+    "version": 1,
+    "data": {
+     "heading": "The account gets looked at daily. By software, then by a person.",
+     "body": "Search terms, budget pacing, broken conversion tracking, tired copy. The software reads every account every day and writes up what it finds. Jordan reads what it wrote and decides what to do about it.\n\n- Wasted spend caught the day it starts, not the month after\n- Negative keywords from the searches people actually typed\n- Budget pacing watched against the month",
+     "image_id": "27",
+     "side": "right",
+     "background": "accent",
+     "cta_label": ""
+    }
+   },
+   {
+    "type": "media_text",
+    "version": 1,
+    "data": {
+     "heading": "Nothing touches your money without a name on it.",
+     "body": "Every proposed change lands in one queue with its evidence and the dollars at stake. A named person approves it or rejects it. Spend limits are hard limits in code and can't be overridden, even by an approver. You can pause everything with one switch.",
+     "image_id": "36",
+     "side": "left",
+     "background": "accent",
+     "cta_label": ""
+    }
+   },
+   {
+    "type": "comparison",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "The difference",
+     "heading": "What you get, next to what you probably have.",
+     "us_label": "GoLumin"
+    }
+   },
+   {
+    "type": "case_studies",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Accounts we run",
+     "heading": "Numbers from the accounts themselves.",
+     "body": "",
+     "cases": "biofuse kalamazoo-mortgage behnke-logistics foxbox-moves",
+     "all": false,
+     "link_label": "All case studies",
+     "tone": "subtle",
+     "note_lead": "",
+     "note": ""
+    }
+   },
+   {
+    "type": "faq",
+    "version": 1,
+    "data": {
+     "eyebrow": "Questions",
+     "heading": "Asked on almost every first call about ads.",
+     "items": [
+      {
+       "question": "Do I need to be running ads already?",
+       "answer": "No. If you're not, we look at what people actually search for in your market, what those clicks cost, and whether ads are even the right first move. Sometimes the answer is that your site or your listings need the work first, and we'll say so."
+      },
+      {
+       "question": "What if we already have an agency?",
+       "answer": "The audit works the same way: read-only access, a person walks you through what they found, and you keep it. We never contact your current agency. Plenty of people use it as a second opinion and stay where they are."
+      },
+      {
+       "question": "Is the landing page included?",
+       "answer": "Yes. It's built as part of onboarding for every new client, with no separate charge. On its own that build is $2,500. It goes on your domain, in your name, and it stays yours if you stop working with us."
+      },
+      {
+       "question": "Is anyone actually buying from ChatGPT ads yet?",
+       "answer": "It's early, and the volume is nothing like Google's. We won't pretend otherwise. What we do is measure it properly from day one, as a small, capped line, so you find out with a test budget instead of a guess."
+      },
+      {
+       "question": "How is it priced?",
+       "answer": "A monthly fee based on ad spend, quoted after the audit once we know what's actually there. Month to month, no contract."
+      }
+     ],
+     "tone": "bg"
+    }
+   },
+   {
+    "type": "audit_form",
+    "version": 1,
+    "data": {
+     "eyebrow": "The audit",
+     "heading": "Audit my ad accounts.",
+     "blurb": "Tell us where the business is now. For businesses already investing in marketing, or ready to. A partner reads it personally.",
+     "bullets": [
+      "Read-only access. Nothing changes.",
+      "No slide deck. The findings, with the money attached.",
+      "A partner walks you through it live."
+     ],
+     "audit_type": "Ad account",
+     "lock_type": false,
+     "submit_label": "Request my audit",
+     "note": "",
+     "prefix": "advertising",
+     "tone": "subtle"
+    }
+   },
+   {
+    "type": "closing_form",
+    "version": 1,
+    "data": {
+     "heading": "Start with an audit of what you already have.",
+     "blurb": "A partner reads what you send and builds the audit against your real accounts, not a template. If you'd rather talk it through first, the number below reaches us directly.",
+     "phone_kicker": "Call us direct",
+     "phone_label": "(415) 283-6736",
+     "phone_link": {
+      "kind": "url",
+      "value": "tel:+14152836736"
+     },
+     "submit_label": "Request my audit",
+     "note": ""
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "Advertising · GoLumin",
+   "meta_description": "Google, Meta, Microsoft, ChatGPT and programmatic ads for local businesses, worked every day by a certified Google Partner, with your accounts in your name."
+  }
+ }
+}

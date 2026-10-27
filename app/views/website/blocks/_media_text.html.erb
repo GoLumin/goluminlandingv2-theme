@@ -1,14 +1,16 @@
 <%# locals: (data:) -%>
+<%# A feature row: the heading and its Markdown (paragraphs read as the standfirst, a list as the check list) beside the image. Background "accent" is the dark night section, with the image in a browser frame; "muted" the soft one. %>
 <% href = gl_href(data.cta_url) %>
-<%= gl_section(tone: {"muted" => "subtle", "accent" => "ink"}.fetch(data.background.to_s, "bg")) do %>
-  <div class="grid items-center gap-10 md:grid-cols-2 md:gap-14">
-    <div class="<%= "md:order-2" if data.side == "left" %>">
-      <h2 class="reveal display display-md"><%= gl_heading(data.heading) %></h2>
-      <div class="reveal post mt-6"><%= website_markdown data.body %></div>
-      <% if href %><div class="reveal mt-8"><%= gl_button data.cta_label.presence || "Learn more", href, size: :lg %></div><% end %>
+<% tone = {"muted" => "subtle", "accent" => "ink"}.fetch(data.background.to_s, "bg") %>
+<%= gl_section(tone:) do %>
+  <div class="feature-row<%= " is-flipped" if data.side == "left" %>">
+    <div class="feature-copy reveal">
+      <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+      <div class="media-body"><%= website_markdown data.body %></div>
+      <% if href %><div class="btn-row"><%= gl_button data.cta_label.presence || "Learn more", href, variant: (tone == "ink" ? :outline : :primary) %></div><% end %>
     </div>
     <% if data.image_id.present? %>
-      <div class="reveal <%= "md:order-1" if data.side == "left" %>"><%= gl_image data.image_id, sizes: "(min-width: 768px) 50vw, 100vw", class: "w-full h-auto rounded-lg border-2 border-text" %></div>
+      <div class="feature-media reveal" style="--i:1"><%= render "website/shared/screen", image: data.image_id, browser: tone == "ink" %></div>
     <% end %>
   </div>
 <% end %>

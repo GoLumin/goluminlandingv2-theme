@@ -1,9 +1,9 @@
 <%# locals: (data:) -%>
-<%# Case studies from the work collection: the slugs listed, else the first four, or every one (the results page). %>
+<%# Case studies from the work collection: the slugs listed, else the first four; or every one (all: the results page). One case is the feature; the next four are cards; the rest are the small "more of the work" tiles. With all, every case is a feature, alternating sides. %>
 <% listed = gl_cases(data.cases) %>
 <% studies = data.all ? gl_work : listed.presence || gl_work.first(4) %>
-<%= render layout: "website/shared/case_studies", locals: {studies:, eyebrow: data.eyebrow, eyebrow_n: data.eyebrow_n, heading: data.heading, body: data.body, link_label: data.link_label, tone: data.tone, eager: data.all ? 2 : 0} do %>
+<%= render layout: "website/shared/case_studies", locals: {studies:, eyebrow: data.eyebrow, heading: data.heading, body: data.body, link_label: data.link_label, tone: data.tone, all: data.all} do %>
   <% if data.note.present? %>
-    <p class="reveal mt-10 max-w-3xl border-l-2 border-signal bg-surface px-5 py-4 text-[15px] leading-snug text-text-subtle"><span class="font-semibold text-text"><%= data.note_lead %></span> <%= data.note %></p>
+    <div class="service-underline reveal" style="margin-top:72px"><p><% if data.note_lead.present? %><strong><%= data.note_lead %></strong> <% end %><%= data.note %></p></div>
   <% end %>
 <% end %>

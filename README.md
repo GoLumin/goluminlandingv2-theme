@@ -6,13 +6,21 @@ and its stylesheet and scripts. Plain ERB, plain CSS and an importmap; the
 site serves nothing that has to be built. How themes work: Libre Publish's
 docs/themes.md.
 
-The design, content and layout are the Astro site's
-([GoLumin/goluminlandingv2](https://github.com/GoLumin/goluminlandingv2)):
-the "operations ledger", ink on violet-cast paper, 2px rules, the logo's
-violet-to-blue on one phrase per section, dark console bands for the
-product, set in Geist and Geist Mono (served from the theme, not Google).
-The templates keep the Astro components' Tailwind classes; the stylesheet is
-those classes compiled to plain CSS (below).
+The design is the 2026 redesign, "lit from above" (the redesign's DESIGN.md):
+one family, Inter; one violet accent (#5634E6); every hero a night hero, one
+of the branded Lumin landscapes at full strength under three drifting lights,
+a moving tint and a scrim that keeps the copy legible (`shared/_scene`, in
+that order; no glows), ending on a diagonal; white pages between; dark
+"night" sections for the product, the client quote and the closing call,
+each with a photo too;
+real client sites and the two founders instead of icons; the audit form in
+the hero's right column, a marquee of client marks under it, and a call /
+audit bar at the foot of the screen on a phone. No monospace, no uppercase
+tracked labels, no gradient text, and never "free": the offer is an audit. The stylesheet is `script/site.src.css`:
+the design is plain, unlayered CSS; Tailwind stays in the pipeline only for
+the block templates that still carry utility classes (below).
+
+The content of the redesign, and how it goes live: `script/redesign/README.md`.
 
 ## What draws what
 
@@ -35,8 +43,8 @@ hero's metrics; `ad_landing` the evidence every ad-group page and the banner
 page share (the offer, the plan, the badge, the click maths, the comparison,
 the shared questions).
 
-Headings mark their highlighted words in the text: `*brand gradient*`,
-`_underline mark_`, `^violet^` (`gl_heading`).
+Headings mark their highlighted words in the text: `*like this*`, `_or this_`
+or `^or this^` all set the words in violet (`gl_heading`).
 
 The four forms (Forms › audit, contact, application, referral) are drawn by
 hand from their fields and post to the Forms plugin; then the visitor goes to
@@ -46,14 +54,13 @@ submission. Each form carries the session's attribution (UTM tags, click ids,
 landing page, referrer) as fields of its own. Turnstile appears when
 Settings › Forms has its keys.
 
-The theme serves its own stylesheet, scripts, fonts and images, at
+The theme serves its own stylesheet, scripts and images, at
 `/_goluminlandingv2/<file>?v=<digest>` (`Goluminlandingv2::AssetsController`),
 rather than through the asset pipeline, so it works on an install that
 hasn't compiled a theme added from Settings › Plugins.
 
-Settings › Themes › Customize: the colors (paper, or the whole site in the
-dark console palette), the phone number in the header, and the phone's
-sticky audit bar.
+Settings › Themes › Customize: the phone number in the header, and the
+phone's call / plan bar.
 
 ## The content: script/import.rb
 
@@ -80,9 +87,10 @@ for the data files (`src/data/*.ts`, exported by `script/export-astro.ts`).
     bundle exec herb lint themes/goluminlandingv2 --fail-level warning
     bin/rails goluminlandingv2:snapshot                         # refresh the snapshot from this install
 
-`script/build-css` compiles `script/site.src.css` (the Astro site's
-global.css and its components' styles) with Tailwind against the theme's
-templates; commit the compiled `site.css` with the change.
+`script/build-css` compiles `script/site.src.css` with Tailwind against the
+theme's templates; commit the compiled `site.css` with the change. Mind that
+`h-2`, `h-3` and `h-4` are Tailwind height utilities as well as the design's
+heading classes: the stylesheet gives the headings `height: auto`.
 
 `spec/fixtures/cms/snapshot.json` is the CMS's content model and live
 content. The spec draws every page and entry from it, and every block type

@@ -1,0 +1,154 @@
+{
+ "page": {
+  "slug": "tracking",
+  "title": "Tracking & integrations",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Tracking & integrations",
+     "heading": "If you can't see which dollar made the phone ring, you're guessing.",
+     "lede": "We wire every call, form and booking back to the campaign, keyword and page that produced it. Then we send the sold-or-lost verdict back to Google and Meta, so the bidding learns what a customer looks like instead of what a form fill looks like.",
+     "chips": [],
+     "ctas": [
+      {
+       "label": "Check my tracking",
+       "link": {
+        "kind": "url",
+        "value": "#audit"
+       },
+       "style": "primary"
+      }
+     ],
+     "items_style": "none",
+     "items": []
+    }
+   },
+   {
+    "type": "steps",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "",
+     "heading": "",
+     "aside": "",
+     "columns": "3",
+     "figures": false,
+     "tone": "bg",
+     "anchor": "",
+     "items": [
+      {
+       "kicker": "Calls",
+       "title": "Every call counted, and heard",
+       "body": "Tracked numbers per channel, recorded calls, and a conversion that fires on a real conversation, not a wrong number."
+      },
+      {
+       "kicker": "Forms & bookings",
+       "title": "A submission is a lead, a page view isn't",
+       "body": "Forms, quote tools and booking flows tracked end to end, spam filtered, and the lead delivered to your phone the moment it lands."
+      },
+      {
+       "kicker": "Your CRM",
+       "title": "Sold or lost, back to the platforms",
+       "body": "Mark a lead sold in your CRM or in our app. That verdict goes to Google and Meta as an offline conversion, and the ads get smarter."
+      }
+     ],
+     "note": ""
+    }
+   },
+   {
+    "type": "platforms",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "",
+     "heading": "",
+     "body": "",
+     "items": [
+      {
+       "anchor": "integrate",
+       "number": "",
+       "name": "",
+       "role": "What we integrate",
+       "heading": "The plumbing most agencies skip.",
+       "body": "None of this is glamorous. All of it is the difference between a report that says \"47 conversions\" and a report that says \"11 customers, $42 each, from these three keywords.\"",
+       "bullets": [
+        "Google Ads and GA4, with conversions verified before they're reported",
+        "Meta Conversions API, server-side, so iOS privacy changes don't blind the account",
+        "ChatGPT ads pixel and Conversions API, deduplicated, running on our own site first",
+        "Call tracking with per-channel numbers and recordings",
+        "Your CRM, booking system or quote tool, so sold-or-lost gets back to the ads",
+        "Google Tag Manager, kept clean, documented, and owned by you"
+       ],
+       "image": "8",
+       "caption": "The scheduled checks the software runs on an account.",
+       "flip": false
+      }
+     ],
+     "note_lead": "",
+     "note": "",
+     "link_label": ""
+    }
+   },
+   {
+    "type": "case_studies",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "What missing tracking costs",
+     "heading": "Ten months, $75,000, and nobody counting bookings.",
+     "body": "",
+     "cases": "biofuse",
+     "all": false,
+     "link_label": "",
+     "tone": "subtle",
+     "note_lead": "",
+     "note": ""
+    }
+   },
+   {
+    "type": "audit_form",
+    "version": 1,
+    "data": {
+     "eyebrow": "The audit",
+     "heading": "Check my tracking.",
+     "blurb": "Tell us where the business is now. For businesses already investing in marketing, or ready to. A partner reads it personally.",
+     "bullets": [
+      "Read-only access. Nothing changes.",
+      "No slide deck. The findings, with the money attached.",
+      "A partner walks you through it live."
+     ],
+     "audit_type": "Full system (web + search + ads)",
+     "lock_type": false,
+     "submit_label": "Request my audit",
+     "note": "",
+     "prefix": "tracking",
+     "tone": "subtle"
+    }
+   },
+   {
+    "type": "closing_form",
+    "version": 1,
+    "data": {
+     "heading": "Start with an audit of what you already have.",
+     "blurb": "A partner reads what you send and builds the audit against your real accounts, not a template. If you'd rather talk it through first, the number below reaches us directly.",
+     "phone_kicker": "Call us direct",
+     "phone_label": "(415) 283-6736",
+     "phone_link": {
+      "kind": "url",
+      "value": "tel:+14152836736"
+     },
+     "submit_label": "Request my audit",
+     "note": ""
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "Tracking & integrations · GoLumin",
+   "meta_description": "Every call, form and booking tied to the campaign, keyword and page that produced it, and sold-or-lost fed back to Google and Meta. Conversion tracking and CRM integration for local businesses."
+  }
+ }
+}

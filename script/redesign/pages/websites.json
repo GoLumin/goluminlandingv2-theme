@@ -1,0 +1,230 @@
+{
+ "page": {
+  "slug": "websites",
+  "title": "Websites",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Websites",
+     "heading": "A website that brings in calls, not just compliments.",
+     "lede": "We build, migrate and host your site, then keep improving it. Edits go live in under a minute, every URL survives the move, and every form lands in your inbox.",
+     "chips": [],
+     "ctas": [
+      {
+       "label": "Audit my website",
+       "link": {
+        "kind": "url",
+        "value": "#audit"
+       },
+       "style": "primary"
+      },
+      {
+       "label": "See sites we built",
+       "link": {
+        "kind": "url",
+        "value": "/work"
+       },
+       "style": "ghost"
+      }
+     ],
+     "items_style": "none",
+     "items": []
+    }
+   },
+   {
+    "type": "stats_section",
+    "version": 1,
+    "data": {
+     "heading": "In numbers.",
+     "body": "",
+     "image_id": "",
+     "stats": [
+      {
+       "value": "100s",
+       "label": "of sites launched and managed, in nearly every local category"
+      },
+      {
+       "value": "<1 min",
+       "label": "from an approved edit to the live page. The publish is the deploy."
+      },
+      {
+       "value": "632",
+       "label": "pages on our biggest build: a town page and a zip page for every place they deliver"
+      }
+     ]
+    }
+   },
+   {
+    "type": "platforms",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "",
+     "heading": "",
+     "body": "",
+     "items": [
+      {
+       "anchor": "edit",
+       "number": "",
+       "name": "",
+       "role": "You own the edit button",
+       "heading": "Change a price, a phone number or a page yourself. Today.",
+       "body": "Rates, staff, offers, hours and locations are content, not code. Your team changes them in a form and they're live in under a minute. No developer, no ticket, no two-week wait.",
+       "bullets": [
+        "Location data held once, published to every page",
+        "Every edit to a live page is recorded, with who made it",
+        "Migrations keep every URL, so you don't lose your rankings on moving day"
+       ],
+       "image": "6",
+       "caption": "The page editor: title, description and search settings in plain fields.",
+       "flip": false
+      },
+      {
+       "anchor": "places",
+       "number": "",
+       "name": "",
+       "role": "Built for how people search",
+       "heading": "A page for every place you serve.",
+       "body": "A buyer searches by town, by zip, by service. A site with one \"areas we serve\" paragraph can't rank for any of them. We build the pages, from the data you already have, and keep them consistent.",
+       "bullets": [
+        "Inbox Portable Storage: 343 town pages and 272 zip pages, generated from one list",
+        "White & White: nineteen city pages and twenty-two service pages across two counties",
+        "Mule Box: three cities, three phone numbers, one place to edit it all"
+       ],
+       "image": "14",
+       "caption": "Inbox Portable Storage: a page for every town and zip code they deliver to.",
+       "flip": true
+      },
+      {
+       "anchor": "lead",
+       "number": "",
+       "name": "",
+       "role": "Built to take a lead",
+       "heading": "Read on a phone, at a red light, and still gets the call.",
+       "body": "Most of your visitors are holding a phone. The site loads fast, the form fits the screen, the number is one tap, and every submission and call is counted so you know which page earned it.",
+       "bullets": [
+        "Kalamazoo Mortgage: pre-approval form on the first screen, straight to the loan team",
+        "FoxBox: a quote path for moving and one for storage, each with its own follow-up",
+        "Every form protected from spam and tied to a conversion"
+       ],
+       "image": "16",
+       "caption": "Kalamazoo Mortgage: the pre-approval form on the first screen.",
+       "flip": false
+      }
+     ],
+     "note_lead": "",
+     "note": "",
+     "link_label": ""
+    }
+   },
+   {
+    "type": "numbered_list",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "The website audit",
+     "heading": "What we look at before we say a word about a redesign.",
+     "body": "We read your live site the way a search engine and a buyer do. You get the findings in plain English, ranked, whether you hire us or not.",
+     "items": [
+      {
+       "title": "Forms that leak",
+       "body": "Every form submitted and followed: does it reach a person, does the customer get a confirmation, is it counted.",
+       "tag": ""
+      },
+      {
+       "title": "Speed on a phone",
+       "body": "How the site loads on the device most of your visitors are holding, and what is slowing it down.",
+       "tag": ""
+      },
+      {
+       "title": "Calls you can't see",
+       "body": "Whether phone calls from the site are tracked at all, or whether your best leads are invisible in the reports.",
+       "tag": ""
+      },
+      {
+       "title": "Pages losing people",
+       "body": "Where visitors land and leave, and which pages have no clear next step.",
+       "tag": ""
+      },
+      {
+       "title": "Structure for search",
+       "body": "Titles, descriptions, one page per service and per market, and the pages search engines have nothing to work with.",
+       "tag": ""
+      },
+      {
+       "title": "What we'd fix first",
+       "body": "A short, ranked list of changes worth making this month, whoever makes them.",
+       "tag": ""
+      }
+     ],
+     "tone": "subtle",
+     "heading_size": "lg",
+     "quoted": false,
+     "marker": "dot",
+     "ctas": [],
+     "anchor": ""
+    }
+   },
+   {
+    "type": "case_studies",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Sites we built",
+     "heading": "Running today.",
+     "body": "",
+     "cases": "mulebox white-and-white the-foundry",
+     "all": false,
+     "link_label": "All case studies",
+     "tone": "bg",
+     "note_lead": "",
+     "note": ""
+    }
+   },
+   {
+    "type": "audit_form",
+    "version": 1,
+    "data": {
+     "eyebrow": "The audit",
+     "heading": "Audit my website.",
+     "blurb": "Tell us where the business is now. For businesses already investing in marketing, or ready to. A partner reads it personally.",
+     "bullets": [
+      "Read-only access. Nothing changes.",
+      "No slide deck. The findings, with the money attached.",
+      "A partner walks you through it live."
+     ],
+     "audit_type": "Website",
+     "lock_type": false,
+     "submit_label": "Request my audit",
+     "note": "",
+     "prefix": "websites",
+     "tone": "subtle"
+    }
+   },
+   {
+    "type": "closing_form",
+    "version": 1,
+    "data": {
+     "heading": "Find out what your site is costing you.",
+     "blurb": "We read your live site the way a search engine and a buyer do: speed, structure, forms, tracking and the pages that are quietly losing people. A partner walks you through what we found.",
+     "phone_kicker": "Call us direct",
+     "phone_label": "(415) 283-6736",
+     "phone_link": {
+      "kind": "url",
+      "value": "tel:+14152836736"
+     },
+     "submit_label": "Request my audit",
+     "note": ""
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "Websites · GoLumin",
+   "meta_description": "We build, migrate and host websites for local businesses, then keep improving them. Edits live in under a minute, every URL survives the move, every form reaches your inbox."
+  }
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "entry": {
+  "frontmatter": {
+   "nav": "Websites",
+   "promise": "A site built to turn visits into calls, that you can edit yourself.",
+   "capabilities": [
+    "Edits live in under a minute, no developer",
+    "Built to turn visits into calls",
+    "Hosting, forms and migration included"
+   ],
+   "proof": {
+    "fact": "100s of sites launched, from a nine-page agency site to a 632-page storage build.",
+    "source": ""
+   },
+   "cases": [
+    "white-and-white",
+    "inbox-portable-storage",
+    "mulebox",
+    "the-foundry"
+   ],
+   "h": "A website that brings in calls, not just compliments.",
+   "lede": "We build, migrate and host your site, then keep improving it. Edits go live in under a minute, every URL survives the move, and every form lands in your inbox.",
+   "audit": {
+    "cta": "Audit my website"
+   }
+  }
+ }
+}

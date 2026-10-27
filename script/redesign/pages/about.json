@@ -1,0 +1,110 @@
+{
+ "page": {
+  "slug": "about",
+  "title": "Who you'll work with",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Who you'll work with",
+     "heading": "Two partners who do the work. No layer in between.",
+     "lede": "There's no sales team, and no hand-off to a junior account manager after you sign. There are two of us, we own the business equally, and we're the two who build and run the thing. Either of us answers the phone.",
+     "chips": [],
+     "ctas": [],
+     "items_style": "none",
+     "items": []
+    }
+   },
+   {
+    "type": "founders",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "The two of us"
+    }
+   },
+   {
+    "type": "cards",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "What we believe",
+     "heading": "Four things we'll say on the first call, whether or not you hire us.",
+     "body": "",
+     "columns": "2",
+     "tone": "subtle",
+     "numbered": false,
+     "service_links": false,
+     "items": [
+      {
+       "kicker": "",
+       "title": "Measure before you spend more",
+       "body": "Most accounts don't need more budget. They need to know which dollars are producing customers. Fix the counting first, then scale what works."
+      },
+      {
+       "kicker": "",
+       "title": "You own your accounts, your site and your history",
+       "body": "Ad accounts, domain, content and phone numbers stay in your name. If you ever leave, nothing switches off and nothing is held hostage."
+      },
+      {
+       "kicker": "",
+       "title": "Technology is an extension of us, not a replacement",
+       "body": "We built software, and some of it uses AI, because it lets two people watch every account every day. Every change it proposes is read and signed by one of us. It never spends on its own."
+      },
+      {
+       "kicker": "",
+       "title": "Say no to the plausible bad idea",
+       "body": "Taking accountability for the outcome means having opinions about the plan. We'll tell you when ads aren't the right first move, or when a redesign won't fix what's wrong."
+      }
+     ]
+    }
+   },
+   {
+    "type": "stats_section",
+    "version": 1,
+    "data": {
+     "heading": "Where we are.",
+     "body": "",
+     "image_id": "",
+     "stats": [
+      {
+       "value": "Kalamazoo",
+       "label": "Where we're based. Clients in Michigan, New Hampshire, Massachusetts, Texas, Louisiana, Nebraska, California, Idaho, Ohio and Indiana."
+      },
+      {
+       "value": "4",
+       "label": "open roles, remote in the US. Marketing and engineering. See the openings at /careers."
+      },
+      {
+       "value": "10%",
+       "label": "paid for a year on any business you refer that signs. How referrals work: /referrals."
+      }
+     ]
+    }
+   },
+   {
+    "type": "closing_form",
+    "version": 1,
+    "data": {
+     "heading": "Start with an audit of what you already have.",
+     "blurb": "A partner reads what you send and builds the audit against your real accounts, not a template. If you'd rather talk it through first, the number below reaches us directly.",
+     "phone_kicker": "Call us direct",
+     "phone_label": "(415) 283-6736",
+     "phone_link": {
+      "kind": "url",
+      "value": "tel:+14152836736"
+     },
+     "submit_label": "Request my audit",
+     "note": ""
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "Who you'll work with · GoLumin",
+   "meta_description": "GoLumin is two partners, Jordan Tag and Ted Martin, who do the work themselves. Fifteen years in paid search, a certified Google Partner, and software they built to run it properly."
+  }
+ }
+}

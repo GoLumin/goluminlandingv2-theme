@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="<%= website_settings["default_locale"].presence || "en" %>" class="antialiased bg-bg" data-theme="<%= website_design(:color_scheme) %>">
+<html lang="<%= website_settings["default_locale"].presence || "en" %>" class="antialiased">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%# The theme's files come from the theme itself (Goluminlandingv2::AssetsController), not the asset pipeline. %>
-    <link rel="preload" href="<%= gl_asset_path("Geist-Variable.woff2") %>" as="font" type="font/woff2" crossorigin="anonymous">
+    <%# The type: Inter, from Google Fonts. The theme's own files come from the theme itself (Goluminlandingv2::AssetsController), not the asset pipeline. %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="<%= gl_asset_path("site.css") %>">
     <%= website_design_tags %>
     <%= yield :head %>
-    <meta name="theme-color" content="<%= website_design(:color_scheme) == "dark" ? "#0f0b17" : "#faf9fc" %>">
+    <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="<%= gl_favicon_href %>">
     <link rel="apple-touch-icon" href="<%= gl_asset_path("apple-touch-icon.png") %>">
     <link rel="manifest" href="/site.webmanifest">
@@ -16,8 +18,8 @@
     <%= website_scripts("head") %>
     <%= gl_javascript_tags %>
   </head>
-  <body class="min-h-screen">
-    <a class="skip-link" href="#main">Skip to content</a>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
     <% if content_for?(:header) %>
       <%= yield :header %>
     <% else %>
@@ -30,7 +32,7 @@
       <%= render "website/shared/footer" %>
     <% end %>
     <% if content_for?(:sticky_cta) && website_design(:sticky_cta) %>
-      <%= render "website/shared/sticky_cta", label: content_for(:sticky_cta) %>
+      <%= render "website/shared/mobile_bar", label: content_for(:sticky_cta) %>
     <% end %>
     <%= website_scripts("body") %>
   </body>

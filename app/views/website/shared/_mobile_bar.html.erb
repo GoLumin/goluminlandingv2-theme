@@ -1,0 +1,6 @@
+<%# locals: (label:) -%>
+<%# The phone's bar at the foot of the screen: call, or jump to the page's first audit form (#plan-form). nav.js hides it while a form is on screen. %>
+<div class="mobile-bar" data-mobile-bar>
+  <a class="btn btn-ghost" href="<%= gl_tel %>" data-cta="sticky-phone">Call us</a>
+  <a class="btn btn-primary" href="#plan-form" data-cta="sticky"><%= label %></a>
+</div>

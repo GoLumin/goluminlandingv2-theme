@@ -1,7 +1,11 @@
 <%# locals: (data:) -%>
-<%# A policy (privacy.astro, terms.astro): its heading, its date and its Markdown. %>
-<div class="mx-auto max-w-2xl px-5 py-16 md:px-8">
-  <h1 class="text-3xl font-semibold tracking-tight"><%= data.heading %></h1>
-  <% if data.updated.present? %><p class="mt-2 font-mono text-[12px] text-text-muted"><%= data.updated %></p><% end %>
-  <div class="legal mt-8 text-[15px] leading-relaxed text-text-subtle"><%= website_markdown data.body %></div>
-</div>
+<%# A policy: its heading, its date and its Markdown. %>
+<section class="page-hero is-night is-short">
+  <%= render "website/shared/scene" %>
+  <div class="container page-hero-inner">
+    <%= render "website/shared/badge" %>
+    <h1 class="h-hero"><%= data.heading %></h1>
+    <% if data.updated.present? %><p class="small" style="margin-top:16px"><%= data.updated %></p><% end %>
+  </div>
+</section>
+<section class="section-tight"><div class="container-narrow legal"><%= website_markdown data.body %></div></section>

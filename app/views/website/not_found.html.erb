@@ -6,8 +6,8 @@
   <%= website_blocks page %>
 <% else %>
   <% content_for :head, website_seo_tags(title: "Page not found | #{gl_name}", noindex: true) %>
-  <section class="mx-auto max-w-6xl px-5 py-24 md:px-8">
-    <h1 class="display display-xl">That page <span class="brand-gradient-text">isn't here.</span></h1>
-    <p class="mt-8"><%= gl_button "Back to the homepage", "/", size: :lg %></p>
-  </section>
+  <section class="page-hero is-night"><%= render "website/shared/scene" %><div class="container page-hero-inner">
+    <h1 class="h-hero">That page <span class="em">isn't here.</span></h1>
+    <div class="hero-links"><%= gl_button "Back to the homepage", "/" %></div>
+  </div></section>
 <% end %>

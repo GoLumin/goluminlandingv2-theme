@@ -1,12 +1,12 @@
-<%# locals: (phone_label:, phone_href:, cta_label:, cta_href: "#lp-form", cta: "lp", offer: false, alt: "Lumin") -%>
-<%# A landing page's bar: the logo (no link, no nav: the only ways off the page are the form and the phone), the phone and the jump to the form. %>
-<% if offer %><%= render "website/shared/offer_bar", cta: "#{cta}-banner", hide_link_on_phone: offer == :narrow %><% end %>
-<header class="sticky top-0 z-40 border-b-2 border-text bg-bg/90 backdrop-blur">
-  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
-    <%= gl_logo(alt:, class: "h-7 w-auto shrink-0 sm:h-8") %>
-    <div class="flex items-center gap-4">
-      <a href="<%= phone_href %>" data-cta="<%= cta %>-header-phone" class="inline-flex items-center gap-2 font-mono text-[12px] font-semibold tracking-[0.08em] text-text transition-colors hover:text-primary"><%= gl_phone_icon(15) %><%= phone_label %></a>
-      <a href="<%= cta_href %>" data-cta="<%= cta %>-header" class="hidden h-11 items-center rounded-md bg-text px-5 text-[15px] font-semibold text-bg transition-colors hover:bg-primary sm:inline-flex"><%= cta_label %></a>
+<%# locals: (phone_label:, phone_href:, cta: "lp", alt: "Lumin", line: nil) -%>
+<%# A landing page's slim bar: the logo (home), a line of credentials, and the phone. No nav: the ways off the page are the form and the phone. %>
+<header class="nav nav-lp" data-nav>
+  <div class="container nav-inner">
+    <a class="nav-logo" href="/" aria-label="<%= gl_name %> home"><%= gl_logo(alt:) %></a>
+    <% if line.present? %><div class="nav-lp-tag"><%= line %></div><% end %>
+    <div class="nav-actions">
+      <span class="nav-lp-label">Talk with a real person</span>
+      <a class="btn btn-dark btn-sm" href="<%= phone_href %>" data-cta="<%= cta %>-header-phone"><%= phone_label %></a>
     </div>
   </div>
 </header>

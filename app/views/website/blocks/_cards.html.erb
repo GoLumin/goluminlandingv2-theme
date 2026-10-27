@@ -1,39 +1,54 @@
 <%# locals: (data:) -%>
-<%# Bordered cards in two or three columns: how to start, what we select for, the referral deal (dark). Optionally the service links under them. %>
+<%# Cards under a heading. White or soft: two columns as the plan-style list, three or four as the step cards. Dark (tone ink): the tiles of the night section; with no heading, its body is the closing line under the tiles instead. numbered puts 01, 02… where a card has no kicker. Optionally the service links under them. %>
 <% ink = data.tone == "ink" %>
+<% kicker = ->(card, i) { card.kicker.presence || (gl_n(i) if data.numbered) } %>
 <%= gl_section(tone: data.tone) do %>
-  <div class="<%= ink ? "max-w-4xl" : "max-w-3xl" %>">
-    <% if ink %>
-      <%= gl_pulse_eyebrow(data.eyebrow) %>
-    <% else %>
-      <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-    <% end %>
-    <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
-    <% if data.body.present? %><p class="<%= class_names("reveal text-lg leading-snug text-text-subtle", "mt-8 max-w-2xl": ink, "mt-6": !ink) %>"><%= data.body %></p><% end %>
-  </div>
-  <div class="<%= class_names("mt-12 grid gap-6", "md:grid-cols-3": data.columns != "2", "md:grid-cols-2": data.columns == "2") %>" data-stagger>
-    <% data.items.each_with_index do |card, i| %>
-      <div class="reveal border-2 border-text bg-surface p-6">
-        <% if data.numbered %>
-          <span class="tag font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= gl_n(i) %></span>
-        <% elsif card.kicker.present? %>
-          <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= card.kicker %></span>
-        <% end %>
-        <h3 class="mt-3 text-2xl font-bold tracking-tight"><%= card.title %></h3>
-        <p class="mt-3 text-[15px] leading-snug text-text-subtle"><%= card.body %></p>
-      </div>
-    <% end %>
-  </div>
-  <% if data.service_links %>
-    <div class="mt-12 grid gap-4 sm:grid-cols-3" data-stagger>
+  <% if data.heading.present? || data.eyebrow.present? %>
+    <div class="section-head reveal">
+      <%= gl_eyebrow(data.eyebrow) %>
+      <% if data.heading.present? %><h2 class="h-2"><%= gl_heading(data.heading) %></h2><% end %>
+      <% if data.body.present? && data.heading.present? %><p class="lede"><%= data.body %></p><% end %>
+    </div>
+  <% end %>
+  <% if ink %>
+    <div class="tile-grid<%= " is-first" if data.heading.blank? %>" data-stagger>
+      <% data.items.each_with_index do |card, i| %>
+        <div class="tile reveal">
+          <% if (k = kicker.(card, i)).present? %><p class="tile-kicker"><%= k %></p><% end %>
+          <h3 class="h-4"><%= card.title %></h3>
+          <p><%= card.body %></p>
+        </div>
+      <% end %>
+    </div>
+    <% if data.heading.blank? && data.body.present? %><p class="ops-point reveal"><%= data.body %></p><% end %>
+  <% elsif data.columns.to_s == "2" %>
+    <div class="plan-list is-two" data-stagger>
+      <% data.items.each_with_index do |card, i| %>
+        <div class="plan-item reveal">
+          <% if (k = kicker.(card, i)).present? %><p class="step-when"><%= k %></p><% end %>
+          <h3 class="h-4"><%= card.title %></h3>
+          <p><%= card.body %></p>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="steps<%= " is-four" if data.columns.to_s == "4" %>" data-stagger>
+      <% data.items.each_with_index do |card, i| %>
+        <div class="step reveal">
+          <% if (k = kicker.(card, i)).present? %><p class="step-when"><%= k %></p><% end %>
+          <h3 class="h-4"><%= card.title %></h3>
+          <p><%= card.body %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <% if data.service_links && gl_services.any? %>
+    <div class="steps mt-section" data-stagger>
       <% gl_services.each do |service| %>
         <% s = website_fields(service) %>
-        <a href="<%= website_path(service) %>" data-cta="services-index-<%= service.slug %>" class="reveal lift group flex items-center justify-between gap-3 border-2 border-text bg-bg-subtle px-5 py-4">
-          <span>
-            <span class="block font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= s.n %></span>
-            <span class="mt-1 block text-lg font-semibold tracking-tight"><%= s.nav %></span>
-          </span>
-          <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+        <a href="<%= website_path(service) %>" data-cta="services-index-<%= service.slug %>" class="step reveal">
+          <h3 class="h-4"><%= s.nav.presence || service.title %> <span aria-hidden="true">→</span></h3>
+          <p><%= s.promise %></p>
         </a>
       <% end %>
     </div>

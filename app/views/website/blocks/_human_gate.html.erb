@@ -1,25 +1,22 @@
 <%# locals: (data:) -%>
-<%# The human gate (Guardrails.astro): the four roles, in order, beside the approvals-queue illustration. %>
+<%# Who signs: the roles, in order, as the tiles of a dark section, with the caption and the link under them. (For the approvals screenshot, add a Media + text block with the accent background above this one.) %>
 <% link = gl_href(data.link) %>
-<%= gl_section(tone: "subtle", id: "control") do %>
-  <div class="grid items-start gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-14">
-    <div class="md:sticky md:top-24">
-      <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-      <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
-      <p class="reveal mt-6 max-w-md text-lg leading-snug text-text-subtle"><%= data.body %></p>
-      <ol class="mt-10 rule-t" data-stagger>
-        <% data.roles.each_with_index do |role, i| %>
-          <li class="reveal grid grid-cols-[2.5rem_1fr] items-baseline gap-3 border-b border-border py-4">
-            <span class="font-mono text-[12px] text-text-muted"><%= gl_n(i) %></span>
-            <div><span class="text-lg font-semibold tracking-tight"><%= role.who %> <%= role.title %></span><span class="text-text-subtle"> <%= role.body %></span></div>
-          </li>
-        <% end %>
-      </ol>
-      <% if link %><a href="<%= link %>" class="reveal mt-8 inline-flex items-center gap-2 font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text"><%= data.link_label %></a><% end %>
-    </div>
-    <div class="tilt-zone reveal" style="--i:1" data-human-gate>
-      <%= render "website/shared/approvals_mock" %>
-      <p class="mt-3 font-mono text-[11px] text-text-muted"><%= data.caption %></p>
-    </div>
+<%= gl_section(tone: "ink", id: "control") do %>
+  <div class="section-head reveal">
+    <%= gl_eyebrow(data.eyebrow) %>
+    <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+    <% if data.body.present? %><p class="lede"><%= data.body %></p><% end %>
   </div>
+  <div class="tile-grid is-first" data-stagger data-human-gate>
+    <% data.roles.each do |role| %>
+      <div class="tile reveal">
+        <% if role.who.present? %><p class="tile-kicker"><%= role.who %></p><% end %>
+        <h3 class="h-4"><%= role.title.to_s.upcase_first %></h3>
+        <p><%= role.body %></p>
+      </div>
+    <% end %>
+  </div>
+  <% if data.caption.present? || link %>
+    <p class="note reveal"><%= data.caption %><% if link && data.link_label.present? %> <a href="<%= link %>"><%= data.link_label %></a><% end %></p>
+  <% end %>
 <% end %>

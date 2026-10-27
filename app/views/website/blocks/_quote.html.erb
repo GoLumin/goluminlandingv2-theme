@@ -1,7 +1,26 @@
 <%# locals: (data:) -%>
-<section class="console ink rule-t">
-  <figure class="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-    <blockquote class="reveal"><p class="text-[clamp(1.6rem,3.4vw,2.6rem)] font-semibold leading-[1.18] tracking-tight text-text"><span class="brand-gradient-text" aria-hidden="true">“</span><%= website_plain_text(data.text) %><span class="brand-gradient-text" aria-hidden="true">”</span></p></blockquote>
-    <% if data.attribution.present? %><figcaption class="reveal mt-8 text-lg font-bold tracking-tight"><%= data.attribution %></figcaption><% end %>
-  </figure>
+<%# A client's words, set large, with their result as a figure beside them where the attribution names a testimonials entry by its slug (behnke-logistics); otherwise the text and attribution as given. %>
+<% t = gl_testimonial_by_slug(data.attribution) %>
+<% q = t && website_fields(t) %>
+<% text = q ? q.quote : website_plain_text(data.text) %>
+<% stat = q && q.result_figure.present? %>
+<section class="section section-night has-photo">
+  <%= render "website/shared/scene", key: "quote", night: true %>
+  <div class="container quote-grid<%= " is-alone" unless stat %>">
+    <blockquote class="reveal">
+      <p class="quote-text">“<%= text %>”</p>
+      <% if q %>
+        <p class="quote-by"><strong><%= q.name.presence || t.title %></strong><% if q.role.present? || q.company.present? %> · <%= [q.role, q.company].compact_blank.join(", ") %><% end %></p>
+      <% elsif data.attribution.present? %>
+        <p class="quote-by"><strong><%= data.attribution %></strong></p>
+      <% end %>
+    </blockquote>
+    <% if stat %>
+      <div class="quote-stat reveal" style="--i:1">
+        <span class="num"><%= q.result_figure %></span>
+        <p><%= q.result_label.to_s.upcase_first %></p>
+        <% if q.case_study.present? && gl_case(q.case_study) %><a class="btn-link" href="/work/<%= q.case_study %>" data-cta="testimonial">Read the case study <span class="arrow" aria-hidden="true">→</span></a><% end %>
+      </div>
+    <% end %>
+  </div>
 </section>

@@ -1,26 +1,19 @@
 <%# locals: (service:) -%>
-<%# One service as a card (ui/ServiceCard.astro): its promise, capabilities and proof, then the audit for it (preselected in the form, forms.js) and its page. %>
+<%# One service as a card: the homepage of its first case study, its name, its promise, three capabilities, and its proof. The whole card goes to the service's page. %>
 <% s = website_fields(service) %>
-<article class="reveal lift flex flex-col border-2 border-text bg-surface">
-  <div class="flex items-center justify-between border-b-2 border-text px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em]">
-    <span class="tag text-text-muted"><%= s.n %></span>
-    <span class="font-semibold text-text"><%= service.title %></span>
-  </div>
-  <div class="flex flex-1 flex-col p-5 md:p-6">
-    <h3 class="text-2xl font-bold leading-[1.1] tracking-tight"><%= s.promise %></h3>
-    <p class="mt-3 text-[15px] leading-snug text-text-subtle"><%= s.card %></p>
-    <ul class="mt-5 space-y-2">
-      <% s.capabilities.each do |c| %>
-        <li class="flex items-start gap-2.5 text-[14.5px] font-medium leading-snug"><span class="mt-[7px] h-1.5 w-1.5 shrink-0 bg-signal" aria-hidden="true"></span><%= c %></li>
-      <% end %>
+<% shot = gl_cases(s.cases).first %>
+<a class="service-card reveal" href="<%= website_path(service) %>" data-cta="service-card-<%= service.slug %>">
+  <% if shot %>
+    <div class="service-shot"><%= gl_image website_fields(shot).screenshot, alt: "", sizes: "(min-width: 72rem) 24rem, (min-width: 720px) 50vw, 100vw", loading: :lazy %></div>
+  <% end %>
+  <div class="service-body">
+    <h3 class="h-3"><%= s.nav.presence || service.title %></h3>
+    <% if s.promise.present? %><p class="service-promise"><%= s.promise %></p><% end %>
+    <ul class="service-list">
+      <% s.capabilities.first(3).each do |c| %><li><%= c %></li><% end %>
     </ul>
-    <div class="mt-6 border-l-2 border-signal bg-bg-subtle px-4 py-3">
-      <p class="text-[14px] font-medium leading-snug"><%= s.proof.fact %></p>
-      <p class="mt-1.5 font-mono text-[10.5px] uppercase tracking-wider text-text-muted"><%= s.proof.source %></p>
-    </div>
-    <div class="mt-auto pt-6">
-      <a href="#audit" data-cta="service-card-audit-<%= service.slug %>" data-audit-preselect="<%= s.audit.type %>" class="inline-flex h-11 w-full items-center justify-center rounded-md bg-text px-5 text-[15px] font-semibold text-bg transition-colors hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"><%= s.audit.cta %> →</a>
-      <a href="<%= website_path(service) %>" data-cta="service-card-<%= service.slug %>" class="group mt-3 inline-flex items-center gap-2 text-[14px] font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text">See how it works<span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></a>
-    </div>
+    <% if s.proof.fact.present? %>
+      <div class="service-fact"><span><strong><%= s.proof.fact %></strong><% if s.proof.source.present? %> <%= s.proof.source %><% end %></span></div>
+    <% end %>
   </div>
-</article>
+</a>

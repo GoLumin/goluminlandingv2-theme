@@ -1,15 +1,17 @@
 <%# locals: (data:) -%>
-<%# Every published client and what we did for them (the clients collection). %>
-<%= gl_section(tone: "subtle") do %>
-  <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-  <h2 class="display display-md max-w-3xl"><%= gl_heading(data.heading) %></h2>
-  <div class="mt-10 grid items-start gap-px border-2 border-text bg-border sm:grid-cols-2 lg:grid-cols-3">
+<%# Every client cleared for public mention (the clients collection): the name, what we run, and the fact. %>
+<%= gl_section(tone: "subtle", id: "clients", rule: true) do %>
+  <div class="section-head reveal">
+    <%= gl_eyebrow(data.eyebrow) %>
+    <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+  </div>
+  <div class="plan-list is-two" data-stagger>
     <% gl_clients.each do |client| %>
       <% c = website_fields(client) %>
-      <div class="flex h-full flex-col bg-surface p-5">
-        <p class="text-[15px] font-bold tracking-tight"><%= client.title %></p>
-        <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted"><%= c.vertical %></p>
-        <p class="mt-3 text-[14px] leading-relaxed text-text-subtle"><%= c.fact %></p>
+      <div class="plan-item reveal">
+        <p class="step-when"><%= [c.vertical, c.what].compact_blank.join(" · ") %></p>
+        <h3 class="h-4"><%= client.title %></h3>
+        <% if c.fact.present? %><p><%= c.fact %></p><% end %>
       </div>
     <% end %>
   </div>

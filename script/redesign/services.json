@@ -1,0 +1,59 @@
+{
+ "websites": {
+  "nav": "Websites",
+  "promise": "A site built to turn visits into calls, that you can edit yourself.",
+  "capabilities": [
+   "Edits live in under a minute, no developer",
+   "Built to turn visits into calls",
+   "Hosting, forms and migration included"
+  ],
+  "proof": {
+   "fact": "100s of sites launched, from a nine-page agency site to a 632-page storage build.",
+   "source": ""
+  },
+  "cases": [
+   "white-and-white",
+   "inbox-portable-storage",
+   "mulebox",
+   "the-foundry"
+  ]
+ },
+ "advertising": {
+  "nav": "Advertising",
+  "promise": "Google, Meta and Microsoft ads, worked every day, in your name.",
+  "capabilities": [
+   "Google, Meta, Microsoft and ChatGPT ads",
+   "Worked every day, not every month",
+   "Your ad accounts stay in your name"
+  ],
+  "proof": {
+   "fact": "$25M+ in client ad spend managed, with hard spend limits before any change goes live.",
+   "source": ""
+  },
+  "cases": [
+   "biofuse",
+   "kalamazoo-mortgage",
+   "behnke-logistics",
+   "foxbox-moves"
+  ]
+ },
+ "local-ai-search": {
+  "nav": "Getting found",
+  "promise": "Show up on Google Maps and in ChatGPT when someone nearby is searching.",
+  "capabilities": [
+   "Google Maps and your business profile",
+   "Named when someone asks ChatGPT or Gemini",
+   "Hours, service areas and reviews kept current"
+  ],
+  "proof": {
+   "fact": "5 places a customer looks for you now: Google, Maps, ChatGPT, Gemini, Apple Maps.",
+   "source": ""
+  },
+  "cases": [
+   "kalamazoo-rejuvenation",
+   "inbox-portable-storage",
+   "white-and-white",
+   "mulebox"
+  ]
+ }
+}

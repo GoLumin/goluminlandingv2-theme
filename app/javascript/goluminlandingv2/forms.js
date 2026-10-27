@@ -38,6 +38,9 @@ const mountTurnstile = async (form) => {
   if (id) widgets.set(form, id)
 }
 
+// A field that failed: its .field wrapper carries the red ring (site.css).
+const mark = (field, bad) => { if (!field) return; (field.closest(".field") || field).classList.toggle("is-invalid", bad) }
+
 const MESSAGES = {
   captcha_failed: "We couldn't verify you're human. Please try again.",
   rate_limited: "That's a lot of tries in a short time. Please wait a few minutes and send it again.",
@@ -82,7 +85,7 @@ if (forms.length) {
       if (type.tagName === "SELECT" && type.value !== value) type.value = value
       const relevant = SPEND_TYPES.includes(type.value)
       if (spendField) spendField.hidden = !relevant
-      if (spend) { spend.required = relevant; if (!relevant) spend.classList.remove("border-danger") }
+      if (spend) { spend.required = relevant; if (!relevant) mark(spend, false) }
       if (notify) push("select_audit_type", { audit_type: value })
     }
     type?.addEventListener("change", () => {
@@ -99,7 +102,7 @@ if (forms.length) {
       const applyReferralType = (notify) => {
         const naming = referralType.value === "Referral"
         blocks.forEach((b) => { b.hidden = !naming })
-        required.forEach((f) => { f.required = naming; if (!naming) f.classList.remove("border-danger") })
+        required.forEach((f) => { f.required = naming; if (!naming) mark(f, false) })
         if (notify) push("select_referral_type", { referral_type: referralType.value })
       }
       referralType.addEventListener("change", () => applyReferralType(true))
@@ -107,7 +110,7 @@ if (forms.length) {
     }
 
     form.addEventListener("input", (e) => {
-      e.target.classList.remove("border-danger")
+      mark(e.target, false)
       if (started) return
       started = true
       push("form_start")
@@ -120,15 +123,15 @@ if (forms.length) {
       e.preventDefault()
       const err = form.querySelector("[data-error]")
       const btn = form.querySelector("[data-submit]")
-      const say = (text) => { err.textContent = text; err.classList.remove("hidden") }
-      err.classList.add("hidden")
+      const say = (text) => { err.textContent = text; err.hidden = false }
+      err.hidden = true
       const missing = Array.from(form.querySelectorAll("[required]")).filter((f) => !f.closest("[hidden]") && !f.value.trim())
       const emailEl = form.querySelector("[data-email]")
       const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())
       if (missing.length || !emailOk) {
         say(missing.length ? "Please fill in the highlighted fields." : "That email address doesn't look right.")
-        missing.forEach((f) => f.classList.add("border-danger"))
-        if (!emailOk) emailEl.classList.add("border-danger")
+        missing.forEach((f) => mark(f, true))
+        if (!emailOk) mark(emailEl, true)
         ;(missing[0] || emailEl).scrollIntoView({ block: "center", behavior: "smooth" })
         return
       }
@@ -159,7 +162,7 @@ if (forms.length) {
           location.href = `/thank-you?${next}`
           return
         }
-        Object.keys(body.errors || {}).forEach((name) => form.querySelector(`[name="${CSS.escape(name)}"]`)?.classList.add("border-danger"))
+        Object.keys(body.errors || {}).forEach((name) => mark(form.querySelector(`[name="${CSS.escape(name)}"]`), true))
         say(MESSAGES[body.error] || (body.errors ? "Something didn't look right. Please check the highlighted fields and try again." : "We couldn't reach the server. Please try again, or give us a call."))
       } catch {
         say("We couldn't reach the server. Please try again, or give us a call.")
@@ -170,23 +173,4 @@ if (forms.length) {
       refresh(form)
     })
   })
-}
-
-// The phone's audit bar (StickyCta.astro): up once the page's main audit form
-// has scrolled away, down while the audit section is on screen.
-const bar = document.getElementById("sticky-cta")
-const section = document.getElementById("audit")
-const hero = document.querySelector("form[data-audit-form]:not([data-sidebar])")
-if (bar && hero && section && "IntersectionObserver" in window) {
-  const single = section.contains(hero)
-  let heroGone = single
-  let formVisible = false
-  const update = () => {
-    const show = heroGone && !formVisible
-    bar.classList.toggle("translate-y-full", !show)
-    if (show) bar.removeAttribute("inert"); else bar.setAttribute("inert", "")
-  }
-  if (!single) new IntersectionObserver(([e]) => { heroGone = !e.isIntersecting && e.boundingClientRect.top < 0; update() }, { threshold: 0 }).observe(hero)
-  new IntersectionObserver(([e]) => { formVisible = e.isIntersecting; update() }, { threshold: 0.15 }).observe(section)
-  update()
 }

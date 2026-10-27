@@ -1,19 +1,19 @@
 <%# locals: (data:) -%>
-<%# A form beside its pitch: the application (careers) or the referral form. %>
-<%= gl_section(tone: data.tone, id: data.anchor, klass: "scroll-mt-16") do %>
-  <div class="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-start md:gap-14">
-    <div class="md:sticky md:top-24">
-      <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-      <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
-      <p class="reveal mt-6 max-w-md text-lg leading-snug text-text-subtle"><%= data.body %></p>
-      <ul class="mt-8 rule-t text-[15px]" data-stagger>
-        <% data.bullets.each do |bullet| %><li class="reveal flex items-start gap-3 border-b border-border py-3"><%= gl_dot %><%= bullet %></li><% end %>
-      </ul>
-      <% if data.footnote.present? %><%= render "website/shared/inline_markdown", text: data.footnote, klass: "reveal mt-8 text-[15px] text-text-subtle" %><% end %>
+<%# A form beside its pitch: the application (careers), the referral form or the short contact form. %>
+<%= gl_section(tone: data.tone, id: data.anchor) do %>
+  <div class="cta-grid">
+    <div class="reveal">
+      <%= gl_eyebrow(data.eyebrow) %>
+      <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+      <% if data.body.present? %><p class="lede"><%= data.body %></p><% end %>
+      <% if data.bullets.any? %><ul class="check-list"><% data.bullets.each do |bullet| %><li><%= bullet %></li><% end %></ul><% end %>
+      <% if data.footnote.present? %><%= render "website/shared/inline_markdown", text: data.footnote, klass: "note" %><% end %>
     </div>
-    <% if data.form == "application" %><%= render "website/shared/apply_form" %>
-    <% elsif data.form == "referral" %><%= render "website/shared/referral_form" %>
-    <% elsif data.form == "contact" %><%= render "website/shared/contact_form", prefix: "contact" %>
-    <% end %>
+    <div class="reveal" style="--i:1">
+      <% if data.form == "application" %><%= render "website/shared/apply_form" %>
+      <% elsif data.form == "referral" %><%= render "website/shared/referral_form" %>
+      <% elsif data.form == "contact" %><div class="form-card"><%= render "website/shared/contact_form", prefix: "contact" %></div>
+      <% end %>
+    </div>
   </div>
 <% end %>

@@ -2,6 +2,7 @@
 // and the few things every page does (attribution, analytics events, the
 // landing pages' headline variants, the thank-you page's variant).
 import "goluminlandingv2/attribution"
+import "goluminlandingv2/nav"
 import "goluminlandingv2/motion"
 import "goluminlandingv2/forms"
 import "goluminlandingv2/video"

@@ -1,64 +1,33 @@
 <%# locals: (data:) -%>
-<%# Every open role, in full (careers.astro), from the roles collection: what you'd own and work with, what we need, the honest part. Alternating tones. %>
+<%# Every open role, in full, from the roles collection: what you'd own and work with, what we need, the honest part. Alternating tones. %>
 <% apply = gl_href(data.apply_link) %>
 <% gl_roles.each_with_index do |role, idx| %>
   <% r = website_fields(role) %>
-  <%= gl_section(tone: idx.even? ? "bg" : "subtle", id: role.slug, klass: "scroll-mt-20") do %>
-    <div class="grid items-start gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
-      <div class="lg:sticky lg:top-24">
-        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[12px] uppercase tracking-[0.18em]">
-          <span class="tag text-text-muted"><%= r.n %></span>
-          <span class="font-semibold text-text"><%= r.team %></span>
-          <span class="text-text-muted">· <%= data.location %></span>
-        </div>
-        <h2 class="reveal display display-md mt-5"><%= role.title %></h2>
-        <p class="reveal mt-4 text-xl font-semibold leading-snug tracking-tight text-primary"><%= r.promise %></p>
-        <p class="reveal mt-5 max-w-lg text-[17px] leading-snug text-text-subtle"><%= r.lede %></p>
-        <div class="mt-7 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider">
-          <% r.chips.each do |chip| %><span class="border border-text px-2 py-1 text-text"><%= chip %></span><% end %>
-        </div>
-        <% if apply %><div class="mt-8"><%= gl_button data.apply_label, apply, magnet: true, cta: "role-apply-#{role.slug}" %></div><% end %>
+  <%= gl_section(tone: idx.even? ? "bg" : "subtle", id: role.slug, rule: true) do %>
+    <div class="two-col">
+      <div class="sticky-side reveal">
+        <%= gl_eyebrow([r.team, data.location].compact_blank.join(" · ")) %>
+        <h2 class="h-2"><%= role.title %></h2>
+        <% if r.promise.present? %><p class="lede" style="margin-top:14px;color:var(--violet)"><%= r.promise %></p><% end %>
+        <% if r.lede.present? %><p class="lede" style="margin-top:14px"><%= r.lede %></p><% end %>
+        <% if r.chips.any? %><div class="role-chips"><% r.chips.each do |chip| %><span class="chip"><%= chip %></span><% end %></div><% end %>
+        <% if apply %><div class="btn-row" style="margin-top:28px"><%= gl_button data.apply_label, apply, cta: "role-apply-#{role.slug}" %></div><% end %>
       </div>
-      <div data-stagger>
-        <div class="reveal">
-          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">What you'd own</p>
-          <ul class="mt-4 rule-t">
-            <% r.owns.each do |line| %><li class="flex items-start gap-3 border-b border-border py-3 text-[15px] font-medium leading-snug"><%= gl_dot %><%= line %></li><% end %>
-          </ul>
-        </div>
-        <div class="reveal mt-10">
-          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">What you'd work with</p>
-          <dl class="mt-4 rule-t">
-            <% r.stack.each do |s| %>
-              <div class="border-b border-border py-3.5">
-                <dt class="text-[15px] font-semibold tracking-tight"><%= s.t %></dt>
-                <dd class="mt-1 text-[14.5px] leading-snug text-text-subtle"><%= s.d %></dd>
-              </div>
-            <% end %>
-          </dl>
-        </div>
-        <div class="reveal mt-10 grid gap-8 sm:grid-cols-2">
-          <div>
-            <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">What we need</p>
-            <ul class="mt-4 space-y-2.5">
-              <% r.need.each do |line| %><li class="flex items-start gap-2.5 text-[14.5px] font-medium leading-snug"><span class="mt-[2px] shrink-0 font-mono text-signal" aria-hidden="true">→</span><%= line %></li><% end %>
-            </ul>
+      <div class="stack reveal" style="--i:1">
+        <% if r.owns.any? %>
+          <div><p class="eyebrow">What you'd own</p><ul class="dash-list"><% r.owns.each do |line| %><li><%= gl_dot %><span><%= line %></span></li><% end %></ul></div>
+        <% end %>
+        <% if r.stack.any? %>
+          <div class="mt-section"><p class="eyebrow">What you'd work with</p>
+            <dl class="ruled"><% r.stack.each do |s| %><div><dt class="h-4"><%= s.t %></dt><dd><p><%= s.d %></p></dd></div><% end %></dl>
           </div>
-          <div>
-            <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">Helps, never required</p>
-            <ul class="mt-4 space-y-2.5">
-              <% r.bonus.each do |line| %><li class="flex items-start gap-2.5 text-[14.5px] leading-snug text-text-subtle"><span class="mt-[2px] shrink-0 font-mono text-text-muted" aria-hidden="true">+</span><%= line %></li><% end %>
-            </ul>
-          </div>
+        <% end %>
+        <div class="two-col is-even mt-section">
+          <% if r.need.any? %><div><p class="eyebrow">What we need</p><ul class="dash-list"><% r.need.each do |line| %><li><%= gl_dot %><span><%= line %></span></li><% end %></ul></div><% end %>
+          <% if r.bonus.any? %><div><p class="eyebrow">Helps, never required</p><ul class="dash-list"><% r.bonus.each do |line| %><li><%= gl_dot %><span><%= line %></span></li><% end %></ul></div><% end %>
         </div>
-        <div class="reveal mt-10 border-l-2 border-signal bg-bg-subtle px-5 py-4">
-          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">The honest part</p>
-          <p class="mt-2 text-[15px] leading-snug"><%= r.honest %></p>
-        </div>
-        <div class="reveal mt-4 border-l-2 border-text bg-surface px-5 py-4">
-          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">Where it goes</p>
-          <p class="mt-2 text-[15px] leading-snug"><%= r.growth %></p>
-        </div>
+        <% if r.honest.present? %><div class="callout-box mt-section"><h3 class="h-4">The honest part</h3><p><%= r.honest %></p></div><% end %>
+        <% if r.growth.present? %><div class="callout-box"><h3 class="h-4">Where it goes</h3><p><%= r.growth %></p></div><% end %>
       </div>
     </div>
   <% end %>

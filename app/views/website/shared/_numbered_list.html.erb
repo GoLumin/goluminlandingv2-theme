@@ -1,40 +1,19 @@
-<%# locals: (eyebrow:, eyebrow_n:, heading:, items:, body: nil, size: "md", quoted: false, marker: "number", ctas: []) -%>
-<%# A heading held on the left, a ruled list on the right: numbered, dotted, or tagged. items are [title, body, tag]. %>
-<div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-14">
-  <div class="md:sticky md:top-24 md:self-start">
+<%# locals: (eyebrow:, eyebrow_n: nil, heading:, items:, body: nil, quoted: false, marker: "number", ctas: []) -%>
+<%# A heading held on the left, a list of cards on the right: items are [title, body, tag]. marker "tag" shows each tag as the card's kicker. %>
+<div class="plan-grid">
+  <div class="reveal">
     <%= gl_eyebrow(eyebrow, eyebrow_n) %>
-    <h2 class="<%= class_names("reveal display", "display-md": size == "md", "display-lg": size != "md") %>"><%= gl_heading(heading) %></h2>
-    <% if body.present? %><p class="reveal mt-6 max-w-md text-lg leading-snug text-text-subtle"><%= body %></p><% end %>
-    <% if ctas.any? %><div class="reveal mt-8 flex flex-wrap gap-3"><%= gl_ctas(ctas, size: :md) %></div><% end %>
+    <h2 class="h-2"><%= gl_heading(heading) %></h2>
+    <% if body.present? %><p class="lede"><%= body %></p><% end %>
+    <% if ctas.any? %><div class="btn-row"><%= gl_ctas(ctas) %></div><% end %>
   </div>
-  <ol class="rule-t" data-stagger>
-    <% items.each_with_index do |(title, text, label), i| %>
-      <% if marker == "dot" %>
-        <li class="reveal flex items-start gap-4 border-b border-border py-4">
-          <%= gl_dot("mt-[9px] h-2 w-2") %>
-          <div>
-            <p class="text-[16px] font-semibold tracking-tight"><%= title %></p>
-            <p class="mt-1 text-[15px] leading-snug text-text-subtle"><%= text %></p>
-          </div>
-        </li>
-      <% elsif marker == "tag" %>
-        <li class="reveal border-b border-border py-6">
-          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <span class="tag font-mono text-[11px] text-text-muted"><%= gl_n(i) %></span>
-            <h3 class="text-xl font-bold tracking-tight"><%= title %></h3>
-            <% if label.present? %><span class="font-mono text-[11px] uppercase tracking-wider text-primary"><%= label %></span><% end %>
-          </div>
-          <p class="mt-2.5 max-w-2xl text-[15px] leading-snug text-text-subtle"><%= text %></p>
-        </li>
-      <% else %>
-        <li class="reveal grid grid-cols-[2.5rem_1fr] items-baseline gap-3 border-b border-border py-5">
-          <span class="font-mono text-[12px] text-text-muted"><%= gl_n(i) %></span>
-          <div>
-            <span class="text-lg font-semibold tracking-tight"><%= quoted ? "“#{title}”" : title %></span>
-            <p class="mt-1.5 text-[15px] leading-snug text-text-subtle"><%= text %></p>
-          </div>
-        </li>
-      <% end %>
+  <div class="plan-list reveal" style="--i:1">
+    <% items.each do |title, text, label| %>
+      <div class="plan-item">
+        <% if marker == "tag" && label.present? %><p class="step-when"><%= label %></p><% end %>
+        <% if title.present? %><h3 class="h-4"><%= quoted ? "“#{title}”" : title %></h3><% end %>
+        <% if text.present? %><p><%= text %></p><% end %>
+      </div>
     <% end %>
-  </ol>
+  </div>
 </div>

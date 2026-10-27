@@ -1,0 +1,296 @@
+{
+ "nav": {
+  "items": [
+   {
+    "label": "Services",
+    "link": {
+     "kind": "url",
+     "value": "/services"
+    },
+    "desktop_menu": true,
+    "children_from": "",
+    "children": [
+     {
+      "label": "Websites",
+      "link": {
+       "kind": "url",
+       "value": "/services/websites"
+      },
+      "note": "Built to turn visits into calls. Edits live in a minute."
+     },
+     {
+      "label": "Google Ads",
+      "link": {
+       "kind": "url",
+       "value": "/services/advertising"
+      },
+      "note": "Search and Maps ads, worked every day, in your own account."
+     },
+     {
+      "label": "Meta & social ads",
+      "link": {
+       "kind": "url",
+       "value": "/services/advertising#social"
+      },
+      "note": "Facebook and Instagram, with real leads fed back to the platform."
+     },
+     {
+      "label": "Local & AI search",
+      "link": {
+       "kind": "url",
+       "value": "/services/local-ai-search"
+      },
+      "note": "Google Maps, your business profile, and being named by ChatGPT."
+     },
+     {
+      "label": "Programmatic & ChatGPT ads",
+      "link": {
+       "kind": "url",
+       "value": "/services/advertising#programmatic"
+      },
+      "note": "Display, streaming TV and the newest ad platforms, tested small first."
+     },
+     {
+      "label": "Tracking & integrations",
+      "link": {
+       "kind": "url",
+       "value": "/tracking"
+      },
+      "note": "Every call and form tied to the dollar that bought it."
+     }
+    ]
+   },
+   {
+    "label": "Results",
+    "link": {
+     "kind": "url",
+     "value": "/work"
+    },
+    "desktop_menu": false,
+    "children_from": "",
+    "children": []
+   },
+   {
+    "label": "How we work",
+    "link": {
+     "kind": "url",
+     "value": "/how-it-works"
+    },
+    "desktop_menu": false,
+    "children_from": "",
+    "children": []
+   },
+   {
+    "label": "Company",
+    "link": {
+     "kind": "url",
+     "value": "/about"
+    },
+    "desktop_menu": true,
+    "children_from": "",
+    "children": [
+     {
+      "label": "Who you'll work with",
+      "link": {
+       "kind": "url",
+       "value": "/about"
+      },
+      "note": "Two partners, no account managers."
+     },
+     {
+      "label": "Trust & approvals",
+      "link": {
+       "kind": "url",
+       "value": "/trust"
+      },
+      "note": "Your accounts, your name, a person on every change."
+     },
+     {
+      "label": "Careers",
+      "link": {
+       "kind": "url",
+       "value": "/careers"
+      },
+      "note": "Four open roles, remote in the US."
+     },
+     {
+      "label": "Referrals",
+      "link": {
+       "kind": "url",
+       "value": "/referrals"
+      },
+      "note": "Send us a business, get paid when they sign."
+     },
+     {
+      "label": "Let's talk",
+      "link": {
+       "kind": "url",
+       "value": "/lets-talk"
+      },
+      "note": "Call, email, or send the form."
+     }
+    ]
+   }
+  ],
+  "cta_label": "Request an audit",
+  "cta_link": {
+   "kind": "url",
+   "value": "/lets-talk"
+  }
+ },
+ "footer": {
+  "blurb": "A marketing company for local and multi-location businesses. Websites, search and advertising, run as one system and tracked to the dollar, by people you can call.",
+  "columns": [
+   {
+    "heading": "Services",
+    "children_from": "",
+    "items": [
+     {
+      "label": "Websites",
+      "link": {
+       "kind": "url",
+       "value": "/services/websites"
+      }
+     },
+     {
+      "label": "Google Ads",
+      "link": {
+       "kind": "url",
+       "value": "/services/advertising"
+      }
+     },
+     {
+      "label": "Meta & social ads",
+      "link": {
+       "kind": "url",
+       "value": "/services/advertising#social"
+      }
+     },
+     {
+      "label": "Local & AI search",
+      "link": {
+       "kind": "url",
+       "value": "/services/local-ai-search"
+      }
+     },
+     {
+      "label": "Programmatic & ChatGPT ads",
+      "link": {
+       "kind": "url",
+       "value": "/services/advertising#programmatic"
+      }
+     },
+     {
+      "label": "Tracking & integrations",
+      "link": {
+       "kind": "url",
+       "value": "/tracking"
+      }
+     }
+    ]
+   },
+   {
+    "heading": "Company",
+    "children_from": "",
+    "items": [
+     {
+      "label": "Results",
+      "link": {
+       "kind": "url",
+       "value": "/work"
+      }
+     },
+     {
+      "label": "How we work",
+      "link": {
+       "kind": "url",
+       "value": "/how-it-works"
+      }
+     },
+     {
+      "label": "Who you'll work with",
+      "link": {
+       "kind": "url",
+       "value": "/about"
+      }
+     },
+     {
+      "label": "Careers",
+      "link": {
+       "kind": "url",
+       "value": "/careers"
+      }
+     },
+     {
+      "label": "Referrals",
+      "link": {
+       "kind": "url",
+       "value": "/referrals"
+      }
+     },
+     {
+      "label": "Blog",
+      "link": {
+       "kind": "url",
+       "value": "/blog"
+      }
+     }
+    ]
+   },
+   {
+    "heading": "Contact",
+    "children_from": "",
+    "items": [
+     {
+      "label": "(415) 283-6736",
+      "link": {
+       "kind": "url",
+       "value": "tel:+14152836736"
+      }
+     },
+     {
+      "label": "marketing@golumin.io",
+      "link": {
+       "kind": "url",
+       "value": "mailto:marketing@golumin.io"
+      }
+     },
+     {
+      "label": "Let's talk",
+      "link": {
+       "kind": "url",
+       "value": "/lets-talk"
+      }
+     },
+     {
+      "label": "Client sign-in",
+      "link": {
+       "kind": "url",
+       "value": "https://ads.golumin.io"
+      }
+     }
+    ]
+   }
+  ],
+  "copyright": "GoLumin",
+  "tagline": ""
+ },
+ "ad_landing.credentials": {
+  "title": "Certified Google Partner",
+  "lines": [
+   "$25M+ in client ad spend managed",
+   "15+ years in paid search"
+  ]
+ },
+ "ad_landing.founders": {
+  "heading": "Two partners. No account managers in between.",
+  "sub": "There's no sales team, and no hand-off to a junior after you sign. There are two of us, we own the business equally, and we're the two who do the work. Either of us answers the phone."
+ },
+ "ad_landing.plan": {
+  "name": "your marketing audit",
+  "headline": "It tells you where the money's going. Then where it should go.",
+  "sub": "We go through your account without changing a thing in it, and write up what we find with the money attached to every line. Ranked, specific, and built against your real accounts rather than a template. Then we quote the work, or tell you plainly that you don't need us yet.",
+  "refrain": "Start with the audit. Decide after.",
+  "effort": "A few fields. A partner reads it, not an autoresponder."
+ }
+}

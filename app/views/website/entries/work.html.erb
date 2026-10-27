@@ -1,171 +1,149 @@
 <%# locals: (entry:) -%>
-<%# A case study (work/[slug].astro): the headline and a visit link, the live homepage, the story and the outcome where the client agreed, their figures, the build evidence, the account's evidence, their quote, what we built line by line, more work and the audit. %>
+<%# A case study: the headline, the live homepage, the story beside the outcome the client agreed to share, their figures, the build evidence, what the account showed, their quote, what we built line by line, more work and the plan form. %>
 <% c = website_fields(entry) %>
 <% proven = gl_services.select { |sv| Array(website_fields(sv).cases).include?(entry.slug) } %>
 <% i = gl_work.index(entry) || 0 %>
 <% more = [1, 2].map { |k| gl_work[(i + k) % gl_work.size] }.uniq - [entry] %>
 <% quote = gl_testimonial(entry.slug) %>
+<% figure = gl_case_figure(c) %>
 <% content_for :head, gl_seo_tags(entry, description: c.lede, image: c.screenshot) %>
-<% content_for :sticky_cta, "Get a free audit →" %>
-<section class="relative overflow-hidden">
-  <div class="grid-paper pointer-events-none absolute inset-0 -z-10 opacity-70"></div>
-  <div class="mx-auto max-w-6xl px-5 pb-12 pt-12 md:px-8 md:pb-16 md:pt-20">
-    <p class="reveal mb-8 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[12px] uppercase tracking-[0.14em] sm:tracking-[0.18em]">
-      <a href="/work" class="text-text-muted hover:text-text">Results</a><span class="text-text-muted">/</span>
-      <span class="font-semibold"><%= entry.title %></span><span class="text-text-muted">·</span><span class="text-text-muted"><%= c.vertical %></span>
-    </p>
-    <h1 class="reveal display display-xl max-w-5xl"><%= c.h %></h1>
-    <p class="reveal mt-8 max-w-2xl text-xl leading-snug text-text-subtle md:text-2xl"><%= c.lede %></p>
-    <div class="reveal mt-8 flex flex-wrap items-center gap-3">
-      <% if gl_href(c.url) %><%= gl_button safe_join(["Visit #{c.host} ", tag.span("↗", aria: {hidden: true})]), gl_href(c.url), variant: :outline, size: :lg, cta: "work-visit-#{entry.slug}" %><% end %>
-      <span class="font-mono text-[11px] uppercase tracking-wider text-text-muted"><%= c.place %> · <%= c.platform %></span>
+<% content_for :sticky_cta, "Request an audit" %>
+<section class="page-hero is-night is-short">
+  <%= render "website/shared/scene" %>
+  <div class="container">
+    <div class="page-hero-inner">
+      <%= render "website/shared/badge" %>
+      <p class="breadcrumb"><a href="/work">Results</a><span aria-hidden="true">/</span><span><%= [entry.title, c.vertical, c.place].compact_blank.join(" · ") %></span></p>
+      <h1 class="h-hero"><%= gl_heading(c.h) %></h1>
+      <p class="lede"><%= c.lede %></p>
+      <div class="hero-links">
+        <% if gl_href(c.url) %><%= gl_button "Visit #{c.host} ↗", gl_href(c.url), variant: :outline, cta: "work-visit-#{entry.slug}", rel: "noopener", target: "_blank" %><% end %>
+        <% if c.platform.present? %><span class="small"><%= c.platform %></span><% end %>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="rule-t">
-  <div class="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-    <figure class="reveal overflow-hidden rounded-lg border border-border bg-surface shadow-[0_30px_70px_-30px_rgb(0_0_0/0.28)]">
-      <div class="flex items-center gap-1.5 border-b border-border-light bg-bg-subtle px-3 py-2">
-        <span class="h-2.5 w-2.5 rounded-full bg-border"></span><span class="h-2.5 w-2.5 rounded-full bg-border"></span><span class="h-2.5 w-2.5 rounded-full bg-border"></span>
-        <span class="ml-2 font-mono text-[11px] text-text-muted"><%= c.host %></span>
-      </div>
-      <%= gl_image c.screenshot, sizes: "(min-width: 72rem) 70rem, 100vw", loading: :eager, fetchpriority: :high, class: "block w-full h-auto" %>
-      <figcaption class="border-t border-border-light px-4 py-2 font-mono text-[11px] text-text-muted"><%= c.host %>, captured live.</figcaption>
-    </figure>
+<section class="section-tight">
+  <div class="container">
+    <div class="reveal"><%= render "website/shared/screen", image: c.screenshot, browser: true, url: c.host, eager: true, alt: "#{entry.title} homepage" %></div>
   </div>
 </section>
 
 <% if c.story.problem.present? %>
-  <section class="rule-t">
-    <div class="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1.15fr_0.85fr] md:px-8 md:py-24">
-      <div data-stagger>
-        <p class="mb-6 font-mono text-[12px] uppercase tracking-[0.18em] text-text-muted">The story</p>
-        <dl class="rule-t">
-          <% [["The problem", c.story.problem], ["What we did", c.story.did], ["What happened", c.story.happened]].each_with_index do |(term, text), i| %>
-            <div class="<%= class_names("reveal py-5", "border-b border-border": i < 2) %>">
-              <dt class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= term %></dt>
-              <dd class="mt-2 text-lg leading-snug"><%= text %></dd>
-            </div>
+  <%= gl_section(rule: true) do %>
+    <div class="two-col">
+      <div class="reveal">
+        <%= gl_eyebrow("The story") %>
+        <div class="case-steps" style="margin-top:0;gap:28px">
+          <% [["The problem", c.story.problem], ["What we did", c.story.did], ["What happened", c.story.happened]].each do |term, text| %>
+            <% next if text.blank? %>
+            <div class="case-step"><h2 class="eyebrow"><%= term %></h2><p class="lede"><%= text %></p></div>
           <% end %>
-        </dl>
+        </div>
       </div>
-      <% if c.outcome.stat.present? %>
-        <aside class="reveal md:sticky md:top-24 md:self-start">
-          <div class="border-2 border-text bg-surface p-7 shadow-[8px_8px_0_0_var(--color-text)]">
-            <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">Outcome</p>
-            <p class="bump-target figure mt-3 text-[clamp(2.25rem,5vw,3.25rem)] leading-none"><%= c.outcome.stat %></p>
-            <p class="mt-4 text-[15px] font-semibold leading-snug"><%= c.outcome.label %></p>
-            <% if c.outcome.sub.present? %><p class="mt-1 text-[15px] text-text-subtle"><%= c.outcome.sub %></p><% end %>
-            <p class="mt-5 border-t border-border pt-4 font-mono text-[11px] text-text-muted">Outcome shared with the client's agreement.</p>
+      <% if figure %>
+        <div class="reveal" style="--i:1">
+          <div class="quote-stat sticky-side">
+            <p class="eyebrow">Outcome</p>
+            <span class="num bump-target"><%= figure[0] %></span>
+            <p><%= figure[1].to_s.upcase_first %></p>
+            <% if figure[2].present? %><p class="small"><%= figure[2] %></p><% end %>
+            <p class="small" style="margin-top:16px">Shared with the client's agreement.</p>
           </div>
-        </aside>
-      <% end %>
-    </div>
-  </section>
-<% end %>
-
-<% if c.stat_band.any? %>
-  <section class="rule-t bg-bg-subtle">
-    <div class="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-      <div class="grid gap-px bg-border sm:grid-cols-2" data-stagger>
-        <% c.stat_band.each do |s| %>
-          <div class="reveal bg-surface p-7">
-            <div class="bump-target figure text-[clamp(2rem,4.5vw,3rem)] leading-none text-text"><%= s.n %></div>
-            <div class="mt-3 flex items-start gap-2.5 text-[15px] font-semibold leading-snug"><%= gl_dot("mt-1.5 h-2 w-2") %><%= s.l %></div>
-            <% if s.sub.present? %><p class="mt-2 pl-[18px] text-[14px] leading-snug text-text-subtle"><%= s.sub %></p><% end %>
-          </div>
-        <% end %>
-      </div>
-      <p class="reveal mt-8 font-mono text-[11px] text-text-muted">The client's account data, shared with their agreement. Baseline, timeframe and method are stated below.</p>
-    </div>
-  </section>
-<% end %>
-
-<section class="console ink rule-t">
-  <div class="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-    <div class="grid divide-y divide-border-strong border-y border-border-strong md:grid-cols-3 md:divide-x md:divide-y-0" data-stagger>
-      <% c.figures.each do |f| %>
-        <div class="reveal py-7 md:px-8 md:first:pl-0 md:last:pr-0">
-          <div class="bump-target figure text-[clamp(3.5rem,8vw,6.5rem)] text-text"><%= f.n %></div>
-          <div class="mt-3 flex items-center gap-2.5 text-[15px] font-semibold"><%= gl_dot("h-2 w-2") %><%= f.l %></div>
         </div>
       <% end %>
     </div>
-    <p class="reveal mt-8 font-mono text-[11px] text-text-muted">Method: counted from <%= c.host %> and its sitemap at capture, 10 Sep 2026. Build evidence, not a performance claim.</p>
-  </div>
-</section>
-
-<% if c.evidence.any? %>
-  <section class="rule-t">
-    <div class="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-      <p class="reveal mb-5 font-mono text-[12px] uppercase tracking-[0.18em] text-text-muted">What the account showed</p>
-      <h2 class="reveal display display-md max-w-3xl">Every figure below is from <span class="brand-gradient-text">the client's own account.</span></h2>
-      <div class="mt-12 flex flex-col gap-12" data-stagger>
-        <% c.evidence.each do |e| %>
-          <article class="reveal border-t-2 border-text pt-6">
-            <h3 class="text-2xl font-bold tracking-tight"><%= e.heading %></h3>
-            <% if e.body.present? %><p class="mt-4 max-w-3xl text-lg leading-snug text-text-subtle"><%= e.body %></p><% end %>
-            <% if e.table.head.any? %>
-              <div class="mt-6 overflow-x-auto">
-                <table class="w-full min-w-[34rem] border-collapse text-[15px]">
-                  <thead><tr><% e.table.head.each do |h| %><th scope="col" class="border-b-2 border-text px-3 py-2.5 text-left align-bottom font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted"><%= h %></th><% end %></tr></thead>
-                  <tbody>
-                    <% e.table.rows.each do |row| %>
-                      <tr><% row.cells.each_with_index do |cell, ci| %><td class="border-b border-border px-3 py-2.5 <%= ci.zero? ? "font-medium" : "font-mono tabular-nums" %>"><%= cell %></td><% end %></tr>
-                    <% end %>
-                  </tbody>
-                </table>
-              </div>
-            <% end %>
-            <% if e.quote.present? %><blockquote class="mt-6 border-l-2 border-signal pl-5 text-xl font-semibold leading-snug md:text-2xl"><%= e.quote %></blockquote><% end %>
-          </article>
-        <% end %>
-      </div>
-      <% if c["method"].present? %>
-        <p class="reveal mt-12 max-w-4xl border-l-2 border-border bg-bg-subtle px-5 py-4 font-mono text-[12px] leading-relaxed text-text-muted"><span class="font-semibold text-text">Methodology.</span> <%= c["method"] %></p>
-      <% end %>
-    </div>
-  </section>
+  <% end %>
 <% end %>
 
-<% if quote %><%= render "website/shared/testimonial", quote:, tone: "subtle", link: false %><% end %>
-
-<section class="rule-t">
-  <div class="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[0.8fr_1.2fr] md:px-8 md:py-24">
-    <div class="md:sticky md:top-24 md:self-start">
-      <p class="mb-5 flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.18em]"><span class="tag">What we built</span><span class="h-2 w-2 bg-signal" aria-hidden="true"></span><%= c.platform %></p>
-      <h2 class="reveal display display-md">The work, <span class="brand-gradient-text">line by line.</span></h2>
-      <div class="mt-6 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider"><% c.tags.each do |t| %><span class="border border-text px-2 py-1"><%= t %></span><% end %></div>
-      <div class="mt-8 border-t-2 border-text pt-5">
-        <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= proven.any? ? "Services behind this" : "What we do" %></p>
-        <ul class="mt-3 space-y-2">
-          <% if proven.any? %>
-            <% proven.each do |sv| %><li><a href="<%= website_path(sv) %>" class="font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text"><%= sv.title %></a></li><% end %>
-          <% else %>
-            <li><a href="/services" class="font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text">Websites, local + AI search, advertising</a></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <ol class="rule-t" data-stagger>
-      <% c.built.each_with_index do |line, i| %>
-        <li class="reveal grid grid-cols-[2.5rem_1fr] items-baseline gap-3 border-b border-border py-4"><span class="font-mono text-[12px] text-text-muted"><%= gl_n(i) %></span><span class="text-lg font-medium leading-snug"><%= line %></span></li>
+<% if c.stat_band.any? %>
+  <%= gl_section(tone: "subtle", tight: true, rule: true) do %>
+    <div class="stat-row<%= " is-four" if c.stat_band.size >= 4 %><%= " is-two" if c.stat_band.size == 2 %>" data-stagger>
+      <% c.stat_band.each do |s| %>
+        <div class="stat reveal"><span class="num bump-target"><%= s.n %></span><p><strong><%= s.l %></strong></p><% if s.sub.present? %><p class="small"><%= s.sub %></p><% end %></div>
       <% end %>
-    </ol>
-  </div>
-</section>
-
-<section class="rule-t bg-bg-subtle">
-  <div class="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-    <div class="flex flex-wrap items-end justify-between gap-4">
-      <h2 class="reveal display display-md">More work.</h2>
-      <a href="/work" class="reveal font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text">All case studies →</a>
     </div>
-    <div class="mt-10 grid gap-6 md:grid-cols-2" data-stagger><%= render partial: "website/shared/case_card", collection: more, as: :study %></div>
-  </div>
-</section>
+    <p class="note reveal">The client's account data, shared with their agreement. Baseline, timeframe and method are stated below.</p>
+  <% end %>
+<% end %>
 
-<%= render "website/shared/audit_section", heading: "Pick the audit you actually need.", blurb: "Website, local and AI search, ad account, or all three. Read-only access, real findings on your own accounts, and a person who walks you through them. You keep the findings either way.",
-  bullets: ["Read-only access — nothing changes", "No obligation, no slide deck", "This form is a lead in our own inbox, timer running on us"] %>
+<% if c.figures.any? %>
+  <%= gl_section(tight: true, rule: true) do %>
+    <%= gl_eyebrow("The build", klass: "reveal") %>
+    <div class="stat-row<%= " is-four" if c.figures.size >= 4 %>" data-stagger>
+      <% c.figures.each do |f| %><div class="stat reveal"><span class="num bump-target"><%= f.n %></span><p><%= f.l %></p></div><% end %>
+    </div>
+    <p class="note reveal">Counted from <%= c.host %> and its sitemap at capture. Build evidence, not a performance claim.</p>
+  <% end %>
+<% end %>
+
+<% if c.evidence.any? %>
+  <%= gl_section(rule: true) do %>
+    <div class="section-head reveal">
+      <%= gl_eyebrow("What the account showed") %>
+      <h2 class="h-2">Every figure below is from <span class="em">the client's own account.</span></h2>
+    </div>
+    <div class="stack" data-stagger>
+      <% c.evidence.each do |e| %>
+        <article class="reveal" style="padding-top:28px;border-top:1px solid var(--line)">
+          <h3 class="h-3"><%= e.heading %></h3>
+          <% if e.body.present? %><p class="lede" style="margin-top:12px"><%= e.body %></p><% end %>
+          <% if e.table.head.any? %>
+            <div class="table-wrap" style="margin-top:20px">
+              <table class="data-table">
+                <thead><tr><% e.table.head.each do |h| %><th scope="col"><%= h %></th><% end %></tr></thead>
+                <tbody><% e.table.rows.each do |row| %><tr><% row.cells.each do |cell| %><td><%= cell %></td><% end %></tr><% end %></tbody>
+              </table>
+            </div>
+          <% end %>
+          <% if e.quote.present? %><p class="quote-text" style="margin-top:20px;font-size:22px"><%= e.quote %></p><% end %>
+        </article>
+      <% end %>
+    </div>
+    <% if c["method"].present? %><p class="note"><strong>Methodology.</strong> <%= c["method"] %></p><% end %>
+  <% end %>
+<% end %>
+
+<% if quote %><%= render "website/shared/testimonial", quote:, link: false %><% end %>
+
+<% if c.built.any? %>
+  <%= gl_section(rule: true) do %>
+    <div class="two-col">
+      <div class="sticky-side reveal">
+        <%= gl_eyebrow([c.platform, "What we built"].compact_blank.join(" · ")) %>
+        <h2 class="h-2">The work, <span class="em">line by line.</span></h2>
+        <% if c.tags.any? %><div class="chips" style="margin-top:20px"><% c.tags.each do |t| %><span class="chip"><%= t %></span><% end %></div><% end %>
+        <div style="margin-top:28px">
+          <p class="eyebrow"><%= proven.any? ? "Services behind this" : "What we do" %></p>
+          <ul class="dash-list">
+            <% if proven.any? %>
+              <% proven.each do |sv| %><li><%= gl_dot %><a href="<%= website_path(sv) %>"><%= sv.title %></a></li><% end %>
+            <% else %>
+              <li><%= gl_dot %><a href="/services">Websites, local and AI search, advertising</a></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <ol class="ruled reveal" style="--i:1">
+        <% c.built.each_with_index do |line, i| %>
+          <li class="ruled-row"><span class="ruled-n"><%= gl_n(i) %></span><span><%= line %></span></li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
+<% end %>
+
+<% if more.any? %>
+  <%= gl_section(tone: "subtle", rule: true) do %>
+    <div class="section-head-row reveal">
+      <div class="section-head"><h2 class="h-2">More of the work.</h2></div>
+      <a href="/work" class="btn-link">All case studies <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div class="case-grid" data-stagger><%= render partial: "website/shared/case_card", collection: more, as: :study %></div>
+  <% end %>
+<% end %>
+
+<%= render "website/shared/audit_section", heading: "Pick the audit you actually need.", blurb: "Website, local and AI search, ad account, or all three. Read-only access, real findings on your own accounts, and a partner who walks you through them.",
+  bullets: ["Read-only access. Nothing changes.", "No obligation, no slide deck.", "A person walks you through it."], tone: "bg" %>
 <%= tag.div(hidden: true, data: {gl_event: {event: "view_case_study", case_slug: entry.slug, case_name: entry.title, case_vertical: c.vertical}.to_json}) %>

@@ -1,16 +1,20 @@
 <%# locals: (data:) -%>
-<%# The three services (ServiceSystem.astro), from the services collection. %>
+<%# The services (the services collection) as three cards under the section's heading, and the tinted line underneath with the block's link (the tracking that sits under all three). %>
 <% link = gl_href(data.link) %>
 <%= gl_section(tone: data.tone, id: "services") do %>
-  <div class="grid items-end gap-6 md:grid-cols-[1fr_auto]">
-    <div class="max-w-3xl">
-      <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-      <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
+  <% if data.heading.present? || data.eyebrow.present? %>
+    <div class="section-head reveal">
+      <%= gl_eyebrow(data.eyebrow) %>
+      <% if data.heading.present? %><h2 class="h-2"><%= gl_heading(data.heading) %></h2><% end %>
+      <% if data.lede.present? %><p class="lede"><%= data.lede %></p><% end %>
     </div>
-    <% if link %><a href="<%= link %>" class="reveal inline-flex items-center gap-2 font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text"><%= data.link_label %></a><% end %>
-  </div>
-  <p class="reveal mt-6 max-w-2xl text-lg leading-snug text-text-subtle"><%= data.lede %></p>
-  <div class="mt-12 grid gap-6 lg:grid-cols-3" data-stagger>
+  <% end %>
+  <div class="service-grid" data-stagger>
     <%= render partial: "website/shared/service_card", collection: gl_services, as: :service %>
   </div>
+  <% if link && data.link_label.present? %>
+    <div class="service-underline reveal">
+      <a class="btn-link" href="<%= link %>" data-cta="services-link"><%= data.link_label.to_s.delete_suffix("→").strip %> <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  <% end %>
 <% end %>

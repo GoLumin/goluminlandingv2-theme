@@ -1,14 +1,14 @@
 <%# locals: (prefix:) -%>
-<%# The short contact form for tight spaces (ContactForm.astro), from Forms › contact: a post's sidebar. %>
+<%# The short contact form, from Forms › contact: a post's sidebar, the let's-talk page. %>
 <% form = gl_form(:contact) %>
 <% if form %>
-  <form id="<%= prefix %>-form" data-audit-form data-sidebar data-form-slug="contact" method="post" action="<%= api_form_submissions_path(form_slug: form.slug) %>" class="grid gap-4" novalidate>
+  <form id="<%= prefix %>-form" data-audit-form data-sidebar data-form-slug="contact" method="post" action="<%= api_form_submissions_path(form_slug: form.slug) %>" class="form-plain" novalidate>
     <%= gl_control(form, :name, id: "#{prefix}-name", autocomplete: "name") %>
     <%= gl_control(form, :email, id: "#{prefix}-email", autocomplete: "email", inputmode: "email", data: {email: true}) %>
     <%= gl_control(form, :company, id: "#{prefix}-company", hint: "(optional)", autocomplete: "organization") %>
     <%= gl_control(form, :message, id: "#{prefix}-message", rows: 3) %>
     <div class="ts-fit">
-      <%= render "website/shared/form_tail", form:, source: "golumin-landing-blog-contact", cta: "blog-sidebar", label: form.submit_label, margin: "mt-4" %>
+      <%= render "website/shared/form_tail", form:, source: "golumin-#{prefix}", cta: prefix, label: form.submit_label %>
     </div>
   </form>
 <% end %>

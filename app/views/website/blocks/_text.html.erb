@@ -3,7 +3,5 @@
 <% if content_for?(:gl_in_post) %>
   <div class="post-text"><%= website_markdown data.body %></div>
 <% else %>
-  <%= gl_section do %>
-    <div class="post"><%= website_markdown data.body %></div>
-  <% end %>
+  <section class="section-tight"><div class="container-narrow post"><%= website_markdown data.body %></div></section>
 <% end %>

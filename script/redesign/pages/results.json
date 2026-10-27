@@ -1,0 +1,59 @@
+{
+ "page": {
+  "slug": "results",
+  "title": "Results",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Results",
+     "heading": "Different industries. Different problems. Every number counted, not claimed.",
+     "lede": "One case study per client: what the business needed, what we built, and the numbers as they stand today. Performance figures belong to the client, so we publish them only where they've agreed, with the baseline and the method attached.",
+     "chips": [],
+     "ctas": [],
+     "items_style": "none",
+     "items": []
+    }
+   },
+   {
+    "type": "case_studies",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "",
+     "heading": "",
+     "body": "",
+     "cases": "",
+     "all": true,
+     "link_label": "",
+     "tone": "bg",
+     "note_lead": "On the numbers:",
+     "note": "what you see here is build evidence and client-approved performance data. Each figure carries its baseline, its timeframe and its method. Where we can't support a number, we describe the mechanism instead and let you judge it."
+    }
+   },
+   {
+    "type": "closing_form",
+    "version": 1,
+    "data": {
+     "heading": "Start with an audit of what you already have.",
+     "blurb": "A partner reads what you send and builds the audit against your real accounts, not a template. If you'd rather talk it through first, the number below reaches us directly.",
+     "phone_kicker": "Call us direct",
+     "phone_label": "(415) 283-6736",
+     "phone_link": {
+      "kind": "url",
+      "value": "tel:+14152836736"
+     },
+     "submit_label": "Request my audit",
+     "note": ""
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "Results · GoLumin",
+   "meta_description": "Case studies: the websites we built and the local businesses we run search and ads for. Real pages, real quote flows, real figures, each measured against the client's own baseline."
+  }
+ }
+}

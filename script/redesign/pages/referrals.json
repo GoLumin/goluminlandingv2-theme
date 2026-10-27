@@ -1,0 +1,153 @@
+{
+ "page": {
+  "slug": "referrals",
+  "title": "Referrals",
+  "status": "draft",
+  "locale": "en",
+  "blocks": [
+   {
+    "type": "page_hero",
+    "version": 1,
+    "data": {
+     "eyebrow": "Referrals · 10% for 12 months · no cap",
+     "heading": "The best leads we get are introductions. So we pay for them.",
+     "lede": "You already tell people who to use. This is the version where you get paid for it. One rate across every service, paid monthly on money we actually collect, for a full year.",
+     "chips": [],
+     "ctas": [
+      {
+       "label": "Register a referral",
+       "link": {
+        "kind": "url",
+        "value": "#refer"
+       },
+       "style": "primary"
+      }
+     ],
+     "items_style": "none",
+     "items": []
+    }
+   },
+   {
+    "type": "stats_section",
+    "version": 1,
+    "data": {
+     "heading": "The deal, in numbers.",
+     "body": "",
+     "image_id": "",
+     "stats": [
+      {
+       "value": "10%",
+       "label": "of everything they pay us. Websites, search, ads: same rate."
+      },
+      {
+       "value": "12 mo",
+       "label": "from their first paid invoice. The first client pays like the tenth."
+      },
+      {
+       "value": "1.5×",
+       "label": "if you're a client and take it as credit instead of cash."
+      }
+     ]
+    }
+   },
+   {
+    "type": "cards",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "",
+     "eyebrow": "Who refers",
+     "heading": "You're probably already doing this for nothing.",
+     "body": "Paid 30 days after the client's money reaches us, with the invoice attached so you can check the arithmetic. Calculated on what the client pays GoLumin, never on ad spend passed through to Google or Meta.",
+     "columns": "2",
+     "tone": "subtle",
+     "numbered": false,
+     "service_links": false,
+     "items": [
+      {
+       "kicker": "",
+       "title": "Clients we've already earned it from",
+       "body": "You've seen the work and you know what we bill. Take cash, or take credit on your own invoice at 1.5×."
+      },
+      {
+       "kicker": "",
+       "title": "Designers and freelancers",
+       "body": "Keep the design work and the client relationship. Hand off the ads, the listings and the 9pm call about a broken form."
+      },
+      {
+       "kicker": "",
+       "title": "IT providers and MSPs",
+       "body": "You're already who a local business calls when something digital breaks. You get asked about the website anyway."
+      },
+      {
+       "kicker": "",
+       "title": "Accountants and fractional CFOs",
+       "body": "You can see the marketing line on the P&L, and which clients are lighting money on fire with an agency that can't show them a lead."
+      },
+      {
+       "kicker": "",
+       "title": "Agencies with a gap",
+       "body": "An SEO shop with no paid arm. A paid shop that won't touch a CMS. Send the half you don't want; we don't go after the half you do."
+      },
+      {
+       "kicker": "",
+       "title": "Chambers, franchisors and trade groups",
+       "body": "A membership that all needs the same three things and keeps asking who to use. We'll set up terms you can publish."
+      }
+     ]
+    }
+   },
+   {
+    "type": "referral_calc",
+    "version": 1,
+    "data": {
+     "eyebrow_n": "What it pays",
+     "eyebrow": "Your numbers",
+     "heading": "Move the sliders. ^That's the cheque.^",
+     "body": "Put in what you think the business you have in mind actually spends. One referred client is usually worth more than a month of whatever you are being paid to think about this.",
+     "rate": 10,
+     "months": 12,
+     "credit_multiple": "1.5",
+     "payout_days": 30,
+     "build": {
+      "min": 0,
+      "max": 30000,
+      "step": 500,
+      "start": 6000
+     },
+     "monthly": {
+      "min": 0,
+      "max": 15000,
+      "step": 100,
+      "start": 2000
+     },
+     "anchor": "worth",
+     "note": "Your numbers, not ours. We quote after the audit, so there is no price list to paste in here. Commission is calculated on what the client pays GoLumin and never on ad spend passed through to Google or Meta."
+    }
+   },
+   {
+    "type": "form_section",
+    "version": 1,
+    "data": {
+     "form": "referral",
+     "eyebrow_n": "Refer",
+     "eyebrow": "Start here",
+     "heading": "Who do you ^have in mind?^",
+     "body": "Give us a business name and someone to speak to. It is registered to you the moment this lands, and you will hear from a person within one business day.",
+     "bullets": [
+      "Registered to you for 90 days from the introduction",
+      "We tell you within a day if they were already talking to us",
+      "No contract to sign before you refer, the terms above are the terms",
+      "Not ready to name anyone? Pick the second option and we'll just send the details"
+     ],
+     "footnote": "",
+     "anchor": "refer",
+     "tone": "bg"
+    }
+   }
+  ],
+  "seo": {
+   "meta_title": "Referrals · GoLumin",
+   "meta_description": "Refer a business to GoLumin and earn 10% of everything they pay us for their first 12 months. One rate, every service, no cap."
+  }
+ }
+}

@@ -1,18 +1,18 @@
 <%# locals: (data:) -%>
-<%# A heading beside body copy and a highlighted callout (referrals.astro, legal and healthcare). %>
+<%# A heading and its standfirst, with a callout beside them. %>
 <%= gl_section do %>
-  <div class="grid gap-10 md:grid-cols-[1fr_1.2fr] md:gap-14">
-    <div>
-      <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
-      <h2 class="reveal display display-md"><%= gl_heading(data.heading) %></h2>
+  <div class="two-col">
+    <div class="reveal">
+      <%= gl_eyebrow(data.eyebrow) %>
+      <h2 class="h-2"><%= gl_heading(data.heading) %></h2>
+      <% if data.body.present? %><p class="lede"><%= data.body %></p><% end %>
     </div>
-    <div>
-      <p class="reveal text-[17px] leading-snug text-text-subtle"><%= data.body %></p>
-      <div class="reveal mt-8 border-l-2 border-signal bg-bg-subtle px-6 py-5">
-        <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= data.callout_label %></p>
-        <p class="mt-2 text-[16px] leading-snug"><%= data.callout_body %></p>
+    <div class="reveal" style="--i:1">
+      <div class="callout-box">
+        <% if data.callout_label.present? %><h3 class="h-4"><%= data.callout_label %></h3><% end %>
+        <p><%= data.callout_body %></p>
       </div>
-      <% if data.footnote.present? %><p class="reveal mt-6 text-[14px] leading-snug text-text-muted"><%= data.footnote %></p><% end %>
+      <% if data.footnote.present? %><p class="note"><%= data.footnote %></p><% end %>
     </div>
   </div>
 <% end %>

@@ -1,29 +1,19 @@
-<%# locals: (quote:, tone: "ink", link: true) -%>
-<%# A client's quote, set large, with the outcome beside it as a figure (Testimonial.astro). %>
+<%# locals: (quote:, link: true) -%>
+<%# A client's quote, set large, with the outcome beside it as a figure. %>
 <% q = website_fields(quote) %>
-<section class="<%= Goluminlandingv2Helper::SECTION_TONES[tone] %> rule-t">
-  <figure class="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1.5fr_0.7fr] md:items-end md:gap-14 md:px-8 md:py-24" data-stagger>
-    <div>
-      <p class="reveal mb-6 flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.18em] text-text">
-        <span class="tag hidden sm:inline">From the client</span><%= gl_dot("h-2 w-2") %><%= q.company %>
-      </p>
-      <blockquote class="reveal">
-        <p class="text-[clamp(1.6rem,3.4vw,2.6rem)] font-semibold leading-[1.18] tracking-tight text-text"><span class="brand-gradient-text" aria-hidden="true">“</span><%= q.quote %><span class="brand-gradient-text" aria-hidden="true">”</span></p>
-      </blockquote>
-      <figcaption class="reveal mt-8 flex flex-wrap items-center gap-x-3 gap-y-1">
-        <span class="text-lg font-bold tracking-tight"><%= quote.title %></span>
-        <span class="text-text-muted" aria-hidden="true">·</span>
-        <span class="text-[15px] text-text-subtle"><%= q.role.present? ? "#{q.role}, #{q.company}" : q.company %></span>
-      </figcaption>
-    </div>
+<%= gl_section(tone: "ink", klass: "has-photo") do %>
+  <%= render "website/shared/scene", key: "quote", night: true %>
+  <div class="quote-grid<%= " is-alone" if q.result_figure.blank? %>">
+    <blockquote class="reveal">
+      <p class="quote-text">“<%= q.quote %>”</p>
+      <p class="quote-by"><strong><%= quote.title %></strong> · <%= [q.role, q.company].compact_blank.join(", ") %></p>
+    </blockquote>
     <% if q.result_figure.present? %>
-      <div class="reveal border-t-2 border-text pt-6 md:border-l-2 md:border-t-0 md:pl-8 md:pt-0" style="--i:1">
-        <div class="figure whitespace-nowrap text-[clamp(3.25rem,5.5vw,4.75rem)] text-text"><%= q.result_figure %></div>
-        <div class="mt-3 flex items-start gap-2.5 text-[15px] font-semibold leading-snug"><%= gl_dot("mt-[6px] h-2 w-2") %><%= q.result_label %></div>
-        <% if link && q.case_study.present? && gl_case(q.case_study) %>
-          <a href="/work/<%= q.case_study %>" data-cta="testimonial" class="mt-6 inline-flex items-center gap-2 font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text">Read the case study →</a>
-        <% end %>
+      <div class="quote-stat reveal" style="--i:1">
+        <span class="num"><%= q.result_figure %></span>
+        <p><%= q.result_label.to_s.upcase_first %></p>
+        <% if link && q.case_study.present? && gl_case(q.case_study) %><a href="/work/<%= q.case_study %>" data-cta="testimonial" class="btn-link">Read the case study <span class="arrow" aria-hidden="true">→</span></a><% end %>
       </div>
     <% end %>
-  </figure>
-</section>
+  </div>
+<% end %>

@@ -52,6 +52,7 @@ RSpec.describe "The GoLumin website", type: :request, website: true do
       expect(html.at_css("meta[name=robots]")["content"]).to start_with(seo["noindex"] ? "noindex" : "index")
       page["blocks"].each { expect(PARTIALS).to include(it["type"]) }
       expect(html.css("h1").size).to eq(page["path"] == "thank-you" ? 3 : 1)
+      expect(response.body).not_to include("font-mono", "brand-gradient-text") if page["path"] == "home"
     end
   end
 
@@ -99,24 +100,24 @@ RSpec.describe "The GoLumin website", type: :request, website: true do
 
   it "lists the services, case studies and roles in their order, and the posts newest first" do
     get "/services"
-    expect(html.css("#services article h3").map(&:text)).to eq(entries("services").map { it.dig("frontmatter", "promise") })
+    expect(html.css("#services .service-card h3").map(&:text)).to eq(entries("services").map { it.dig("frontmatter", "nav") })
 
     get "/work"
-    expect(html.css("#work a.lift").map { it["href"] }).to eq(entries("work").map { "/work/#{it["slug"]}" })
+    expect(html.css("#work a[href^='/work/']").map { it["href"] }.uniq).to eq(entries("work").map { "/work/#{it["slug"]}" })
 
     get "/careers"
-    expect(html.css("main section[id] h2.display").map(&:text).first(entries("roles").size)).to eq(entries("roles").map { it["title"] })
+    expect(html.css("main section[id] > .container > .two-col h2.h-2").map(&:text).first(entries("roles").size)).to eq(entries("roles").map { it["title"] })
 
     get "/blog"
     posts = ENTRIES["blog"].sort_by { it["published_at"].to_s }.reverse
     expect(html.css("main ul a").map { it["href"] }).to eq(posts.map { "/blog/#{it["slug"]}" })
   end
 
-  it "puts every client logo in the marquee, each to its case study" do
+  it "puts every client logo in the marquee under the hero, each to its case study" do
     get "/"
 
     with_logo = entries("work").select { it.dig("frontmatter", "logo").present? }
-    expect(html.css(".logo-track a").map { it["href"] }.uniq).to eq(with_logo.map { "/work/#{it["slug"]}" })
+    expect(html.css(".marquee-track a").map { it["href"] }.uniq).to eq(with_logo.map { "/work/#{it["slug"]}" })
   end
 
   it "draws its 404 from the CMS's not-found page, never indexed" do
@@ -131,11 +132,11 @@ RSpec.describe "The GoLumin website", type: :request, website: true do
     get "/"
 
     nav = SNAPSHOT["globals"].find { it["slug"] == "nav" }["data"]
-    expect(html.css("header nav[aria-label=Main] > a, header nav[aria-label=Main] > div > a").map { it.text.strip }).to eq(nav["items"].map { it["label"] })
-    expect(html.css("header nav[aria-label=Main] .group").first.css("li a").map { it["href"] }).to eq(entries("services").map { "/services/#{it["slug"]}" })
-    expect(html.css(".nav-panel details").map { it.css("li a").size }).to include(entries("work").size + 1)
+    expect(html.css("header nav[aria-label=Main] > a, header nav[aria-label=Main] > .nav-item > button").map { it.text.strip }).to eq(nav["items"].map { it["label"] })
+    expect(html.css("header nav[aria-label=Main] .nav-panel").first.css(".nav-panel-link").map { it["href"] }).to eq(entries("services").map { "/services/#{it["slug"]}" })
+    expect(html.css(".nav-drawer .drawer-group").map { it.css("a").size }).to include(entries("work").size + 1)
     footer = SNAPSHOT["globals"].find { it["slug"] == "footer" }["data"]
-    expect(html.css("footer nav p").map(&:text)).to eq(footer["columns"].map { it["heading"] })
+    expect(html.css("footer nav .footer-head").map(&:text)).to eq(footer["columns"].map { it["heading"] })
     expect(html.css("footer nav").first.css("a").size).to eq(1 + entries("services").size)
   end
 
@@ -174,8 +175,8 @@ RSpec.describe "The GoLumin website", type: :request, website: true do
     expect(html.at_css("#audit [data-spend-field]")["hidden"]).not_to be_nil
 
     get "/lp/ads"
-    expect(html.at_css("#lp-form input[type=hidden][name=audit_type]")["value"]).to eq("Ad account")
-    expect(html.at_css("#lp-form [data-spend-field]")["hidden"]).to be_nil
+    expect(html.at_css("#plan-form input[type=hidden][name=audit_type]")["value"]).to eq("Ad account")
+    expect(html.at_css("#plan-form [data-spend-field]")["hidden"]).to be_nil
   end
 
   it "shows Cloudflare Turnstile on its forms when Settings › Forms has the keys" do
@@ -219,17 +220,15 @@ RSpec.describe "The GoLumin website", type: :request, website: true do
     Website::PagesController.view_paths = paths
   end
 
-  it "follows Customize: the colors, the header's phone number, the phone's audit bar" do
+  it "follows Customize: the header's phone number, the phone's call and plan bar" do
     get "/"
-    expect(html.at_css("html")["data-theme"]).to eq("light")
-    expect(html.css("header a[href^='tel:']")).to be_present
-    expect(html.at_css("#sticky-cta")).to be_present
+    expect(html.css("header .nav-phone")).to be_present
+    expect(html.at_css("[data-mobile-bar]")).to be_present
 
-    Website::Design.update(Website.theme, {"color_scheme" => "dark", "header_phone" => "0", "sticky_cta" => "0"})
+    Website::Design.update(Website.theme, {"header_phone" => "0", "sticky_cta" => "0"})
     get "/"
-    expect(html.at_css("html")["data-theme"]).to eq("dark")
-    expect(html.css("header a[href^='tel:']")).to be_empty
-    expect(html.at_css("#sticky-cta")).to be_nil
+    expect(html.css("header .nav-phone")).to be_empty
+    expect(html.at_css("[data-mobile-bar]")).to be_nil
   end
 
   it "serves its own scripts, stylesheet and fonts, none of the admin's, with nothing compiled" do
@@ -241,13 +240,14 @@ RSpec.describe "The GoLumin website", type: :request, website: true do
     expect(importmap.values).to all(start_with("/_goluminlandingv2/"))
     expect(response.body).not_to include("/assets/application-", "/assets/goluminlandingv2/")
 
-    get page.at_css("link[rel=stylesheet]")["href"]
+    get page.at_css("link[rel=stylesheet][href^='/_goluminlandingv2/']")["href"]
     expect(response).to have_http_status(:ok)
     expect(response.media_type).to eq("text/css")
     expect(response.headers["Cache-Control"]).to include("immutable")
-    expect(response.body).to include('url("Geist-Variable.woff2")')
+    expect(response.body).to include("Inter", ".hero-photo", ".form-card")
+    expect(response.body).not_to include("Geist")
 
-    (importmap.values + [page.at_css("link[as=font]")["href"]]).each do |path|
+    (importmap.values + [page.at_css("[data-mobile-bar]") && page.at_css(".hero-photo i")["style"][/url\(([^)]+)\)/, 1]]).compact.each do |path|
       get path
       expect(response).to have_http_status(:ok), path
     end
