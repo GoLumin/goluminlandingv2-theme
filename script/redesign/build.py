@@ -5,8 +5,8 @@ after the copy changes; post the pages with `cms post /pages`."""
 import json, os
 OUT = os.path.dirname(os.path.abspath(__file__))
 SNAP = os.path.join(OUT, "..", "..", "..", "cms", "pages")
-TEL = {"kind": "url", "value": "tel:+12695326248"}
-PHONE = "(269) 532-6248"
+TEL = {"kind": "url", "value": "tel:+14152836736"}
+PHONE = "(415) 283-6736"
 def url(v): return {"kind": "url", "value": v}
 def B(t, **d): return {"type": t, "version": 1, "data": d}
 def cta(label, link, style="primary"): return {"label": label, "link": url(link) if isinstance(link, str) else link, "style": style}
@@ -186,7 +186,7 @@ pages["about"] = dict(title="Who you'll work with", meta_title="Who you'll work 
     stats("Where we are.", [("Kalamazoo", "Where we're based. Clients in Michigan, New Hampshire, Massachusetts, Texas, Louisiana, Nebraska, California, Idaho, Ohio and Indiana."), ("4", "open roles, remote in the US. Marketing and engineering. See the openings at /careers."), ("10%", "paid for a year on any business you refer that signs. How referrals work: /referrals.")]),
     closing()])
 
-pages["contact"] = dict(title="Let's talk", meta_title="Talk to a partner · GoLumin", description="Stop paying for marketing you can't measure. Call (269) 532-6248 or send the form. A partner goes through your accounts and tells you what's wasting money and what to fix first.", blocks=[
+pages["contact"] = dict(title="Let's talk", meta_title="Talk to a partner · GoLumin", description="Stop paying for marketing you can't measure. Call (415) 283-6736 or send the form. A partner goes through your accounts and tells you what's wasting money and what to fix first.", blocks=[
     hero("Talk to a partner", "Stop paying for marketing you can't measure.", "Call, or send the form. A partner goes through your accounts and tells you what's wasting money and what to fix first. No sales team, no sequence, no slide deck."),
     B("contact_cards", eyebrow_n="", eyebrow="", items=[{"kicker": "Call", "title": PHONE, "body": "Jordan or Ted picks up. Tell us what's broken.", "link_label": "Call", "link": TEL}, {"kicker": "Email", "title": "marketing@golumin.io", "body": "Attach anything: an account screenshot, the other agency's proposal, a report that doesn't add up.", "link_label": "Email", "link": url("mailto:marketing@golumin.io")}]),
     audit_form("contact"),

@@ -15,7 +15,7 @@ module Goluminlandingv2Helper
 
   # ── Contact ──
 
-  def gl_phone = website_settings["phone"].presence || "(269) 532-6248"
+  def gl_phone = website_settings["phone"].presence || "(415) 283-6736"
 
   def gl_tel(phone = gl_phone) = "tel:+1#{phone.to_s.gsub(/\D/, "").delete_prefix("1")}"
 
