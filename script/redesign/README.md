@@ -35,7 +35,7 @@ Links inside the drafts already point at the final paths above.
 
 ## The client marquee
 
-The marquee under the hero draws every case study with a logo, then every other published client (the `clients` collection) as a wordmark. Jordan asked for Tru-Colors Contracting to come off it: set the `tru-colors-contracting` client entry to draft (a draft client is one not cleared for public mention). That write was not made from the agent session; it is a one-line change in the admin or `cms entry-status clients draft tru-colors-contracting`.
+The marquee under the hero draws every case study with a logo, then every other published client (the `clients` collection) as a wordmark. Jordan asked for Tru-Colors Contracting to come off it: its client entry (`tru-colors-contracting`) is in draft on the live CMS, and a draft client is one not cleared for public mention, so the marquee leaves it out. Keep it that way.
 
 ## Launching
 
