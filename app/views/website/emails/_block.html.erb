@@ -1,24 +1,33 @@
 <%# locals: (block:, c:, serif:, sans:) -%>
-<%# One of a form email's blocks (the Forms plugin's email blocks), as a table row. %>
+<%# One of a form email's blocks (the Forms plugin's email blocks), as a table row.
+
+    This is a case/when rather than an if/elsif chain on purpose. Herb's
+    instrumentation injects its `::Herb::Engine::Runtime::Session.enter` call
+    directly after an `elsif` condition with no separator; when the condition
+    ends in a string literal, Ruby parses `"email_image" ::Herb::...` as a
+    scope resolution on a String and raises `"email_image" is not a
+    class/module` at render time. That broke every form notification in
+    development. `when` does not have the problem. %>
 <% data = block["data"].is_a?(Hash) ? block["data"] : {} %>
 <% align = data["align"] == "center" ? "center" : "left" %>
-<% if block["type"] == "email_heading" %>
+<% case block["type"] %>
+<% when "email_heading" %>
   <% size = {"h1" => 30, "h2" => 24, "h3" => 20}.fetch(data["level"], 30) %>
   <tr>
     <td align="<%= align %>" style="padding:0 0 16px;font-family:<%= serif %>;font-size:<%= size %>px;line-height:1.25;font-weight:700;letter-spacing:-0.5px;color:<%= c[:ink] %>;"><%= data["text"] %></td>
   </tr>
-<% elsif block["type"] == "email_text" %>
+<% when "email_text" %>
   <tr>
     <td style="padding:0 0 16px;font-family:<%= sans %>;font-size:16px;line-height:1.6;color:<%= c[:muted] %>;"><%= website_rich_text(data["body"]) %></td>
   </tr>
-<% elsif block["type"] == "email_button" %>
+<% when "email_button" %>
   <tr>
     <td align="<%= align %>" style="padding:8px 0 24px;">
       <%= tag.a "#{data["label"]} →", href: data["url"].to_s,
         style: "display:inline-block;background:#{c[:violet]};color:#ffffff;font-family:#{sans};font-size:15px;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:2px;" %>
     </td>
   </tr>
-<% elsif block["type"] == "email_image" %>
+<% when "email_image" %>
   <% src = website_image_url(data["asset"]) %>
   <% if src %>
     <tr>
@@ -28,15 +37,15 @@
       </td>
     </tr>
   <% end %>
-<% elsif block["type"] == "email_divider" %>
+<% when "email_divider" %>
   <tr>
     <td style="padding:8px 0 24px;"><div style="border-top:1px solid <%= c[:rule] %>;font-size:0;line-height:0;">&nbsp;</div></td>
   </tr>
-<% elsif block["type"] == "email_spacer" %>
+<% when "email_spacer" %>
   <tr>
     <td style="height:<%= {"small" => 12, "medium" => 24, "large" => 40}.fetch(data["size"], 24) %>px;font-size:0;line-height:0;">&nbsp;</td>
   </tr>
-<% elsif block["type"] == "email_submission" %>
+<% when "email_submission" %>
   <tr>
     <td style="padding:0 0 16px;">
       <% if data["title"].present? %>
