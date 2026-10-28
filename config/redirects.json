@@ -1,0 +1,310 @@
+{
+  "_comment": "PROPOSAL, not wired to anything. Companion to REDIRECTS.md. Built 2026-10-27 from commit a1d3577, the CMS route list and the 23 CMS redirect rules.",
+  "canonical_host": "https://golumin.io",
+  "strip_html_extension": true,
+  "routes": {
+    "/": "index.html",
+    "/404": "404.html",
+    "/about": "about.html",
+    "/audit": "audit.html",
+    "/blog": "blog.html",
+    "/blog/chatgpt-ads-shopify": "post-chatgpt-ads-shopify.html",
+    "/blog/shopify-meta-muse-ai-shopping": "post-shopify-meta-muse-ai-shopping.html",
+    "/blog/what-is-an-ai-agent": "post-what-is-an-ai-agent.html",
+    "/careers": "careers.html",
+    "/claude-access-test": "claude-access-test.html",
+    "/how-it-works": "how-we-work.html",
+    "/laspalmas": "laspalmas.html",
+    "/lets-talk": "contact.html",
+    "/lp/google-ads": "lp-google-ads.html",
+    "/privacy": "privacy.html",
+    "/referrals": "referrals.html",
+    "/services": "services.html",
+    "/services/advertising": "advertising.html",
+    "/services/google-ads": "google-ads.html",
+    "/services/local-ai-search": "search.html",
+    "/services/meta-ads": "meta-ads.html",
+    "/services/programmatic-chatgpt-ads": "programmatic-chatgpt-ads.html",
+    "/services/websites": "websites.html",
+    "/terms": "terms.html",
+    "/thank-you": "thank-you.html",
+    "/tracking": "tracking.html",
+    "/trust": "trust.html",
+    "/work": "results.html",
+    "/work/behnke-logistics": "case-behnke-logistics.html",
+    "/work/biofuse": "case-biofuse.html",
+    "/work/foxbox-moves": "case-foxbox-moves.html",
+    "/work/inbox-portable-storage": "case-inbox-portable-storage.html",
+    "/work/kalamazoo-mortgage": "case-kalamazoo-mortgage.html",
+    "/work/mulebox": "case-mulebox.html",
+    "/work/shine-learning-alliance": "case-shine-learning-alliance.html",
+    "/work/the-foundry": "case-the-foundry.html",
+    "/work/white-and-white": "case-white-and-white.html",
+    "/work/wise-insurance": "case-wise-insurance.html"
+  },
+  "redirects": [
+    {
+      "from": "/about-us",
+      "to": "/about",
+      "status": 301,
+      "note": "was -> /, repointed: /about is now a real page"
+    },
+    {
+      "from": "/ads",
+      "to": "/services/advertising",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/advertising",
+      "to": "/services/advertising",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/ai-search",
+      "to": "/services/local-ai-search",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/case-behnke-logistics",
+      "to": "/work/behnke-logistics",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/case-biofuse",
+      "to": "/work/biofuse",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/case-foxbox-moves",
+      "to": "/work/foxbox-moves",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/case-inbox-portable-storage",
+      "to": "/work/inbox-portable-storage",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/case-kalamazoo-mortgage",
+      "to": "/work/kalamazoo-mortgage",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/case-mulebox",
+      "to": "/work/mulebox",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/case-shine-learning-alliance",
+      "to": "/work/shine-learning-alliance",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/case-studies",
+      "to": "/work",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/case-the-foundry",
+      "to": "/work/the-foundry",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/case-white-and-white",
+      "to": "/work/white-and-white",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/case-wise-insurance",
+      "to": "/work/wise-insurance",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/contact",
+      "to": "/lets-talk",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/google-ads",
+      "to": "/services/google-ads",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/hiring",
+      "to": "/careers",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/home",
+      "to": "/",
+      "status": 301,
+      "note": "live duplicate of the homepage"
+    },
+    {
+      "from": "/how-lumin-works",
+      "to": "/how-it-works",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/how-we-work",
+      "to": "/how-it-works",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/index",
+      "to": "/",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/jobs",
+      "to": "/careers",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/join",
+      "to": "/careers",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/local-seo",
+      "to": "/services/local-ai-search",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/lp-google-ads",
+      "to": "/lp/google-ads",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/meta-ads",
+      "to": "/services/meta-ads",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/platform",
+      "to": "/how-it-works",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/post-chatgpt-ads-shopify",
+      "to": "/blog/chatgpt-ads-shopify",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/post-shopify-meta-muse-ai-shopping",
+      "to": "/blog/shopify-meta-muse-ai-shopping",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/post-what-is-an-ai-agent",
+      "to": "/blog/what-is-an-ai-agent",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/ppc",
+      "to": "/services/advertising",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/programmatic-chatgpt-ads",
+      "to": "/services/programmatic-chatgpt-ads",
+      "status": 301,
+      "note": "flat filename to canonical"
+    },
+    {
+      "from": "/results",
+      "to": "/work",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/search",
+      "to": "/services/local-ai-search",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/security",
+      "to": "/trust",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/seo",
+      "to": "/services/local-ai-search",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/talk",
+      "to": "/lets-talk",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/thanks",
+      "to": "/thank-you",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/web",
+      "to": "/services/websites",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/website",
+      "to": "/services/websites",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    },
+    {
+      "from": "/websites",
+      "to": "/services/websites",
+      "status": 301,
+      "note": "existing CMS redirect, carried over"
+    }
+  ],
+  "undecided": {
+    "_comment": "Live on golumin.io today (200), no page on the new branch. Needs Jordan's call: interim 301 (a) or rebuild (b). See REDIRECTS.md section 1.",
+    "proposed_interim_301": {
+      "/lp/ads-audit": "/audit",
+      "/lp/ads": "/audit",
+      "/lp/websites": "/audit",
+      "/lp/ai-search": "/audit",
+      "/lp/chatgpt-ads": "/services/programmatic-chatgpt-ads",
+      "/lp/marketing-agency": "/services"
+    }
+  }
+}
