@@ -1,6 +1,10 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Everything measured goes through here, so a missing tag manager is a
+     no-op rather than a thrown error that stops the script. */
+  function push(data) { window.dataLayer = window.dataLayer || []; window.dataLayer.push(data); }
+
   /* Nav: shadow on scroll */
   var nav = document.querySelector('[data-nav]');
   function onScroll() {
@@ -106,9 +110,12 @@
   }
 
   /* Forms: real submit to the CMS form endpoint (same-origin via the
-     worker's /api proxy). On success: the thank-you state. On any
-     failure: an honest fallback with phone + email — never a fake
-     success over a lost lead. */
+     worker's /api proxy). On success the visitor goes to /thank-you,
+     carrying the lead id, which is where the conversion fires: that is
+     how this site measured leads before the static rebuild, and the
+     Google Ads conversion and the GTM triggers are still built around
+     it. On any failure: an honest fallback with phone + email, never a
+     fake success over a lost lead. */
   document.querySelectorAll('[data-form]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -135,8 +142,18 @@
           done.hidden = false; done.setAttribute('tabindex', '-1'); done.focus();
         }
       };
+      var slug = (form.action.match(/\/api\/forms\/([^/]+)\/submissions/) || [])[1] || 'audit';
+      push({ event: 'form_submit' });
+      push({ event: 'submit_' + slug, audit_type: (form.querySelector('[name="audit_type"]') || {}).value });
       fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-        .then(function (res) { finish(res.ok); })
+        .then(function (res) {
+          if (!res.ok) { finish(false); return; }
+          return res.json().catch(function () { return {}; }).then(function (body) {
+            var next = new URLSearchParams({ form: slug, back: location.pathname });
+            if (body && body.id) next.set('lead', String(body.id));
+            location.href = '/thank-you?' + next;
+          });
+        })
         .catch(function () { finish(false); })
         .finally(function () { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; } });
     });
@@ -144,6 +161,36 @@
       f.addEventListener('input', function () { f.closest('.field').classList.remove('is-invalid'); });
     });
   });
+
+  /* The thank-you page: one lead_submitted per accepted lead (?lead=<id>),
+     with the Google Ads and OpenAI conversions, never twice for the same
+     lead. Ported from the theme this site replaced. */
+  if (/^\/thank-you\/?$/.test(location.pathname)) {
+    try {
+      var params = new URLSearchParams(location.search);
+      var back = params.get('back');
+      if (back && /^\/[A-Za-z0-9\-._~/]*$/.test(back) && back.slice(0, 2) !== '//') {
+        document.querySelectorAll('[data-back]').forEach(function (a) { a.href = back; });
+      }
+      var leadId = params.get('lead');
+      if (leadId) {
+        history.replaceState(null, '', location.pathname);
+        var seen = [];
+        try { seen = JSON.parse(localStorage.getItem('lumin_leads') || '[]'); } catch (e) {}
+        if (seen.indexOf(leadId) === -1) {
+          push({ event: 'lead_submitted', lead_id: leadId, form_location: params.get('form') || 'unknown' });
+          try { if (window.gtag) window.gtag('event', 'conversion', { send_to: 'AW-18424158289/mTzKCPb8uvUcENGwqdFE', transaction_id: leadId }); } catch (e) {}
+          try { if (window.oaiq) window.oaiq('measure', 'subscription_created', { type: 'plan_enrollment' }); } catch (e) {}
+          try { localStorage.setItem('lumin_leads', JSON.stringify(seen.concat(leadId).slice(-20))); } catch (e) {}
+        }
+      }
+    } catch (e) {}
+  }
+
+  /* The 404: which dead addresses people reach, and what sent them. */
+  if (/^\/404\/?$/.test(location.pathname) || document.querySelector('[data-not-found]')) {
+    push({ event: 'page_not_found', missing_path: location.pathname + location.search, missing_referrer: document.referrer || '(none)' });
+  }
 
   /* Form proof line: one real result at a time */
   document.querySelectorAll('[data-proof]').forEach(function (box) {
