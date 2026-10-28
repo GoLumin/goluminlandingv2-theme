@@ -305,6 +305,25 @@
       "/lp/ai-search": "/audit",
       "/lp/chatgpt-ads": "/services/programmatic-chatgpt-ads",
       "/lp/marketing-agency": "/services"
+    },
+    "proposals": {
+      "_comment": "Live client proposal URLs: /proposals/<slug>/<uuid>, plus /contract under two of them. 404 on golumin.io since the domain moved to the CMS origin; 200 on golumin-landing.pages.dev. Not a redirect problem. Recommended fix: proxy /proposals/* to the Pages origin from the same Worker as /api/*. See REDIRECTS.md section 5. The per-proposal UUIDs are access tokens for client-confidential pricing and contracts and are deliberately NOT recorded here; a wildcard proxy rule does not need them.",
+      "pattern": "/proposals/*",
+      "proposed_proxy_origin": "https://golumin-landing.pages.dev",
+      "slugs": [
+        "drop-a-box",
+        "rachelle-doreen",
+        "bells-boxes",
+        "speak-it-forward",
+        "dbe-ads",
+        "dbe-search",
+        "denooyer-ads",
+        "denooyer-search"
+      ],
+      "has_contract_page": [
+        "drop-a-box",
+        "rachelle-doreen"
+      ]
     }
   }
 }

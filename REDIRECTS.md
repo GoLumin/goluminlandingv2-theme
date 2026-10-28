@@ -232,7 +232,78 @@ at it.
 
 ---
 
-## 5. Two loose ends found while mapping
+## 5. Client proposal links are already broken on golumin.io
+
+**Found 2026-10-28, verified first-hand. This is live breakage, not a launch
+risk, and it is separate from everything above.**
+
+Eight client proposals live in the Astro repo
+(`goluminlandingv2/src/data/proposals/*.ts`), served at
+`/proposals/<slug>/<uuid>`, with a `/contract` page under two of them. These
+are the links sent to clients to read and sign.
+
+| URL | golumin.io | golumin-landing.pages.dev |
+| --- | --- | --- |
+| `/proposals/drop-a-box/1d5ee0e1-...` | **404** | 200 |
+| `/proposals/drop-a-box/1d5ee0e1-.../contract` | **404** | 200 |
+| `/proposals` | **404** | 200 |
+| `/` (homepage) | 200 | 200 |
+
+The cause is not a bad redirect. golumin.io now resolves to the LibrePublish
+CMS origin, and the CMS has no `/proposals` route; the Astro site that holds
+them is still only on the Pages address. Every proposal link sent to a client
+on a golumin.io address stopped working when the domain moved.
+
+### The eight, all 404 on golumin.io today
+
+| Client | Path | Contract page |
+| --- | --- | --- |
+| Drop a Box | `/proposals/drop-a-box/<id>` | yes |
+| Rachelle Doreen | `/proposals/rachelle-doreen/<id>` | yes |
+| Bell's Boxes | `/proposals/bells-boxes/<id>` | no |
+| Speak It Forward | `/proposals/speak-it-forward/<id>` | no |
+| DBE (ads) | `/proposals/dbe-ads/<id>` | no |
+| DBE (search) | `/proposals/dbe-search/<id>` | no |
+| DeNooyer (ads) | `/proposals/denooyer-ads/<id>` | no |
+| DeNooyer (search) | `/proposals/denooyer-search/<id>` | no |
+
+The `<id>` in each path is an unguessable UUID, and it is the only thing
+keeping a client's pricing and contract private. They are deliberately left
+out of this file and out of `config/redirects.json`; they live in
+`goluminlandingv2/src/data/proposals/*.ts` and nowhere else. A proxy rule
+matches `/proposals/*` and never needs to know them.
+
+### What this means for the map
+
+`/proposals/*` is a live URL space I had not inventoried, because it is not in
+the CMS. The relaunch has to answer for it, and a 301 is the wrong tool: these
+pages are the deliverable, not an address that moved.
+
+Three options, in the order I would take them:
+
+- **(a) Proxy `/proposals/*` to the Pages origin.** The same Worker step 2
+  builds for `/api/*` can pass `/proposals/*` through to
+  `golumin-landing.pages.dev`. One rule, no content moves, every existing
+  client link works again, and new proposals keep being written as a `.ts`
+  file in the Astro repo exactly as they are today. It also fixes the breakage
+  now rather than at launch.
+- **(b) Carry the eight pages onto the static site.** Cleanest long run, but it
+  moves where proposals are authored, and the generator is Astro.
+- **(c) Leave them on the Pages address and send clients that link.** Works,
+  but the links are not on the company domain, and the ones already sent stay
+  broken.
+
+**Recommended: (a), pulled forward out of step 2 so the live breakage ends
+before any relaunch.** It needs a Worker in front of golumin.io, which is a
+production change and so Jordan's call, not mine.
+
+Unconfirmed: exactly when the links broke. The homepage still serves, so it
+looks like the domain repoint rather than a failed deploy, but I have not
+proven that and have not touched Cloudflare.
+
+---
+
+## 6. Two loose ends found while mapping
 
 - **`website.html` is a stale duplicate of `websites.html`.** Same canonical,
   same page, but it is missing the four highlighted phrases the finished one
@@ -255,6 +326,7 @@ page entries, not on this branch.
 | Covered by a page at the same address | 31 |
 | Covered by a new 301 | 1 (`/home`) |
 | **Not covered, needs your call** | **6** (the `/lp/*` pages) |
+| Client proposal URLs 404ing on golumin.io today | 10 (section 5) |
 | Existing CMS redirects carried over | 21 of 23 |
 | Existing CMS redirects to change | 2 (`/about`, `/about-us`) |
 | New 301s, filename to canonical | 29 |
