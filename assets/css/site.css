@@ -823,6 +823,22 @@ strong { font-weight: 600; }
 .page-hero .scrim { background: radial-gradient(70% 90% at 26% 46%, rgba(12,9,40,.84) 0%, rgba(12,9,40,.6) 45%, rgba(12,9,40,.15) 75%, rgba(12,9,40,0) 92%); }
 .section-night .scrim { background: radial-gradient(60% 70% at 24% 32%, rgba(12,9,40,.8) 0%, rgba(12,9,40,.55) 45%, rgba(12,9,40,.12) 75%, rgba(12,9,40,0) 92%); }
 .has-photo .scrim { background: radial-gradient(62% 80% at 26% 50%, rgba(12,9,40,.8) 0%, rgba(12,9,40,.55) 45%, rgba(12,9,40,.12) 75%, rgba(12,9,40,0) 92%); }
+
+/* The homepage's night-sky photo is already dark and already clears a space at
+   the top left, so the night hero's standard suppression buries it: at the
+   headline the wash and the scrim overlap and only about 2.5% of the picture
+   survives. On this hero alone the crop lifts, bringing the Milky Way above the
+   form card, and the three darkening layers come down. White on deep indigo
+   under the headline still clears AAA. Scoped to .hero-stars, so /audit and
+   /laspalmas keep the standard treatment with their own photos. */
+.hero-stars .hero-photo i { background-position: center 18%; }
+.hero-stars.is-night .hero-photo::after {
+  background:
+    linear-gradient(90deg, rgba(12,9,40,.72) 0%, rgba(12,9,40,.52) 38%, rgba(12,9,40,.14) 66%, rgba(12,9,40,.22) 100%),
+    linear-gradient(180deg, rgba(12,9,40,.35) 0%, rgba(12,9,40,0) 35%, rgba(12,9,40,.1) 70%, rgba(12,9,40,.45) 100%);
+}
+.hero-stars .scrim { background: radial-gradient(58% 58% at 22% 34%, rgba(12,9,40,.66) 0%, rgba(12,9,40,.42) 42%, rgba(12,9,40,.1) 70%, rgba(12,9,40,0) 86%); }
+.hero-stars .tint { opacity: .3; }
 .is-night .lede, .section-night .lede { color: rgba(255,255,255,.92); text-shadow: 0 1px 10px rgba(12,9,40,.55); }
 .is-night .h-hero, .is-night .h-2, .section-night .h-2, .section-night .h-3 { text-shadow: 0 2px 18px rgba(12,9,40,.45); }
 .is-night .eyebrow, .section-night .eyebrow { color: #DDD6FF; font-weight: 600; }
