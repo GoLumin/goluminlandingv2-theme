@@ -1,2 +1,19 @@
 _worker.js
 wrangler.toml
+
+# The static site is the HTML at the root plus assets/. Everything below is
+# the Libre Publish theme this repo also holds, and has no business being
+# served on golumin.io: it was reachable at /app/..., /spec/... and
+# /script/... until this file grew.
+app/
+lib/
+config/
+script/
+spec/
+*.gemspec
+package.json
+package-lock.json
+README.md
+LICENSE.md
+REDIRECTS.md
+RECOVERY.md
