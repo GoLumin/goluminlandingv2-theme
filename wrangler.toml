@@ -1,0 +1,18 @@
+name = "golumin-site"
+main = "_worker.js"
+compatibility_date = "2026-10-01"
+account_id = "ae4648110a8caf1af6df3ed3a2d9f438"
+
+# ── PRODUCTION ROUTES ─────────────────────────────────
+# Intercept all golumin.io traffic at the edge. ROLLBACK: delete this
+# block and `npx wrangler deploy` — traffic returns to the CMS origin.
+routes = [
+  { pattern = "golumin.io/*", zone_id = "3b4ec8cf5e58a649ccb84ae86ae3b979" },
+  { pattern = "www.golumin.io/*", zone_id = "3b4ec8cf5e58a649ccb84ae86ae3b979" }
+]
+
+[assets]
+directory = "."
+binding = "ASSETS"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"

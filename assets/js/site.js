@@ -105,7 +105,10 @@
     }
   }
 
-  /* Forms: demo submit (the live site posts to the CMS form endpoint) */
+  /* Forms: real submit to the CMS form endpoint (same-origin via the
+     worker's /api proxy). On success: the thank-you state. On any
+     failure: an honest fallback with phone + email — never a fake
+     success over a lost lead. */
   document.querySelectorAll('[data-form]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -120,9 +123,22 @@
         if (first) first.focus();
         return;
       }
-      form.classList.add('is-done');
-      var done = form.querySelector('.form-done');
-      if (done) { done.hidden = false; done.setAttribute('tabindex', '-1'); done.focus(); }
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Sending…'; }
+      var finish = function (sent) {
+        form.classList.add('is-done');
+        var done = form.querySelector('.form-done');
+        if (done) {
+          if (!sent) {
+            done.innerHTML = '<strong>That didn\u2019t go through.</strong><p>Our form is briefly offline. Call <a href="tel:+14152836736">(415) 283-6736</a> or email <a href="mailto:marketing@golumin.io">marketing@golumin.io</a> \u2014 a partner answers both.</p>';
+          }
+          done.hidden = false; done.setAttribute('tabindex', '-1'); done.focus();
+        }
+      };
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (res) { finish(res.ok); })
+        .catch(function () { finish(false); })
+        .finally(function () { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; } });
     });
     form.querySelectorAll('input, select, textarea').forEach(function (f) {
       f.addEventListener('input', function () { f.closest('.field').classList.remove('is-invalid'); });
