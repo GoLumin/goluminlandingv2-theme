@@ -1,0 +1,27 @@
+<%# locals: (data:) -%>
+<%# Most agencies against us, row by row (the Ad landing pages global's comparison). %>
+<% rows = gl_global(:ad_landing).comparison.rows %>
+<%= gl_section do %>
+  <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+  <h2 class="display display-md max-w-3xl"><%= gl_heading(data.heading) %></h2>
+  <div class="mt-10 overflow-x-auto">
+    <table class="w-full min-w-[42rem] border-collapse border-2 border-text bg-surface text-left">
+      <thead>
+        <tr class="border-b-2 border-text bg-bg-subtle">
+          <th scope="col" class="w-[22%] p-4 font-mono text-[11px] uppercase tracking-[0.14em] text-text-muted"><span class="sr-only">Question</span></th>
+          <th scope="col" class="w-[39%] p-4 font-mono text-[11px] uppercase tracking-[0.14em] text-text-muted">Most agencies</th>
+          <th scope="col" class="w-[39%] p-4 font-mono text-[11px] uppercase tracking-[0.14em] text-primary"><%= data.us_label %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% rows.each do |row| %>
+          <tr class="border-b-2 border-border last:border-b-0 align-top">
+            <th scope="row" class="p-4 text-[14px] font-bold tracking-tight"><%= row.k %></th>
+            <td class="p-4 text-[14px] leading-relaxed text-text-muted"><%= row.a %></td>
+            <td class="p-4 text-[14px] font-medium leading-relaxed"><%= row.b %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

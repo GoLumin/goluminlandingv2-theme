@@ -1,0 +1,41 @@
+<%# locals: (data:) -%>
+<%# The loop (LoopDiagram.astro): six stages round a circle, each arrow drawn as the section arrives, and the three proofs beside it. %>
+<% nodes = data.nodes %>
+<% n = [nodes.size, 1].max %>
+<% step = 360.0 / n %>
+<%= gl_section(tone: "subtle", id: "loop") do %>
+  <div class="grid items-center gap-12 md:grid-cols-2">
+    <div>
+      <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+      <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
+      <p class="reveal mt-6 max-w-lg text-lg leading-snug text-text-subtle"><%= data.body %></p>
+      <ul class="mt-10 rule-t" data-stagger>
+        <% data.proofs.each do |proof| %>
+          <li class="reveal border-b border-border py-4"><span class="text-lg font-semibold tracking-tight"><%= proof.title %></span> <span class="text-text-subtle"><%= proof.body %></span></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="draw relative mx-auto aspect-square w-full max-w-md" data-stagger>
+      <svg viewBox="0 0 400 400" class="absolute inset-0 h-full w-full" aria-hidden="true">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor" /></marker>
+        </defs>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 7" opacity="0.4" />
+        <% n.times do |i| %>
+          <% a1 = (i * step - 90 + 14) * Math::PI / 180 %>
+          <% a2 = ((i + 1) * step - 90 - 14) * Math::PI / 180 %>
+          <path d="M<%= (200 + 150 * Math.cos(a1)).round(3) %> <%= (200 + 150 * Math.sin(a1)).round(3) %> A150 150 0 0 1 <%= (200 + 150 * Math.cos(a2)).round(3) %> <%= (200 + 150 * Math.sin(a2)).round(3) %>" fill="none" stroke="currentColor" stroke-width="2.5" marker-end="url(#arrow)" />
+        <% end %>
+        <text x="200" y="192" text-anchor="middle" fill="currentColor" font-size="22" font-weight="700" letter-spacing="-0.5" font-family="Geist, system-ui"><%= data.center_title %></text>
+        <text x="200" y="216" text-anchor="middle" fill="currentColor" opacity="0.6" font-size="12" font-family="Geist Mono, monospace"><%= data.center_note %></text>
+      </svg>
+      <% nodes.each_with_index do |node, i| %>
+        <% a = (i * step - 90) * Math::PI / 180 %>
+        <div class="reveal absolute -translate-x-1/2 -translate-y-1/2 border-2 border-text bg-surface px-3 py-1.5 text-center shadow-[4px_4px_0_0_var(--color-text)]" style="left:<%= (50 + 37.5 * Math.cos(a)).round(3) %>%;top:<%= (50 + 37.5 * Math.sin(a)).round(3) %>%;--i:<%= i + 1 %>">
+          <div class="whitespace-nowrap text-[13px] font-semibold"><%= node.label %></div>
+          <div class="whitespace-nowrap font-mono text-[10px] uppercase tracking-wider text-text-muted"><%= node.owner %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

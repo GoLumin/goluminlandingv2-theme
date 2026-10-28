@@ -1,0 +1,46 @@
+<%# locals: (data:) -%>
+<%# The banner page's opening (laspalmas.astro): the offer bar and a bar of its own (the banner's phone number, no nav), the banner's line word for word, and the plan form beside it — under the headline on a phone, where a scanned QR lands. %>
+<% phone = gl_href(data.phone_link) %>
+<% plan = gl_global(:ad_landing).plan %>
+<% content_for :header do %>
+  <a href="#plan-form" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-text focus:px-4 focus:py-2 focus:text-bg">Skip to the form</a>
+  <%= render "website/shared/landing_header", phone_label: data.phone_label, phone_href: phone, cta_label: "Get my free plan", cta_href: "#plan-form", cta: "laspalmas", offer: :narrow %>
+<% end %>
+<% content_for :footer do %>
+  <footer class="rule-t bg-bg">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-[13px] text-text-muted md:flex-row md:items-center md:justify-between md:px-8">
+      <p>&copy; <%= gl_year %> <%= gl_name %>. <%= data.sponsor_line %></p>
+      <div class="flex items-center gap-5">
+        <a href="<%= phone %>" class="font-mono font-semibold text-text hover:text-primary"><%= data.phone_label %></a>
+        <a href="/privacy" class="underline underline-offset-2 hover:text-text">Privacy</a>
+      </div>
+    </div>
+  </footer>
+<% end %>
+<section class="relative overflow-hidden">
+  <div class="grid-paper pointer-events-none absolute inset-0 -z-10 opacity-70"></div>
+  <div class="pointer-events-none absolute inset-0 -z-10" style="background:radial-gradient(900px 440px at 14% -12%, oklch(0.72 0.17 299 / 0.20), transparent 68%), radial-gradient(780px 400px at 94% 4%, oklch(0.70 0.14 262 / 0.17), transparent 70%);"></div>
+  <div class="mx-auto grid max-w-6xl gap-x-14 gap-y-10 px-5 pb-16 pt-12 md:px-8 md:pb-20 md:pt-16 lg:grid-cols-[1.02fr_0.98fr]" data-stagger>
+    <div class="lg:col-start-1 lg:row-start-1">
+      <p class="reveal mb-6 flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.14em] text-text sm:tracking-[0.18em]"><span class="pulse-dot relative inline-block h-2 w-2 shrink-0 rounded-full bg-signal"></span><span class="font-semibold"><%= data.eyebrow %></span></p>
+      <p class="reveal mb-4 font-mono text-[13px] font-semibold uppercase tracking-[0.16em] text-text-muted"><%= data.wordmark %></p>
+      <h1 class="reveal display display-md"><%= gl_heading(data.heading) %></h1>
+      <p class="reveal mt-6 max-w-xl text-lg leading-snug text-text-subtle md:text-[21px]"><%= data.sub %></p>
+    </div>
+    <div id="plan-form" class="scroll-mt-20 lg:col-start-2 lg:row-start-1 lg:row-span-2">
+      <%= render "website/shared/audit_form", prefix: "laspalmas-hero", compact: true, cta: "laspalmas-hero", submit_label: data.submit_label, kicker: "Free marketing plan",
+        heading: data.form_heading, blurb: plan.effort, note: data.note, phone_href: phone, phone_label: data.phone_label %>
+    </div>
+    <div class="lg:col-start-1 lg:row-start-2">
+      <ul class="reveal mb-8 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[13px] font-semibold uppercase tracking-[0.12em] text-text-subtle">
+        <% data.platforms.each_with_index do |platform, i| %>
+          <li class="flex items-center gap-5"><% if i.positive? %><span class="text-primary" aria-hidden="true">•</span><% end %><span><%= platform %></span></li>
+        <% end %>
+      </ul>
+      <ul class="reveal space-y-3 text-[16px]">
+        <% data.checks.each do |check| %><li class="flex items-start gap-3"><%= gl_check %><span class="font-medium"><%= check %></span></li><% end %>
+      </ul>
+      <%= render "website/shared/credentials" %>
+    </div>
+  </div>
+</section>

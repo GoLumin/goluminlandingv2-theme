@@ -1,0 +1,21 @@
+<%# locals: (before:, now:, now_label:) -%>
+<%# The arithmetic as a unit grid, one square per page (SurfaceArea.astro): a small site a decade ago against one client's site today. %>
+<% cols = 34 %>
+<div class="sa" data-fig-scene="surface" data-then="<%= before %>" data-now="<%= now %>">
+  <div class="sa-side">
+    <div class="sa-head">
+      <span class="fig-label">A small site, a decade ago</span>
+      <div class="sa-fig"><span data-anim="count-then" data-count="<%= before %>">0</span> <span class="sa-unit">pages</span></div>
+    </div>
+    <div class="sa-grid" style="grid-template-columns:repeat(<%= cols %>,1fr)"><% before.times do %><i data-anim="cell-then"></i><% end %></div>
+    <p class="sa-note">One person could look at all of it in an afternoon.</p>
+  </div>
+  <div class="sa-side">
+    <div class="sa-head">
+      <span class="fig-label"><%= now_label %></span>
+      <div class="sa-fig sa-fig-now"><span data-anim="count-now" data-count="<%= now %>">0</span> <span class="sa-unit">pages</span></div>
+    </div>
+    <div class="sa-grid sa-grid-now" style="grid-template-columns:repeat(<%= cols %>,1fr)"><% now.times do |i| %><i data-anim="cell-now" style="--t:<%= ((i % cols) / (cols - 1).to_f).round(4) %>"></i><% end %></div>
+    <p class="sa-note">Plus a business profile, forty directory listings and four ad platforms.</p>
+  </div>
+</div>

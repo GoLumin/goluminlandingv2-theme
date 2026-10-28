@@ -1,0 +1,72 @@
+<%# locals: (entry:, lp:) -%>
+<%# One service's audit page (LandingPage.astro): promise and form, the quote and the logos, what the audit finds, the service's problems, three steps, the human gate or the platform, case studies, questions, the form again. %>
+<% service = gl_service(lp.service) %>
+<% svc = service && website_fields(service) %>
+<% quote = gl_testimonial %>
+<% content_for :header, render("website/shared/landing_header", phone_label: gl_phone, phone_href: gl_tel, cta_label: "Get the free audit", cta: "lp-#{entry.slug}") %>
+<%= render "website/shared/lp_hero", entry:, lp:,
+  form: render("website/shared/audit_form", prefix: "lp-#{entry.slug}-hero", compact: true, cta: "lp-#{entry.slug}-hero-form", audit_type: lp.audit_type, lock_type: true, submit_label: lp.submit_label) %>
+<% if quote %><%= render "website/shared/testimonial", quote:, link: false %><% end %>
+<%= render "website/shared/client_logos", label: "Running now for", linked: true %>
+<%= gl_section do %>
+  <div class="max-w-3xl">
+    <%= gl_eyebrow("What you get", "The audit") %>
+    <h2 class="reveal display display-lg"><%= lp.finds_heading[0] %><span class="text-primary"><%= lp.finds_heading[1] %></span></h2>
+  </div>
+  <ol class="mt-12 grid gap-px border-2 border-text bg-text sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+    <% lp.finds.each_with_index do |find, i| %>
+      <li class="reveal bg-surface p-6">
+        <span class="tag font-mono text-[12px] text-text-muted"><%= gl_n(i) %></span>
+        <h3 class="mt-3 text-xl font-bold leading-tight tracking-tight"><%= find.t %></h3>
+        <p class="mt-2 text-[15px] leading-snug text-text-subtle"><%= find.d %></p>
+      </li>
+    <% end %>
+  </ol>
+  <div class="reveal mt-10"><a href="#lp-form" data-cta="lp-<%= entry.slug %>-finds" class="inline-flex h-14 items-center justify-center rounded-md bg-text px-7 text-base font-semibold text-bg transition-colors hover:bg-primary"><%= lp.submit_label %></a></div>
+<% end %>
+<% if svc %>
+  <%= gl_section(tone: "subtle") do %>
+    <%= render "website/shared/numbered_list", eyebrow: "What this fixes", eyebrow_n: "Sound familiar?", heading: "Said on the first call, ^nearly every time.^", quoted: true, items: svc.problems.map { |p| [p.t, p.d] } %>
+  <% end %>
+<% end %>
+<%= gl_section do %>
+  <div class="max-w-3xl">
+    <%= gl_eyebrow("Three steps", "How it works") %>
+    <h2 class="reveal display display-lg">Findings first. <span class="mark">Then we talk.</span></h2>
+  </div>
+  <div class="mt-12">
+    <%= render "website/shared/steps", items: [
+      ["01", "Send the form", "A few fields. A named person at GoLumin reads it, not an autoresponder."],
+      ["02", "We take a look", entry.slug == "ads" ? "You grant read-only access. The agents go through the account; nothing in it can change." : "The agents go through what's live today, and a person checks and writes up what they find."],
+      ["03", "We walk you through it", "Real findings on your own business, ranked. You keep them whether or not you hire us."]
+    ] %>
+  </div>
+<% end %>
+<% if entry.slug == "ads" %>
+  <%= gl_page_block(:home, :human_gate) %>
+<% end %>
+<%# Not an elsif: Herb joins an elsif's condition to a block helper that follows it. %>
+<% if svc && entry.slug != "ads" %>
+  <%= gl_section(tone: "subtle") do %>
+    <div class="grid items-start gap-10 md:grid-cols-2 md:gap-14" data-stagger>
+      <div class="reveal">
+        <%= gl_eyebrow(svc.platform["name"], "Behind it") %>
+        <h2 class="reveal display display-md">Software does the legwork. <span class="mark">A person signs for it.</span></h2>
+        <p class="mt-6 text-lg leading-snug text-text-subtle"><%= svc.platform.d %></p>
+        <div class="mt-8 border-l-2 border-signal bg-surface px-5 py-4">
+          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">Where the person sits</p>
+          <p class="mt-2 text-[15px] leading-snug"><%= svc.human %></p>
+        </div>
+      </div>
+      <% if svc.platform.image.present? %><div class="reveal tilt-zone" style="--i:1"><div class="tilt"><%= render "website/shared/screenshot", image: svc.platform.image, caption: svc.platform.caption %></div></div><% end %>
+    </div>
+  <% end %>
+<% end %>
+<% if lp.cases.any? %>
+  <%= render layout: "website/shared/case_studies", locals: {studies: gl_cases(lp.cases), eyebrow: "Live right now", eyebrow_n: "Results", heading: lp.cases_heading,
+    body: "Every figure below comes from the live site or its sitemap at capture time. Where a client's performance data is theirs to release, we ask first and publish the baseline and the method with it.", link_label: "", tone: "bg"} do %><% end %>
+<% end %>
+<% faq = lp.faqs.map { |f| [f.q, f.a] } + (svc ? svc.faqs.map { |f| [f.q, f.a] } : []) %>
+<%= render "website/shared/faq", items: faq.map { |q, a| Struct.new(:question, :answer).new(q, a) }, heading: "Before you send it.", tone: lp.cases.any? ? "subtle" : "bg" %>
+<%= render "website/shared/audit_section", heading: lp.closing.h, blurb: lp.closing.blurb, audit_type: lp.audit_type, lock_type: true, submit_label: lp.submit_label, prefix: "lp-#{entry.slug}-footer",
+  bullets: ["Read-only access — nothing changes", "No obligation, no slide deck", "This form is a lead in our own inbox, timer running on us"] %>

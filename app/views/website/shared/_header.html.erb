@@ -1,0 +1,82 @@
+<%# locals: () -%>
+<%# The site's bar (Header.astro): the logo, the nav global's items — those with a hover menu on wide screens, every one with children an accordion on a phone — its button, and the phone number, always outside the menu. %>
+<% nav = gl_global(:nav) %>
+<% items = nav.items.filter_map do |item|
+     href = gl_href(item.link) or next
+     children = case item.children_from
+                when "services" then gl_services.map { |s| {label: website_fields(s).nav, href: website_path(s), note: Array(website_fields(s).chips).first(3).join(" · ")} }
+                when "work" then gl_work.map { |w| {label: w.title, href: website_path(w), note: nil} }
+                else item.children.filter_map { |c| (h = gl_href(c.link)) && {label: c.label, href: h, note: c.note} }
+                end
+     {label: item.label, href:, menu: item.desktop_menu, children:}
+   end %>
+<% cta = gl_href(nav.cta_link) %>
+<header class="sticky top-0 z-40 border-b-2 border-text bg-bg/90 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
+    <a href="/" class="flex min-w-0 items-center" aria-label="<%= gl_name %> home"><%= gl_logo(class: "h-7 w-auto shrink-0 sm:h-8") %></a>
+    <div class="flex shrink-0 items-center gap-2 pl-2 md:gap-5">
+      <nav class="hidden items-center gap-6 font-mono text-[12px] uppercase tracking-[0.12em] text-text-subtle lg:flex" aria-label="Main">
+        <% items.each do |item| %>
+          <% if item[:menu] && item[:children].any? %>
+            <div class="group relative">
+              <a href="<%= item[:href] %>" class="<%= class_names("flex items-center gap-1.5 transition-colors hover:text-text", "text-text": gl_active?(item[:href])) %>">
+                <%= item[:label] %><svg class="mt-px transition-transform group-hover:translate-y-0.5" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+              </a>
+              <div class="invisible absolute -left-4 top-full w-64 pt-4 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <ul class="border-2 border-text bg-surface shadow-[6px_6px_0_0_var(--color-text)]">
+                  <% item[:children].each do |child| %>
+                    <li>
+                      <a href="<%= child[:href] %>" class="block border-b border-border px-4 py-3 normal-case tracking-normal last:border-b-0 hover:bg-bg-subtle">
+                        <span class="block text-[14px] font-semibold tracking-tight text-text"><%= child[:label] %></span>
+                        <% if child[:note].present? %><span class="mt-0.5 block font-mono text-[10.5px] uppercase tracking-wider text-text-muted"><%= child[:note] %></span><% end %>
+                      </a>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          <% else %>
+            <a href="<%= item[:href] %>" class="<%= class_names("transition-colors hover:text-text", "text-text": gl_active?(item[:href])) %>"><%= item[:label] %></a>
+          <% end %>
+        <% end %>
+      </nav>
+      <details class="nav-menu lg:hidden">
+        <summary class="flex h-10 w-10 cursor-pointer items-center justify-center border-2 border-text" aria-label="Menu">
+          <span class="bars relative block h-[2px] w-5 bg-text before:absolute before:-top-[6px] before:block before:h-[2px] before:w-5 before:bg-text before:content-[''] after:absolute after:top-[6px] after:block after:h-[2px] after:w-5 after:bg-text after:content-['']"></span>
+        </summary>
+        <nav class="nav-panel fixed inset-x-0 top-16 z-50 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-y-2 border-text bg-surface" aria-label="Main menu">
+          <% items.each do |item| %>
+            <% if item[:children].any? %>
+              <details class="nav-group border-b border-border">
+                <summary class="<%= class_names("flex cursor-pointer list-none items-center justify-between px-5 py-4 text-[17px] font-semibold tracking-tight", "text-primary": gl_active?(item[:href])) %>">
+                  <%= item[:label] %>
+                  <svg class="chev shrink-0 text-text-muted transition-transform duration-200" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </summary>
+                <ul class="bg-bg-subtle pb-1">
+                  <% unless item[:children].any? { |c| c[:href] == item[:href] } %>
+                    <li><a href="<%= item[:href] %>" class="block border-t border-border px-5 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-text-muted">All <%= item[:label].downcase %> →</a></li>
+                  <% end %>
+                  <% item[:children].each do |child| %>
+                    <li><a href="<%= child[:href] %>" class="block border-t border-border px-5 py-3 pl-7 text-[15px] font-medium tracking-tight"><%= child[:label] %></a></li>
+                  <% end %>
+                </ul>
+              </details>
+            <% else %>
+              <a href="<%= item[:href] %>" class="<%= class_names("block border-b border-border px-5 py-4 text-[17px] font-semibold tracking-tight", "text-primary": gl_active?(item[:href])) %>"><%= item[:label] %></a>
+            <% end %>
+          <% end %>
+        </nav>
+      </details>
+      <% if cta %>
+        <%= gl_button nav.cta_label, cta, magnet: true, cta: "header" %>
+      <% end %>
+      <% if website_design(:header_phone) %>
+        <a href="<%= gl_tel %>" data-cta="header-phone" class="hidden items-center gap-2 font-mono text-[12px] font-semibold tracking-[0.08em] text-text transition-colors hover:text-primary sm:inline-flex">
+          <%= gl_phone_icon(15) %>
+          <%= gl_phone %>
+        </a>
+        <a href="<%= gl_tel %>" data-cta="header-phone-icon" aria-label="Call <%= gl_name %> on <%= gl_phone %>" class="grid h-10 w-10 place-items-center border-2 border-text text-text sm:hidden"><%= gl_phone_icon(17) %></a>
+      <% end %>
+    </div>
+  </div>
+</header>

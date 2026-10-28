@@ -1,0 +1,12 @@
+<%# locals: (entry:) -%>
+<%# A paid landing page at /lp/<slug>: one offer, one form, no site nav, never indexed. kind "service" sells one service's audit (LandingPage.astro); kind "adgroup" is one Google Ads ad group's page, leading with the free landing page (AdGroupLanding.astro). ?v=<key> swaps the headline (site.js, from the page's variants). %>
+<% lp = website_fields(entry) %>
+<% content_for :head, gl_seo_tags(entry, description: lp.sub, noindex: true) %>
+<% content_for :sticky_cta, (lp.kind == "adgroup" ? lp.submit_label : "Get a free audit →") %>
+<% if lp.kind == "adgroup" %>
+  <%= render "website/shared/lp_adgroup", entry:, lp: %>
+<% else %>
+  <%= render "website/shared/lp_service", entry:, lp: %>
+<% end %>
+<% content_for :footer, render("website/shared/landing_footer") %>
+<%= tag.div(hidden: true, data: {gl_variants: lp.variants.to_h { |v| [v.key, {h: v.h, sub: v.sub}] }.to_json, gl_event: {event: "view_landing", landing_slug: entry.slug}.to_json}) %>

@@ -1,0 +1,10 @@
+<%# locals: (data:) -%>
+<%# Records picked from a collection, by name. %>
+<% records = CollectionEntry.where(id: data.partners).then { previewing? ? it : it.live } %>
+<%= gl_section do %>
+  <% if data.heading.present? %><h2 class="reveal display display-md"><%= gl_heading(data.heading) %></h2><% end %>
+  <% if data.body.present? %><p class="reveal mt-4 max-w-2xl text-lg leading-snug text-text-subtle"><%= website_plain_text(data.body) %></p><% end %>
+  <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <% records.each do |record| %><li class="border-2 border-text bg-surface px-5 py-4 font-semibold"><%= record.title %></li><% end %>
+  </ul>
+<% end %>

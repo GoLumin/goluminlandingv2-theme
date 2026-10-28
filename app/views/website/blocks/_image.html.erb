@@ -1,0 +1,5 @@
+<%# locals: (data:) -%>
+<figure class="reveal mx-auto max-w-6xl px-5 py-10 md:px-8">
+  <%= gl_image data.asset_id, alt: data.alt.presence, sizes: "(min-width: 72rem) 70rem, 100vw", class: "w-full h-auto rounded-lg border-2 border-text" %>
+  <% if data.caption.present? %><figcaption class="mt-3 font-mono text-[11px] text-text-muted"><%= data.caption %></figcaption><% end %>
+</figure>

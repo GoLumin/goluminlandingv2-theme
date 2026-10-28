@@ -1,0 +1,58 @@
+<%# locals: (data:) -%>
+<%# The case studies listed (work slugs), the first in full with its story and figures, the rest by their outcome (laspalmas.astro). %>
+<% lead, *rest = gl_cases(data.cases) %>
+<%= gl_section(id: "proof") do %>
+  <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+  <h2 class="display display-md max-w-3xl"><%= gl_heading(data.heading) %></h2>
+  <p class="mt-5 max-w-2xl text-[17px] leading-relaxed text-text-subtle"><%= data.body %></p>
+  <% if lead %>
+    <% c = website_fields(lead) %>
+    <article class="mt-10 border-2 border-text bg-surface">
+      <div class="grid gap-px bg-border lg:grid-cols-[1.25fr_0.75fr]">
+        <div class="bg-surface p-6 md:p-9">
+          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= c.vertical %> · <%= c.place %></p>
+          <h3 class="mt-3 text-2xl font-bold leading-tight tracking-tight md:text-3xl"><%= c.h %></h3>
+          <% if c.story.problem.present? %>
+            <dl class="mt-6 space-y-4">
+              <% [["The problem", c.story.problem], ["What we did", c.story.did], ["What happened", c.story.happened]].each do |term, text| %>
+                <div><dt class="font-mono text-[11px] uppercase tracking-[0.14em] text-text-muted"><%= term %></dt><dd class="mt-1.5 text-[15px] leading-relaxed text-text-subtle"><%= text %></dd></div>
+              <% end %>
+            </dl>
+          <% end %>
+        </div>
+        <div class="flex flex-col justify-center bg-surface p-6 md:p-9">
+          <% if c.outcome.stat.present? %>
+            <div>
+              <p class="figure brand-gradient-text text-[clamp(2rem,3.6vw,3.25rem)]"><%= c.outcome.stat %></p>
+              <p class="mt-4 text-[16px] font-bold leading-snug tracking-tight"><%= c.outcome.label %></p>
+              <% if c.outcome.sub.present? %><p class="mt-1 text-[14px] text-text-muted"><%= c.outcome.sub %></p><% end %>
+            </div>
+          <% end %>
+          <% if c.stat_band.any? %>
+            <ul class="mt-7 space-y-4 border-t-2 border-border pt-6">
+              <% c.stat_band.reject { |s| s.n == c.outcome.stat }.first(3).each do |s| %>
+                <li><p class="font-mono text-[18px] font-bold tabular-nums leading-none"><%= s.n %></p><p class="mt-1.5 text-[13px] leading-snug text-text-subtle"><%= s.l %></p></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+      <% if c["method"].present? %><p class="border-t-2 border-border bg-bg-subtle px-6 py-4 font-mono text-[11px] leading-relaxed text-text-muted md:px-9">How it was measured: <%= c["method"] %></p><% end %>
+    </article>
+  <% end %>
+  <div class="mt-8 grid items-start gap-px border-2 border-text bg-border md:grid-cols-3">
+    <% rest.each do |study| %>
+      <% c = website_fields(study) %>
+      <div class="flex h-full flex-col bg-surface p-6">
+        <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= c.vertical %></p>
+        <% if c.outcome.stat.present? %>
+          <p class="mt-4 text-4xl font-bold leading-none tracking-tight brand-gradient-text"><%= c.outcome.stat %></p>
+          <p class="mt-3 text-[15px] font-bold leading-snug tracking-tight"><%= c.outcome.label %></p>
+          <% if c.outcome.sub.present? %><p class="mt-1 text-[13px] text-text-muted"><%= c.outcome.sub %></p><% end %>
+        <% end %>
+        <% if c.story.happened.present? %><p class="mt-4 text-[14px] leading-relaxed text-text-subtle"><%= c.story.happened %></p><% end %>
+        <p class="mt-auto pt-5 font-mono text-[11px] uppercase tracking-[0.12em] text-text-muted"><%= study.title %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

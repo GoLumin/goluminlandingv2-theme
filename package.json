@@ -1,0 +1,9 @@
+{
+  "name": "goluminlandingv2-theme",
+  "private": true,
+  "description": "Only to compile the stylesheet: script/build-css. The site serves the compiled plain CSS.",
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
+  }
+}

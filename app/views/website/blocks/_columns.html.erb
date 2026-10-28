@@ -1,0 +1,5 @@
+<%# locals: (data:) -%>
+<%# Blocks side by side. %>
+<div class="mx-auto grid max-w-6xl gap-8 px-5 md:px-8 <%= {"3" => "md:grid-cols-3", "4" => "md:grid-cols-4"}.fetch(data.column_count.to_s, "md:grid-cols-2") %>">
+  <% Array(data.to_h["items"]).each do |block| %><div><%= website_block(block) %></div><% end %>
+</div>

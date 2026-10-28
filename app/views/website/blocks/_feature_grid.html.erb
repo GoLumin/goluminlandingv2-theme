@@ -1,0 +1,15 @@
+<%# locals: (data:) -%>
+<%= gl_section do %>
+  <% if data.heading.present? %><h2 class="reveal display display-lg max-w-3xl"><%= gl_heading(data.heading) %></h2><% end %>
+  <% if data.body.present? %><p class="reveal mt-6 max-w-2xl text-lg leading-snug text-text-subtle"><%= website_plain_text(data.body) %></p><% end %>
+  <div class="mt-12 grid gap-6 <%= {"2" => "md:grid-cols-2", "4" => "md:grid-cols-2 lg:grid-cols-4"}.fetch(data.columns.to_s, "md:grid-cols-3") %>" data-stagger>
+    <% data.items.each do |item| %>
+      <% href = gl_href(item.link) %>
+      <div class="reveal border-2 border-text bg-surface p-6">
+        <h3 class="text-2xl font-bold tracking-tight"><%= item.title %></h3>
+        <p class="mt-3 text-[15px] leading-snug text-text-subtle"><%= website_plain_text(item.body) %></p>
+        <% if href %><a href="<%= href %>" class="mt-4 inline-flex font-semibold underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text">Learn more →</a><% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

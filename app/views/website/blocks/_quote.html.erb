@@ -1,0 +1,7 @@
+<%# locals: (data:) -%>
+<section class="console ink rule-t">
+  <figure class="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+    <blockquote class="reveal"><p class="text-[clamp(1.6rem,3.4vw,2.6rem)] font-semibold leading-[1.18] tracking-tight text-text"><span class="brand-gradient-text" aria-hidden="true">“</span><%= website_plain_text(data.text) %><span class="brand-gradient-text" aria-hidden="true">”</span></p></blockquote>
+    <% if data.attribution.present? %><figcaption class="reveal mt-8 text-lg font-bold tracking-tight"><%= data.attribution %></figcaption><% end %>
+  </figure>
+</section>

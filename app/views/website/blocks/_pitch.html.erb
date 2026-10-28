@@ -1,0 +1,15 @@
+<%# locals: (data:) -%>
+<% href = gl_href(data.cta_url) %>
+<%= gl_section(tone: "subtle") do %>
+  <div class="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+    <div>
+      <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
+      <ul class="mt-8 rule-t" data-stagger>
+        <% data.questions.each do |q| %><li class="reveal border-b border-border py-4 text-lg font-semibold tracking-tight">“<%= q.text %>”</li><% end %>
+      </ul>
+      <% if data.body.present? %><p class="reveal mt-6 text-lg leading-snug text-text-subtle"><%= website_plain_text(data.body) %></p><% end %>
+      <% if href %><div class="reveal mt-8"><%= gl_button data.cta_label.presence || "Let's talk", href, size: :lg, magnet: true %></div><% end %>
+    </div>
+    <% if data.image_id.present? %><div class="reveal"><%= gl_image data.image_id, sizes: "(min-width: 768px) 50vw, 100vw", class: "w-full h-auto rounded-lg border-2 border-text" %></div><% end %>
+  </div>
+<% end %>

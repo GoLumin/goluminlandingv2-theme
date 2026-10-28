@@ -1,0 +1,22 @@
+<%# locals: (data:) -%>
+<%# Why we're on the banner (laspalmas.astro): the story, the photo of the banner and what the sponsorship funds. %>
+<%= gl_section(id: "why", rule: false) do %>
+  <div class="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
+    <div>
+      <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+      <h2 class="display display-md"><%= gl_heading(data.heading) %></h2>
+      <% data.body.each do |paragraph| %><p class="mt-5 max-w-xl text-[17px] leading-relaxed text-text-subtle"><%= paragraph %></p><% end %>
+    </div>
+    <figure class="lg:pt-2">
+      <%= gl_image data.image, sizes: "(min-width: 64rem) 34rem, 100vw", class: "w-full h-auto rounded-lg border-2 border-text shadow-[8px_8px_0_0_var(--color-text)]" %>
+      <figcaption class="mt-4 font-mono text-[12px] uppercase tracking-[0.12em] text-text-muted"><%= data.caption %></figcaption>
+      <div class="mt-8 border-2 border-text bg-surface p-5">
+        <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= data.funds_label %></p>
+        <ul class="mt-3 flex flex-wrap gap-x-2 gap-y-2">
+          <% data.funds.each do |fund| %><li class="border-2 border-border bg-bg px-2.5 py-1 text-[13px] font-medium"><%= fund %></li><% end %>
+        </ul>
+        <%= render "website/shared/inline_markdown", text: data.funds_note, klass: "mt-4 text-[13px] leading-snug text-text-muted" %>
+      </div>
+    </figure>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<%# locals: (data:) -%>
+<%# The two platforms (Platforms.astro), each beside its screenshot, and the note that they aren't the product. %>
+<% link = gl_href(data.link) %>
+<%= gl_section(id: "platform") do %>
+  <div class="max-w-4xl">
+    <%= gl_eyebrow(data.eyebrow, data.eyebrow_n) %>
+    <h2 class="reveal display display-lg"><%= gl_heading(data.heading) %></h2>
+    <p class="reveal mt-6 text-lg leading-snug text-text-subtle"><%= data.body %></p>
+  </div>
+  <div class="mt-14 space-y-20 md:mt-20 md:space-y-28">
+    <% data.items.each do |x| %>
+      <article id="<%= x.anchor.presence %>" class="scroll-mt-20 grid items-start gap-8 rule-t pt-8 md:grid-cols-2 md:gap-14" data-stagger>
+        <div class="<%= class_names("reveal", "md:order-2": x.flip) %>">
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[12px] uppercase tracking-[0.18em]">
+            <span class="tag text-text-muted"><%= x.number %></span>
+            <span class="font-semibold text-text"><%= x["name"] %></span>
+            <span class="text-text-muted">· <%= x.role %></span>
+          </div>
+          <h3 class="display display-md mt-5"><%= gl_heading(x.heading) %></h3>
+          <p class="mt-5 max-w-lg text-lg leading-snug text-text-subtle"><%= x.body %></p>
+          <ul class="mt-7 grid gap-x-6 gap-y-2.5 sm:grid-cols-2" data-stagger>
+            <% x.bullets.each do |bullet| %>
+              <li class="reveal flex items-start gap-3 text-[15px] font-medium leading-snug"><span class="pop mt-[6px] h-2 w-2 shrink-0 bg-signal" aria-hidden="true"></span><%= bullet %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="<%= class_names("reveal tilt-zone", "md:order-1": x.flip) %>" style="--i:1">
+          <div class="tilt"><%= render "website/shared/screenshot", image: x.image, caption: x.caption %></div>
+        </div>
+      </article>
+    <% end %>
+  </div>
+  <% if data.note.present? %>
+    <p class="reveal mt-14 border-l-2 border-signal bg-bg-subtle px-5 py-4 text-[15px] leading-snug text-text-subtle md:mt-20">
+      <span class="font-semibold text-text"><%= data.note_lead %></span> <%= data.note %>
+      <% if link %><a href="<%= link %>" class="ml-1 font-semibold text-text underline decoration-2 decoration-signal underline-offset-[4px] hover:decoration-text"><%= data.link_label %></a><% end %>
+    </p>
+  <% end %>
+<% end %>

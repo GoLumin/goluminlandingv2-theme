@@ -1,0 +1,15 @@
+<%# locals: (data:) -%>
+<%# The core hero, drawn as the site's page hero: on the engineering-paper grid, with its image beside the copy. %>
+<section class="relative overflow-hidden">
+  <div class="grid-paper pointer-events-none absolute inset-0 -z-10 opacity-70"></div>
+  <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-12 pt-12 md:px-8 md:pb-16 md:pt-20 <%= "lg:grid-cols-[1.1fr_0.9fr]" if data.image_id.present? %>">
+    <div>
+      <h1 class="reveal display display-xl max-w-5xl"><%= gl_heading(data.heading) %></h1>
+      <% if data.subheading.present? %><p class="reveal mt-8 max-w-2xl text-xl leading-snug text-text-subtle md:text-2xl"><%= website_plain_text(data.subheading) %></p><% end %>
+      <% if data.ctas.any? %><div class="reveal mt-8 flex flex-wrap items-center gap-3"><%= gl_ctas(data.ctas) %></div><% end %>
+    </div>
+    <% if data.image_id.present? %>
+      <div class="reveal"><%= gl_image data.image_id, sizes: "(min-width: 64rem) 30rem, 100vw", loading: :eager, class: "w-full h-auto rounded-lg border-2 border-text shadow-[8px_8px_0_0_var(--color-text)]" %></div>
+    <% end %>
+  </div>
+</section>

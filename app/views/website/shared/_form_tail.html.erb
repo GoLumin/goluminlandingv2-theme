@@ -1,0 +1,10 @@
+<%# locals: (form:, source:, cta:, label:, margin: "mt-8") -%>
+<%# What every hand-drawn form ends with: the honeypot, the attribution, Turnstile when it's set up, the error line and the button. %>
+<% key = gl_turnstile_key %>
+<div class="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+  <label>Leave this empty <input type="text" name="<%= Form::HONEYPOT_FIELD %>" tabindex="-1" autocomplete="off"></label>
+</div>
+<%= gl_attribution(form, source:) %>
+<% if key %><div data-turnstile data-sitekey="<%= key %>" class="mt-5 min-h-[65px] empty:hidden"></div><% end %>
+<p data-error class="mt-4 hidden text-sm text-danger" role="alert"></p>
+<div class="<%= margin %>"><div class="magnet-zone is-block"><button type="submit" data-submit data-cta="<%= cta %>" class="magnet inline-flex h-14 w-full items-center justify-center rounded-md bg-text px-7 text-base font-semibold text-bg transition-colors hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60"><%= label %></button></div></div>

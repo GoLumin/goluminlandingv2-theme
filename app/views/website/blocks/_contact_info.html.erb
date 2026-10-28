@@ -1,0 +1,10 @@
+<%# locals: (data:) -%>
+<%# The business's phone and email (Settings › General). %>
+<%= gl_section(tone: "subtle") do %>
+  <% if data.heading.present? %><h2 class="reveal display display-md"><%= gl_heading(data.heading) %></h2><% end %>
+  <% if data.body.present? %><p class="reveal mt-4 max-w-2xl text-lg leading-snug text-text-subtle"><%= website_plain_text(data.body) %></p><% end %>
+  <div class="mt-8 flex flex-wrap gap-6 text-2xl font-bold tracking-tight">
+    <a href="<%= gl_tel %>" class="underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text"><%= gl_phone %></a>
+    <a href="mailto:<%= gl_email %>" class="break-all underline decoration-2 decoration-signal underline-offset-[6px] hover:decoration-text"><%= gl_email %></a>
+  </div>
+<% end %>

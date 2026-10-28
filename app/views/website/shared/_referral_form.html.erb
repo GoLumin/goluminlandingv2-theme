@@ -1,0 +1,29 @@
+<%# locals: () -%>
+<%# The referral form (ReferralForm.astro), from Forms › referral. Its first field routes it: someone who wants the programme first isn't asked for a contact they don't have (forms.js hides [data-referral-field]). %>
+<% form = gl_form(:referral) %>
+<% if form %>
+  <% section = ->(label, extra = nil) { tag.div(tag.p(label, class: "font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"), class: "sm:col-span-2 mt-2 border-t border-border pt-4", data: extra) } %>
+  <form id="referral-form" data-audit-form data-form-slug="referral" method="post" action="<%= api_form_submissions_path(form_slug: form.slug) %>" class="relative rounded-xl border-2 border-text bg-surface p-6 shadow-[8px_8px_0_0_var(--color-text)] md:p-8" novalidate>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <%= gl_control(form, :referral_type, id: "referral-type", wrapper: "sm:col-span-2", select: {selected: "Referral"}, data: {referral_type: true}) %>
+      <%= section.("You") %>
+      <%= gl_control(form, :name, id: "referral-name", autocomplete: "name") %>
+      <%= gl_control(form, :email, id: "referral-email", autocomplete: "email", inputmode: "email", data: {email: true}) %>
+      <%= gl_control(form, :company, id: "referral-company", hint: "(optional)", autocomplete: "organization") %>
+      <%= gl_control(form, :relationship, id: "referral-relationship", select: {prompt: "Choose one"}) %>
+      <%= section.("Who you're introducing", {referral_field: true}) %>
+      <div data-referral-field><%= gl_control(form, :referral_company, id: "referral-refco", required: true) %></div>
+      <div data-referral-field><%= gl_control(form, :referral_website, id: "referral-refsite", hint: "(optional)", inputmode: "url") %></div>
+      <div class="sm:col-span-2" data-referral-field><%= gl_control(form, :referral_contact, id: "referral-refcontact", hint: "(name, and an email or phone)", required: true) %></div>
+      <div class="sm:col-span-2" data-referral-field><%= gl_control(form, :referral_services, id: "referral-refneeds", required: true, select: {prompt: "Choose one"}) %></div>
+      <%= section.("Getting paid") %>
+      <%= gl_control(form, :payout_pref, id: "referral-payout", wrapper: "sm:col-span-2", select: {prompt: "Choose one"}) %>
+      <%= gl_control(form, :message, id: "referral-message", hint: "(optional)", wrapper: "sm:col-span-2", rows: 3) %>
+    </div>
+    <%= render "website/shared/form_tail", form:, source: "golumin-referrals", cta: "referral", label: form.submit_label %>
+    <p class="mt-4 text-center text-[14px] text-text-subtle">
+      Rather just call it in? <a href="<%= gl_tel %>" data-cta="referral-phone" class="font-semibold text-text underline decoration-2 decoration-signal underline-offset-[5px] hover:decoration-text"><%= gl_phone %></a>
+    </p>
+    <p class="mt-3 text-center font-mono text-[11px] text-text-muted">Registered the moment this lands. We reply within one business day. <a href="/privacy" class="underline underline-offset-2 hover:text-text">Privacy</a></p>
+  </form>
+<% end %>

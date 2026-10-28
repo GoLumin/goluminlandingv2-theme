@@ -1,0 +1,19 @@
+<%# locals: (quote:, klass: "") -%>
+<%# The compact quote that sits beside a form (Testimonial.astro, variant card). %>
+<% q = website_fields(quote) %>
+<figure class="console ink flex-col rounded-xl border-2 border-text p-6 <%= klass %>">
+  <p class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.16em] text-text"><%= gl_dot("h-2 w-2") %>From the client</p>
+  <blockquote class="mt-4">
+    <p class="text-[18px] font-semibold leading-[1.32] tracking-tight text-text"><span class="brand-gradient-text" aria-hidden="true">“</span><%= q.quote %><span class="brand-gradient-text" aria-hidden="true">”</span></p>
+  </blockquote>
+  <figcaption class="mb-6 mt-5">
+    <span class="block font-bold tracking-tight"><%= quote.title %></span>
+    <span class="block text-[14px] text-text-subtle"><%= q.role.present? ? "#{q.role}, #{q.company}" : q.company %></span>
+  </figcaption>
+  <% if q.result_figure.present? %>
+    <div class="mt-auto flex items-end gap-4 border-t border-border-strong pt-5">
+      <span class="figure whitespace-nowrap text-[2.5rem] text-text"><%= q.result_figure %></span>
+      <span class="pb-1 text-[14px] font-semibold leading-snug text-text-subtle"><%= q.result_label %></span>
+    </div>
+  <% end %>
+</figure>

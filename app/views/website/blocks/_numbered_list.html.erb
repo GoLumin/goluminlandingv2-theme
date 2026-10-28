@@ -1,0 +1,7 @@
+<%# locals: (data:) -%>
+<%# The page's argument as a ruled list beside its heading: what you're buying, the model, the claims, who refers. %>
+<%= gl_section(tone: data.tone, id: data.anchor) do %>
+  <%= render "website/shared/numbered_list", eyebrow: data.eyebrow, eyebrow_n: data.eyebrow_n, heading: data.heading, body: data.body,
+    size: data.heading_size, quoted: data.quoted, marker: data.marker, ctas: data.ctas,
+    items: data.items.map { |item| [item.title, item.body, item.tag] } %>
+<% end %>

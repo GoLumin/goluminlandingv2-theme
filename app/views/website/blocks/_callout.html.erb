@@ -1,0 +1,13 @@
+<%# locals: (data:) -%>
+<%# A bordered box with a heading and a button, and a line under it (trust.astro's "Something here not answered?"). %>
+<% href = gl_href(data.button_link) %>
+<%= gl_section do %>
+  <div class="reveal flex flex-col gap-4 border-2 border-text bg-surface p-6 md:flex-row md:items-center md:justify-between md:p-8">
+    <div>
+      <h2 class="text-2xl font-bold tracking-tight md:text-3xl"><%= data.heading %></h2>
+      <p class="mt-2 max-w-xl text-[15px] leading-snug text-text-subtle"><%= data.body %></p>
+    </div>
+    <% if href %><%= gl_button data.button_label, href, size: :lg, cta: "callout", class: "shrink-0" %><% end %>
+  </div>
+  <% if data.footnote.present? %><%= render "website/shared/inline_markdown", text: data.footnote, klass: "reveal mt-6 text-[15px] text-text-subtle" %><% end %>
+<% end %>

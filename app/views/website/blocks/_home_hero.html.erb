@@ -1,0 +1,63 @@
+<%# locals: (data:) -%>
+<%# The homepage's opening (Hero.astro): what we do and for whom, the promo video and the buttons beside it, the proof line (the proof global's metrics, else the featured clients), then the audit form with a client's quote. %>
+<% proof = gl_global(:proof) %>
+<% metrics = proof.metrics.select { |m| m.value.to_s.strip.present? } %>
+<% live = gl_clients.map(&:title) %>
+<% featured = data.featured_clients.select { |name| live.include?(name) } %>
+<% quote = gl_testimonial(data.testimonial) %>
+<% badge = gl_href(data.badge_link) %>
+<section class="relative overflow-hidden">
+  <div class="grid-paper pointer-events-none absolute inset-0 -z-10 opacity-70"></div>
+  <div class="mx-auto max-w-6xl px-5 pb-12 pt-12 md:px-8 md:pb-16 md:pt-20">
+    <div class="grid items-start gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:grid-rows-[auto_1fr] lg:gap-x-14" data-stagger>
+      <div class="lg:col-start-1 lg:row-start-1">
+        <p class="reveal mb-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[12px] uppercase tracking-[0.12em] sm:tracking-[0.18em]">
+          <span class="pulse-dot relative inline-block h-2 w-2 shrink-0 rounded-full bg-signal"></span>
+          <span class="font-semibold"><%= data.eyebrow %></span>
+          <% if badge %>
+            <a href="<%= badge %>" data-cta="hero-hiring-badge" class="group inline-flex items-center gap-2 rounded-full border-2 border-text bg-primary-strong px-3 py-1 text-[11px] font-semibold tracking-[0.12em] text-on-primary transition-colors hover:bg-text">
+              <%= data.badge_label %>
+              <span class="transition-transform group-hover:translate-x-0.5" aria-hidden="true">&rarr;</span>
+            </a>
+          <% end %>
+        </p>
+        <h1 class="reveal display display-hero"><%= gl_heading(data.heading) %></h1>
+        <p class="reveal mt-8 max-w-xl text-xl leading-snug text-text-subtle md:text-2xl"><%= data.lede %></p>
+        <p class="reveal mt-4 max-w-xl text-[17px] leading-snug text-text-muted"><%= data.body %></p>
+      </div>
+      <div class="lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-14">
+        <%= render "website/shared/hero_video", title: data.video_title, duration: data.video_duration, label: data.video_label, base: data.video_base, name: data.video_name %>
+        <div class="reveal mt-8 flex flex-wrap items-center gap-3" style="--i:3"><%= gl_ctas(data.ctas, cta: "hero") %></div>
+        <div class="reveal mt-6 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider">
+          <% data.chips.each do |chip| %><span class="border border-text px-2 py-1 text-text"><%= chip %></span><% end %>
+        </div>
+      </div>
+      <div class="lg:col-start-1 lg:row-start-2">
+        <% if metrics.any? %>
+          <%= render "website/shared/hero_metrics", metrics: proof.metrics, as_of: proof.metrics_as_of %>
+        <% elsif featured.any? %>
+          <p class="reveal text-[13.5px] leading-snug text-text-muted">
+            <span class="font-mono text-[11px] uppercase tracking-[0.14em]"><%= data.featured_label %></span>
+            <% featured.each_with_index do |name, i| %><% if i.positive? %><span aria-hidden="true"> · </span><% end %><span class="font-semibold text-text"><%= name %></span><% end %>
+            <% if live.size > featured.size %><span> and <%= live.size - featured.size %> more</span><% end %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <div id="hero-audit" class="mt-14 grid scroll-mt-20 gap-10 rule-t pt-10 md:mt-16 md:grid-cols-[0.8fr_1.2fr] md:items-stretch md:pt-12" data-stagger>
+      <div class="flex flex-col">
+        <p class="reveal tag font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted"><%= data.audit_eyebrow %></p>
+        <h2 class="reveal display display-md mt-3"><%= gl_heading(data.audit_heading) %></h2>
+        <p class="reveal mt-5 max-w-md text-lg leading-snug text-text-subtle"><%= data.audit_body %></p>
+        <p class="reveal mt-6 text-[15px] text-text-subtle">
+          Rather talk? <a href="<%= gl_tel %>" data-cta="hero-audit-phone" class="font-semibold text-text underline decoration-2 decoration-signal underline-offset-[5px] hover:decoration-text"><%= gl_phone %></a>
+        </p>
+        <% if quote %><%= render "website/shared/testimonial_card", quote:, klass: "reveal mt-8 hidden flex-1 md:flex" %><% end %>
+      </div>
+      <div class="reveal" style="--i:1">
+        <%= render "website/shared/audit_form", prefix: "hero", cta: "hero-form", audit_type: data.audit_type %>
+      </div>
+      <% if quote %><%= render "website/shared/testimonial_card", quote:, klass: "reveal flex md:hidden" %><% end %>
+    </div>
+  </div>
+</section>

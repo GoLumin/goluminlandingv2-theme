@@ -1,0 +1,7 @@
+<%# locals: (data:) -%>
+<%# A policy (privacy.astro, terms.astro): its heading, its date and its Markdown. %>
+<div class="mx-auto max-w-2xl px-5 py-16 md:px-8">
+  <h1 class="text-3xl font-semibold tracking-tight"><%= data.heading %></h1>
+  <% if data.updated.present? %><p class="mt-2 font-mono text-[12px] text-text-muted"><%= data.updated %></p><% end %>
+  <div class="legal mt-8 text-[15px] leading-relaxed text-text-subtle"><%= website_markdown data.body %></div>
+</div>

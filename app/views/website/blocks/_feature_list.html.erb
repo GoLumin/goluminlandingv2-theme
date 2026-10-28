@@ -1,0 +1,12 @@
+<%# locals: (data:) -%>
+<%= gl_section do %>
+  <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-14">
+    <div>
+      <h2 class="reveal display display-md"><%= gl_heading(data.heading) %></h2>
+      <% if data.body.present? %><p class="reveal mt-6 max-w-md text-lg leading-snug text-text-subtle"><%= website_plain_text(data.body) %></p><% end %>
+    </div>
+    <ul class="rule-t" data-stagger>
+      <% data.items.each do |item| %><li class="reveal flex items-start gap-3 border-b border-border py-4 text-[15px] font-medium"><%= gl_dot %><%= item.text %></li><% end %>
+    </ul>
+  </div>
+<% end %>

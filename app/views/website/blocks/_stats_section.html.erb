@@ -1,0 +1,16 @@
+<%# locals: (data:) -%>
+<%# A row of figures, in the dark operating-proof band. %>
+<section class="console ink rule-t">
+  <div class="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
+    <h2 class="reveal display display-lg max-w-5xl"><%= gl_heading(data.heading) %></h2>
+    <% if data.body.present? %><p class="reveal mt-6 max-w-2xl text-lg leading-snug text-text-subtle"><%= website_plain_text(data.body) %></p><% end %>
+    <div class="mt-10 grid divide-y divide-border-strong border-y border-border-strong md:grid-flow-col md:auto-cols-fr md:divide-x md:divide-y-0" data-stagger>
+      <% data.stats.each do |stat| %>
+        <div class="reveal py-8 md:px-8 md:first:pl-0 md:last:pr-0">
+          <div class="bump-target figure text-[clamp(3.25rem,9vw,6rem)] text-text"><%= stat.value %></div>
+          <div class="mt-5 flex items-start gap-2.5 text-lg font-semibold leading-snug"><%= gl_dot("mt-[9px] h-2 w-2") %><%= stat.label %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

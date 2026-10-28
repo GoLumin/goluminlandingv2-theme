@@ -1,0 +1,3 @@
+<%# locals: (data:) -%>
+<%= render "website/shared/audit_section", eyebrow: data.eyebrow, heading: data.heading, blurb: data.blurb, bullets: data.bullets, audit_type: data.audit_type,
+  lock_type: data.lock_type, submit_label: data.submit_label, note: data.note, prefix: data.prefix.presence || "footer", tone: data.tone %>

@@ -1,0 +1,9 @@
+<%# locals: (data:) -%>
+<%# Case studies from the work collection: the slugs listed, else the first four, or every one (the results page). %>
+<% listed = gl_cases(data.cases) %>
+<% studies = data.all ? gl_work : listed.presence || gl_work.first(4) %>
+<%= render layout: "website/shared/case_studies", locals: {studies:, eyebrow: data.eyebrow, eyebrow_n: data.eyebrow_n, heading: data.heading, body: data.body, link_label: data.link_label, tone: data.tone, eager: data.all ? 2 : 0} do %>
+  <% if data.note.present? %>
+    <p class="reveal mt-10 max-w-3xl border-l-2 border-signal bg-surface px-5 py-4 text-[15px] leading-snug text-text-subtle"><span class="font-semibold text-text"><%= data.note_lead %></span> <%= data.note %></p>
+  <% end %>
+<% end %>

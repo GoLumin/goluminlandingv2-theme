@@ -1,0 +1,44 @@
+<%# locals: () -%>
+<%# The Lumin Ads approvals queue on a demo account (ApprovalsMock.astro): an illustration, not a client's queue. %>
+<div class="tilt overflow-hidden rounded-xl border-2 border-text bg-surface shadow-[8px_8px_0_0_var(--color-text)]">
+  <div class="flex items-center justify-between border-b border-border-light px-4 py-3">
+    <div class="flex items-center gap-3">
+      <span class="grid h-6 w-6 place-items-center rounded-md bg-secondary text-[11px] font-semibold text-primary-strong">NP</span>
+      <div class="text-sm font-medium">Approvals <span class="text-text-muted">· Northwind Plumbing</span></div>
+    </div>
+    <span class="breathe rounded-full bg-warning/15 px-2 py-0.5 font-mono text-[11px] text-warning">3 waiting</span>
+  </div>
+  <ul class="divide-y divide-border-light text-sm" data-stagger>
+    <li class="reveal grid gap-2 px-4 py-3 sm:grid-cols-[1fr_auto] sm:items-center">
+      <div>
+        <div class="font-medium">Add 14 negative keywords <span class="text-text-muted">· Search, Emergency Repairs</span></div>
+        <div class="mt-0.5 font-mono text-[12px] text-text-muted">Wasted Spend Cutter · est. $412/mo spent on non-converting terms</div>
+      </div>
+      <div class="flex gap-2"><span class="rounded-md bg-text px-2.5 py-1 text-[12px] font-medium text-bg">Approve</span><span class="rounded-md border border-border px-2.5 py-1 text-[12px] text-text-subtle">Reject</span></div>
+    </li>
+    <li class="reveal grid gap-2 px-4 py-3 sm:grid-cols-[1fr_auto] sm:items-center">
+      <div>
+        <div class="font-medium">Raise daily budget $60 → $75 <span class="text-text-muted">· Water Heaters</span></div>
+        <div class="mt-0.5 font-mono text-[12px] text-text-muted">Budget Pacing Monitor · impression share lost to budget 31%</div>
+      </div>
+      <div class="flex items-center gap-2"><span class="rounded-full bg-success/15 px-2 py-0.5 font-mono text-[11px] text-success">within cap</span><span class="rounded-md bg-text px-2.5 py-1 text-[12px] font-medium text-bg">Approve</span></div>
+    </li>
+    <li class="reveal grid gap-2 px-4 py-3 opacity-80 sm:grid-cols-[1fr_auto] sm:items-center">
+      <div>
+        <div class="font-medium">Raise daily budget $75 → $240 <span class="text-text-muted">· Water Heaters</span></div>
+        <div class="mt-0.5 font-mono text-[12px] text-text-muted">Blocked at the apply gate: exceeds the 40% per-change cap</div>
+      </div>
+      <span class="rounded-full bg-danger/15 px-2 py-0.5 font-mono text-[11px] text-danger">blocked by hard cap</span>
+    </li>
+    <li class="reveal grid gap-2 px-4 py-3 sm:grid-cols-[1fr_auto] sm:items-center">
+      <div>
+        <div class="font-medium">Remove the $300/day price row <span class="text-text-muted">· Search, Brand</span></div>
+        <div class="mt-0.5 font-mono text-[12px] text-text-muted">From your email · approved by Ted at GoLumin · applied 14:02 · recorded</div>
+      </div>
+      <span class="rounded-full bg-success/15 px-2 py-0.5 font-mono text-[11px] text-success">applied</span>
+    </li>
+  </ul>
+  <div class="flex items-center justify-between border-t border-border-light px-4 py-2 font-mono text-[11px] text-text-muted">
+    <span>AI spend this month: $38.20</span><span>agents: 9 scheduled · next run 06:00</span>
+  </div>
+</div>
